@@ -7,8 +7,8 @@
     "reasonCodes": []
   },
   "edition": "US",
-  "generatedAt": "2026-10-12T13:01:48.056Z",
-  "dateLabel": "Monday, October 12, 2026",
+  "generatedAt": "2026-10-13T13:01:05.773Z",
+  "dateLabel": "Tuesday, October 13, 2026",
   "health": {
     "status": "OK",
     "missing": [],
@@ -35,7 +35,7 @@
     },
     "sp500VsMa200": {
       "title": "S&P 500 vs 200D-MA",
-      "value": "+7.7%",
+      "value": "+7.6%",
       "status": "Strong Bullish (Golden Cross)",
       "emoji": "🟢🟢"
     }
@@ -44,83 +44,83 @@
     "buffettIndicator": "250%",
     "shillerPE": "41.9",
     "yieldCurve": "+0.47%",
-    "sp500VsMa200": "+7.7%",
+    "sp500VsMa200": "+7.6%",
     "maSignal": "Golden Cross",
-    "fearGreedValue": 45,
-    "sp500": "7811.54",
-    "sp500Change": "+0.59%",
-    "dowJones": "51654.95",
-    "dowJonesChange": "+0.83%",
-    "vix": "15.49",
-    "vixChange": "+4.38%",
-    "gold": "$4188.30",
-    "goldChange": "-0.66%",
-    "oil": "$93.75",
-    "oilChange": "+2.07%",
-    "dxy": "102.39",
-    "dxyChange": "+0.18%",
-    "btc": "$82,670",
-    "btcChange": "-1.20%",
+    "fearGreedValue": 46,
+    "sp500": "7807.24",
+    "sp500Change": "-0.06%",
+    "dowJones": "51850.55",
+    "dowJonesChange": "+0.38%",
+    "vix": "15.30",
+    "vixChange": "+3.10%",
+    "gold": "$4206.30",
+    "goldChange": "+0.37%",
+    "oil": "$92.59",
+    "oilChange": "-1.23%",
+    "dxy": "102.23",
+    "dxyChange": "-0.35%",
+    "btc": "$83,263",
+    "btcChange": "+1.85%",
     "gdpValue": "+2.2% (QoQ annualized)",
     "cpiValue": "3.35%",
     "unemploymentValue": "4.2%",
     "fedRateValue": "4.00%",
     "treasury10Y": "5.22%",
     "treasury2Y": "4.75%",
-    "googlChange": "+0.97%",
-    "babaChange": "+5.36%",
-    "adbeChange": "+0.51%",
-    "sofiChange": "+1.22%",
-    "asmlChange": "+0.60%"
+    "googlChange": "+0.30%",
+    "babaChange": "-0.53%",
+    "adbeChange": "-1.70%",
+    "sofiChange": "-3.61%",
+    "asmlChange": "-1.69%"
   },
   "fearGreed": {
-    "score": 45,
-    "classification": "Fear",
+    "score": 46,
+    "classification": "Neutral",
     "change1d": "+0",
-    "change1w": "+1"
+    "change1w": "-1"
   },
   "screener": [
     {
       "label": "S&P 500",
       "factKey": "sp500Change",
-      "value": "7811.54",
-      "change": "+0.59%"
+      "value": "7807.24",
+      "change": "-0.06%"
     },
     {
       "label": "Dow Jones",
       "factKey": "dowJonesChange",
-      "value": "51654.95",
-      "change": "+0.83%"
+      "value": "51850.55",
+      "change": "+0.38%"
     },
     {
       "label": "VIX",
       "factKey": "vixChange",
-      "value": "15.49",
-      "change": "+4.38%"
+      "value": "15.30",
+      "change": "+3.10%"
     },
     {
       "label": "Gold",
       "factKey": "goldChange",
-      "value": "$4188.30",
-      "change": "-0.66%"
+      "value": "$4206.30",
+      "change": "+0.37%"
     },
     {
       "label": "Oil (WTI)",
       "factKey": "oilChange",
-      "value": "$93.75",
-      "change": "+2.07%"
+      "value": "$92.59",
+      "change": "-1.23%"
     },
     {
       "label": "US Dollar",
       "factKey": "dxyChange",
-      "value": "102.39",
-      "change": "+0.18%"
+      "value": "102.23",
+      "change": "-0.35%"
     },
     {
       "label": "Bitcoin",
       "factKey": "btcChange",
-      "value": "$82,670",
-      "change": "-1.20%"
+      "value": "$83,263",
+      "change": "+1.85%"
     }
   ],
   "economic": [
@@ -158,19 +158,12 @@
       "value": "4.75%"
     }
   ],
-  "watchlist": "  GOOGL: $351.66 (+0.97%)\n  BABA: $111.37 (+5.36%)\n  ADBE: $242.27 (+0.51%)\n  SOFI: $15.80 (+1.22%)\n  ASML: $1780.34 (+0.60%)",
+  "watchlist": "  GOOGL: $352.72 (+0.30%)\n  BABA: $110.78 (-0.53%)\n  ADBE: $238.14 (-1.70%)\n  SOFI: $15.23 (-3.61%)\n  ASML: $1750.24 (-1.69%)",
   "trackRecord": {
-    "accuracy": "16/23 (70%) · 7 too flat to judge",
-    "last": "Cautiously Bearish (2026-10-09) → market moved +0.59% → Miss"
+    "accuracy": "15/22 (68%) · 8 too flat to judge",
+    "last": "Cautiously Bearish (2026-10-12) → market moved -0.06% → Too flat to judge"
   },
   "history": [
-    {
-      "date": "2026-08-05",
-      "sentiment": "Cautiously Bearish",
-      "verdict": "PASS",
-      "result": null,
-      "actualChange": null
-    },
     {
       "date": "2026-08-06",
       "sentiment": "Cautiously Bearish",
@@ -189,8 +182,8 @@
       "date": "2026-08-09",
       "sentiment": "Cautiously Bearish",
       "verdict": "PASS",
-      "result": "hit",
-      "actualChange": "-0.32%"
+      "result": null,
+      "actualChange": null
     },
     {
       "date": "2026-08-12",
@@ -371,6 +364,13 @@
       "date": "2026-10-12",
       "sentiment": "Cautiously Bearish",
       "verdict": "PASS",
+      "result": "flat",
+      "actualChange": "-0.06%"
+    },
+    {
+      "date": "2026-10-13",
+      "sentiment": "Cautiously Bearish",
+      "verdict": "PASS",
       "result": null,
       "actualChange": null
     }
@@ -382,7 +382,7 @@
     "confidence": "High",
     "claims": [
       {
-        "text": "Overall equity valuations remain severely stretched relative to historical benchmarks, offering very little margin of safety for value-focused buyers.",
+        "text": "Overall market valuations remain exceptionally inflated compared to historical economic output and earnings, leaving minimal margin of safety.",
         "basedOn": [
           "buffettIndicator",
           "shillerPE"
@@ -390,65 +390,65 @@
         "direction": "supports_bearish"
       },
       {
-        "text": "Market sentiment leans toward caution and anxiety even as broad equity averages trade well above their long-term trend lines.",
-        "basedOn": [
-          "fearGreedValue",
-          "sp500VsMa200"
-        ],
-        "direction": "supports_bearish"
-      },
-      {
-        "text": "Treasury yields remain elevated relative to the benchmark policy rate, maintaining strong competitive pressure against richly valued equities.",
+        "text": "Sovereign bond yields continue to offer competitive risk-adjusted returns relative to equity market earnings yields.",
         "basedOn": [
           "treasury10Y",
           "fedRateValue"
         ],
         "direction": "supports_bearish"
+      },
+      {
+        "text": "Technical momentum for broad equity market trends remains positive relative to long-term moving averages, despite balanced broader investor sentiment.",
+        "basedOn": [
+          "sp500VsMa200",
+          "fearGreedValue"
+        ],
+        "direction": "supports_bullish"
       }
     ],
-    "interpretation": "Macroeconomic yields and valuation metrics remain consistent with prior observations, while broad equity indices continue showing modest upward momentum despite pervasive market fear. Elevated sovereign bond yields present a compelling alternative that historically overpriced equities struggle to match. Disciplined investors should preserve cash and wait for compelling bargains to emerge with adequate margins of safety.",
-    "wisdom": "Be fearful when others are greedy, but remain cautious when market valuations offer no discount to intrinsic value."
+    "interpretation": "Market valuations remain severely overextended, while elevated fixed income yields continue to compete directly with equities for capital. Although technical market trends show short-term strength, true value investors should prioritize capital preservation over chasing expensive assets. Patience remains essential until broader price discounts emerge to provide an adequate margin of safety.",
+    "wisdom": "Price is what you pay, value is what you get; when market prices far exceed intrinsic values, holding cash becomes a strategic discipline rather than a burden."
   },
   "news": [
     {
       "factKey": "headline_1",
-      "title": "'I feel like a loser': My stock portfolio is swinging wildly. Is it finally time to worry?",
-      "url": "https://www.marketwatch.com/story/i-feel-like-a-loser-my-etfs-go-up-one-day-and-crash-the-next-is-this-a-bad-sign-0c9848b2?mod=mw_rss_topstories"
+      "title": "U.S. wealth has shifted to stocks from homes. There are big reasons to worry.",
+      "url": "https://www.marketwatch.com/story/u-s-wealth-has-shifted-to-stocks-from-homes-there-are-big-reasons-to-worry-aa05864d?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_2",
-      "title": "My sister moved in with our widowed mother, 78, and says she deserves the family home. Is she right?",
-      "url": "https://www.marketwatch.com/story/my-sister-moved-in-with-our-widowed-mother-78-and-says-she-deserves-the-family-home-is-she-right-7981835d?mod=mw_rss_topstories"
+      "title": "Fund managers retain surprising optimism in the face of stagnant stock market and tumultuous bond market",
+      "url": "https://www.marketwatch.com/story/fund-managers-retain-surprising-optimism-in-the-face-of-stagnant-stock-market-and-tumultuous-bond-market-3d9763dd?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_3",
-      "title": "This five-star money manager shares three stock picks, including one betting on dying American malls",
-      "url": "https://www.marketwatch.com/story/this-five-star-money-manager-shares-three-stock-picks-including-one-betting-on-dying-american-malls-9253a787?mod=mw_rss_topstories"
+      "title": "Here's how much extra money could be in your monthly Social Security check next year",
+      "url": "https://www.marketwatch.com/story/heres-how-much-extra-money-could-be-in-your-monthly-social-security-check-next-year-2e0c4eb8?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_4",
-      "title": "Mired in their worst losing streak in years, small caps could be the best way for investors to play crucial CPI data",
-      "url": "https://www.marketwatch.com/story/mired-in-their-worst-losing-streak-in-years-small-caps-could-be-the-best-way-for-investors-to-play-crucial-cpi-data-40e2f716?mod=mw_rss_topstories"
+      "title": "Why the world's No. 1 fund manager has just changed its mind on bonds for the first time in six years",
+      "url": "https://www.marketwatch.com/story/why-the-worlds-number-one-fund-manager-has-just-changed-its-mind-on-bonds-for-the-first-time-in-six-years-4b1b5490?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_5",
-      "title": "Bank earnings to shed the first light on how higher yields are affecting the economy",
-      "url": "https://www.marketwatch.com/story/bank-earnings-to-shed-the-first-light-on-how-higher-yields-are-affecting-the-economy-cf3763ef?mod=mw_rss_topstories"
+      "title": "The South Korean stock market is in free fall, and these are the reasons",
+      "url": "https://www.marketwatch.com/story/the-korean-stock-markets-in-freefall-and-these-are-the-reasons-why-9615ac8d?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_6",
-      "title": "Fed officials want to hold off a rate hike this month. Will this week's inflation data let them?",
-      "url": "https://www.marketwatch.com/story/fed-officials-want-to-hold-off-a-rate-hike-this-month-will-this-weeks-inflation-data-let-them-a82754d1?mod=mw_rss_topstories"
+      "title": "Six Flags' stock slumps near 52-week lows after fatal incident",
+      "url": "https://www.marketwatch.com/story/six-flags-stock-slumps-near-52-week-lows-after-fatal-accident-3f938112?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_7",
-      "title": "'The prospectus looks impressive': My financial adviser wants me to invest $350,000 in a UAE data center. Is this risky?",
-      "url": "https://www.marketwatch.com/story/the-prospectus-looks-impressive-my-financial-adviser-wants-me-to-invest-350-000-in-a-uae-data-center-is-this-risky-d5d3747c?mod=mw_rss_topstories"
+      "title": "'The house is worth $925,000': My sister moved in with our mother, 78, and says she deserves the family home. Is she right?",
+      "url": "https://www.marketwatch.com/story/my-sister-moved-in-with-our-widowed-mother-78-and-says-she-deserves-the-family-home-is-she-right-7981835d?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_8",
-      "title": "The bond market is doing the Fed's job, and that could be good news for stocks, says Morgan Stanley strategist",
-      "url": "https://www.marketwatch.com/story/the-bond-market-is-doing-the-feds-job-and-that-could-be-good-news-for-stocks-says-morgan-stanley-strategist-ec57b81a?mod=mw_rss_topstories"
+      "title": "A SpaceX launch shortage is fueling a $100 billion investing spree",
+      "url": "https://www.marketwatch.com/story/a-spacex-launch-shortage-is-fueling-a-100-billion-investing-spree-25b7d043?mod=mw_rss_topstories"
     }
   ],
   "sources": [
