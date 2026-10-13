@@ -7,73 +7,38 @@
     "reasonCodes": []
   },
   "edition": "CN",
-  "generatedAt": "2026-10-09T08:31:38.605Z",
-  "dateLabel": "Friday, October 9, 2026",
+  "generatedAt": "2026-10-13T08:31:36.733Z",
+  "dateLabel": "Tuesday, October 13, 2026",
   "health": {
-    "status": "OK",
-    "missing": [],
+    "status": "DEGRADED",
+    "missing": [
+      "SSE Composite",
+      "SZSE Component",
+      "Hang Seng",
+      "USD/CNY"
+    ],
     "suspect": []
   },
   "dashboard": {},
   "facts": {
-    "csi300": "4,317.26",
-    "csi300Change": "+0.16%",
-    "sseComposite": "3,813.79",
-    "sseCompositeChange": "+0.05%",
-    "szseComponent": "12,641.86",
-    "szseComponentChange": "+0.17%",
-    "hangSeng": "24,211.35",
-    "hangSengChange": "+0.34%",
-    "gold": "$4,224.50",
-    "goldChange": "+1.62%",
-    "usdCny": "6.6817",
-    "usdCnyChange": "-0.18%",
+    "csi300": "4,275.68",
+    "csi300Change": "-0.29%",
     "gdpValue": "+4.96%",
     "cpiValue": "0.06%",
     "unemploymentValue": "4.62%",
-    "moutaiChange": "+0.57%",
-    "catlChange": "+3.84%",
-    "bydChange": "+3.95%",
-    "alibabaChange": "+2.59%",
-    "tencentChange": "+3.26%"
+    "moutaiChange": "-1.02%",
+    "catlChange": "-3.11%",
+    "bydChange": "-2.86%",
+    "alibabaChange": "-0.92%",
+    "tencentChange": "-0.14%"
   },
   "fearGreed": null,
   "screener": [
     {
       "label": "CSI 300",
       "factKey": "csi300Change",
-      "value": "4,317.26",
-      "change": "+0.16%"
-    },
-    {
-      "label": "SSE Composite",
-      "factKey": "sseCompositeChange",
-      "value": "3,813.79",
-      "change": "+0.05%"
-    },
-    {
-      "label": "SZSE Component",
-      "factKey": "szseComponentChange",
-      "value": "12,641.86",
-      "change": "+0.17%"
-    },
-    {
-      "label": "Hang Seng",
-      "factKey": "hangSengChange",
-      "value": "24,211.35",
-      "change": "+0.34%"
-    },
-    {
-      "label": "Gold",
-      "factKey": "goldChange",
-      "value": "$4,224.50",
-      "change": "+1.62%"
-    },
-    {
-      "label": "USD/CNY",
-      "factKey": "usdCnyChange",
-      "value": "6.6817",
-      "change": "-0.18%"
+      "value": "4,275.68",
+      "change": "-0.29%"
     }
   ],
   "economic": [
@@ -96,10 +61,10 @@
       "value": "4.62%"
     }
   ],
-  "watchlist": "▲ Moutai (600519.SS): ¥1,263.00 (+0.57%)\n▲ CATL (300750.SZ): ¥297.75 (+3.84%)\n▲ BYD (002594.SZ): ¥84.95 (+3.95%)\n▲ Alibaba (9988.HK): HK$107.00 (+2.59%)\n▲ Tencent (0700.HK): HK$424.80 (+3.26%)",
+  "watchlist": "▼ Moutai (600519.SS): ¥1,274.89 (-1.02%)\n▼ CATL (300750.SZ): ¥289.10 (-3.11%)\n▼ BYD (002594.SZ): ¥82.18 (-2.86%)\n▼ Alibaba (9988.HK): HK$107.20 (-0.92%)\n▼ Tencent (0700.HK): HK$425.20 (-0.14%)",
   "trackRecord": {
-    "accuracy": "4/16 (25%) · 2 too flat to judge",
-    "last": "Cautiously Bearish (2026-10-08) → market moved +0.16% → Too flat to judge"
+    "accuracy": "4/17 (24%) · 2 too flat to judge",
+    "last": "Cautiously Bullish (2026-10-09) → market moved -0.29% → Miss"
   },
   "history": [
     {
@@ -295,6 +260,13 @@
       "date": "2026-10-09",
       "sentiment": "Cautiously Bullish",
       "verdict": "PASS",
+      "result": "miss",
+      "actualChange": "-0.29%"
+    },
+    {
+      "date": "2026-10-13",
+      "sentiment": "Cautiously Bearish",
+      "verdict": "PASS",
       "result": null,
       "actualChange": null
     }
@@ -302,21 +274,18 @@
   "analysisModel": "openai/gpt-oss-120b",
   "analysisProvider": "Groq",
   "analysis": {
-    "sentiment": "Cautiously Bullish",
+    "sentiment": "Cautiously Bearish",
     "confidence": "Medium",
     "claims": [
       {
-        "text": "Mainland equity benchmarks posted modest positive movement.",
+        "text": "The main equity index slipped modestly",
         "basedOn": [
-          "csi300Change",
-          "sseCompositeChange",
-          "szseComponentChange",
-          "hangSengChange"
+          "csi300Change"
         ],
-        "direction": "supports_bullish"
+        "direction": "supports_bearish"
       },
       {
-        "text": "Key consumer and technology stocks on the watchlist recorded gains.",
+        "text": "Consumer and technology names on the watchlist posted declines",
         "basedOn": [
           "moutaiChange",
           "catlChange",
@@ -324,69 +293,67 @@
           "alibabaChange",
           "tencentChange"
         ],
-        "direction": "supports_bullish"
+        "direction": "supports_bearish"
       },
       {
-        "text": "Precious metal prices rose while the local currency eased slightly against the dollar.",
+        "text": "Economic data show strong growth and subdued price pressures",
         "basedOn": [
-          "goldChange",
-          "usdCnyChange"
+          "gdpValue",
+          "cpiValue"
         ],
         "direction": "supports_bullish"
       },
       {
-        "text": "Today's headlines reflect both optimism about investor interest and caution about policy support.",
+        "text": "Headline suggests only cautious support for the economy",
         "basedOn": [
-          "headline_1",
-          "headline_6",
           "headline_7"
         ],
-        "direction": "neutral"
+        "direction": "supports_bearish"
       }
     ],
-    "interpretation": "Equity markets and leading stocks have turned more positive, suggesting improved sentiment. However, mixed media signals and lingering policy uncertainty temper enthusiasm, so investors should stay measured.",
-    "wisdom": "Prioritize firms with durable competitive advantages and strong cash generation over short‑term market swings."
+    "interpretation": "Today's market shows a pullback in the benchmark and leading stocks while macro data point to solid growth and low inflation. Mixed headlines and price action advise investors to stay guarded until policy direction becomes clearer.",
+    "wisdom": "Focus on firms with durable competitive advantages and consider buying when prices appear discounted relative to intrinsic value."
   },
   "news": [
     {
       "factKey": "headline_1",
+      "title": "Chinese stocks an undervalued opportunity: Charlie Munger disciple",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNbVZxMFJfenpka3NOSjYyenV0TzVlaTRyeFNxbGF0Nmd4SnNQNDUyM1Qwbl9zb2JGWnRSc1pISWZEQ3FJQ2hOMHRHVUZvQ3UtOHpMWFNqdDdaeUtReWdoSW5yMTVnUHpoUl9kU2sxVXM2d19fSWkzQUNrbE0zdDhCNVRoNU5QaWxpZDlfandOQjBMZFFFT09Oc0VkS3R3N3JNMkdNRS1tM01wMmpiSzFpY09ISWttWW92aWNNdVlGQ3UtWFVyRlRWM1Azd29XTUFhOW5r0gHTAUFVX3lxTE01amQtRTFLS1NQRjBiWGJqWWZwemVMTGJHT29vMGxaNERVdHBmRlZReVJuV296UFZmOUIzeEZ3WlNNeTZZeHJWLTBNQUJiVHNZYnByNVc2Yi1TSWl1Mlk4d0dTQzQ0MGtoY2tpUE1wNHZXNW43YVR6TnpTQUpmSk9OUm9vME1pM1ZIYnlCU3RRa0RnVkxNanQ4clNadXR6ZnBHQmdMVFUwUjRnelhTTmFEMUpaM3NuNlRKc1RnRVQwVkVpVWhrYWVaekl4cFlHdEhmSm8?oc=5"
+    },
+    {
+      "factKey": "headline_2",
+      "title": "Our economic outlook for China",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPR081RDJlWHNpY2FJYmlUSUhlNEV5V29LRXUzbDZ2b2FPelVCdC1CNHJsUlJSaEk0dDJRZTgweHhvN1FMb1BhRGdHV1QzaU5YMl9ZbFBYSEZGRmdsTGNGd2tYM2dPQ1MtbWFpLWt2LVVqenRsc2VucUhaR040dXJLeUZINzZiX01DWTBBdg?oc=5"
+    },
+    {
+      "factKey": "headline_3",
       "title": "China breaks step with global markets, and investors buy in",
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNQ3h0djZqeHZyVGNZTGlJbXFQMmhSQ1NobzBncUpLV2dLcnBJV0JVQWhjUlhQcDZCVWVxSzJiSWNlelJtU1NoUkt3eTkxS1FBRUhZbWx6aExMLWtrXy1lVkZ1ZVE0blFHc1BRUmc4MDBoWVAwS3pDSjRFeDNBYUUyd3pqOU42R2ZpM0FUV19SVEFmejN2ZElnSThpbUExX1l2?oc=5"
     },
     {
-      "factKey": "headline_2",
+      "factKey": "headline_4",
       "title": "Chinese Economy Is Booming, But Stock Markets Haven’t Recovered in 20 Years",
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQSmdkem43cFVrTUpINmRZWG96aTFWS01WeVlMOEIyM21BS21PbHlhRERYNld2aFJKT0RVR1dvV01YZFUyM0IwXzBRNmRMdDFvZmZINERZY1VfZWFHQ3JUSWJBM1JzblZvZ2hDSm5EYTNhejR2VDh1S1ZUZmNGQnBQX0VjcDI2dDlDQW5vY0FWeWloalR6a2JMN20ycWlHMVRBN2diMQ?oc=5"
     },
     {
-      "factKey": "headline_3",
+      "factKey": "headline_5",
       "title": "7 Best-Performing China Stocks for October 2026",
       "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9raWRYMHpiaEt6dzBFYVA1Z1otb05UNlQzaV9JSVJlZ210T2IteDNqZ0ZLWG9tay1RdFVBcnNKeVRKRHFTVVdwRVdBSFpRVy02UndpY1ViVHlDYkpsWmJHVXN4VGd5UC12?oc=5"
     },
     {
-      "factKey": "headline_4",
-      "title": "China’s divergent stock market displays a microcosm of the nation’s economy",
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNSzZOQWNIczRYV29icXp3c080QlV0TnJmLW1DSWpuX0tDdS16YV8wY3Q4UXFIZUd6VmhMeHZxZEZMS0luUkRjaFRjOExqbWdiZHhvbjVubFFMWGE0bDE5YV9SZm1adWlRSm0zVkN2QmpGb2tUOW9obG9hb0ZwZTN6NE40YmJpSXJ2bGdtM29PT1J6XzNneG85a3VTVUx2M1kyS1lZZ1o0TmNRbWVWS3JqeC1wLVhVSUl1aU1WSTdpR1VMWEdYWjJuMFNENWF2aHdoTllXaXVmc0rSAdgBQVVfeXFMT1NTbGM0Z2NPYTItNkYtWGdLTDBBaUNINThjcDN6eHQ1ZjJ0X1FQZUZHSDZBbWs2Wjd0eDZYNUo0NGJnQmJXRlNwT2EzQmhGY0k0QWlfWXhwdHEzSzJ3NWtVWU9IdFlFWFZMeE9obE5uWWZXMTZjMXR3czZzdmxfWldSSEI4V3c3cktWeWZGRF9BQVpLQ2VsdzdFR1FhcnhBVHVhemQtSmFQaG82dk90UTdCZ09ZcGN5bXYtSTVBQVhhcXB5THk0SnQ1UHJKT2hiUmhmTWMyVHlK?oc=5"
-    },
-    {
-      "factKey": "headline_5",
+      "factKey": "headline_6",
       "title": "Stock market turmoil sheds stark light on the opaque AI economy",
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNRDA2eEdWZUVjWFNkbGdwZVFhZ0FUODRfU2dGQy1OaHVENmgzcFBDak1na3JzY08yTWtWS3N4STF0VjV3R0w5bzFMYTJxMl9XajZFYVFNd2s0ckdKdThkTlZ5UzZyRlo3RnZnSHU0eFpZM0JrMDdPNUtBNzhQOFV2TnFqbGZpY2FXbmRTSUhVOGVOTGU5Yjh5ZFAxWWRhYnBYUXIw?oc=5"
     },
     {
-      "factKey": "headline_6",
+      "factKey": "headline_7",
       "title": "China, Its Economy Stumbling, Signals Only Cautious Support",
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9TRmNOT1NtYjRsTW4xOWJ6X3dHMmpLYkp4QThERHMwTXpwT2FPVW5wWDg0dGE4VUI5WXBvR3pZSnRNSWFXT0t6eW15YkQwd1A0U19LOVhQZDYyLUNVU3J1OFZVWS1iTlVPaXZyOHdSSmtHNTZ1Yk9IaDJLZFY?oc=5"
     },
     {
-      "factKey": "headline_7",
+      "factKey": "headline_8",
       "title": "4 Charts Show Why Investors Should Start Paying Attention to China",
       "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQR285aFhDQ19ELXJaa25mQVc2bkpJVDBNc3BTd21UTG82a0k4WnFjM3Jaem5HRkd2Z0c3WVMyei12YzZOSnlGQWFaMDYxLTI3amFhUm1BbnAzNTVqd0xoLXI3bEFTdDg2RFhRN2RWZWpjdXJ4NUhHUUVNcUZMR2luNHpWNXJySnFkU0tUVmtONDhvaGRYVGdwV0d6WU1PWUptZkszUVBR?oc=5"
-    },
-    {
-      "factKey": "headline_8",
-      "title": "China’s Is Bigger: Don’t Tell Trump",
-      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1TRlUtcnF6RDJ3RkNCT1c1M3VMOHA4SmxvVERNdkhHVHVaUmZWeW03RHVoSUw4MUE2aHJscmZCbGVxaUhtUjNWSXlYWUJBTHNQc1lVc2pOaC1wd3hVeFdwbkEyclRiQTg1bnJ1MEpyVk4?oc=5"
     }
   ],
   "sources": [
