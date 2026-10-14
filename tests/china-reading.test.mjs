@@ -101,6 +101,9 @@ test('pipeline: the China digest and dashboard carry the reading, the new rows a
   assert.match(r.message, /vs 10Y government bond <code>1\.65%<\/code> <i>\(nominal\)<\/i>/);
   assert.match(r.message, /📈 <b>TREND<\/b> CSI 300 <code>-9\.9%<\/code>/); assert.match(r.message, /LPR 1Y <code>3\.00%<\/code>/); assert.match(r.message, /TURNOVER<\/b> CSI 300 <code>¥368bn<\/code>/);
   assert.match(r.message, /PPI <code>\+5\.0%<\/code> \(Sep 2026\) · PMI <code>50\.1<\/code> \(Sep 2026\)/);
+  // Every cited new key renders its evidence under the claim, with a reader-facing label.
+  assert.match(r.message, /evidence: CSI 300 vs 200D-MA -9\.9%; Trend Signal Death Cross/);
+  assert.match(r.message, /evidence: PPI \+5\.0%; CPI \+0\.9%/); assert.match(r.message, /evidence: CSI 300 P\/E 13\.10/);
   assert.match(r.message, /Yahoo Finance · CSI · ChinaBond · NIFC · NBS · World Bank · Google News/);
   assert.ok(r.message.length <= 3900, 'message is ' + r.message.length + ' characters');
   for (const tag of ['b', 'i', 'code', 'pre', 'blockquote']) {

@@ -110,7 +110,10 @@ if (_structured) {
     csi300: ['CSI 300', null], csi300Change: ['CSI 300 change', null], sseComposite: ['SSE Composite', null],
     sseCompositeChange: ['SSE change', null], szseComponent: ['SZSE Component', null], szseComponentChange: ['SZSE change', null],
     hangSeng: ['Hang Seng', null], hangSengChange: ['Hang Seng change', null],
-    usdCny: ['USD/CNY', null], usdCnyChange: ['USD/CNY change', null]
+    usdCny: ['USD/CNY', null], usdCnyChange: ['USD/CNY change', null],
+    // China's valuation, trend, rates and monthly prices (W32); each carries its date in the tables.
+    csi300PE: ['CSI 300 P/E', null], csi300VsMa200: ['CSI 300 vs 200D-MA', null], csi300Turnover: ['CSI 300 turnover ¥bn', null],
+    cgb10Y: ['10Y gov bond', null], lpr1Y: ['LPR 1Y', null], lpr5Y: ['LPR 5Y', null], ppiValue: ['PPI', null], pmiValue: ['PMI', null]
   };
   // d[] is already HTML-escaped above; these labels are our own trusted literals.
   // Watchlist evidence is dynamic - labels AND values come from the same stockDetails
