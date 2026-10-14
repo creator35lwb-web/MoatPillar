@@ -183,3 +183,14 @@ for (const edition of ['US', 'CN']) {
     if (edition === 'CN') assert.equal(data.stockDetails[0].arrow, '');
   });
 }
+
+// 2026-10-14: Google News search RSS ranks by relevance unless the query carries when:1d. Without it the
+// China edition published the same May–August articles for a week and cited them as today's evidence.
+test('CN: the headline feed asks Google News for same-day items only', async () => {
+  const { requested, data } = await runFetchingNode('Fetch All China Market Data', options => marketResponse(options));
+  const rss = requested.filter(request => request.url.includes('news.google.com/rss/search'));
+  assert.equal(rss.length, 1);
+  assert.match(rss[0].url, /[?&]q=[^&]*when:1d/);
+  assert.match(rss[0].url, /&hl=en&gl=US&ceid=US:en$/);
+  assert.equal(data.headlinesCount, 2);
+});

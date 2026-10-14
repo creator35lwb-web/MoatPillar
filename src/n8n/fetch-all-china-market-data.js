@@ -137,13 +137,14 @@ try {
   }
 } catch (e) { fail('World Bank Unemployment', e); }
 
-// --- 4. FETCH NEWS HEADLINES (Reuters China, Sina Finance RSS) ---
+// --- 4. FETCH NEWS HEADLINES (Google News RSS search, same-day items) ---
 
 try {
-  // Try Reuters China news first
+  // Google News search RSS ranks by relevance unless the query carries when:1d. Without it the same
+  // May–August articles led the feed for a week in October 2026 and were cited as today's evidence.
   const rssResponse = await this.helpers.httpRequest({
     method: 'GET',
-    url: 'https://news.google.com/rss/search?q=China+stock+market+economy&hl=en&gl=US&ceid=US:en',
+    url: 'https://news.google.com/rss/search?q=China+economy+OR+China+stocks+when:1d&hl=en&gl=US&ceid=US:en',
     timeout: 30000,
     json: false
   });
