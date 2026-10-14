@@ -11,7 +11,7 @@ function stripTags(html) {
   }
   return out;
 }
-const collapse = text => text.split(/\s+/).join(' ');
+const collapse = text => text.replaceAll(/\s+/g, ' ');
 function parseCsiPerformance(perf) {
   const rows = (perf && Array.isArray(perf.data) ? perf.data : [])
     .filter(r => r && typeof r.close === 'number' && Number.isFinite(r.close) && /^\d{8}$/.test(String(r.tradeDate)))
