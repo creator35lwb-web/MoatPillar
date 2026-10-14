@@ -59,8 +59,14 @@ const MP_LTR = (() => {
   };
   const round = (value, digits = 1) => Math.round(value * 10 ** digits) / 10 ** digits;
   // A label from ordered thresholds: the first step whose limit the value stays under, else the last label.
-  const stepLabel = (value, steps, last) => { for (const [limit, label] of steps) if (value < limit) return label; return last; };
-  const stepLabelAtMost = (value, steps, last) => { for (const [limit, label] of steps) if (value <= limit) return label; return last; };
+  const stepLabel = (value, steps, last) => {
+    const step = steps.find(([limit]) => value < limit);
+    return step ? step[1] : last;
+  };
+  const stepLabelAtMost = (value, steps, last) => {
+    const step = steps.find(([limit]) => value <= limit);
+    return step ? step[1] : last;
+  };
   const levelFor = (value, bands) => 1 + bands.filter(threshold => value >= threshold).length;
   const levelLabel = level => LEVELS[level - 1];
   const rangeLabel = (lo, hi) => lo === hi ? levelLabel(lo) : levelLabel(lo) + ' to ' + levelLabel(hi).toLowerCase();

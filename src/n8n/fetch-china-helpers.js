@@ -1,6 +1,17 @@
 // Parsers for China's official sources (W32): China Securities Index Co., ChinaBond, the National
 // Interbank Funding Center and the National Bureau of Statistics. Each returns null when the page
 // does not carry what it should, so the caller records a failure and the field stays N/A. No key.
+// Tags are removed by scanning once, character by character, so a hostile page cannot slow the run.
+function stripTags(html) {
+  let out = '', inTag = false;
+  for (const ch of String(html)) {
+    if (ch === '<') { inTag = true; out += ' '; }
+    else if (ch === '>') inTag = false;
+    else if (!inTag) out += ch;
+  }
+  return out;
+}
+const collapse = text => text.split(/\s+/).join(' ');
 function parseCsiPerformance(perf) {
   const rows = (perf && Array.isArray(perf.data) ? perf.data : [])
     .filter(r => r && typeof r.close === 'number' && Number.isFinite(r.close) && /^\d{8}$/.test(String(r.tradeDate)))
@@ -40,7 +51,7 @@ function parseChinaBondCurve(html) {
   if (typeof html !== 'string') return null;
   // Rows and cells are split on their closing tags, so the scan is linear in the page's length.
   for (const row of html.split('</tr>')) {
-    const cells = row.split('</td>').slice(0, -1).map(cell => cell.replaceAll(/<[^>]+>/g, '').replaceAll('&nbsp;', ' ').trim());
+    const cells = row.split('</td>').slice(0, -1).map(cell => stripTags(cell).replaceAll('&nbsp;', ' ').trim());
     if (cells[0] !== '中债国债收益率曲线' || !/^\d{4}-\d{2}-\d{2}$/.test(cells[1] || '')) continue;
     const y10 = Number(cells[8]);
     if (Number.isFinite(y10) && y10 > 0 && y10 < 10) return { date: cells[1], y10 };
@@ -63,7 +74,7 @@ function parseLpr(json) {
 // year-on-year figure ("2026年9月份居民消费价格同比上涨0.9%"); the PMI release is linked by title.
 function parseNbsListing(html) {
   if (typeof html !== 'string') return null;
-  const text = html.replaceAll(/<[^>]+>/g, ' ').replaceAll(/\s+/g, ' ');
+  const text = collapse(stripTags(html));
   const signed = (direction, value) => (direction === '下降' ? -1 : 1) * Number(value);
   const out = {};
   // The listing titles carry no spaces around the figure.
@@ -89,7 +100,7 @@ function resolveNbsLink(href) {
 function parseNbsPmi(html) {
   if (typeof html !== 'string') return null;
   // Whitespace is collapsed first, so each optional gap is at most one space and the match stays linear.
-  const text = html.replaceAll(/<[^>]+>/g, ' ').replaceAll(/\s+/g, ' ');
+  const text = collapse(stripTags(html));
   const manufacturing = /(?<!非)制造业采购经理指数 ?[（(] ?PMI ?[）)] ?为 ?(\d+(?:\.\d+)?) ?%/.exec(text);
   const services = /非制造业商务活动指数为 ?(\d+(?:\.\d+)?) ?%/.exec(text);
   const pmi = manufacturing ? Number(manufacturing[1]) : Number.NaN;
