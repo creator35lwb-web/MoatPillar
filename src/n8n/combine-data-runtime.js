@@ -203,17 +203,20 @@ function MP_COMBINE(EDITION, runtime) {
   // ===== LONG-TERM READING (W15, rules ltr.v1) + VALUATION INPUT CHECKS (W18) =====
   // Code computes the reading before the analyst runs, so the prompt receives it as a
   // fixed fact. Failed input checks join the existing data-quality flags; they never
-  // stop the edition. US only: the China edition has no valuation source yet.
-  if (EDITION === 'US') {
+  // stop the edition. The US reading (ltr.v1) uses CAPE and the Buffett Indicator; the China
+  // reading (ltr.cn.v1, W32) uses the CSI 300 P/E against its own history and the 10-year yield.
+  {
     combined.longTermReading = null;
     combined.longTermSummary = 'Long-term reading unavailable today.';
     try {
       const sd = $getWorkflowStaticData('global');
       if (!sd.mpLongTerm) sd.mpLongTerm = {};
-      if (!sd.mpLongTerm.US) sd.mpLongTerm.US = {};
-      const result = MP_LTR.compute(combined, sd.mpLongTerm.US, new RuntimeDate(), combined.sp500MarketTime);
+      if (!sd.mpLongTerm[EDITION]) sd.mpLongTerm[EDITION] = {};
+      const result = EDITION === 'CN'
+        ? MP_LTR.computeCN(combined, sd.mpLongTerm.CN, new RuntimeDate(), combined.csi300MarketTime)
+        : MP_LTR.compute(combined, sd.mpLongTerm.US, new RuntimeDate(), combined.sp500MarketTime);
       combined.longTermReading = result.reading;
-      combined.longTermSummary = MP_LTR.promptSummary(result.reading);
+      combined.longTermSummary = EDITION === 'CN' ? MP_LTR.promptSummaryCN(result.reading) : MP_LTR.promptSummary(result.reading);
       if (result.flags.length && combined._health && typeof combined._health === 'object') {
         combined._health.suspect = [...(Array.isArray(combined._health.suspect) ? combined._health.suspect : []), ...result.flags];
         console.error('[MarketPulse][INPUT-CHECK] ' + result.flags.map(f => f.field + ':' + f.check).join(', '));

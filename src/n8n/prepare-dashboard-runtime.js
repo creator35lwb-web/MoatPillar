@@ -46,6 +46,8 @@ function MP_PREPARE(EDITION, {$input, $getWorkflowStaticData, Date: RuntimeDate,
     ['unemploymentValue','Unemployment','unemploymentYear'],
   ];
   if (isUS) economicFields.push(['fedRateValue','Fed Funds Rate'],['treasury10Y','10Y Treasury'],['treasury2Y','2Y Treasury']);
+  else economicFields.push(['ppiValue','Producer prices (PPI)','ppiMonth'],['pmiValue','Manufacturing PMI','pmiMonth'],['lpr1Y','Loan Prime Rate 1Y','lprDate'],
+    ['lpr5Y','Loan Prime Rate 5Y','lprDate'],['cgb10Y','10Y government bond','cgb10YDate'],['csi300PE','CSI 300 P/E (trailing)','csi300PEDate'],['csi300Turnover','CSI 300 turnover, ¥bn']);
   const economic = economicFields.map(([key,label,periodKey]) => ({
     label,...(periodKey ? {period:d[periodKey] || ''} : {}),factKey:key,value:safe(d[key]),
   }));
@@ -72,10 +74,10 @@ function MP_PREPARE(EDITION, {$input, $getWorkflowStaticData, Date: RuntimeDate,
   const history = buildHistory();
   const facts = MP_POLICY.collectFacts(d, EDITION);
 
-  // Long-term reading (US) and session freshness: code-computed, projected to known fields only.
+  // Long-term reading (US ltr.v1, China ltr.cn.v1) and session freshness: code-computed, projected to known fields only.
   const pick = (o, keys) => Object.fromEntries(keys.filter(k => o[k] !== undefined).map(k => [k, o[k]]));
   function projectReading(r) {
-    if (!MP_POLICY.record(r) || r.version !== MP_LTR.VERSION) return null;
+    if (!MP_POLICY.record(r) || r.version !== MP_LTR.versionFor(EDITION)) return null;
     const sub = (o, keys) => MP_POLICY.record(o) ? pick(o, keys) : null;
     return {
       version:r.version,status:r.status,today:r.today,
@@ -83,11 +85,11 @@ function MP_PREPARE(EDITION, {$input, $getWorkflowStaticData, Date: RuntimeDate,
       since:typeof r.since === 'string' ? r.since : null,
       pending:sub(r.pending, ['label','count','of']),
       marginOfSafety:typeof r.marginOfSafety === 'string' ? r.marginOfSafety : null,
-      measures:Object.fromEntries(['buffettIndicator','shillerPE'].map(k => [k, MP_POLICY.record(r.measures) ? sub(r.measures[k], ['label','value','level','levelLabel']) : null])),
-      stocksVsBonds:sub(r.stocksVsBonds, ['earningsYield','realYield10Y','gap','label']),
+      measures:Object.fromEntries(MP_LTR.measureKeysFor(EDITION).map(k => [k, MP_POLICY.record(r.measures) ? sub(r.measures[k], ['label','value','level','levelLabel','asOf']) : null])),
+      stocksVsBonds:sub(r.stocksVsBonds, ['basis','earningsYield','realYield10Y','bondYield10Y','gap','label']),
       mood:sub(r.mood, ['score','label','change1d','change1w']),
       trend:sub(r.trend, ['value','above']),
-      rates:sub(r.rates, ['curve','label']),
+      rates:sub(r.rates, ['curve','label','lpr1Y','lpr5Y','cgb10Y','asOf']),
       changes:Array.isArray(r.changes) ? r.changes : [],
     };
   }
@@ -98,6 +100,8 @@ function MP_PREPARE(EDITION, {$input, $getWorkflowStaticData, Date: RuntimeDate,
     console.error('[MarketPulse][PUBLISH-GUARD] dashboard publish SKIPPED (facts=' + Object.keys(facts).length + ', marketRows=' + availableScreener.length + ', health=' + (health ? health.status : 'none') + ') - retaining the last published payload without usable market quotes.');
     return [];
   }
+  // China publishes the reading once its sources are live: a reading, or a flagged input; the US always did.
+  const carriesReading = r => MP_POLICY.record(r) && (MP_POLICY.record(r.valuation) || (Array.isArray(r.flags) && r.flags.length > 0));
   const payload = {
     schemaVersion:2,
     verification:MP_POLICY.verificationFor(approval, d),
@@ -105,7 +109,7 @@ function MP_PREPARE(EDITION, {$input, $getWorkflowStaticData, Date: RuntimeDate,
     generatedAt:now.toISOString(),
     dateLabel,
     asOf,
-    ...(isUS ? {longTermReading:projectReading(d.longTermReading)} : {}),
+    ...(isUS || carriesReading(d.longTermReading) ? {longTermReading:projectReading(d.longTermReading)} : {}),
     health:health ? {status:health.status,missing:health.missing || [],suspect:health.suspect || []} : {status:'OUTAGE',missing:['ALL'],suspect:[]},
     dashboard:Object.fromEntries(Object.entries(dashboard).filter(([key]) => MP_POLICY.own(facts, key))),
     facts,
@@ -124,7 +128,8 @@ function MP_PREPARE(EDITION, {$input, $getWorkflowStaticData, Date: RuntimeDate,
     news:(Array.isArray(d.headlinesList) ? d.headlinesList : []).map((title,index) =>
       MP_POLICY.isUsableHeadline(title) ? {factKey:'headline_' + (index + 1),title,url:MP_POLICY.safeHttpUrl(Array.isArray(d.headlinesLinks) ? d.headlinesLinks[index] : null)} : null
     ).filter(Boolean),
-    sources:isUS ? ['CNN Fear & Greed','FRED','MarketWatch','Yahoo Finance','multpl.com'] : ['Yahoo Finance','World Bank','Google News'],
+    sources:isUS ? ['CNN Fear & Greed','FRED','MarketWatch','Yahoo Finance','multpl.com']
+      : ['Yahoo Finance','China Securities Index Co.','ChinaBond','NIFC','NBS','World Bank','Google News'],
   };
   return [{json:{dashboardJson:JSON.stringify(payload,null,2),commitMessage:'Publish ' + EDITION + ' dashboard data - ' + dateLabel}}];
 }

@@ -1,0 +1,41 @@
+{
+ "head": {
+  "version": "2.0",
+  "provider": "CWAP",
+  "req_code": "",
+  "rep_code": "200",
+  "rep_message": "",
+  "ts": 1791972075348,
+  "producer": "",
+  "tstext": "2026-10-14 18:01:15"
+ },
+ "data": {
+  "endDateCN": "2026-10-14",
+  "baseCurveCfgList": [
+   "1Y",
+   "5Y"
+  ],
+  "startDateCN": "2026-07-16",
+  "message": ""
+ },
+ "records": [
+  {
+   "5Y": "3.50",
+   "1Y": "3.00",
+   "showDateEN": "20 Sep 2026",
+   "showDateCN": "2026-09-20"
+  },
+  {
+   "5Y": "3.50",
+   "1Y": "3.00",
+   "showDateEN": "20 Aug 2026",
+   "showDateCN": "2026-08-20"
+  },
+  {
+   "5Y": "3.50",
+   "1Y": "3.00",
+   "showDateEN": "20 Jul 2026",
+   "showDateCN": "2026-07-20"
+  }
+ ]
+}

@@ -1,7 +1,7 @@
 // ============================================
 // FETCH ALL MARKET DATA - MarketPulse v6.0 (CN)
 // China Market Edition
-// Data Sources: Yahoo Finance, World Bank
+// Data Sources: Yahoo Finance, World Bank, China Securities Index Co., ChinaBond, NIFC, NBS, Google News
 // ============================================
 
 
@@ -9,6 +9,19 @@
 // LOUD failures so N/A can never masquerade as success.
 // Grep n8n logs:  [MarketPulse][FETCH-FAIL] / [MarketPulse][DATA-HEALTH]
 const { health, fail } = createMarketHealth();
+
+// Time budget (the US node's pattern): return what was fetched before n8n's 300 s limit, with
+// health flags set, rather than nothing. Sources added in W32 are skipped when little time is left.
+const NODE_START = Date.now();
+const TIME_BUDGET_MS = 235000;
+const RETRY_RESERVE_MS = 20000;
+function msLeft() { return TIME_BUDGET_MS - (Date.now() - NODE_START); }
+const _self = this;
+const safeFetch = retrySourceFetch(options => _self.helpers.httpRequest(options), {
+  msLeft, reserveMs: RETRY_RESERVE_MS, includeNetwork: true,
+  logRetry: (attempt, options) => console.log('Retry ' + attempt + '/2 (' + Math.round(msLeft() / 1000) + 's budget left): ' + (options.url || '').substring(0, 60))
+});
+const isoDay = date => date.toISOString().slice(0, 10);
 
 const results = {
   // China Market Indices
@@ -36,7 +49,13 @@ const results = {
   headlines: 'No headlines available',
   csi300MarketTime: null,
   headlinesList: [],
-  headlinesCount: 0
+  headlinesCount: 0,
+  // Valuation, rates, trend and monthly prices (W32). Each value carries its own date.
+  csi300PE: 'N/A', csi300PEDate: 'N/A', csi300Turnover: 'N/A', csi300VsMa200: 'N/A', maSignal: 'N/A',
+  cgb10Y: 'N/A', cgb10YDate: 'N/A',
+  lpr1Y: 'N/A', lpr5Y: 'N/A', lprDate: 'N/A',
+  ppiValue: 'N/A', ppiMonth: 'N/A', pmiValue: 'N/A', pmiNonMfg: 'N/A', pmiMonth: 'N/A',
+  cpiSource: 'World Bank'
 };
 
 // --- Helper Functions ---
@@ -82,6 +101,43 @@ for (const idx of indices) {
     await fetchDelay(500);
   } catch (e) { fail(idx.label, e); }
 }
+
+// --- 2. CSI 300 VALUATION, TURNOVER AND TREND (China Securities Index Co.) ---
+// One request for the last 320 days: the trailing P/E (published after the session, so the latest
+// row with one carries its own date), turnover, and the closes for the 200-day average (W29).
+try {
+  if (msLeft() > RETRY_RESERVE_MS) {
+    const end = new Date(), start = new Date(end.getTime() - 320 * 86400000);
+    const perf = parseCsiPerformance(await safeFetch({ method: 'GET', timeout: 20000,
+      url: 'https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=' + isoDay(start).replace(/-/g, '') + '&endDate=' + isoDay(end).replace(/-/g, '') }));
+    if (perf && perf.pe !== null) { results.csi300PE = perf.pe.toFixed(2); results.csi300PEDate = perf.peDate; }
+    if (perf && perf.turnoverBn !== null) results.csi300Turnover = perf.turnoverBn.toFixed(0);
+    if (perf && perf.vsMa200 !== null) { results.csi300VsMa200 = (perf.vsMa200 >= 0 ? '+' : '') + perf.vsMa200.toFixed(1) + '%'; results.maSignal = perf.maSignal; }
+    if (!perf) fail('CSI 300 valuation', new Error('no sessions in the response'));
+  }
+} catch (e) { fail('CSI 300 valuation', e); }
+
+// --- 2b. CHINA 10-YEAR GOVERNMENT BOND YIELD (ChinaBond, CCDC) ---
+try {
+  if (msLeft() > RETRY_RESERVE_MS) {
+    const end = new Date(), start = new Date(end.getTime() - 14 * 86400000);
+    const curve = parseChinaBondCurve(await safeFetch({ method: 'GET', timeout: 20000, json: false,
+      url: 'https://yield.chinabond.com.cn/cbweb-pbc-web/pbc/historyQuery?startDate=' + isoDay(start) + '&endDate=' + isoDay(end) + '&gjqx=0&qxId=ycqx&locale=cn_ZH' }));
+    if (curve) { results.cgb10Y = curve.y10.toFixed(2) + '%'; results.cgb10YDate = curve.date; }
+    else fail('ChinaBond 10Y', new Error('curve row not found'));
+  }
+} catch (e) { fail('ChinaBond 10Y', e); }
+
+// --- 2c. LOAN PRIME RATE (National Interbank Funding Center) ---
+try {
+  if (msLeft() > RETRY_RESERVE_MS) {
+    const end = new Date(), start = new Date(end.getTime() - 90 * 86400000);
+    const lpr = parseLpr(await safeFetch({ method: 'GET', timeout: 20000,
+      url: 'https://www.chinamoney.com.cn/ags/ms/cm-u-bk-currency/LprHis?lang=CN&strStartDate=' + isoDay(start) + '&strEndDate=' + isoDay(end) + '&pageNum=1&pageSize=20' }));
+    if (lpr) { results.lpr1Y = lpr.lpr1Y.toFixed(2) + '%'; results.lpr5Y = lpr.lpr5Y.toFixed(2) + '%'; results.lprDate = lpr.date; }
+    else fail('NIFC LPR', new Error('no fixing in the response'));
+  }
+} catch (e) { fail('NIFC LPR', e); }
 
 // --- 3. FETCH CHINA ECONOMIC DATA (World Bank API) ---
 
@@ -137,6 +193,30 @@ try {
   }
 } catch (e) { fail('World Bank Unemployment', e); }
 
+// --- 3b. MONTHLY PRICES AND PMI (National Bureau of Statistics) ---
+// The release listing's titles carry the CPI and PPI year-on-year figures, and the PMI figure is
+// on its release page (W30). The monthly CPI replaces the World Bank's annual figure when read;
+// otherwise the annual figure stays, with its year as the label.
+let nbs = null;
+try {
+  if (msLeft() > RETRY_RESERVE_MS) {
+    nbs = parseNbsListing(await safeFetch({ method: 'GET', url: 'https://www.stats.gov.cn/sj/zxfb/', timeout: 20000, json: false }));
+    if (!nbs) fail('NBS releases', new Error('no CPI, PPI or PMI release in the listing'));
+    if (nbs && nbs.cpi && Math.abs(nbs.cpi.yoy) <= 15) { results.cpiValue = signedPct(nbs.cpi.yoy, 1); results.cpiYear = monthLabel(nbs.cpi.year, nbs.cpi.month); results.cpiSource = 'NBS'; }
+    if (nbs && nbs.ppi && Math.abs(nbs.ppi.yoy) <= 15) { results.ppiValue = signedPct(nbs.ppi.yoy, 1); results.ppiMonth = monthLabel(nbs.ppi.year, nbs.ppi.month); }
+  }
+} catch (e) { fail('NBS releases', e); }
+try {
+  if (nbs && nbs.pmiLink && msLeft() > RETRY_RESERVE_MS) {
+    const pmi = parseNbsPmi(await safeFetch({ method: 'GET', url: resolveNbsLink(nbs.pmiLink.href), timeout: 20000, json: false }));
+    if (pmi) {
+      results.pmiValue = pmi.pmi.toFixed(1);
+      results.pmiMonth = monthLabel(nbs.pmiLink.year, nbs.pmiLink.month);
+      if (pmi.nonMfg !== null) results.pmiNonMfg = pmi.nonMfg.toFixed(1);
+    } else fail('NBS PMI', new Error('PMI sentence not found'));
+  }
+} catch (e) { fail('NBS PMI', e); }
+
 // --- 4. FETCH NEWS HEADLINES (Google News RSS search, same-day items) ---
 
 try {
@@ -166,6 +246,8 @@ const CRITICAL = {
 // Flag implausible changes without removing the available source values.
 const CHANGE_BOUNDS = { csi300Change: 15, sseCompositeChange: 15, szseComponentChange: 15, hangSengChange: 15, goldChange: 10, usdCnyChange: 5 };
 auditMarketHealth(results, health, CRITICAL, CHANGE_BOUNDS);
+health.elapsedMs = Date.now() - NODE_START;
+if (msLeft() <= 0) console.error('🟠 [MarketPulse][TIME-BUDGET] exhausted after ' + Math.round(health.elapsedMs / 1000) + 's - some sources were skipped to protect the run');
 
 publishMarketHealth(results, health, CRITICAL);
 
