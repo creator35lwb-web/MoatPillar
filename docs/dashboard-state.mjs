@@ -101,3 +101,91 @@ export function verificationPresentation(data, state = presentationState(data)) 
   }
   return {tone: 'withheld', message: 'AI commentary withheld: the response failed the required format or consistency checks. The available source data is shown separately.'};
 }
+
+// ---- Scheduled releases (W31) ----
+// docs/data/calendar.json is copied by hand from the official release calendars (BLS, BEA, the Federal
+// Reserve, NBS, the St. Louis Fed's FRED calendar), each entry with its source. The dashboard shows the
+// next few items in Malaysia time and marks what has already been released. Nothing here predicts a figure.
+const DAY_MS = 24 * 60 * 60 * 1000;
+const DISPLAY_ZONE = 'Asia/Kuala_Lumpur';
+const RELEASE_WINDOW_MS = 18 * 60 * 60 * 1000; // a release stays listed until the next morning
+
+function zoneParts(zone, at, options) {
+  const parts = new Intl.DateTimeFormat('en-GB', {timeZone: zone, hourCycle: 'h23', ...options}).formatToParts(at);
+  return type => (parts.find(part => part.type === type) || {}).value || '';
+}
+
+// Minutes east of UTC for `zone` at the instant `at`, from the platform's time-zone data.
+export function zoneOffsetMinutes(zone, at) {
+  const get = zoneParts(zone, at, {year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'});
+  const asUtc = Date.UTC(Number(get('year')), Number(get('month')) - 1, Number(get('day')), Number(get('hour')), Number(get('minute')), Number(get('second')));
+  return Math.round((asUtc - at.getTime()) / 60000);
+}
+
+// The instant at which the wall clock in `zone` reads `date` ("YYYY-MM-DD") and `time` ("HH:MM").
+export function localToUtc(date, time, zone) {
+  const [year, month, day] = String(date).split('-').map(Number);
+  const [hour, minute] = String(time || '00:00').split(':').map(Number);
+  const wall = Date.UTC(year, month - 1, day, hour, minute, 0);
+  let guess = wall - zoneOffsetMinutes(zone, new Date(wall)) * 60000;
+  guess = wall - zoneOffsetMinutes(zone, new Date(guess)) * 60000; // a second pass settles a clock change
+  return new Date(guess);
+}
+
+function displayDay(at) {
+  const get = zoneParts(DISPLAY_ZONE, at, {weekday: 'short', day: 'numeric', month: 'short'});
+  return {weekday: get('weekday'), day: get('day'), month: get('month')};
+}
+function displayTime(at) {
+  const get = zoneParts(DISPLAY_ZONE, at, {hour: '2-digit', minute: '2-digit'});
+  return get('hour') + ':' + get('minute');
+}
+function dateOnlyDay(date) {
+  // All-day items keep the publisher's own dates (a Washington meeting is not shifted into Malaysia time).
+  return displayDay(localToUtc(date, '12:00', DISPLAY_ZONE));
+}
+const dayLabel = parts => parts.weekday + ' ' + parts.day + ' ' + parts.month;
+
+export function calendarWhenLabel(event, start) {
+  if (!event.allDay) return dayLabel(displayDay(start)) + ' · ' + displayTime(start) + ' MYT';
+  const first = dateOnlyDay(event.date);
+  const last = dateOnlyDay(event.endDate || event.date);
+  if (event.endDate === undefined || event.endDate === event.date) return dayLabel(first);
+  if (first.month === last.month) return first.weekday + ' ' + first.day + ' – ' + dayLabel(last);
+  return dayLabel(first) + ' – ' + dayLabel(last);
+}
+
+export function calendarPresentation(calendar, data, now = new Date(), limit = 5) {
+  const events = Array.isArray(calendar?.events) ? calendar.events : [];
+  const sources = calendar && typeof calendar.sources === 'object' && calendar.sources ? calendar.sources : {};
+  const todayLabel = dayLabel(displayDay(now));
+  const items = [];
+  for (const event of events) {
+    if (!text(event?.name) || !text(event?.date) || !text(event?.zone)) continue;
+    const allDay = event.allDay === true || !text(event.time);
+    let start, end;
+    try {
+      start = allDay ? localToUtc(event.date, '00:00', event.zone)
+        : text(event.utc) ? new Date(event.utc) : localToUtc(event.date, event.time, event.zone);
+      end = allDay ? new Date(localToUtc(event.endDate || event.date, '00:00', event.zone).getTime() + DAY_MS) : start;
+    } catch { continue; }
+    if (!Number.isFinite(start.getTime()) || !Number.isFinite(end.getTime())) continue;
+    if (end.getTime() < now.getTime() - RELEASE_WINDOW_MS) continue;
+    const status = end.getTime() <= now.getTime() ? 'done' : start.getTime() <= now.getTime() ? (allDay ? 'in-progress' : 'done') : 'upcoming';
+    const source = sources[event.source];
+    let when;
+    try { when = calendarWhenLabel({...event, allDay}, start); } catch { continue; }
+    items.push({
+      id: text(event.id) ? event.id : event.name,
+      name: event.name,
+      region: event.region === 'CN' ? 'China' : event.region === 'US' ? 'US' : '',
+      kind: event.kind === 'meeting' ? 'meeting' : 'release',
+      start, allDay, status, when,
+      today: allDay ? start.getTime() <= now.getTime() && now.getTime() < end.getTime() : dayLabel(displayDay(start)) === todayLabel,
+      source: source && text(source.name) && /^https:\/\//.test(source.url || '') ? {name: source.name, url: source.url} : null,
+    });
+  }
+  items.sort((a, b) => a.start - b.start);
+  const shown = items.slice(0, limit);
+  return {items: shown, sourceNames: [...new Set(shown.map(item => item.source && item.source.name).filter(Boolean))]};
+}

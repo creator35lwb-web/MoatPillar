@@ -1,4 +1,4 @@
-import {additionalEvidence, citationEvidence, headlineKey, presentationState, verificationPresentation} from './dashboard-state.mjs';
+import {additionalEvidence, calendarPresentation, citationEvidence, headlineKey, presentationState, verificationPresentation} from './dashboard-state.mjs';
 
 (function () {
   'use strict';
@@ -28,6 +28,10 @@ import {additionalEvidence, citationEvidence, headlineKey, presentationState, ve
   var ARCHIVE_URL = 'archive/pre-beta.html';
   var current = 'US';
   var dialog = document.querySelector('.share-dialog');
+  // The release calendar (W31) is fetched once; a missing or malformed file hides the card and nothing else.
+  var calendarPromise = fetch('data/calendar.json', {cache: 'no-store'})
+    .then(function (res) { return res.ok ? res.json() : null; })
+    .catch(function () { return null; });
 
   function el(tag, className, text) {
     var e = document.createElement(tag);
@@ -285,7 +289,33 @@ import {additionalEvidence, citationEvidence, headlineKey, presentationState, ve
     }
   }
 
-  function render(data) {
+  function renderCalendar(node, data, calendar) {
+    var section = node.querySelector('.calendar-section');
+    var shown = calendarPresentation(calendar, data, new Date(), 5);
+    if (!shown.items.length) { section.hidden = true; return; }
+    section.hidden = false;
+    var list = section.querySelector('.calendar-list');
+    shown.items.forEach(function (item) {
+      var li = el('li', 'calendar-item' + (item.status === 'done' ? ' is-done' : '') + (item.today ? ' is-today' : ''));
+      li.appendChild(el('span', 'when', item.when));
+      var name = el('span', 'name', item.name);
+      if (item.region) name.appendChild(el('span', 'region', item.region));
+      li.appendChild(name);
+      var flag = item.status === 'done' ? (item.today ? 'Released today' : 'Released')
+        : item.status === 'in-progress' ? 'In progress' : item.today ? 'Today' : '';
+      if (flag) li.appendChild(el('span', 'flag', flag));
+      if (item.source) {
+        var a = el('a', 'src', 'source');
+        a.href = item.source.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.title = item.source.name;
+        li.appendChild(a);
+      }
+      list.appendChild(li);
+    });
+    section.querySelector('.calendar-sources').textContent = shown.sourceNames.length
+      ? 'Dates from ' + shown.sourceNames.join('; ') + '. Shown in Malaysia time.' : '';
+  }
+
+  function render(data, calendar) {
     app.innerHTML = '';
     var node = tpl.content.cloneNode(true);
     var state = presentationState(data);
@@ -409,6 +439,8 @@ import {additionalEvidence, citationEvidence, headlineKey, presentationState, ve
       });
     }
 
+    renderCalendar(node, data, calendar);
+
     var news = data.news || [];
     if (news.length) {
       var list = node.querySelector('.news-list');
@@ -516,15 +548,17 @@ import {additionalEvidence, citationEvidence, headlineKey, presentationState, ve
     var requestSequence = ++loadSequence;
     app.innerHTML = '';
     app.appendChild(el('p', 'state-msg', 'Loading the latest brief…'));
-    fetch('data/latest-' + edition.toLowerCase() + '.json', {cache: 'no-store'})
+    var brief = fetch('data/latest-' + edition.toLowerCase() + '.json', {cache: 'no-store'})
       .then(function (res) {
         if (!res.ok) throw new Error('No brief published yet for this edition.');
         return res.json();
-      })
-      .then(function (data) {
+      });
+    Promise.all([brief, calendarPromise])
+      .then(function (results) {
+        var data = results[0];
         if (requestSequence !== loadSequence) return;
         if (data.edition !== edition) throw new Error('The published brief does not match the selected edition.');
-        render(data);
+        render(data, results[1]);
       })
       .catch(function (err) { if (requestSequence === loadSequence) showError(err.message || 'Could not load the latest brief.'); });
   }

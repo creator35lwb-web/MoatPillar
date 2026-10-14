@@ -39,6 +39,7 @@
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
   <symbol id="i-economy" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8 14h3v3H8z"/></symbol>
   <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V3"/><path d="M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></symbol>
   <symbol id="i-message" viewBox="0 0 24 24"><path d="M20.5 12a8.5 8.5 0 0 1-12.4 7.5L3.5 20.5l1-4.4A8.5 8.5 0 1 1 20.5 12z"/><path d="M8.5 10.5h7M8.5 14h4.5"/></symbol>
   <symbol id="i-send" viewBox="0 0 24 24"><path d="M21 3L10.5 13.5"/><path d="M21 3l-6.5 18-4-7.5-7.5-4z"/></symbol>
@@ -166,6 +167,13 @@
     </section>
   </div>
 
+  <section class="card calendar-section" aria-labelledby="calendar-title" hidden>
+    <h2 id="calendar-title" class="card-title"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Scheduled releases</h2>
+    <p class="hint">What the statistical offices and the Federal Reserve have scheduled. The brief reports figures after they are out; it never predicts them.</p>
+    <ol class="calendar-list"></ol>
+    <p class="calendar-sources"></p>
+  </section>
+
   <section class="card table-card watchlist-section" aria-labelledby="watch-title">
     <h2 id="watch-title" class="card-title"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg>Watchlist</h2>
     <div class="ledger watchlist-ledger"></div>
@@ -199,7 +207,8 @@
   </section>
 
   <section class="card news-section" aria-labelledby="news-title">
-    <h2 id="news-title" class="card-title"><svg class="icon" aria-hidden="true"><use href="#i-news"/></svg>Headlines in this brief</h2>
+    <h2 id="news-title" class="card-title"><svg class="icon" aria-hidden="true"><use href="#i-news"/></svg>Headlines fetched for this brief</h2>
+    <p class="hint">Each title was fetched for this edition and may be cited by the AI, which has not read the articles. Publication dates are not yet captured.</p>
     <ol class="news-list"></ol>
   </section>
 
