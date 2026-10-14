@@ -209,7 +209,8 @@ export function validateDashboardData(data, { edition, now = Date.now() } = {}) 
   if (data.longTermReading !== undefined && data.longTermReading !== null && object(data.longTermReading, 'longTermReading')) {
     const r = data.longTermReading, path = 'longTermReading';
     const LABELS = ['Cheap', 'Fair', 'Slightly expensive', 'Expensive', 'Very expensive'];
-    const expectedVersion = data.edition === 'US' ? 'ltr.v1' : data.edition === 'CN' ? 'ltr.cn.v1' : null;
+    const READING_VERSIONS = { US: 'ltr.v1', CN: 'ltr.cn.v1' };
+    const expectedVersion = READING_VERSIONS[data.edition] ?? null;
     if (!expectedVersion) fail(path, 'is published for the US and China editions only');
     else if (r.version !== expectedVersion) fail(`${path}.version`, `must be ${expectedVersion}`);
     if (!['first', 'steady', 'pending', 'changed', 'held', 'unavailable'].includes(r.status)) fail(`${path}.status`, 'unknown status');

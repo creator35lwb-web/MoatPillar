@@ -16,8 +16,7 @@ const NODE_START = Date.now();
 const TIME_BUDGET_MS = 235000;
 const RETRY_RESERVE_MS = 20000;
 function msLeft() { return TIME_BUDGET_MS - (Date.now() - NODE_START); }
-const _self = this;
-const safeFetch = retrySourceFetch(options => _self.helpers.httpRequest(options), {
+const safeFetch = retrySourceFetch(options => this.helpers.httpRequest(options), {
   msLeft, reserveMs: RETRY_RESERVE_MS, includeNetwork: true,
   logRetry: (attempt, options) => console.log('Retry ' + attempt + '/2 (' + Math.round(msLeft() / 1000) + 's budget left): ' + (options.url || '').substring(0, 60))
 });
@@ -109,7 +108,7 @@ try {
   if (msLeft() > RETRY_RESERVE_MS) {
     const end = new Date(), start = new Date(end.getTime() - 320 * 86400000);
     const perf = parseCsiPerformance(await safeFetch({ method: 'GET', timeout: 20000,
-      url: 'https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=' + isoDay(start).replace(/-/g, '') + '&endDate=' + isoDay(end).replace(/-/g, '') }));
+      url: 'https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=' + isoDay(start).replaceAll('-', '') + '&endDate=' + isoDay(end).replaceAll('-', '') }));
     if (perf && perf.pe !== null) { results.csi300PE = perf.pe.toFixed(2); results.csi300PEDate = perf.peDate; }
     if (perf && perf.turnoverBn !== null) results.csi300Turnover = perf.turnoverBn.toFixed(0);
     if (perf && perf.vsMa200 !== null) { results.csi300VsMa200 = (perf.vsMa200 >= 0 ? '+' : '') + perf.vsMa200.toFixed(1) + '%'; results.maSignal = perf.maSignal; }
@@ -202,12 +201,12 @@ try {
   if (msLeft() > RETRY_RESERVE_MS) {
     nbs = parseNbsListing(await safeFetch({ method: 'GET', url: 'https://www.stats.gov.cn/sj/zxfb/', timeout: 20000, json: false }));
     if (!nbs) fail('NBS releases', new Error('no CPI, PPI or PMI release in the listing'));
-    if (nbs && nbs.cpi && Math.abs(nbs.cpi.yoy) <= 15) { results.cpiValue = signedPct(nbs.cpi.yoy, 1); results.cpiYear = monthLabel(nbs.cpi.year, nbs.cpi.month); results.cpiSource = 'NBS'; }
-    if (nbs && nbs.ppi && Math.abs(nbs.ppi.yoy) <= 15) { results.ppiValue = signedPct(nbs.ppi.yoy, 1); results.ppiMonth = monthLabel(nbs.ppi.year, nbs.ppi.month); }
+    if (nbs?.cpi && Math.abs(nbs.cpi.yoy) <= 15) { results.cpiValue = signedPct(nbs.cpi.yoy, 1); results.cpiYear = monthLabel(nbs.cpi.year, nbs.cpi.month); results.cpiSource = 'NBS'; }
+    if (nbs?.ppi && Math.abs(nbs.ppi.yoy) <= 15) { results.ppiValue = signedPct(nbs.ppi.yoy, 1); results.ppiMonth = monthLabel(nbs.ppi.year, nbs.ppi.month); }
   }
 } catch (e) { fail('NBS releases', e); }
 try {
-  if (nbs && nbs.pmiLink && msLeft() > RETRY_RESERVE_MS) {
+  if (nbs?.pmiLink && msLeft() > RETRY_RESERVE_MS) {
     const pmi = parseNbsPmi(await safeFetch({ method: 'GET', url: resolveNbsLink(nbs.pmiLink.href), timeout: 20000, json: false }));
     if (pmi) {
       results.pmiValue = pmi.pmi.toFixed(1);

@@ -102,7 +102,6 @@ import {additionalEvidence, calendarPresentation, citationEvidence, headlineKey,
 
   function renderReading(node, data) {
     var card = node.querySelector('.reading-card');
-    var body = card.querySelector('.reading-body');
     var note = card.querySelector('.reading-note');
     var r = data.longTermReading;
     var facts = card.querySelector('.reading-facts');
@@ -247,32 +246,35 @@ import {additionalEvidence, calendarPresentation, citationEvidence, headlineKey,
   }
 
   // China has no Fear & Greed gauge: the strip shows the trend and the policy rates, each a citable fact.
+  function renderChinaTrend(tile, facts) {
+    if (!facts.csi300VsMa200) { tile.hidden = true; return; }
+    tile.dataset.factkey = 'csi300VsMa200' + (facts.maSignal ? ' maSignal' : '');
+    tile.querySelector('.trend-value').textContent = facts.csi300VsMa200;
+    tile.querySelector('.trend-value').classList.add(changeClass(facts.csi300VsMa200) === 'down' ? 'is-down' : 'is-up');
+    tile.querySelector('.trend-label').textContent = 'CSI 300 vs its 200-day average' + (facts.maSignal ? ' · ' + facts.maSignal : '');
+  }
+  function renderChinaRates(tile, facts, r) {
+    if (!facts.cgb10Y && !facts.lpr1Y) { tile.hidden = true; return; }
+    tile.dataset.factkey = ['cgb10Y', 'lpr1Y', 'lpr5Y'].filter(function (k) { return facts[k]; }).join(' ');
+    tile.querySelector('.curve-value').textContent = facts.cgb10Y || facts.lpr1Y;
+    var parts = [facts.cgb10Y ? '10-year government bond' : 'Loan Prime Rate 1Y'];
+    if (facts.cgb10Y && facts.lpr1Y) parts.push('LPR 1Y ' + facts.lpr1Y);
+    if (facts.lpr5Y) parts.push('5Y ' + facts.lpr5Y);
+    if (r.rates?.asOf) parts.push('fixing ' + r.rates.asOf);
+    tile.querySelector('.curve-label').textContent = parts.join(' · ');
+  }
   function renderChinaContext(node, facts, r) {
     var strip = node.querySelector('.context-strip');
     strip.classList.add('is-two');
     node.querySelector('.mood-tile').hidden = true;
     var trend = node.querySelector('.trend-tile');
-    if (facts.csi300VsMa200) {
-      trend.dataset.factkey = 'csi300VsMa200' + (facts.maSignal ? ' maSignal' : '');
-      trend.querySelector('.trend-value').textContent = facts.csi300VsMa200;
-      trend.querySelector('.trend-value').classList.add(changeClass(facts.csi300VsMa200) === 'down' ? 'is-down' : 'is-up');
-      trend.querySelector('.trend-label').textContent = 'CSI 300 vs its 200-day average' + (facts.maSignal ? ' · ' + facts.maSignal : '');
-    } else trend.hidden = true;
     var rates = node.querySelector('.rates-tile');
-    if (facts.cgb10Y || facts.lpr1Y) {
-      rates.dataset.factkey = ['cgb10Y', 'lpr1Y', 'lpr5Y'].filter(function (k) { return facts[k]; }).join(' ');
-      rates.querySelector('.curve-value').textContent = facts.cgb10Y || facts.lpr1Y;
-      var parts = [facts.cgb10Y ? '10-year government bond' : 'Loan Prime Rate 1Y'];
-      if (facts.cgb10Y && facts.lpr1Y) parts.push('LPR 1Y ' + facts.lpr1Y);
-      if (facts.lpr5Y) parts.push('5Y ' + facts.lpr5Y);
-      if (r.rates && r.rates.asOf) parts.push('fixing ' + r.rates.asOf);
-      rates.querySelector('.curve-label').textContent = parts.join(' · ');
-    } else rates.hidden = true;
+    renderChinaTrend(trend, facts);
+    renderChinaRates(rates, facts, r);
     if (trend.hidden && rates.hidden) strip.hidden = true;
   }
 
   function renderContext(node, data) {
-    var strip = node.querySelector('.context-strip');
     var facts = data.facts || {};
     var r = data.longTermReading || {};
     if (data.edition === 'CN') { renderChinaContext(node, facts, r); return; }

@@ -222,7 +222,7 @@ function longTermSection(r) {
     const t = Date.parse(String(iso) + 'T12:00:00Z');
     return Number.isFinite(t) ? new Date(t).toLocaleDateString('en-US', {month:'short', day:'numeric', timeZone:'UTC'}) : esc(String(iso));
   };
-  const measures = Object.keys(SHORT).filter(k => r.measures && r.measures[k])
+  const measures = Object.keys(SHORT).filter(k => r.measures?.[k])
     .map(k => SHORT[k] + ' <code>' + esc(r.measures[k].value) + '</code>' + (r.measures[k].asOf ? ' <i>(' + esc(r.measures[k].asOf) + ')</i>' : ''));
   let q = (LEVEL_DOT[r.valuation.hi - 1] || '⚪') + ' <b>Valuation · ' + esc(String(r.valuation.label).toUpperCase()) + '</b>';
   if (measures.length) q += '\n' + measures.join(' · ');
@@ -269,7 +269,8 @@ function usContext(r) {
 
 // China has no Fear & Greed gauge: the context is the trend, the policy rates and turnover.
 function cnContext() {
-  const trend = isNA(d.csi300VsMa200) ? '' : '📈 <b>TREND</b> CSI 300 <code>' + d.csi300VsMa200 + '</code> vs its 200-day average' + (isNA(d.maSignal) ? '' : ' · ' + d.maSignal);
+  const signal = isNA(d.maSignal) ? '' : ' · ' + d.maSignal;
+  const trend = isNA(d.csi300VsMa200) ? '' : '📈 <b>TREND</b> CSI 300 <code>' + d.csi300VsMa200 + '</code> vs its 200-day average' + signal;
   const parts = [];
   if (!isNA(d.cgb10Y)) parts.push('10Y bond <code>' + d.cgb10Y + '</code>');
   if (!isNA(d.lpr1Y)) parts.push('LPR 1Y <code>' + d.lpr1Y + '</code>');

@@ -38,8 +38,9 @@ function parseCsiPerformance(perf) {
 // the date and the 3M, 6M, 1Y, 3Y, 5Y, 7Y, 10Y and 30Y yields, newest first.
 function parseChinaBondCurve(html) {
   if (typeof html !== 'string') return null;
-  for (const row of html.match(/<tr[\s\S]*?<\/tr>/g) || []) {
-    const cells = (row.match(/<td[\s\S]*?<\/td>/g) || []).map(cell => cell.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').trim());
+  // Rows and cells are split on their closing tags, so the scan is linear in the page's length.
+  for (const row of html.split('</tr>')) {
+    const cells = row.split('</td>').slice(0, -1).map(cell => cell.replaceAll(/<[^>]+>/g, '').replaceAll('&nbsp;', ' ').trim());
     if (cells[0] !== '中债国债收益率曲线' || !/^\d{4}-\d{2}-\d{2}$/.test(cells[1] || '')) continue;
     const y10 = Number(cells[8]);
     if (Number.isFinite(y10) && y10 > 0 && y10 < 10) return { date: cells[1], y10 };
@@ -62,14 +63,15 @@ function parseLpr(json) {
 // year-on-year figure ("2026年9月份居民消费价格同比上涨0.9%"); the PMI release is linked by title.
 function parseNbsListing(html) {
   if (typeof html !== 'string') return null;
-  const text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+  const text = html.replaceAll(/<[^>]+>/g, ' ').replaceAll(/\s+/g, ' ');
   const signed = (direction, value) => (direction === '下降' ? -1 : 1) * Number(value);
   const out = {};
-  const cpi = /(\d{4})年(\d{1,2})月份居民消费价格同比(上涨|下降)\s*([\d.]+)\s*%/.exec(text);
+  // The listing titles carry no spaces around the figure.
+  const cpi = /(\d{4})年(\d{1,2})月份居民消费价格同比(上涨|下降)(\d+(?:\.\d+)?)%/.exec(text);
   const cpiFlat = /(\d{4})年(\d{1,2})月份居民消费价格同比持平/.exec(text);
   if (cpi) out.cpi = { year: Number(cpi[1]), month: Number(cpi[2]), yoy: signed(cpi[3], cpi[4]) };
   else if (cpiFlat) out.cpi = { year: Number(cpiFlat[1]), month: Number(cpiFlat[2]), yoy: 0 };
-  const ppi = /(\d{4})年(\d{1,2})月份工业生产者出厂价格同比(上涨|下降)\s*([\d.]+)\s*%/.exec(text);
+  const ppi = /(\d{4})年(\d{1,2})月份工业生产者出厂价格同比(上涨|下降)(\d+(?:\.\d+)?)%/.exec(text);
   const ppiFlat = /(\d{4})年(\d{1,2})月份工业生产者出厂价格同比持平/.exec(text);
   if (ppi) out.ppi = { year: Number(ppi[1]), month: Number(ppi[2]), yoy: signed(ppi[3], ppi[4]) };
   else if (ppiFlat) out.ppi = { year: Number(ppiFlat[1]), month: Number(ppiFlat[2]), yoy: 0 };
@@ -86,12 +88,13 @@ function resolveNbsLink(href) {
 // The PMI release page reads "制造业采购经理指数（PMI）为 50.1%" and "非制造业商务活动指数为 50.2%".
 function parseNbsPmi(html) {
   if (typeof html !== 'string') return null;
-  const text = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
-  const manufacturing = /(?<!非)制造业采购经理指数\s*[（(]\s*PMI\s*[）)]\s*为\s*([\d.]+)\s*%/.exec(text);
-  const services = /非制造业商务活动指数为\s*([\d.]+)\s*%/.exec(text);
-  const pmi = manufacturing ? Number(manufacturing[1]) : NaN;
+  // Whitespace is collapsed first, so each optional gap is at most one space and the match stays linear.
+  const text = html.replaceAll(/<[^>]+>/g, ' ').replaceAll(/\s+/g, ' ');
+  const manufacturing = /(?<!非)制造业采购经理指数 ?[（(] ?PMI ?[）)] ?为 ?(\d+(?:\.\d+)?) ?%/.exec(text);
+  const services = /非制造业商务活动指数为 ?(\d+(?:\.\d+)?) ?%/.exec(text);
+  const pmi = manufacturing ? Number(manufacturing[1]) : Number.NaN;
   if (!(pmi >= 30 && pmi <= 70)) return null;
-  const nonMfg = services ? Number(services[1]) : NaN;
+  const nonMfg = services ? Number(services[1]) : Number.NaN;
   return { pmi, nonMfg: nonMfg >= 30 && nonMfg <= 70 ? nonMfg : null };
 }
 
