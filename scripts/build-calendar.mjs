@@ -34,7 +34,7 @@ export function stripTags(html) {
     else if (ch === '>') inTag = false;
     else if (!inTag) out += ch;
   }
-  return out.split(/\s+/).join(' ').trim();
+  return out.replaceAll(/\s+/g, ' ').trim();
 }
 
 // ---- FRED: {"release_dates":[{"release_id":10,"release_name":"Consumer Price Index","date":"2026-11-10"}]} ----
@@ -139,7 +139,7 @@ export function assemble({existing, fred, nbs, fomc, today, config, now = new Da
   const unique = new Map();
   for (const e of events) if (e.date >= floor && e.date <= horizon && !unique.has(e.id)) unique.set(e.id, e);
   const sorted = [...unique.values()].sort((a, b) => startOf(a).localeCompare(startOf(b)));
-  const sources = {...(existing?.sources || {})};
+  const sources = {...existing?.sources};
   for (const [group, cfg] of [['us', config.fred], ['nbs', config.nbs], ['fomc', config.fomc]]) {
     if (fresh[group]) sources[cfg.source.id] = {name: cfg.source.name, url: cfg.source.url, retrievedAt: cfg.source.retrievedAt || today};
   }
@@ -163,7 +163,7 @@ export function validateCalendar(doc) {
   check(doc?.schemaVersion === 1, 'schemaVersion must be 1');
   check(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(doc?.generatedAt || ''), 'generatedAt must be an ISO instant');
   for (const [id, source] of Object.entries(doc?.sources || {})) {
-    check(/^[a-z0-9-]+$/.test(id) && typeof source?.name === 'string' && source.name.trim() && /^https:\/\//.test(source.url || ''), `source ${id} is incomplete`);
+    check(/^[a-z0-9-]+$/.test(id) && typeof source?.name === 'string' && source.name.trim() && String(source?.url || '').startsWith('https://'), `source ${id} is incomplete`);
   }
   const ids = new Set();
   let previous = '';
@@ -247,5 +247,10 @@ async function main() {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-  main().catch(error => { console.error(safeMessage(error)); process.exitCode = 1; });
+  try {
+    await main();
+  } catch (error) {
+    console.error(safeMessage(error));
+    process.exitCode = 1;
+  }
 }
