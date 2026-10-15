@@ -34,7 +34,7 @@
   },
   "Fetch All China Market Data": {
     "file": "fetch-all-china-market-data.js",
-    "includes": ["fetch-http.js", "fetch-market-helpers.js"],
+    "includes": ["fetch-http.js", "fetch-market-helpers.js", "fetch-china-helpers.js"],
     "policy": false
   },
   "Fetch CN Stock Prices": {

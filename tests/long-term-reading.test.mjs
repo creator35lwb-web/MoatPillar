@@ -104,7 +104,7 @@ test('replay: July–August values trip the cross-check every edition; September
   });
 });
 
-test('combine computes the US reading before the analyst; CN carries none', () => {
+test('combine computes the US reading before the analyst; CN computes its own rules (ltr.cn.v1)', () => {
   const data = {...groundTruth('US'), ...OCT7};
   const state = {};
   const us = runNode('combine-all-data', [{json:data}], {state})[0].json;
@@ -113,7 +113,8 @@ test('combine computes the US reading before the analyst; CN carries none', () =
   const flagged = runNode('combine-all-data', [{json:{...data, buffettIndicator:'137%'}}], {state:{}})[0].json;
   assert.equal(flagged._health.suspect.filter(f => f.check === 'crosscheck').length, 2);
   const cn = runNode('combine-all-data1', [{json:groundTruth('CN')}], {state:{}})[0].json;
-  assert.equal(cn.longTermReading, undefined);
+  assert.equal(cn.longTermReading.version, 'ltr.cn.v1'); assert.equal(cn.longTermReading.valuation, null);
+  assert.match(cn.longTermSummary, /not available in this edition/);
 });
 
 test('editorial rules: long-term-only claims must be neutral and advice never reaches readers', () => {

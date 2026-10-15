@@ -27,8 +27,10 @@ export function citationEvidence(data, key) {
   if (/^headline_/.test(key)) return null;
   if (!own(data.facts, key) || !available(data.facts[key])) return null;
   const row = [...(data.screener || []), ...(data.economic || [])].find(item => item.factKey === key || item.factKey === key + 'Change');
+  // Facts shown in a tile rather than a table row carry their reader-facing name here.
+  const TILE_LABELS = {fearGreedValue: 'Fear & Greed score', csi300VsMa200: 'CSI 300 vs 200-day average', maSignal: 'Trend signal', sp500VsMa200: 'S&P 500 vs 200-day average'};
   const label = data.dashboard?.[key]?.title || row?.label
-    || (key === 'fearGreedValue' ? 'Fear & Greed score' : key.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^./, char => char.toUpperCase()));
+    || TILE_LABELS[key] || key.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^./, char => char.toUpperCase());
   return {label, value: String(data.facts[key])};
 }
 

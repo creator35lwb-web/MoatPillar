@@ -29,7 +29,8 @@ const MP_POLICY = (() => {
   const isUsableHeadline = value => text(value, 2000);
   const keysByEdition = {
     US: ['buffettIndicator','shillerPE','yieldCurve','sp500VsMa200','maSignal','fearGreedValue','sp500','sp500Change','dowJones','dowJonesChange','vix','vixChange','gold','goldChange','oil','oilChange','dxy','dxyChange','btc','btcChange','gdpValue','cpiValue','unemploymentValue','fedRateValue','treasury10Y','treasury2Y'],
-    CN: ['csi300','csi300Change','sseComposite','sseCompositeChange','szseComponent','szseComponentChange','hangSeng','hangSengChange','gold','goldChange','usdCny','usdCnyChange','gdpValue','cpiValue','unemploymentValue'],
+    CN: ['csi300','csi300Change','sseComposite','sseCompositeChange','szseComponent','szseComponentChange','hangSeng','hangSengChange','gold','goldChange','usdCny','usdCnyChange','gdpValue','cpiValue','unemploymentValue',
+      'csi300PE','csi300VsMa200','maSignal','csi300Turnover','cgb10Y','lpr1Y','lpr5Y','ppiValue','pmiValue'],
   };
   const factKeysFor = edition => [...(keysByEdition[edition] || [])];
   const collectFacts = (data, edition) => {
@@ -99,7 +100,7 @@ const MP_POLICY = (() => {
   //    Advising sentences are removed from interpretation and wisdom; an advising claim
   //    withholds the analysis, because a claim cannot be edited away from its evidence.
   //    A recommended stance counts as advice too ("a defensive stance is warranted").
-  const LONG_TERM_KEYS = new Set(['buffettIndicator', 'shillerPE']);
+  const LONG_TERM_KEYS = new Set(['buffettIndicator', 'shillerPE', 'csi300PE']);
   const ADVICE = [
     /\b(?:you|investors?|value investors?|readers?|one)\s+(?:should|must|need to|ought to|may want to|might consider)\b/i,
     /\b(?:we|i)\s+(?:recommend|suggest|advise)\b/i,

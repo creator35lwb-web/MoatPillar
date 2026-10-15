@@ -209,8 +209,10 @@ export function validateDashboardData(data, { edition, now = Date.now() } = {}) 
   if (data.longTermReading !== undefined && data.longTermReading !== null && object(data.longTermReading, 'longTermReading')) {
     const r = data.longTermReading, path = 'longTermReading';
     const LABELS = ['Cheap', 'Fair', 'Slightly expensive', 'Expensive', 'Very expensive'];
-    if (data.edition !== 'US') fail(path, 'is published for the US edition only');
-    if (r.version !== 'ltr.v1') fail(`${path}.version`, 'must be ltr.v1');
+    const READING_VERSIONS = { US: 'ltr.v1', CN: 'ltr.cn.v1' };
+    const expectedVersion = READING_VERSIONS[data.edition] ?? null;
+    if (!expectedVersion) fail(path, 'is published for the US and China editions only');
+    else if (r.version !== expectedVersion) fail(`${path}.version`, `must be ${expectedVersion}`);
     if (!['first', 'steady', 'pending', 'changed', 'held', 'unavailable'].includes(r.status)) fail(`${path}.status`, 'unknown status');
     if (!['ok', 'disagree', 'unavailable'].includes(r.today)) fail(`${path}.today`, 'unknown value');
     const level = v => Number.isInteger(v) && v >= 1 && v <= 5;
@@ -224,7 +226,7 @@ export function validateDashboardData(data, { edition, now = Date.now() } = {}) 
       if (typeof r.since !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(r.since)) fail(`${path}.since`, 'must be a date');
     } else if (r.marginOfSafety !== null) fail(`${path}.marginOfSafety`, 'must be null without a valuation');
     if (object(r.measures, `${path}.measures`)) {
-      for (const key of ['buffettIndicator', 'shillerPE']) {
+      for (const key of data.edition === 'CN' ? ['csi300PE'] : ['buffettIndicator', 'shillerPE']) {
         const m = r.measures[key];
         if (m === null || m === undefined) continue;
         if (!object(m, `${path}.measures.${key}`)) continue;
@@ -233,7 +235,10 @@ export function validateDashboardData(data, { edition, now = Date.now() } = {}) 
       }
     }
     if (r.stocksVsBonds !== null && object(r.stocksVsBonds, `${path}.stocksVsBonds`)) {
-      for (const name of ['earningsYield', 'realYield10Y', 'gap']) if (typeof r.stocksVsBonds[name] !== 'number' || !Number.isFinite(r.stocksVsBonds[name])) fail(`${path}.stocksVsBonds.${name}`, 'must be finite');
+      // The US gap is real (against the 10-year yield less CPI); the China gap is nominal (against the 10-year government yield).
+      const nominal = r.stocksVsBonds.basis === 'nominal';
+      if (nominal !== (data.edition === 'CN')) fail(`${path}.stocksVsBonds.basis`, data.edition === 'CN' ? 'must be nominal' : 'must be absent');
+      for (const name of ['earningsYield', nominal ? 'bondYield10Y' : 'realYield10Y', 'gap']) if (typeof r.stocksVsBonds[name] !== 'number' || !Number.isFinite(r.stocksVsBonds[name])) fail(`${path}.stocksVsBonds.${name}`, 'must be finite');
       if (!['Bonds pay more', 'Thin', 'Moderate', 'Wide'].includes(r.stocksVsBonds.label)) fail(`${path}.stocksVsBonds.label`, 'unknown value');
     }
     if (r.mood !== null && object(r.mood, `${path}.mood`)) {
@@ -241,7 +246,7 @@ export function validateDashboardData(data, { edition, now = Date.now() } = {}) 
       text(r.mood.label, `${path}.mood.label`, 50);
     }
     if (!Array.isArray(r.changes) || r.changes.length > 6) fail(`${path}.changes`, 'must be an array of at most six entries');
-    else r.changes.forEach((c, i) => { if (!object(c, `${path}.changes[${i}]`) || !['valuation', 'rates', 'mood'].includes(c.kind)) fail(`${path}.changes[${i}].kind`, 'unknown kind'); });
+    else r.changes.forEach((c, i) => { if (!object(c, `${path}.changes[${i}]`) || !['valuation', 'rates', 'bonds', 'mood'].includes(c.kind)) fail(`${path}.changes[${i}].kind`, 'unknown kind'); });
   }
   if (data.fearGreed !== undefined && data.fearGreed !== null && object(data.fearGreed, 'fearGreed')) {
     if (typeof data.fearGreed.score !== 'number' || !Number.isFinite(data.fearGreed.score) || data.fearGreed.score < 0 || data.fearGreed.score > 100) fail('fearGreed.score', 'must be a number in 0..100');

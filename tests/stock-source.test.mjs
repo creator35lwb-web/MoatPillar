@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
+import { readFileSync } from 'node:fs';
 import { buildNodeSource } from '../scripts/node-source.mjs';
 
 async function runFetchingNode(name, respond, input = { watchlist: 'ACME' }) {
@@ -52,7 +53,16 @@ for (const [name, error] of [['Fetch Stock Prices', 'HTTP 403'], ['Fetch CN Stoc
 }
 
 const sourceRss = '<rss><title>Feed</title><item><title><![CDATA[Market earnings &amp; outlook - Example News]]></title><link><![CDATA[https://example.com/earnings]]></link></item><item><title>Another market report title</title><link>javascript:invalid</link></item></rss>';
+// China's official sources (W32), served from the fixtures read on 2026-10-14. Order matters: a release page before the listing.
+const CN_FIXTURES = [
+  ['csindex.com.cn', () => JSON.parse(readFileSync('tests/fixtures/cn/csi-perf-october.json', 'utf8'))],
+  ['chinabond.com.cn', () => readFileSync('tests/fixtures/cn/chinabond-history.html', 'utf8')],
+  ['chinamoney.com.cn', () => JSON.parse(readFileSync('tests/fixtures/cn/nifc-lpr.json', 'utf8'))],
+  ['stats.gov.cn/sj/zxfb/2026', () => readFileSync('tests/fixtures/cn/nbs-pmi.html', 'utf8')],
+  ['stats.gov.cn/sj/zxfb/', () => readFileSync('tests/fixtures/cn/nbs-listing.html', 'utf8')],
+];
 function marketResponse({ url }, rss = sourceRss) {
+  for (const [host, load] of CN_FIXTURES) if (url.includes(host)) return load();
   if (url.includes('finance.yahoo.com')) return { chart: { result: [{
     meta: { regularMarketPrice: 105, chartPreviousClose: 80, previousClose: 90, regularMarketTime: 1789066800 },
     indicators: { quote: [{ close: url.includes('%5EGSPC') ? [...Array(199).fill(100), 100, 105] : [105] }] },
@@ -64,7 +74,9 @@ function marketResponse({ url }, rss = sourceRss) {
   return rss;
 }
 
-for (const [edition, name, expectedRequests] of [['US', 'Fetch All Market Data', 18], ['CN', 'Fetch All China Market Data', 10]]) {
+// CN: six Yahoo quotes, CSI, ChinaBond, NIFC, three World Bank series, the NBS listing and the RSS feed; the
+// PMI page is requested only when the listing links one (W32).
+for (const [edition, name, expectedRequests] of [['US', 'Fetch All Market Data', 18], ['CN', 'Fetch All China Market Data', 15]]) {
   test(`${edition}: shared market helpers retain source requests, RSS evidence, and health signals`, async () => {
     const { data, requested } = await runFetchingNode(name, options => marketResponse(options));
     assert.equal(requested.length, expectedRequests);
@@ -85,11 +97,21 @@ for (const [edition, name, expectedRequests] of [['US', 'Fetch All Market Data',
       assert.equal(data.gold, '$105.00');
       assert.equal(data.usdCny, '105.0000');
       assert.equal(data.csi300MarketTime, 1789066800);
+      // W32: the valuation, the bond yield, the policy rates and the monthly prices, each with its own date.
+      assert.equal(data.csi300PE, '13.10'); assert.equal(data.csi300PEDate, '2026-10-13');
+      assert.equal(data.csi300Turnover, '442'); assert.equal(data.csi300VsMa200, 'N/A');
+      assert.equal(data.cgb10Y, '1.65%'); assert.equal(data.cgb10YDate, '2026-10-14');
+      assert.deepEqual([data.lpr1Y, data.lpr5Y, data.lprDate], ['3.00%', '3.50%', '2026-09-20']);
+      assert.deepEqual([data.cpiValue, data.cpiYear, data.cpiSource], ['+0.9%', 'Sep 2026', 'NBS']);
+      assert.deepEqual([data.ppiValue, data.ppiMonth], ['+5.0%', 'Sep 2026']);
+      assert.deepEqual([data.pmiValue, data.pmiNonMfg, data.pmiMonth], ['50.1', '50.2', 'Sep 2026']);
+      assert.equal(data.gdpYear, '2025');
     }
   });
   test(`${edition}: source failures retain outage, failure codes, and missing fields`, async () => {
     const { data, requested } = await runFetchingNode(name, () => { throw Object.assign(new Error('HTTP 503'), { code: 'UPSTREAM' }); });
-    assert.equal(requested.length, expectedRequests - (edition === 'US' ? 1 : 0));
+    // Each edition skips one dependent request when its source fails: the US 200-day history, the China PMI page.
+    assert.equal(requested.length, expectedRequests - 1);
     assert.equal(data._health.status, 'OUTAGE');
     assert.ok(data._health.missing.length >= 8);
     assert.ok(data._health.failed.every(failure => failure.code === 'UPSTREAM'));
@@ -193,4 +215,19 @@ test('CN: the headline feed asks Google News for same-day items only', async () 
   assert.match(rss[0].url, /[?&]q=[^&]*when:1d/);
   assert.match(rss[0].url, /&hl=en&gl=US&ceid=US:en$/);
   assert.equal(data.headlinesCount, 2);
+});
+
+// W32: a year of CSI sessions gives the 200-day trend; a short series does not, and nothing is invented.
+test('CN: the CSI 300 trend needs two hundred sessions and reads from the official closes', async () => {
+  const series = n => ({ data: Array.from({ length: n }, (_, i) => ({ tradeDate: String(20260101 + i), close: 4000 + i, tradingVol: 1e9 + i, tradingValue: 4000, peg: 13 })) });
+  const long = await runFetchingNode('Fetch All China Market Data', options => options.url.includes('csindex.com.cn') ? series(210) : marketResponse(options));
+  assert.equal(long.data.maSignal, 'Golden Cross');
+  assert.match(long.data.csi300VsMa200, /^\+\d+\.\d%$/);
+  assert.equal(long.data.csi300PE, '13.00');
+  const short = await runFetchingNode('Fetch All China Market Data', options => options.url.includes('csindex.com.cn') ? series(120) : marketResponse(options));
+  assert.equal(short.data.csi300VsMa200, 'N/A'); assert.equal(short.data.maSignal, 'N/A');
+  // The World Bank annual CPI stays when the NBS listing carries no release.
+  const noNbs = await runFetchingNode('Fetch All China Market Data', options => options.url.includes('stats.gov.cn') ? '<html></html>' : marketResponse(options));
+  assert.deepEqual([noNbs.data.cpiYear, noNbs.data.cpiSource, noNbs.data.ppiValue], ['2025', 'World Bank', 'N/A']);
+  assert.ok(noNbs.data._health.failed.some(f => f.source === 'NBS releases'));
 });

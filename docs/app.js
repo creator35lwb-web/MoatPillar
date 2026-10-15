@@ -9,9 +9,13 @@ import {additionalEvidence, calendarPresentation, citationEvidence, headlineKey,
   var loadSequence = 0;
 
   var LEVELS = ['Cheap', 'Fair', 'Slightly expensive', 'Expensive', 'Very expensive'];
-  var BANDS = {shillerPE: {edges: [10, 20, 25, 30, 35, 50], tag: 'CAPE'}, buffettIndicator: {edges: [50, 100, 120, 150, 200, 300], tag: 'Buffett'}};
+  // The published scales: US bands as on the dashboard since W15; China's P/E bands are ltr.cn.v1 (W32).
+  var BANDS = {shillerPE: {edges: [10, 20, 25, 30, 35, 50], tag: 'CAPE'}, buffettIndicator: {edges: [50, 100, 120, 150, 200, 300], tag: 'Buffett'},
+    csi300PE: {edges: [5, 11.2, 13.4, 14.5, 16.2, 40], tag: 'P/E'}};
+  var NAMES = {shillerPE: 'CAPE', buffettIndicator: 'Buffett Indicator', csi300PE: 'CSI 300 P/E'};
   var TONE = {Wide: 1, Moderate: 2, Narrow: 3, Thin: 4, 'Bonds pay more': 4};
-  var FIELD = {buffettIndicator: 'Buffett Indicator', shillerPE: 'Shiller CAPE', treasury10Y: '10Y Treasury', treasury2Y: '2Y Treasury', cpiValue: 'CPI', yieldCurve: 'Yield curve'};
+  var FIELD = {buffettIndicator: 'Buffett Indicator', shillerPE: 'Shiller CAPE', treasury10Y: '10Y Treasury', treasury2Y: '2Y Treasury', cpiValue: 'CPI', yieldCurve: 'Yield curve',
+    csi300PE: 'CSI 300 P/E', cgb10Y: '10Y government bond', lpr1Y: 'LPR 1Y', lpr5Y: 'LPR 5Y'};
 
   // Public links: the same values as src/n8n/public-links.js, which tests/share-feedback.test.mjs
   // holds equal. The feedback form is a Google Form (docs/feedback-form.md); its card stays hidden
@@ -98,14 +102,7 @@ import {additionalEvidence, calendarPresentation, citationEvidence, headlineKey,
 
   function renderReading(node, data) {
     var card = node.querySelector('.reading-card');
-    var body = card.querySelector('.reading-body');
     var note = card.querySelector('.reading-note');
-    if (data.edition !== 'US') {
-      body.hidden = true;
-      note.textContent = 'The long-term reading covers the US market only for now. There is no China valuation source yet.';
-      note.hidden = false;
-      return;
-    }
     var r = data.longTermReading;
     var facts = card.querySelector('.reading-facts');
     function fact(term, valueNode, key) {
@@ -129,7 +126,9 @@ import {additionalEvidence, calendarPresentation, citationEvidence, headlineKey,
         var dd = fact(d.title, v, key);
         if (d.status) dd.appendChild(el('span', 'sub', d.status));
       });
-      note.textContent = 'The long-term reading starts with the next edition published under the new rules. Until then, the published valuation measures are shown.';
+      note.textContent = data.edition === 'CN'
+        ? 'The China long-term reading, the CSI 300 P/E against its own history, starts once its sources are live in the daily run.'
+        : 'The long-term reading starts with the next edition published under the new rules. Until then, the published valuation measures are shown.';
       note.hidden = false;
       return;
     }
@@ -160,7 +159,7 @@ import {additionalEvidence, calendarPresentation, citationEvidence, headlineKey,
         labels.appendChild(el('span', level >= r.valuation.lo && level <= r.valuation.hi ? 'is-current' : '', LEVELS[level - 1]));
       }
       var described = [];
-      ['buffettIndicator', 'shillerPE'].forEach(function (key) {
+      Object.keys(BANDS).forEach(function (key) {
         var m = r.measures && r.measures[key];
         var value = m ? num(m.value) : null;
         if (value === null) return;
@@ -194,7 +193,7 @@ import {additionalEvidence, calendarPresentation, citationEvidence, headlineKey,
           text.appendChild(document.createTextNode(': '));
           c.conditions.forEach(function (x, i) {
             if (i) text.appendChild(document.createTextNode(' and '));
-            text.appendChild(document.createTextNode((x.key === 'shillerPE' ? 'CAPE' : 'Buffett Indicator') + (x.direction === 'down' ? ' under ' : ' at ')));
+            text.appendChild(document.createTextNode((NAMES[x.key] || x.label) + (x.direction === 'down' ? ' under ' : ' at ')));
             text.appendChild(el('code', null, x.threshold + x.unit));
             if (x.direction === 'up') text.appendChild(document.createTextNode(' or more'));
           });
@@ -210,6 +209,15 @@ import {additionalEvidence, calendarPresentation, citationEvidence, headlineKey,
             text.appendChild(document.createTextNode(b.direction === 'up' ? ' at ' : ' below '));
             text.appendChild(el('code', null, (b.at > 0 ? '+' + b.at.toFixed(2) : b.at.toFixed(0)) + '%'));
           });
+        } else if (c.kind === 'bonds') {
+          li.appendChild(el('span', 'arrow', '↔'));
+          text.appendChild(document.createTextNode('Stocks vs bonds turn '));
+          c.boundaries.forEach(function (b, i) {
+            if (i) text.appendChild(document.createTextNode('; '));
+            text.appendChild(el('b', null, b.label));
+            text.appendChild(document.createTextNode(b.direction === 'up' ? ' at a gap of ' : ' below '));
+            text.appendChild(el('code', null, b.at.toFixed(1) + ' points'));
+          });
         } else {
           li.appendChild(el('span', 'arrow', '◦'));
           text.textContent = 'Mood alone doesn’t change the reading; prices or earnings have to move.';
@@ -224,22 +232,52 @@ import {additionalEvidence, calendarPresentation, citationEvidence, headlineKey,
     }
     if (r.stocksVsBonds) {
       var s = r.stocksVsBonds;
-      var dd = fact('Stocks vs bonds, after inflation', el('span', 'chip tone-' + (TONE[s.label] || 2), s.label));
-      dd.appendChild(el('span', 'sub', 'Earnings yield ' + s.earningsYield.toFixed(1) + '% vs real 10-year ' + s.realYield10Y.toFixed(1) + '%'));
+      var nominal = s.basis === 'nominal';
+      var dd = fact(nominal ? 'Stocks vs bonds, nominal' : 'Stocks vs bonds, after inflation', el('span', 'chip tone-' + (TONE[s.label] || 2), s.label));
+      dd.appendChild(el('span', 'sub', 'Earnings yield ' + s.earningsYield.toFixed(1) + '% vs ' + (nominal
+        ? '10-year government bond ' + s.bondYield10Y.toFixed(2) + '%' : 'real 10-year ' + s.realYield10Y.toFixed(1) + '%')));
     }
-    ['buffettIndicator', 'shillerPE'].forEach(function (key) {
+    Object.keys(BANDS).forEach(function (key) {
       var m = r.measures && r.measures[key];
       if (!m) return;
       var dd2 = fact(m.label, el('span', null, m.value), key);
-      dd2.appendChild(el('span', 'sub', m.levelLabel));
+      dd2.appendChild(el('span', 'sub', m.levelLabel + (m.asOf ? ' · as of ' + m.asOf : '')));
     });
   }
 
-  function renderContext(node, data) {
+  // China has no Fear & Greed gauge: the strip shows the trend and the policy rates, each a citable fact.
+  function renderChinaTrend(tile, facts) {
+    if (!facts.csi300VsMa200) { tile.hidden = true; return; }
+    tile.dataset.factkey = 'csi300VsMa200' + (facts.maSignal ? ' maSignal' : '');
+    tile.querySelector('.trend-value').textContent = facts.csi300VsMa200;
+    tile.querySelector('.trend-value').classList.add(changeClass(facts.csi300VsMa200) === 'down' ? 'is-down' : 'is-up');
+    tile.querySelector('.trend-label').textContent = 'CSI 300 vs its 200-day average' + (facts.maSignal ? ' · ' + facts.maSignal : '');
+  }
+  function renderChinaRates(tile, facts, r) {
+    if (!facts.cgb10Y && !facts.lpr1Y) { tile.hidden = true; return; }
+    tile.dataset.factkey = ['cgb10Y', 'lpr1Y', 'lpr5Y'].filter(function (k) { return facts[k]; }).join(' ');
+    tile.querySelector('.curve-value').textContent = facts.cgb10Y || facts.lpr1Y;
+    var parts = [facts.cgb10Y ? '10-year government bond' : 'Loan Prime Rate 1Y'];
+    if (facts.cgb10Y && facts.lpr1Y) parts.push('LPR 1Y ' + facts.lpr1Y);
+    if (facts.lpr5Y) parts.push('5Y ' + facts.lpr5Y);
+    if (r.rates?.asOf) parts.push('fixing ' + r.rates.asOf);
+    tile.querySelector('.curve-label').textContent = parts.join(' · ');
+  }
+  function renderChinaContext(node, facts, r) {
     var strip = node.querySelector('.context-strip');
-    if (data.edition !== 'US') { strip.hidden = true; return; }
+    strip.classList.add('is-two');
+    node.querySelector('.mood-tile').hidden = true;
+    var trend = node.querySelector('.trend-tile');
+    var rates = node.querySelector('.rates-tile');
+    renderChinaTrend(trend, facts);
+    renderChinaRates(rates, facts, r);
+    if (trend.hidden && rates.hidden) strip.hidden = true;
+  }
+
+  function renderContext(node, data) {
     var facts = data.facts || {};
     var r = data.longTermReading || {};
+    if (data.edition === 'CN') { renderChinaContext(node, facts, r); return; }
     var mood = node.querySelector('.mood-tile');
     if (data.fearGreed && typeof data.fearGreed.score === 'number' && isFinite(data.fearGreed.score)) {
       mood.querySelector('.mood-score').textContent = String(data.fearGreed.score);

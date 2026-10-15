@@ -657,3 +657,7 @@ section.card > .card-title { margin-bottom: 12px; }
   .calendar-item { grid-template-columns: minmax(0, 1fr) auto auto; }
   .calendar-item .when { grid-column: 1 / -1; }
 }
+
+/* China's context strip has two tiles: no Fear & Greed gauge exists for it (W32). */
+.context-strip.is-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 680px) { .context-strip.is-two { grid-template-columns: minmax(0, 1fr); } }

@@ -8,6 +8,7 @@ function oneLine(s) { return String(s).replace(/\s*\n+\s*/g,' ').trim(); }
 const d = {
   ...Object.fromEntries(MP_POLICY.factKeysFor(EDITION).map(key => [key,'N/A'])),
   gdpYear:'N/A',cpiYear:'N/A',unemploymentYear:'N/A',watchlistSummary:'N/A',
+  ppiMonth:'N/A',pmiMonth:'N/A',lprDate:'N/A',cgb10YDate:'N/A',csi300PEDate:'N/A',
   trackRecordAccuracy:'Building history',trackRecordLast:'',trackRecordBaseline:'',trackRecordSince:'',
   headlinesList:[],headlinesLinks:[],
   ...(isUS ? {
@@ -50,7 +51,8 @@ if (_health && _health.status === 'OUTAGE') {
 if (_health && _health.suspect && _health.suspect.length) {
   // Day-change flags come from the fetch layer; range, jump and cross-check flags come from
   // the long-term input checks (W18). Each says what was unusual, in plain words.
-  const FIELD = {buffettIndicator:'Buffett Indicator', shillerPE:'Shiller CAPE', treasury10Y:'10Y Treasury', treasury2Y:'2Y Treasury', cpiValue:'CPI', yieldCurve:'Yield curve'};
+  const FIELD = {buffettIndicator:'Buffett Indicator', shillerPE:'Shiller CAPE', treasury10Y:'10Y Treasury', treasury2Y:'2Y Treasury', cpiValue:'CPI', yieldCurve:'Yield curve',
+    csi300PE:'CSI 300 P/E', cgb10Y:'10Y government bond', lpr1Y:'LPR 1Y', lpr5Y:'LPR 5Y'};
   const named = f => esc(FIELD[f.field] || String(f.field));
   const parts = [], crossNames = [];
   for (const f of _health.suspect) {
@@ -108,7 +110,10 @@ if (_structured) {
     csi300: ['CSI 300', null], csi300Change: ['CSI 300 change', null], sseComposite: ['SSE Composite', null],
     sseCompositeChange: ['SSE change', null], szseComponent: ['SZSE Component', null], szseComponentChange: ['SZSE change', null],
     hangSeng: ['Hang Seng', null], hangSengChange: ['Hang Seng change', null],
-    usdCny: ['USD/CNY', null], usdCnyChange: ['USD/CNY change', null]
+    usdCny: ['USD/CNY', null], usdCnyChange: ['USD/CNY change', null],
+    // China's valuation, trend, rates and monthly prices (W32); each carries its date in the tables.
+    csi300PE: ['CSI 300 P/E', null], csi300VsMa200: ['CSI 300 vs 200D-MA', null], csi300Turnover: ['CSI 300 turnover ¥bn', null],
+    cgb10Y: ['10Y gov bond', null], lpr1Y: ['LPR 1Y', null], lpr5Y: ['LPR 5Y', null], ppiValue: ['PPI', null], pmiValue: ['PMI', null]
   };
   // d[] is already HTML-escaped above; these labels are our own trusted literals.
   // Watchlist evidence is dynamic - labels AND values come from the same stockDetails
@@ -206,26 +211,29 @@ const fresh = MP_LTR.freshness(EDITION, isUS ? boundaryData.sp500MarketTime : bo
 const freshLine = '🕒 ' + (fresh.closed || fresh.intraday ? '<b>' + esc(fresh.label) + '</b>' : '<i>' + esc(fresh.label) + '</i>');
 const header = '🏛️ <b>MoatPillar</b> · ' + (isUS ? 'US' : 'China') + ' Daily Brief · <i>' + MP_PHASE.LABEL + '</i>\n<i>' + esc(dateStr) + '</i>\n' + freshLine + '\n\n';
 
-// ===== LONG-TERM READING (US): computed by code before the analyst ran =====
+// ===== LONG-TERM READING (US ltr.v1, China ltr.cn.v1): computed by code before the analyst ran =====
 function longTermSection(r) {
   if (!r || !r.valuation) return '🧭 <b>LONG-TERM READING</b>\n<i>Unavailable today: the valuation inputs did not pass their checks.</i>';
   const LEVEL_DOT = ['🟢', '🟢', '🟡', '🟠', '🔴'];
   const MOS_DOT = {Wide:'🟢', Moderate:'🟡', Narrow:'🟠', Thin:'🔴'};
   const SVB_DOT = {Wide:'🟢', Moderate:'🟡', Thin:'🟠', 'Bonds pay more':'🔴'};
-  const SHORT = {buffettIndicator:'Buffett Indicator', shillerPE:'CAPE'};
+  const SHORT = {buffettIndicator:'Buffett Indicator', shillerPE:'CAPE', csi300PE:'CSI 300 P/E'};
   const dayLabel = iso => {
     const t = Date.parse(String(iso) + 'T12:00:00Z');
     return Number.isFinite(t) ? new Date(t).toLocaleDateString('en-US', {month:'short', day:'numeric', timeZone:'UTC'}) : esc(String(iso));
   };
-  const measures = ['buffettIndicator', 'shillerPE'].filter(k => r.measures && r.measures[k])
-    .map(k => SHORT[k] + ' <code>' + esc(r.measures[k].value) + '</code>');
+  const measures = Object.keys(SHORT).filter(k => r.measures?.[k])
+    .map(k => SHORT[k] + ' <code>' + esc(r.measures[k].value) + '</code>' + (r.measures[k].asOf ? ' <i>(' + esc(r.measures[k].asOf) + ')</i>' : ''));
   let q = (LEVEL_DOT[r.valuation.hi - 1] || '⚪') + ' <b>Valuation · ' + esc(String(r.valuation.label).toUpperCase()) + '</b>';
   if (measures.length) q += '\n' + measures.join(' · ');
-  if (r.valuation.topBand) q += '\nBoth measures in their top band';
+  if (r.valuation.topBand) q += measures.length > 1 ? '\nBoth measures in their top band' : '\nIn its top band';
   if (r.stocksVsBonds) {
     const s = r.stocksVsBonds;
+    const bond = s.basis === 'nominal'
+      ? ' vs 10Y government bond <code>' + Number(s.bondYield10Y).toFixed(2) + '%</code> <i>(nominal)</i>'
+      : ' vs real 10Y <code>' + Number(s.realYield10Y).toFixed(1) + '%</code>';
     q += '\n' + (SVB_DOT[s.label] || '⚪') + ' <b>Stocks vs bonds · ' + esc(String(s.label).toUpperCase()) + '</b>' +
-      '\nEarnings yield <code>' + Number(s.earningsYield).toFixed(1) + '%</code> vs real 10Y <code>' + Number(s.realYield10Y).toFixed(1) + '%</code>';
+      '\nEarnings yield <code>' + Number(s.earningsYield).toFixed(1) + '%</code>' + bond;
   }
   q += '\n' + (MOS_DOT[r.marginOfSafety] || '⚪') + ' <b>Margin of safety · ' + esc(String(r.marginOfSafety).toUpperCase()) + '</b>';
   const status = r.status === 'first' ? 'First reading' : r.status === 'changed' ? 'Changed today'
@@ -242,6 +250,9 @@ function longTermSection(r) {
     } else if (c.kind === 'rates') {
       lines.push('↔ Rates: ' + c.boundaries.map(b => '<i>' + esc(b.label) + '</i> ' + (b.direction === 'up' ? 'at ' : 'below ') +
         '<code>' + (b.at > 0 ? '+' + b.at.toFixed(2) : b.at.toFixed(0)) + '%</code>').join(' · '));
+    } else if (c.kind === 'bonds') {
+      lines.push('↔ Stocks vs bonds: ' + c.boundaries.map(b => '<i>' + esc(b.label) + '</i> ' + (b.direction === 'up' ? 'at a gap of ' : 'below ') +
+        '<code>' + b.at.toFixed(1) + '</code> points').join(' · '));
     } else if (c.kind === 'mood') lines.push('◦ Mood alone doesn\'t change it; prices or earnings must move');
   }
   return '🧭 <b>LONG-TERM READING</b>\n<blockquote>' + q + '</blockquote>' + (lines.length ? '\n<b>What would change it</b>\n' + lines.join('\n') : '');
@@ -256,6 +267,19 @@ function usContext(r) {
     '\n🏦 <b>RATES</b> Curve <code>' + d.yieldCurve + '</code> ' + curve.toLowerCase() + ' · 10Y <code>' + d.treasury10Y + '</code> · 2Y <code>' + d.treasury2Y + '</code> · Fed <code>' + d.fedRateValue + '</code>';
 }
 
+// China has no Fear & Greed gauge: the context is the trend, the policy rates and turnover.
+function cnContext() {
+  const signal = isNA(d.maSignal) ? '' : ' · ' + d.maSignal;
+  const trend = isNA(d.csi300VsMa200) ? '' : '📈 <b>TREND</b> CSI 300 <code>' + d.csi300VsMa200 + '</code> vs its 200-day average' + signal;
+  const parts = [];
+  if (!isNA(d.cgb10Y)) parts.push('10Y bond <code>' + d.cgb10Y + '</code>');
+  if (!isNA(d.lpr1Y)) parts.push('LPR 1Y <code>' + d.lpr1Y + '</code>');
+  if (!isNA(d.lpr5Y)) parts.push('5Y <code>' + d.lpr5Y + '</code>' + (isNA(d.lprDate) ? '' : ' <i>(' + d.lprDate + ')</i>'));
+  const rates = parts.length ? '🏦 <b>RATES</b> ' + parts.join(' · ') : '';
+  const turnover = isNA(d.csi300Turnover) ? '' : '💱 <b>TURNOVER</b> CSI 300 <code>¥' + d.csi300Turnover + 'bn</code>';
+  return [trend, rates, turnover].filter(Boolean).join('\n');
+}
+
 const marketRows = isUS
   ? [['S&amp;P 500', d.sp500, d.sp500Change], ['Dow', d.dowJones, d.dowJonesChange], ['VIX', d.vix, d.vixChange], ['Gold', d.gold, d.goldChange],
      ['Oil WTI', d.oil, d.oilChange], ['US Dollar', d.dxy, d.dxyChange], ['Bitcoin', d.btc, d.btcChange]]
@@ -264,7 +288,9 @@ const marketRows = isUS
 const cnyNote = !isUS && !isNA(d.usdCnyChange)
   ? '\n<i>' + (String(d.usdCnyChange).startsWith('+') ? 'Yuan weaker against the dollar' : String(d.usdCnyChange).startsWith('-') ? 'Yuan stronger against the dollar' : 'Yuan steady against the dollar') + '</i>'
   : '';
-const economy = [['GDP', 'gdpValue', 'gdpYear'], ['CPI', 'cpiValue', 'cpiYear'], ['Unemployment', 'unemploymentValue', 'unemploymentYear']]
+const economyFields = [['GDP', 'gdpValue', 'gdpYear'], ['CPI', 'cpiValue', 'cpiYear'], ['Unemployment', 'unemploymentValue', 'unemploymentYear'],
+  ...(isUS ? [] : [['PPI', 'ppiValue', 'ppiMonth'], ['PMI', 'pmiValue', 'pmiMonth']])];
+const economy = economyFields.filter(([label, key]) => !['PPI', 'PMI'].includes(label) || !isNA(d[key]))
   .map(([label, key, period]) => label + ' <code>' + d[key] + '</code>' + (isNA(d[period]) ? '' : ' (' + d[period] + ')')).join(' · ');
 
 // Watchlist from structured stock details when present; otherwise the fetched summary text.
@@ -288,12 +314,15 @@ const trackRecord = '🎯 <b>TRACK RECORD</b> <code>' + d.trackRecordAccuracy + 
 
 const footer = '━━━━━━━━━━━━━━━━━━' +
   (checkedLine ? '\n' + checkedLine : '') +
-  '\n📎 <i>' + (isUS ? 'CNN Fear &amp; Greed · FRED · MarketWatch · Yahoo Finance · multpl.com' : 'Yahoo Finance · World Bank · Google News') + '</i>' +
+  '\n📎 <i>' + (isUS ? 'CNN Fear &amp; Greed · FRED · MarketWatch · Yahoo Finance · multpl.com' : 'Yahoo Finance · CSI · ChinaBond · NIFC · NBS · World Bank · Google News') + '</i>' +
   '\n🔗 <a href="' + MP_LINKS.DASHBOARD + '">Dashboard</a> · <a href="' + MP_LINKS.REPOSITORY + '">Open source</a>' +
   '\n<i>Information only, not financial advice. AI commentary is checked for sources, not for correctness.</i>';
 
-const ltr = isUS ? boundaryData.longTermReading : null;
-const body = (isUS ? longTermSection(ltr) + '\n\n' + usContext(ltr) + '\n\n' : '') +
+const ltr = boundaryData.longTermReading;
+const context = isUS ? usContext(ltr) : cnContext();
+// The US always carries the section; China carries it once its sources are live (a reading, or a flagged input).
+const carriesReading = isUS || !!(ltr && (ltr.valuation || (Array.isArray(ltr.flags) && ltr.flags.length)));
+const body = (carriesReading ? longTermSection(ltr) + '\n\n' : '') + (context ? context + '\n\n' : '') +
   '💹 <b>MARKETS</b>\n' + table(marketRows) + cnyNote +
   '\n\n🏛️ <b>ECONOMY</b>\n' + economy +
   '\n\n👁️ <b>WATCHLIST</b>\n' + watchlist + '\n\n';
