@@ -327,6 +327,12 @@ import {additionalEvidence, calendarPresentation, citationEvidence, headlineKey,
     }
   }
 
+  function calendarFlag(item) {
+    if (item.status === 'done') return item.today ? 'Released today' : 'Released';
+    if (item.status === 'in-progress') return 'In progress';
+    return item.today ? 'Today' : '';
+  }
+
   function renderCalendar(node, data, calendar) {
     var section = node.querySelector('.calendar-section');
     var shown = calendarPresentation(calendar, data, new Date(), 5);
@@ -339,8 +345,7 @@ import {additionalEvidence, calendarPresentation, citationEvidence, headlineKey,
       var name = el('span', 'name', item.name);
       if (item.region) name.appendChild(el('span', 'region', item.region));
       li.appendChild(name);
-      var flag = item.status === 'done' ? (item.today ? 'Released today' : 'Released')
-        : item.status === 'in-progress' ? 'In progress' : item.today ? 'Today' : '';
+      var flag = calendarFlag(item);
       if (flag) li.appendChild(el('span', 'flag', flag));
       if (item.source) {
         var a = el('a', 'src', 'source');
