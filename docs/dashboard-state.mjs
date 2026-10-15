@@ -114,7 +114,7 @@ const RELEASE_WINDOW_MS = 18 * 60 * 60 * 1000; // a release stays listed until t
 
 function zoneParts(zone, at, options) {
   const parts = new Intl.DateTimeFormat('en-GB', {timeZone: zone, hourCycle: 'h23', ...options}).formatToParts(at);
-  return type => (parts.find(part => part.type === type) || {}).value || '';
+  return type => parts.find(part => part.type === type)?.value || '';
 }
 
 // Minutes east of UTC for `zone` at the instant `at`, from the platform's time-zone data.
@@ -157,37 +157,56 @@ export function calendarWhenLabel(event, start) {
   return dayLabel(first) + ' – ' + dayLabel(last);
 }
 
+const REGION_NAMES = {CN: 'China', US: 'US'};
+const timedStart = event => (text(event.utc) ? new Date(event.utc) : localToUtc(event.date, event.time, event.zone));
+
+// Where an event sits on the clock: {start, end, allDay}, or null when it cannot be placed.
+function eventSpan(event) {
+  const allDay = event.allDay === true || !text(event.time);
+  try {
+    const start = allDay ? localToUtc(event.date, '00:00', event.zone) : timedStart(event);
+    const end = allDay ? new Date(localToUtc(event.endDate || event.date, '00:00', event.zone).getTime() + DAY_MS) : start;
+    if (!Number.isFinite(start.getTime()) || !Number.isFinite(end.getTime())) return null;
+    return {start, end, allDay};
+  } catch { return null; }
+}
+function statusOf(span, now) {
+  if (span.end.getTime() <= now.getTime()) return 'done';
+  if (span.start.getTime() > now.getTime()) return 'upcoming';
+  return span.allDay ? 'in-progress' : 'done';
+}
+function isToday(span, now, todayLabel) {
+  if (span.allDay) return span.start.getTime() <= now.getTime() && now.getTime() < span.end.getTime();
+  return dayLabel(displayDay(span.start)) === todayLabel;
+}
+function sourceOf(sources, event) {
+  const source = sources[event.source];
+  if (!source || !text(source.name) || !String(source.url || '').startsWith('https://')) return null;
+  return {name: source.name, url: source.url};
+}
+function calendarItem(event, sources, now, todayLabel) {
+  if (!text(event?.name) || !text(event?.date) || !text(event?.zone)) return null;
+  const span = eventSpan(event);
+  if (!span || span.end.getTime() < now.getTime() - RELEASE_WINDOW_MS) return null;
+  let when;
+  try { when = calendarWhenLabel({...event, allDay: span.allDay}, span.start); } catch { return null; }
+  return {
+    id: text(event.id) ? event.id : event.name,
+    name: event.name,
+    region: REGION_NAMES[event.region] || '',
+    kind: event.kind === 'meeting' ? 'meeting' : 'release',
+    start: span.start, allDay: span.allDay, status: statusOf(span, now), when,
+    today: isToday(span, now, todayLabel),
+    source: sourceOf(sources, event),
+  };
+}
+
 export function calendarPresentation(calendar, data, now = new Date(), limit = 5) {
   const events = Array.isArray(calendar?.events) ? calendar.events : [];
   const sources = calendar && typeof calendar.sources === 'object' && calendar.sources ? calendar.sources : {};
   const todayLabel = dayLabel(displayDay(now));
-  const items = [];
-  for (const event of events) {
-    if (!text(event?.name) || !text(event?.date) || !text(event?.zone)) continue;
-    const allDay = event.allDay === true || !text(event.time);
-    let start, end;
-    try {
-      start = allDay ? localToUtc(event.date, '00:00', event.zone)
-        : text(event.utc) ? new Date(event.utc) : localToUtc(event.date, event.time, event.zone);
-      end = allDay ? new Date(localToUtc(event.endDate || event.date, '00:00', event.zone).getTime() + DAY_MS) : start;
-    } catch { continue; }
-    if (!Number.isFinite(start.getTime()) || !Number.isFinite(end.getTime())) continue;
-    if (end.getTime() < now.getTime() - RELEASE_WINDOW_MS) continue;
-    const status = end.getTime() <= now.getTime() ? 'done' : start.getTime() <= now.getTime() ? (allDay ? 'in-progress' : 'done') : 'upcoming';
-    const source = sources[event.source];
-    let when;
-    try { when = calendarWhenLabel({...event, allDay}, start); } catch { continue; }
-    items.push({
-      id: text(event.id) ? event.id : event.name,
-      name: event.name,
-      region: event.region === 'CN' ? 'China' : event.region === 'US' ? 'US' : '',
-      kind: event.kind === 'meeting' ? 'meeting' : 'release',
-      start, allDay, status, when,
-      today: allDay ? start.getTime() <= now.getTime() && now.getTime() < end.getTime() : dayLabel(displayDay(start)) === todayLabel,
-      source: source && text(source.name) && /^https:\/\//.test(source.url || '') ? {name: source.name, url: source.url} : null,
-    });
-  }
+  const items = events.map(event => calendarItem(event, sources, now, todayLabel)).filter(Boolean);
   items.sort((a, b) => a.start - b.start);
   const shown = items.slice(0, limit);
-  return {items: shown, sourceNames: [...new Set(shown.map(item => item.source && item.source.name).filter(Boolean))]};
+  return {items: shown, sourceNames: [...new Set(shown.map(item => item.source?.name).filter(Boolean))]};
 }
