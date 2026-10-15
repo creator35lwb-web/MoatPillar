@@ -1,33 +1,8 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-14T13:56:09Z",
+  "generatedAt": "2026-10-15T23:48:35Z",
   "note": "Rebuilt by scripts/build-calendar.mjs from the official calendars listed under sources: FRED’s release dates for the BLS and BEA releases, the NBS press release calendar, and the Federal Reserve’s FOMC dates. date and time are the publisher’s local wall clock; utc is derived. A source that could not be read keeps its earlier entries. Nothing here predicts a figure.",
   "sources": {
-    "fred-calendar": {
-      "name": "FRED economic release calendar (St. Louis Fed)",
-      "url": "https://fred.stlouisfed.org/releases/calendar",
-      "retrievedAt": "2026-10-14"
-    },
-    "bls-cpi": {
-      "name": "BLS, CPI release schedule",
-      "url": "https://www.bls.gov/schedule/news_release/cpi.htm",
-      "retrievedAt": "2026-10-14"
-    },
-    "bls-ppi": {
-      "name": "BLS, PPI release schedule",
-      "url": "https://www.bls.gov/schedule/news_release/ppi.htm",
-      "retrievedAt": "2026-10-14"
-    },
-    "bls-empsit": {
-      "name": "BLS, Employment Situation release schedule",
-      "url": "https://www.bls.gov/schedule/news_release/empsit.htm",
-      "retrievedAt": "2026-10-14"
-    },
-    "bea-schedule": {
-      "name": "BEA release schedule",
-      "url": "https://www.bea.gov/news/schedule",
-      "retrievedAt": "2026-10-14"
-    },
     "fed-fomc": {
       "name": "Federal Reserve, FOMC meeting calendar",
       "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
@@ -36,7 +11,12 @@
     "nbs-calendar": {
       "name": "NBS China, 2026 press release calendar",
       "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html",
-      "retrievedAt": "2026-10-14"
+      "retrievedAt": "2026-10-15"
+    },
+    "fred-releases": {
+      "name": "FRED release calendar (St. Louis Fed), from the BLS and BEA schedules",
+      "url": "https://fred.stlouisfed.org/releases/calendar",
+      "retrievedAt": "2026-10-15"
     }
   },
   "events": [
@@ -61,7 +41,18 @@
       "time": "08:30",
       "zone": "America/New_York",
       "utc": "2026-10-14T12:30:00Z",
-      "source": "fred-calendar"
+      "source": "fred-releases"
+    },
+    {
+      "id": "us-ppi-2026-09",
+      "region": "US",
+      "kind": "release",
+      "name": "Producer Price Index, September",
+      "date": "2026-10-15",
+      "time": "08:30",
+      "zone": "America/New_York",
+      "utc": "2026-10-15T12:30:00Z",
+      "source": "fred-releases"
     },
     {
       "id": "cn-gdp-2026-q3",
@@ -95,7 +86,7 @@
       "time": "08:30",
       "zone": "America/New_York",
       "utc": "2026-10-29T12:30:00Z",
-      "source": "bea-schedule"
+      "source": "fred-releases"
     },
     {
       "id": "cn-pmi-2026-10",
@@ -118,7 +109,7 @@
       "time": "08:30",
       "zone": "America/New_York",
       "utc": "2026-11-06T13:30:00Z",
-      "source": "bls-empsit"
+      "source": "fred-releases"
     },
     {
       "id": "cn-cpi-ppi-2026-10",
@@ -141,7 +132,7 @@
       "time": "08:30",
       "zone": "America/New_York",
       "utc": "2026-11-10T13:30:00Z",
-      "source": "bls-cpi"
+      "source": "fred-releases"
     },
     {
       "id": "us-ppi-2026-10",
@@ -152,7 +143,7 @@
       "time": "08:30",
       "zone": "America/New_York",
       "utc": "2026-11-13T13:30:00Z",
-      "source": "bls-ppi"
+      "source": "fred-releases"
     },
     {
       "id": "cn-activity-2026-10",
@@ -170,12 +161,12 @@
       "id": "us-gdp-2026-q3-second",
       "region": "US",
       "kind": "release",
-      "name": "GDP, third quarter, second estimate, and corporate profits",
+      "name": "GDP, third quarter, second estimate",
       "date": "2026-11-25",
       "time": "08:30",
       "zone": "America/New_York",
       "utc": "2026-11-25T13:30:00Z",
-      "source": "bea-schedule"
+      "source": "fred-releases"
     },
     {
       "id": "cn-pmi-2026-11",
@@ -198,7 +189,7 @@
       "time": "08:30",
       "zone": "America/New_York",
       "utc": "2026-12-04T13:30:00Z",
-      "source": "bls-empsit"
+      "source": "fred-releases"
     },
     {
       "id": "us-fomc-2026-12",
@@ -232,7 +223,7 @@
       "time": "08:30",
       "zone": "America/New_York",
       "utc": "2026-12-10T13:30:00Z",
-      "source": "bls-cpi"
+      "source": "fred-releases"
     },
     {
       "id": "cn-activity-2026-11",
@@ -255,7 +246,7 @@
       "time": "08:30",
       "zone": "America/New_York",
       "utc": "2026-12-15T13:30:00Z",
-      "source": "bls-ppi"
+      "source": "fred-releases"
     },
     {
       "id": "us-gdp-2026-q3-third",
@@ -266,7 +257,7 @@
       "time": "08:30",
       "zone": "America/New_York",
       "utc": "2026-12-23T13:30:00Z",
-      "source": "bea-schedule"
+      "source": "fred-releases"
     },
     {
       "id": "cn-pmi-2026-12",
@@ -279,39 +270,6 @@
       "zone": "Asia/Shanghai",
       "utc": "2026-12-31T01:30:00Z",
       "source": "nbs-calendar"
-    },
-    {
-      "id": "us-empsit-2026-12",
-      "region": "US",
-      "kind": "release",
-      "name": "Employment Situation, December",
-      "date": "2027-01-08",
-      "time": "08:30",
-      "zone": "America/New_York",
-      "utc": "2027-01-08T13:30:00Z",
-      "source": "bls-empsit"
-    },
-    {
-      "id": "us-cpi-2026-12",
-      "region": "US",
-      "kind": "release",
-      "name": "Consumer Price Index, December",
-      "date": "2027-01-13",
-      "time": "08:30",
-      "zone": "America/New_York",
-      "utc": "2027-01-13T13:30:00Z",
-      "source": "bls-cpi"
-    },
-    {
-      "id": "us-ppi-2026-12",
-      "region": "US",
-      "kind": "release",
-      "name": "Producer Price Index, December",
-      "date": "2027-01-14",
-      "time": "08:30",
-      "zone": "America/New_York",
-      "utc": "2027-01-14T13:30:00Z",
-      "source": "bls-ppi"
     },
     {
       "id": "us-fomc-2027-01",
