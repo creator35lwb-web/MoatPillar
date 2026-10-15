@@ -3,12 +3,12 @@
   "verification": {
     "version": 1,
     "status": "approved",
-    "checkedClaims": 4,
+    "checkedClaims": 3,
     "reasonCodes": []
   },
   "edition": "CN",
-  "generatedAt": "2026-10-14T08:31:02.017Z",
-  "dateLabel": "Wednesday, October 14, 2026",
+  "generatedAt": "2026-10-15T08:30:33.474Z",
+  "dateLabel": "Thursday, October 15, 2026",
   "health": {
     "status": "OK",
     "missing": [],
@@ -16,64 +16,64 @@
   },
   "dashboard": {},
   "facts": {
-    "csi300": "4,217.68",
-    "csi300Change": "-1.36%",
-    "sseComposite": "3,767.23",
-    "sseCompositeChange": "-0.79%",
-    "szseComponent": "12,110.59",
-    "szseComponentChange": "-2.21%",
-    "hangSeng": "24,314.17",
-    "hangSengChange": "+0.18%",
-    "gold": "$4,177.00",
-    "goldChange": "-0.01%",
-    "usdCny": "6.6918",
-    "usdCnyChange": "+0.15%",
+    "csi300": "4,166.01",
+    "csi300Change": "-1.23%",
+    "sseComposite": "3,707.48",
+    "sseCompositeChange": "-2.46%",
+    "szseComponent": "11,816.79",
+    "szseComponentChange": "-4.35%",
+    "hangSeng": "24,062.72",
+    "hangSengChange": "-1.03%",
+    "gold": "$4,174.60",
+    "goldChange": "+1.62%",
+    "usdCny": "6.6908",
+    "usdCnyChange": "-0.02%",
     "gdpValue": "+4.96%",
     "cpiValue": "0.06%",
     "unemploymentValue": "4.62%",
-    "moutaiChange": "+0.87%",
-    "catlChange": "-3.11%",
-    "bydChange": "-0.90%",
-    "alibabaChange": "+3.08%",
-    "tencentChange": "-0.42%"
+    "moutaiChange": "+2.10%",
+    "catlChange": "-0.58%",
+    "bydChange": "+0.98%",
+    "alibabaChange": "-3.71%",
+    "tencentChange": "-1.32%"
   },
   "fearGreed": null,
   "screener": [
     {
       "label": "CSI 300",
       "factKey": "csi300Change",
-      "value": "4,217.68",
-      "change": "-1.36%"
+      "value": "4,166.01",
+      "change": "-1.23%"
     },
     {
       "label": "SSE Composite",
       "factKey": "sseCompositeChange",
-      "value": "3,767.23",
-      "change": "-0.79%"
+      "value": "3,707.48",
+      "change": "-2.46%"
     },
     {
       "label": "SZSE Component",
       "factKey": "szseComponentChange",
-      "value": "12,110.59",
-      "change": "-2.21%"
+      "value": "11,816.79",
+      "change": "-4.35%"
     },
     {
       "label": "Hang Seng",
       "factKey": "hangSengChange",
-      "value": "24,314.17",
-      "change": "+0.18%"
+      "value": "24,062.72",
+      "change": "-1.03%"
     },
     {
       "label": "Gold",
       "factKey": "goldChange",
-      "value": "$4,177.00",
-      "change": "-0.01%"
+      "value": "$4,174.60",
+      "change": "+1.62%"
     },
     {
       "label": "USD/CNY",
       "factKey": "usdCnyChange",
-      "value": "6.6918",
-      "change": "+0.15%"
+      "value": "6.6908",
+      "change": "-0.02%"
     }
   ],
   "economic": [
@@ -96,19 +96,12 @@
       "value": "4.62%"
     }
   ],
-  "watchlist": "▲ Moutai (600519.SS): ¥1,286.00 (+0.87%)\n▼ CATL (300750.SZ): ¥280.12 (-3.11%)\n▼ BYD (002594.SZ): ¥81.44 (-0.90%)\n▲ Alibaba (9988.HK): HK$110.50 (+3.08%)\n▼ Tencent (0700.HK): HK$423.40 (-0.42%)",
+  "watchlist": "▲ Moutai (600519.SS): ¥1,312.97 (+2.10%)\n▼ CATL (300750.SZ): ¥278.50 (-0.58%)\n▲ BYD (002594.SZ): ¥82.24 (+0.98%)\n▼ Alibaba (9988.HK): HK$106.40 (-3.71%)\n▼ Tencent (0700.HK): HK$417.80 (-1.32%)",
   "trackRecord": {
-    "accuracy": "5/18 (28%) · 2 too flat to judge",
-    "last": "Cautiously Bearish (2026-10-13) → market moved -1.36% → Correct"
+    "accuracy": "6/19 (32%) · 2 too flat to judge",
+    "last": "Cautiously Bearish (2026-10-14) → market moved -1.23% → Correct"
   },
   "history": [
-    {
-      "date": "2026-07-10",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "-1.79%"
-    },
     {
       "date": "2026-07-13",
       "sentiment": "Cautiously Bearish",
@@ -309,52 +302,56 @@
       "date": "2026-10-14",
       "sentiment": "Cautiously Bearish",
       "verdict": "PASS",
+      "result": "hit",
+      "actualChange": "-1.23%"
+    },
+    {
+      "date": "2026-10-15",
+      "sentiment": "Cautiously Bearish",
+      "verdict": "PASS",
       "result": null,
       "actualChange": null
     }
   ],
-  "analysisModel": "openai/gpt-oss-120b",
-  "analysisProvider": "Groq",
+  "analysisModel": "gemini-3.6-flash",
+  "analysisProvider": "Google",
   "analysis": {
     "sentiment": "Cautiously Bearish",
     "confidence": "Medium",
     "claims": [
       {
-        "text": "The broad equity market posted a modest decline across mainland benchmarks.",
+        "text": "Broad domestic Chinese stock indices experienced sharp declines across mainland and offshore exchanges.",
         "basedOn": [
           "csi300Change",
           "sseCompositeChange",
-          "szseComponentChange"
+          "szseComponentChange",
+          "hangSengChange"
         ],
         "direction": "supports_bearish"
       },
       {
-        "text": "Consumer and technology names on the watchlist showed mixed results with more declines than gains.",
+        "text": "Major technology and consumer watch list equities were largely under pressure, though select consumer and automotive names advanced.",
         "basedOn": [
+          "alibabaChange",
+          "tencentChange",
           "catlChange",
-          "bydChange",
-          "tencentChange"
+          "moutaiChange",
+          "bydChange"
         ],
         "direction": "supports_bearish"
       },
       {
-        "text": "Economic data point to robust growth and minimal inflation pressure.",
+        "text": "Headlines report conflicting assessments of economic performance alongside potential valuation opportunities in equities.",
         "basedOn": [
-          "gdpValue",
-          "cpiValue"
+          "headline_3",
+          "headline_4",
+          "headline_8"
         ],
-        "direction": "supports_bullish"
-      },
-      {
-        "text": "A headline notes that investors are buying in despite broader market weakness.",
-        "basedOn": [
-          "headline_4"
-        ],
-        "direction": "supports_bullish"
+        "direction": "neutral"
       }
     ],
-    "interpretation": "Mainland equities are under pressure while the macro backdrop remains solid, creating a divergence between market sentiment and fundamentals. The mixed performance of key watchlist stocks underscores sectoral uncertainty. Investors should stay cautious, weighing the upside from strong economic indicators against the downside from recent market softness.",
-    "wisdom": "Prioritize businesses with durable competitive advantages and strong cash generation when valuations appear compressed."
+    "interpretation": "Market sentiment remains restrained as mainland equities faced accelerated sell-offs compared to previous sessions. While major technology names pulled back further, underlying economic expansion persists alongside stable currency conditions. Long-term allocation strategy requires monitoring fiscal support signals amidst ongoing market volatility.",
+    "wisdom": "Value investors should distinguish between short-term market turbulence and core business underlying intrinsic worth, maintaining patience when sentiment depresses quality assets."
   },
   "news": [
     {
@@ -364,23 +361,23 @@
     },
     {
       "factKey": "headline_2",
-      "title": "Chinese stocks an undervalued opportunity: Charlie Munger disciple",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNbVZxMFJfenpka3NOSjYyenV0TzVlaTRyeFNxbGF0Nmd4SnNQNDUyM1Qwbl9zb2JGWnRSc1pISWZEQ3FJQ2hOMHRHVUZvQ3UtOHpMWFNqdDdaeUtReWdoSW5yMTVnUHpoUl9kU2sxVXM2d19fSWkzQUNrbE0zdDhCNVRoNU5QaWxpZDlfandOQjBMZFFFT09Oc0VkS3R3N3JNMkdNRS1tM01wMmpiSzFpY09ISWttWW92aWNNdVlGQ3UtWFVyRlRWM1Azd29XTUFhOW5r0gHTAUFVX3lxTE01amQtRTFLS1NQRjBiWGJqWWZwemVMTGJHT29vMGxaNERVdHBmRlZReVJuV296UFZmOUIzeEZ3WlNNeTZZeHJWLTBNQUJiVHNZYnByNVc2Yi1TSWl1Mlk4d0dTQzQ0MGtoY2tpUE1wNHZXNW43YVR6TnpTQUpmSk9OUm9vME1pM1ZIYnlCU3RRa0RnVkxNanQ4clNadXR6ZnBHQmdMVFUwUjRnelhTTmFEMUpaM3NuNlRKc1RnRVQwVkVpVWhrYWVaekl4cFlHdEhmSm8?oc=5"
-    },
-    {
-      "factKey": "headline_3",
-      "title": "7 Best-Performing China Stocks for October 2026",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9raWRYMHpiaEt6dzBFYVA1Z1otb05UNlQzaV9JSVJlZ210T2IteDNqZ0ZLWG9tay1RdFVBcnNKeVRKRHFTVVdwRVdBSFpRVy02UndpY1ViVHlDYkpsWmJHVXN4VGd5UC12?oc=5"
-    },
-    {
-      "factKey": "headline_4",
       "title": "China breaks step with global markets, and investors buy in",
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNQ3h0djZqeHZyVGNZTGlJbXFQMmhSQ1NobzBncUpLV2dLcnBJV0JVQWhjUlhQcDZCVWVxSzJiSWNlelJtU1NoUkt3eTkxS1FBRUhZbWx6aExMLWtrXy1lVkZ1ZVE0blFHc1BRUmc4MDBoWVAwS3pDSjRFeDNBYUUyd3pqOU42R2ZpM0FUV19SVEFmejN2ZElnSThpbUExX1l2?oc=5"
     },
     {
+      "factKey": "headline_3",
+      "title": "Chinese Economy Is Booming, But Stock Markets Haven’t Recovered in 20 Years",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQSmdkem43cFVrTUpINmRZWG96aTFWS01WeVlMOEIyM21BS21PbHlhRERYNld2aFJKT0RVR1dvV01YZFUyM0IwXzBRNmRMdDFvZmZINERZY1VfZWFHQ3JUSWJBM1JzblZvZ2hDSm5EYTNhejR2VDh1S1ZUZmNGQnBQX0VjcDI2dDlDQW5vY0FWeWloalR6a2JMN20ycWlHMVRBN2diMQ?oc=5"
+    },
+    {
+      "factKey": "headline_4",
+      "title": "Chinese stocks an undervalued opportunity: Charlie Munger disciple",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNbVZxMFJfenpka3NOSjYyenV0TzVlaTRyeFNxbGF0Nmd4SnNQNDUyM1Qwbl9zb2JGWnRSc1pISWZEQ3FJQ2hOMHRHVUZvQ3UtOHpMWFNqdDdaeUtReWdoSW5yMTVnUHpoUl9kU2sxVXM2d19fSWkzQUNrbE0zdDhCNVRoNU5QaWxpZDlfandOQjBMZFFFT09Oc0VkS3R3N3JNMkdNRS1tM01wMmpiSzFpY09ISWttWW92aWNNdVlGQ3UtWFVyRlRWM1Azd29XTUFhOW5r0gHTAUFVX3lxTE01amQtRTFLS1NQRjBiWGJqWWZwemVMTGJHT29vMGxaNERVdHBmRlZReVJuV296UFZmOUIzeEZ3WlNNeTZZeHJWLTBNQUJiVHNZYnByNVc2Yi1TSWl1Mlk4d0dTQzQ0MGtoY2tpUE1wNHZXNW43YVR6TnpTQUpmSk9OUm9vME1pM1ZIYnlCU3RRa0RnVkxNanQ4clNadXR6ZnBHQmdMVFUwUjRnelhTTmFEMUpaM3NuNlRKc1RnRVQwVkVpVWhrYWVaekl4cFlHdEhmSm8?oc=5"
+    },
+    {
       "factKey": "headline_5",
-      "title": "Macroscope | Wall Street’s bearish view of China stocks misses key points",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQTkg4X3lacDZyWXdDRHJhbm9MV0FqRFU3a1dDZGNrbUpFaFJCbnJBWFRaa1phUXRfSUt5cmlwMjJJQ2pmTzJRTEZScHFnVGx0OEhKNmNVaEtISWxVdkZPQUhEdkthdXRuMzFMNXlnVl9FaUlxbVc1OUFxX2ExbmVYQ0xlVVR6cXdtUnFuOVFFbGFfUmxoelM1MTAyR3FsS2xEb0g2cHctSldVY3kxQnE1TDkyN1hXdklUQ1HSAboBQVVfeXFMTy1JMG9xd1QyaXZUSWx4akVmMi02NHZ1UHNmQTluWklpM1daMjZtUzR5WkhDT3NiSnJhNzg1aEs3Q25GdFhkX0Z5Y3gwUmU3MVlSTzNmNkxXSUc0TlJxaVhneV9vRnlmbGhCeXVaVnhkX0xQQ3lDRVd1WDRkNFZJcEhEM1RIZzhLVGNndXpzeXZ1NGNZTHNjUVRmMmVaZ0hKVmFvXy1SajZMWmlDSEYzT3d0bjlqUmNYbnRn?oc=5"
+      "title": "7 Best-Performing China Stocks for October 2026",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9raWRYMHpiaEt6dzBFYVA1Z1otb05UNlQzaV9JSVJlZ210T2IteDNqZ0ZLWG9tay1RdFVBcnNKeVRKRHFTVVdwRVdBSFpRVy02UndpY1ViVHlDYkpsWmJHVXN4VGd5UC12?oc=5"
     },
     {
       "factKey": "headline_6",
