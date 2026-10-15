@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-14T09:18:20Z",
-  "note": "Scheduled releases and meetings copied from the official calendars listed under sources, on the date given there. date and time are the publisher’s local wall clock; utc is derived. Maintained by hand until the FRED release-dates feed is wired in (W31). Nothing here predicts a figure.",
+  "generatedAt": "2026-10-14T13:56:09Z",
+  "note": "Rebuilt by scripts/build-calendar.mjs from the official calendars listed under sources: FRED’s release dates for the BLS and BEA releases, the NBS press release calendar, and the Federal Reserve’s FOMC dates. date and time are the publisher’s local wall clock; utc is derived. A source that could not be read keeps its earlier entries. Nothing here predicts a figure.",
   "sources": {
     "fred-calendar": {
       "name": "FRED economic release calendar (St. Louis Fed)",
@@ -267,6 +267,18 @@
       "zone": "America/New_York",
       "utc": "2026-12-23T13:30:00Z",
       "source": "bea-schedule"
+    },
+    {
+      "id": "cn-pmi-2026-12",
+      "region": "CN",
+      "kind": "release",
+      "name": "Purchasing Managers’ Index, December",
+      "date": "2026-12-31",
+      "weekday": "Thu",
+      "time": "09:30",
+      "zone": "Asia/Shanghai",
+      "utc": "2026-12-31T01:30:00Z",
+      "source": "nbs-calendar"
     },
     {
       "id": "us-empsit-2026-12",

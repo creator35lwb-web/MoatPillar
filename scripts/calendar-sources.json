@@ -1,0 +1,47 @@
+{
+  "note": "Inputs for scripts/build-calendar.mjs (W31 step 6). The FOMC dates and the NBS calendar address are copied by hand from the publishers once a year; FRED's release dates are fetched on every run.",
+  "horizonDays": 150,
+  "fred": {
+    "source": {
+      "id": "fred-releases",
+      "name": "FRED release calendar (St. Louis Fed), from the BLS and BEA schedules",
+      "url": "https://fred.stlouisfed.org/releases/calendar"
+    },
+    "time": "08:30",
+    "zone": "America/New_York",
+    "releases": {
+      "Consumer Price Index": { "kind": "monthly", "name": "Consumer Price Index", "slug": "cpi" },
+      "Producer Price Index": { "kind": "monthly", "name": "Producer Price Index", "slug": "ppi" },
+      "Employment Situation": { "kind": "monthly", "name": "Employment Situation", "slug": "empsit" },
+      "Gross Domestic Product": { "kind": "gdp", "name": "GDP", "slug": "gdp" }
+    }
+  },
+  "nbs": {
+    "year": 2026,
+    "source": {
+      "id": "nbs-calendar",
+      "name": "NBS China, 2026 press release calendar",
+      "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html"
+    }
+  },
+  "fomc": {
+    "source": {
+      "id": "fed-fomc",
+      "name": "Federal Reserve, FOMC meeting calendar",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "retrievedAt": "2026-10-14"
+    },
+    "meetings": [
+      { "date": "2026-10-27", "endDate": "2026-10-28" },
+      { "date": "2026-12-08", "endDate": "2026-12-09", "projections": true },
+      { "date": "2027-01-26", "endDate": "2027-01-27" },
+      { "date": "2027-03-16", "endDate": "2027-03-17", "projections": true },
+      { "date": "2027-04-27", "endDate": "2027-04-28" },
+      { "date": "2027-06-08", "endDate": "2027-06-09", "projections": true },
+      { "date": "2027-07-27", "endDate": "2027-07-28" },
+      { "date": "2027-09-14", "endDate": "2027-09-15", "projections": true },
+      { "date": "2027-10-26", "endDate": "2027-10-27" },
+      { "date": "2027-12-07", "endDate": "2027-12-08", "projections": true }
+    ]
+  }
+}

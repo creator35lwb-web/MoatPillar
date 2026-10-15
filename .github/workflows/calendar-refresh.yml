@@ -1,0 +1,44 @@
+name: Release calendar refresh
+
+# Rebuilds docs/data/calendar.json from the official calendars (W31 step 6): FRED's release dates for
+# the BLS and BEA releases (keyed API, the key is an Actions secret and is never printed), the NBS
+# press release calendar page, and the FOMC dates kept in scripts/calendar-sources.json. A source that
+# cannot be read keeps its earlier entries. The commit reaches GitHub Pages with the next daily
+# publication, which deploys the docs folder whole.
+on:
+  schedule:
+    - cron: '20 2 * * 1'   # Mondays 02:20 UTC, 10:20 MYT
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: calendar-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Rebuild the calendar from the official sources
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: node scripts/build-calendar.mjs --write
+      - name: Check the rebuilt file the way the dashboard tests do
+        run: node --test tests/calendar.test.mjs tests/calendar-build.test.mjs
+      - name: Commit when the calendar changed
+        run: |
+          if git diff --quiet -- docs/data/calendar.json; then
+            echo "calendar unchanged; nothing to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/calendar.json
+          git commit -m "Refresh the release calendar from the official calendars (automated)"
+          git push
