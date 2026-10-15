@@ -37,13 +37,19 @@ export function stripTags(html) {
   return out.replaceAll(/\s+/g, ' ').trim();
 }
 
-// ---- FRED: {"release_dates":[{"release_id":10,"release_name":"Consumer Price Index","date":"2026-11-10"}]} ----
+// ---- FRED: {"release_dates":[{"release_id":10,"date":"2026-11-10"}]}, one request per release ----
+// The all-releases list (fred/releases/dates) is capped at 1000 rows and ran out a few weeks ahead on the first
+// keyed run (2026-10-15: 5 events mapped), so each configured release is asked for its own dates. Those
+// answers carry release_id, not release_name; the rule is found by either. Dates from a week back are kept,
+// so a release that just happened still shows as done.
 export function eventsFromFred(json, config, today) {
   const dates = Array.isArray(json?.release_dates) ? json.release_dates : [];
+  const byId = new Map(Object.values(config.releases).filter(rule => Number.isInteger(rule.id)).map(rule => [rule.id, rule]));
+  const floor = shiftDays(today, -7);
   const out = new Map();
   for (const entry of dates) {
-    const rule = config.releases[entry?.release_name];
-    if (!rule || !isoDate(entry.date) || entry.date < today) continue;
+    const rule = byId.get(entry?.release_id) ?? config.releases[entry?.release_name];
+    if (!rule || !isoDate(entry.date) || entry.date < floor) continue;
     const [y, m] = entry.date.split('-').map(Number);
     let id, name;
     if (rule.kind === 'monthly') {
@@ -193,14 +199,24 @@ async function fetchText(url, timeoutMs, fetchImpl) {
 }
 export async function fetchFred(config, today, log, {fetchImpl = globalThis.fetch, key = process.env.FRED_API_KEY} = {}) {
   if (!key) { log('FRED: no key in the environment; the existing US entries are kept'); return null; }
-  const end = shiftDays(today, config.horizonDays);
-  const url = 'https://api.stlouisfed.org/fred/releases/dates?file_type=json&include_release_dates_with_no_data=true'
-    + '&realtime_start=' + today + '&realtime_end=' + end + '&sort_order=asc&limit=1000&api_key=' + encodeURIComponent(key);
+  const start = shiftDays(today, -7), end = shiftDays(today, config.horizonDays);
+  const releases = Object.entries(config.releases).filter(([, rule]) => Number.isInteger(rule.id)).map(([fredName, rule]) => ({...rule, fredName}));
+  const keyed = query => 'https://api.stlouisfed.org/fred/release' + query + '&file_type=json&api_key=' + encodeURIComponent(key);
+  const readRelease = async release => {
+    // The id is checked against the release's own name first: a wrong id would file another release's dates under this name.
+    const about = JSON.parse(await fetchText(keyed('?release_id=' + release.id), 30000, fetchImpl));
+    const name = about?.releases?.[0]?.name;
+    if (name !== release.fredName) throw new Error(`release ${release.id} is "${name}", not "${release.fredName}"`);
+    const json = JSON.parse(await fetchText(keyed('/dates?release_id=' + release.id + '&include_release_dates_with_no_data=true'
+      + '&realtime_start=' + start + '&realtime_end=' + end + '&sort_order=asc&limit=1000'), 30000, fetchImpl));
+    if (!Array.isArray(json?.release_dates)) throw new Error('release ' + release.id + ': no release_dates in the answer');
+    return json.release_dates.map(entry => ({...entry, release_id: release.id}));
+  };
   try {
-    const json = JSON.parse(await fetchText(url, 30000, fetchImpl));
-    const events = eventsFromFred(json, config, today);
-    const names = new Set((json.release_dates || []).map(r => r.release_name));
-    log(`FRED: ${(json.release_dates || []).length} release dates from ${names.size} releases; ${events.length} mapped to events`);
+    // One release failing keeps the whole US group as it was: a partial replacement would drop its entries.
+    const dates = (await Promise.all(releases.map(readRelease))).flat();
+    const events = eventsFromFred({release_dates: dates}, config, today);
+    log(`FRED: ${dates.length} release dates from ${releases.length} releases; ${events.length} mapped to events`);
     return events;
   } catch (error) {
     log('FRED: request failed (' + safeMessage(error) + '); the existing US entries are kept');

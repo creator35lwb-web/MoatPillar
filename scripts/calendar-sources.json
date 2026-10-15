@@ -1,5 +1,5 @@
 {
-  "note": "Inputs for scripts/build-calendar.mjs (W31 step 6). The FOMC dates and the NBS calendar address are copied by hand from the publishers once a year; FRED's release dates are fetched on every run.",
+  "note": "Inputs for scripts/build-calendar.mjs (W31 step 6). The FOMC dates and the NBS calendar address are copied by hand from the publishers once a year; FRED's release dates are fetched on every run, one request per release id (fred.stlouisfed.org/release?rid=<id>).",
   "horizonDays": 150,
   "fred": {
     "source": {
@@ -10,10 +10,10 @@
     "time": "08:30",
     "zone": "America/New_York",
     "releases": {
-      "Consumer Price Index": { "kind": "monthly", "name": "Consumer Price Index", "slug": "cpi" },
-      "Producer Price Index": { "kind": "monthly", "name": "Producer Price Index", "slug": "ppi" },
-      "Employment Situation": { "kind": "monthly", "name": "Employment Situation", "slug": "empsit" },
-      "Gross Domestic Product": { "kind": "gdp", "name": "GDP", "slug": "gdp" }
+      "Consumer Price Index": { "id": 10, "kind": "monthly", "name": "Consumer Price Index", "slug": "cpi" },
+      "Producer Price Index": { "id": 46, "kind": "monthly", "name": "Producer Price Index", "slug": "ppi" },
+      "Employment Situation": { "id": 50, "kind": "monthly", "name": "Employment Situation", "slug": "empsit" },
+      "Gross Domestic Product": { "id": 53, "kind": "gdp", "name": "GDP", "slug": "gdp" }
     }
   },
   "nbs": {

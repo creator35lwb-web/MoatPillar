@@ -4,6 +4,9 @@ import {readFileSync} from 'node:fs';
 import {calendarPresentation, localToUtc, zoneOffsetMinutes} from '../docs/dashboard-state.mjs';
 
 const calendar = JSON.parse(readFileSync('docs/data/calendar.json', 'utf8'));
+// The presentation test pins its expectations to the hand-sourced calendar of PR #129, not to the live file,
+// which the weekly refresh rewrites.
+const handSourced = JSON.parse(readFileSync('tests/fixtures/calendar/calendar-hand-sourced.json', 'utf8'));
 const ZONES = ['America/New_York', 'Asia/Shanghai'];
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -53,13 +56,14 @@ test('the published calendar is well-formed, sourced and internally consistent',
     }
     assert.ok(start >= previous, 'events are in time order: ' + event.id);
     previous = start;
-    assert.ok(start > generated - 30 * DAY_MS && start < generated + 150 * DAY_MS, event.id + ' is inside the maintained window');
+    // The builder keeps a week back and 150 days ahead by date; a release on the horizon day starts after the generation instant.
+    assert.ok(start > generated - 30 * DAY_MS && start < generated + 152 * DAY_MS, event.id + ' is inside the maintained window');
   }
 });
 
 test('the dashboard lists the next items in Malaysia time and marks what was released', () => {
   const brief = {edition: 'US', generatedAt: '2026-10-14T13:01:05Z'};
-  const evening = calendarPresentation(calendar, brief, new Date('2026-10-14T13:30:00Z'), 5);
+  const evening = calendarPresentation(handSourced, brief, new Date('2026-10-14T13:30:00Z'), 5);
   assert.equal(evening.items.length, 5);
   assert.deepEqual(evening.items.slice(0, 2).map(item => [item.name, item.region, item.status, item.today, item.when]), [
     ['CPI and PPI, September', 'China', 'done', true, 'Wed 14 Oct · 09:30 MYT'],
@@ -72,14 +76,14 @@ test('the dashboard lists the next items in Malaysia time and marks what was rel
   assert.ok(evening.sourceNames.length >= 3);
 
   // Two days later the released items have left the list, and the FOMC range reads as the publisher's dates.
-  const later = calendarPresentation(calendar, brief, new Date('2026-10-16T00:00:00Z'), 6);
+  const later = calendarPresentation(handSourced, brief, new Date('2026-10-16T00:00:00Z'), 6);
   assert.equal(later.items.length, 6);
   assert.ok(later.items.every(item => item.status === 'upcoming'));
   const fomc = later.items.find(item => item.kind === 'meeting');
   assert.equal(fomc.when, 'Tue 27 – Wed 28 Oct');
 
   // During the meeting it is in progress; a missing or malformed calendar shows nothing.
-  const during = calendarPresentation(calendar, brief, new Date('2026-10-28T15:00:00Z'), 3);
+  const during = calendarPresentation(handSourced, brief, new Date('2026-10-28T15:00:00Z'), 3);
   assert.equal(during.items[0].kind, 'meeting');
   assert.equal(during.items[0].status, 'in-progress');
   assert.equal(during.items[0].today, true);
