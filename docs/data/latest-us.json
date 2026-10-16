@@ -7,8 +7,8 @@
     "reasonCodes": []
   },
   "edition": "US",
-  "generatedAt": "2026-10-15T13:02:18.596Z",
-  "dateLabel": "Thursday, October 15, 2026",
+  "generatedAt": "2026-10-16T13:01:23.337Z",
+  "dateLabel": "Friday, October 16, 2026",
   "health": {
     "status": "OK",
     "missing": [],
@@ -17,110 +17,110 @@
   "dashboard": {
     "buffettIndicator": {
       "title": "Buffett Indicator",
-      "value": "247%",
+      "value": "248%",
       "status": "Strongly Overvalued",
       "emoji": "🔴"
     },
     "shillerPE": {
       "title": "Shiller P/E (CAPE)",
-      "value": "41.4",
+      "value": "41.0",
       "status": "Strongly Overvalued",
       "emoji": "🔴"
     },
     "yieldCurve": {
       "title": "Yield Curve (10Y-2Y)",
-      "value": "+0.42%",
+      "value": "+0.37%",
       "status": "Flat (Caution)",
       "emoji": "🟡"
     },
     "sp500VsMa200": {
       "title": "S&P 500 vs 200D-MA",
-      "value": "+6.3%",
+      "value": "+6.6%",
       "status": "Strong Bullish (Golden Cross)",
       "emoji": "🟢🟢"
     }
   },
   "facts": {
-    "buffettIndicator": "247%",
-    "shillerPE": "41.4",
-    "yieldCurve": "+0.42%",
-    "sp500VsMa200": "+6.3%",
+    "buffettIndicator": "248%",
+    "shillerPE": "41.0",
+    "yieldCurve": "+0.37%",
+    "sp500VsMa200": "+6.6%",
     "maSignal": "Golden Cross",
-    "fearGreedValue": 30,
-    "sp500": "7718.94",
-    "sp500Change": "-1.11%",
-    "dowJones": "51621.48",
-    "dowJonesChange": "-0.09%",
-    "vix": "17.50",
-    "vixChange": "+14.60%",
-    "gold": "$4163.90",
-    "goldChange": "+1.36%",
-    "oil": "$93.90",
-    "oilChange": "+0.00%",
-    "dxy": "102.15",
-    "dxyChange": "-0.39%",
-    "btc": "$80,452",
-    "btcChange": "-1.37%",
+    "fearGreedValue": 32,
+    "sp500": "7744.06",
+    "sp500Change": "+0.33%",
+    "dowJones": "52177.69",
+    "dowJonesChange": "+1.08%",
+    "vix": "15.98",
+    "vixChange": "-2.92%",
+    "gold": "$4197.20",
+    "goldChange": "+0.65%",
+    "oil": "$95.75",
+    "oilChange": "-0.78%",
+    "dxy": "101.77",
+    "dxyChange": "-0.28%",
+    "btc": "$81,937",
+    "btcChange": "-0.24%",
     "gdpValue": "+2.2% (QoQ annualized)",
     "cpiValue": "3.72%",
     "unemploymentValue": "4.2%",
     "fedRateValue": "4.00%",
-    "treasury10Y": "5.21%",
-    "treasury2Y": "4.79%",
-    "googlChange": "-1.74%",
-    "babaChange": "+0.29%",
-    "adbeChange": "+1.86%",
-    "sofiChange": "-6.69%",
-    "asmlChange": "-3.94%"
+    "treasury10Y": "5.19%",
+    "treasury2Y": "4.82%",
+    "googlChange": "+0.45%",
+    "babaChange": "-0.04%",
+    "adbeChange": "+4.57%",
+    "sofiChange": "+6.12%",
+    "asmlChange": "+0.45%"
   },
   "fearGreed": {
-    "score": 30,
+    "score": 32,
     "classification": "Fear",
-    "change1d": "-2",
-    "change1w": "-10"
+    "change1d": "+1",
+    "change1w": "-14"
   },
   "screener": [
     {
       "label": "S&P 500",
       "factKey": "sp500Change",
-      "value": "7718.94",
-      "change": "-1.11%"
+      "value": "7744.06",
+      "change": "+0.33%"
     },
     {
       "label": "Dow Jones",
       "factKey": "dowJonesChange",
-      "value": "51621.48",
-      "change": "-0.09%"
+      "value": "52177.69",
+      "change": "+1.08%"
     },
     {
       "label": "VIX",
       "factKey": "vixChange",
-      "value": "17.50",
-      "change": "+14.60%"
+      "value": "15.98",
+      "change": "-2.92%"
     },
     {
       "label": "Gold",
       "factKey": "goldChange",
-      "value": "$4163.90",
-      "change": "+1.36%"
+      "value": "$4197.20",
+      "change": "+0.65%"
     },
     {
       "label": "Oil (WTI)",
       "factKey": "oilChange",
-      "value": "$93.90",
-      "change": "+0.00%"
+      "value": "$95.75",
+      "change": "-0.78%"
     },
     {
       "label": "US Dollar",
       "factKey": "dxyChange",
-      "value": "102.15",
-      "change": "-0.39%"
+      "value": "101.77",
+      "change": "-0.28%"
     },
     {
       "label": "Bitcoin",
       "factKey": "btcChange",
-      "value": "$80,452",
-      "change": "-1.37%"
+      "value": "$81,937",
+      "change": "-0.24%"
     }
   ],
   "economic": [
@@ -150,27 +150,20 @@
     {
       "label": "10Y Treasury",
       "factKey": "treasury10Y",
-      "value": "5.21%"
+      "value": "5.19%"
     },
     {
       "label": "2Y Treasury",
       "factKey": "treasury2Y",
-      "value": "4.79%"
+      "value": "4.82%"
     }
   ],
-  "watchlist": "  GOOGL: $347.64 (-1.74%)\n  BABA: $111.17 (+0.29%)\n  ADBE: $240.68 (+1.86%)\n  SOFI: $14.22 (-6.69%)\n  ASML: $1650.00 (-3.94%)",
+  "watchlist": "  GOOGL: $349.22 (+0.45%)\n  BABA: $111.13 (-0.04%)\n  ADBE: $251.67 (+4.57%)\n  SOFI: $15.09 (+6.12%)\n  ASML: $1657.44 (+0.45%)",
   "trackRecord": {
     "accuracy": "14/21 (67%) · 9 too flat to judge",
-    "last": "Cautiously Bearish (2026-10-14) → market moved -1.11% → Correct"
+    "last": "Cautiously Bearish (2026-10-15) → market moved +0.33% → Miss"
   },
   "history": [
-    {
-      "date": "2026-08-09",
-      "sentiment": "Cautiously Bearish",
-      "verdict": "PASS",
-      "result": null,
-      "actualChange": null
-    },
     {
       "date": "2026-08-12",
       "sentiment": "Cautiously Bearish",
@@ -203,8 +196,8 @@
       "date": "2026-08-21",
       "sentiment": "Cautiously Bearish",
       "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "+0.43%"
+      "result": null,
+      "actualChange": null
     },
     {
       "date": "2026-08-23",
@@ -371,6 +364,13 @@
       "date": "2026-10-15",
       "sentiment": "Cautiously Bearish",
       "verdict": "PASS",
+      "result": "miss",
+      "actualChange": "+0.33%"
+    },
+    {
+      "date": "2026-10-16",
+      "sentiment": "Cautiously Bearish",
+      "verdict": "PASS",
       "result": null,
       "actualChange": null
     }
@@ -382,7 +382,7 @@
     "confidence": "High",
     "claims": [
       {
-        "text": "Macroeconomic valuation metrics suggest that broad market equities remain heavily overvalued relative to total national output and historical corporate earnings standards.",
+        "text": "Macroeconomic valuation metrics continue to signal severe market overvaluation relative to national economic output and historical corporate profits.",
         "basedOn": [
           "buffettIndicator",
           "shillerPE"
@@ -390,66 +390,65 @@
         "direction": "supports_bearish"
       },
       {
-        "text": "Volatility has risen alongside declining market sentiment as major artificial intelligence and semiconductor holdings experience fresh selling pressure.",
-        "basedOn": [
-          "vixChange",
-          "headline_1",
-          "asmlChange"
-        ],
-        "direction": "supports_bearish"
-      },
-      {
-        "text": "Risk-free yields on government debt remain highly competitive compared to equity yield profiles, presenting a safer sanctuary while equity valuations are elevated.",
+        "text": "Government bond yields remain elevated while inflation pressures persist, maintaining an attractive risk-free alternative to equities.",
         "basedOn": [
           "treasury10Y",
           "cpiValue"
         ],
         "direction": "supports_bearish"
+      },
+      {
+        "text": "Market participants exhibit fear while commentary indicates momentum in artificial intelligence trading may be waning.",
+        "basedOn": [
+          "fearGreedValue",
+          "headline_8"
+        ],
+        "direction": "supports_bearish"
       }
     ],
-    "interpretation": "Market conditions remain defined by extreme overall valuations despite growing investor anxiety and pulled-back tech sentiment. Compared to prior analysis, market volatility spiked sharply while broad tech shares faced renewed headwinds. Value investors should maintain patience, keeping capital in high-yielding cash equivalents until margins of safety reappear.",
-    "wisdom": "Price is what you pay, value is what you get, so true bargain opportunities emerge only when sentiment turns fearful and security prices fall far below intrinsic worth."
+    "interpretation": "Volatility subsided slightly and selective software equities rebounded, yet structural overvaluation and attractive risk-free treasury yields keep our overall stance unchanged. Value investors should remain patient, holding cash reserves until widespread margins of safety reappear.",
+    "wisdom": "Price is what you pay, value is what you get, so demand a generous margin of safety before deploying capital into expensive markets."
   },
   "news": [
     {
       "factKey": "headline_1",
-      "title": "Micron, Nvidia and other chip stocks face renewed pressure as AI fears swell",
-      "url": "https://www.marketwatch.com/story/micron-nvidia-and-other-chip-stocks-face-renewed-pressure-as-ai-fears-swell-4e0dc989?mod=mw_rss_topstories"
+      "title": "Is Apple's foldable iPhone Duo worth $2,000? See how it stacks up against other foldable phones.",
+      "url": "https://www.marketwatch.com/story/is-apples-foldable-iphone-duo-worth-2-000-see-how-it-stacks-up-against-other-foldable-phones-c9066b13?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_2",
-      "title": "This 30-year market veteran is alarmed by a record-chasing S&P 500. Here's where he's investing instead.",
-      "url": "https://www.marketwatch.com/story/this-30-year-market-veteran-is-alarmed-by-a-near-record-s-p-500-heres-where-hes-investing-instead-c6611143?mod=mw_rss_topstories"
+      "title": "'It's a wait-and-see situation': I'm 63 and diagnosed with lymphoma. Should I take my Social Security next year?",
+      "url": "https://www.marketwatch.com/story/its-a-wait-and-see-situation-im-63-and-diagnosed-with-lymphoma-should-i-take-my-social-security-next-year-ea88b419?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_3",
-      "title": "There's a 'monstrous bull market' developing under the surface of the S&P 500. This hedge-fund manager tells you where it's at.",
-      "url": "https://www.marketwatch.com/story/theres-a-monstrous-bull-market-developing-under-the-surface-of-the-s-p-500-this-hedge-fund-manager-tells-you-where-its-at-98450ef4?mod=mw_rss_topstories"
+      "title": "My wife says we can't afford to retire. I vetoed her $8,000 trip to Italy. We're in our 60s and have $4 million. Do I keep working?",
+      "url": "https://www.marketwatch.com/story/my-wife-says-we-cant-afford-to-retire-we-have-4-million-do-i-just-keep-working-f1b6b085?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_4",
-      "title": "CoreWeave's AI bonds tumble, raising red flags for the wider market",
-      "url": "https://www.marketwatch.com/story/coreweave-sparks-worry-about-broader-credit-market-stress-as-its-bonds-tumble-887458e4?mod=mw_rss_topstories"
+      "title": "Can a $55,000-plus robot load the dishwasher? Inside my afternoon with two humanoid housekeepers.",
+      "url": "https://www.marketwatch.com/story/can-a-55-000-plus-robot-load-the-dishwasher-inside-my-afternoon-with-two-humanoid-housekeepers-0a9569ab?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_5",
-      "title": "'Some people did everything right': I lost my home in the Great Recession. I rent in my 50s. Why is that judged as failure?",
-      "url": "https://www.marketwatch.com/story/i-earn-110-000-a-year-i-lost-my-home-in-the-great-recession-im-renting-in-my-50s-why-is-that-judged-as-failure-d1371d67?mod=mw_rss_topstories"
+      "title": "Nearly 40% of the S&P 500 is in a bear market. Here are 10 of those stocks that analysts say can gain up to 81%.",
+      "url": "https://www.marketwatch.com/story/nearly-40-of-the-s-p-500-is-in-a-bear-market-here-are-10-of-those-stocks-that-analysts-say-can-gain-up-to-81-93a51af6?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_6",
-      "title": "I'm 64 years old, with two sons, but only one works in the family firm. Should I leave him 70% of the business?",
-      "url": "https://www.marketwatch.com/story/im-64-years-old-with-two-sons-but-only-one-works-in-the-family-firm-should-i-leave-him-70-of-the-business-2fe6c382?mod=mw_rss_topstories"
+      "title": "How a midterm sweep by Democrats could turn this tech selloff into a tech crash",
+      "url": "https://www.marketwatch.com/story/how-a-midterm-sweep-by-democrats-could-turn-this-tech-selloff-into-a-tech-crash-a1d1a82f?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_7",
-      "title": "'New Girl' star Jake Johnson lists lush and private Pasadena estate for $3.3 million",
-      "url": "https://www.marketwatch.com/story/new-girl-star-jake-johnson-lists-lush-and-private-pasadena-estate-for-3-3-million-b6788838?mod=mw_rss_topstories"
+      "title": "Jefferies technical analyst finds an encouraging development in Thursday rebound, setting stage for rally into year-end",
+      "url": "https://www.marketwatch.com/story/jefferies-technical-analyst-finds-an-encouraging-development-in-thursday-rebound-setting-stage-for-rally-into-year-end-34ad6e31?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_8",
-      "title": "Why the AI trade is not set up for a rebound like July's, according to JPMorgan",
-      "url": "https://www.marketwatch.com/story/why-the-ai-trade-is-not-set-up-for-a-rebound-like-julys-according-to-jpmorgan-5ae511db?mod=mw_rss_topstories"
+      "title": "The best of the AI trade could be behind us. Here's how to prepare, according to Barclays.",
+      "url": "https://www.marketwatch.com/story/the-best-of-the-ai-trade-could-be-behind-us-heres-how-to-prepare-according-to-barclays-725ab4dd?mod=mw_rss_topstories"
     }
   ],
   "sources": [
