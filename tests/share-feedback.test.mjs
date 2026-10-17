@@ -54,6 +54,19 @@ test('every daily post carries the three button URLs, and the footer uses the sa
   }
 });
 
+test('the daily post closes with a titled section, not a drawn rule', () => {
+  for (const edition of ['US', 'CN']) {
+    const {verified} = pipeline(edition, validAnalysis(edition));
+    const out = runNode('compose-telegram-message' + suffixFor(edition), verified)[0].json;
+    assert.doesNotMatch(out.message, /[━─═]{4,}/, edition + ': no line of box-drawing characters');
+    assert.match(out.message, /\n\nℹ️ <b>ABOUT THIS BRIEF<\/b>\n/, edition + ': the closing section header');
+    const about = out.message.slice(out.message.indexOf('ℹ️ <b>ABOUT THIS BRIEF</b>'));
+    assert.match(about, /📎 <i>/, edition + ': sources inside the closing section');
+    assert.match(about, /Information only, not financial advice\./, edition + ': the disclaimer inside it');
+    assert.ok(out.message.length <= 4096, edition + ': within the Telegram limit');
+  }
+});
+
 test('the weekly report links to the real dashboard and carries the same buttons', () => {
   const out = runNode('compose-weekly-report', [], {state: {}})[0].json;
   assert.doesNotMatch(out.message, /YOUR_GITHUB_USERNAME/);
