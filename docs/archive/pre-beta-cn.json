@@ -1,25 +1,11 @@
 {
   "edition": "CN",
-  "generatedAt": "2026-10-08T08:30:25.224Z",
+  "generatedAt": "2026-10-16T08:30:48.728Z",
   "trackRecord": {
-    "accuracy": "4/16 (25%) · 1 too flat to judge",
-    "last": "Cautiously Bearish (2026-09-28) → market moved +0.29% → Miss"
+    "accuracy": "6/19 (32%) · 3 too flat to judge",
+    "last": "Cautiously Bearish (2026-10-15) → market moved +0.11% → Too flat to judge"
   },
   "history": [
-    {
-      "date": "2026-07-10",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "-1.79%"
-    },
-    {
-      "date": "2026-07-13",
-      "sentiment": "Cautiously Bearish",
-      "verdict": "PASS",
-      "result": null,
-      "actualChange": null
-    },
     {
       "date": "2026-07-15",
       "sentiment": "n/a",
@@ -190,6 +176,41 @@
     },
     {
       "date": "2026-10-08",
+      "sentiment": "Cautiously Bearish",
+      "verdict": "PASS",
+      "result": "flat",
+      "actualChange": "+0.16%"
+    },
+    {
+      "date": "2026-10-09",
+      "sentiment": "Cautiously Bullish",
+      "verdict": "PASS",
+      "result": "miss",
+      "actualChange": "-0.29%"
+    },
+    {
+      "date": "2026-10-13",
+      "sentiment": "Cautiously Bearish",
+      "verdict": "PASS",
+      "result": "hit",
+      "actualChange": "-1.36%"
+    },
+    {
+      "date": "2026-10-14",
+      "sentiment": "Cautiously Bearish",
+      "verdict": "PASS",
+      "result": "hit",
+      "actualChange": "-1.23%"
+    },
+    {
+      "date": "2026-10-15",
+      "sentiment": "Cautiously Bearish",
+      "verdict": "PASS",
+      "result": "flat",
+      "actualChange": "+0.11%"
+    },
+    {
+      "date": "2026-10-16",
       "sentiment": "Cautiously Bearish",
       "verdict": "PASS",
       "result": null,
