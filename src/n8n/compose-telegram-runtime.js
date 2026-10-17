@@ -312,7 +312,9 @@ const trackRecord = '🎯 <b>TRACK RECORD</b> <code>' + d.trackRecordAccuracy + 
   '\n<i>' + (recordSince ? MP_PHASE.LABEL + ' record since ' + recordSince + '.' : 'The ' + MP_PHASE.LABEL.toLowerCase() + ' record starts once its first call is graded.') +
   ' Short-term reads are graded automatically against what the market did next, never predicted.</i>';
 
-const footer = '━━━━━━━━━━━━━━━━━━' +
+// The closing section opens with a header like every other section, not a drawn rule: a line of
+// box-drawing characters wraps or stops short on narrow screens and reads as decoration.
+const footer = 'ℹ️ <b>ABOUT THIS BRIEF</b>' +
   (checkedLine ? '\n' + checkedLine : '') +
   '\n📎 <i>' + (isUS ? 'CNN Fear &amp; Greed · FRED · MarketWatch · Yahoo Finance · multpl.com' : 'Yahoo Finance · CSI · ChinaBond · NIFC · NBS · World Bank · Google News') + '</i>' +
   '\n🔗 <a href="' + MP_LINKS.DASHBOARD + '">Dashboard</a> · <a href="' + MP_LINKS.REPOSITORY + '">Open source</a>' +
