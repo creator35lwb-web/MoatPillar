@@ -7,8 +7,8 @@
     "reasonCodes": []
   },
   "edition": "US",
-  "generatedAt": "2026-10-17T13:01:12.325Z",
-  "dateLabel": "Saturday, October 17, 2026",
+  "generatedAt": "2026-10-18T13:01:08.213Z",
+  "dateLabel": "Sunday, October 18, 2026",
   "asOf": {
     "label": "Prices as of the Fri, Oct 16 close",
     "session": "2026-10-16",
@@ -17,7 +17,7 @@
   },
   "longTermReading": {
     "version": "ltr.v1",
-    "status": "first",
+    "status": "steady",
     "today": "ok",
     "valuation": {
       "lo": 5,
@@ -161,8 +161,8 @@
     "oilChange": "+2.61%",
     "dxy": "101.78",
     "dxyChange": "-0.06%",
-    "btc": "$81,408",
-    "btcChange": "-0.11%",
+    "btc": "$81,873",
+    "btcChange": "+0.60%",
     "gdpValue": "+2.2% (QoQ annualized)",
     "cpiValue": "3.72%",
     "unemploymentValue": "4.2%",
@@ -221,8 +221,8 @@
     {
       "label": "Bitcoin",
       "factKey": "btcChange",
-      "value": "$81,408",
-      "change": "-0.11%"
+      "value": "$81,873",
+      "change": "+0.60%"
     }
   ],
   "economic": [
@@ -284,15 +284,15 @@
     "confidence": "Medium",
     "claims": [
       {
-        "text": "Market sentiment exhibits extreme fear alongside a sharp increase in expected equity volatility.",
+        "text": "Market volatility experienced a sharp surge while sentiment metrics indicate extreme fear.",
         "basedOn": [
-          "fearGreedValue",
-          "vixChange"
+          "vixChange",
+          "fearGreedValue"
         ],
         "direction": "supports_bearish"
       },
       {
-        "text": "Broad stock market benchmarks and technology watchlist equities declined sharply today.",
+        "text": "Broad equity indices and key tech watchlist holdings experienced broad declines today.",
         "basedOn": [
           "sp500Change",
           "dowJonesChange",
@@ -302,64 +302,64 @@
         "direction": "supports_bearish"
       },
       {
-        "text": "Long term valuation metrics indicate elevated overall market price levels relative to economic output and historic earnings.",
+        "text": "Market news reports silent internal rotation inside major index constituents warning of weakness.",
+        "basedOn": [
+          "headline_1"
+        ],
+        "direction": "supports_bearish"
+      },
+      {
+        "text": "Long term structural valuation indicators remain elevated relative to broad economic output and earnings.",
         "basedOn": [
           "buffettIndicator",
           "shillerPE"
         ],
         "direction": "neutral"
-      },
-      {
-        "text": "Headline news reports a selloff across technology companies and software firms.",
-        "basedOn": [
-          "headline_8"
-        ],
-        "direction": "supports_bearish"
       }
     ],
-    "interpretation": "While long-term conditions remain historically stretched, short-term market dynamics are experiencing a pronounced pullback driven by rising volatility and technology weakness. With no prior baseline available, this initial short-term read reflects current selling pressure across major market segments. Value investors observe heightened market fear alongside sector markdowns, while broader market valuation metrics remain demanding.",
-    "wisdom": "Price is what you pay, value is what you get, and widespread market fear often creates discrepancies between market price and intrinsic worth."
+    "interpretation": "While long term valuations remain historically stretched, short term price declines and surging volatility maintain pressure on equity markets. Compared to the prior analysis, short term bearish sentiment held firm as major equity indices and individual tech stocks experienced further selloffs alongside elevated fear. Value investors observe that despite temporary market anxiety, overall asset prices have not yet adjusted enough to provide significant margins of safety.",
+    "wisdom": "Price is what you pay, value is what you get, and waiting patiently for an adequate margin of safety remains essential when market fear rises without delivering true bargains."
   },
   "news": [
     {
       "factKey": "headline_1",
-      "title": "Influencers and biohackers swear by fasting. Here's what the science says.",
-      "url": "https://www.marketwatch.com/story/influencers-and-biohackers-swear-by-fasting-heres-what-the-science-says-3318191f?mod=mw_rss_topstories"
+      "title": "There is a silent market rotation inside the S&P 500 that's warning of more weakness ahead",
+      "url": "https://www.marketwatch.com/story/there-is-a-silent-market-rotation-inside-the-s-p-500-thats-warning-of-more-weakness-ahead-549e7650?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_2",
-      "title": "Silver's recent 50% drop from a record high hints that an economic slowdown looms",
-      "url": "https://www.marketwatch.com/story/silvers-recent-50-drop-from-a-record-high-hints-that-an-economic-slowdown-looms-e9fdfaf1?mod=mw_rss_topstories"
+      "title": "Can a $55,000 robot load the dishwasher? Inside my afternoon with two humanoid housekeepers.",
+      "url": "https://www.marketwatch.com/story/can-a-55-000-plus-robot-load-the-dishwasher-inside-my-afternoon-with-two-humanoid-housekeepers-0a9569ab?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_3",
-      "title": "Microsoft, Shopify and 3 more AI stocks that are favorite Wall Street earnings plays",
-      "url": "https://www.marketwatch.com/story/microsoft-shopify-and-3-more-ai-stocks-that-are-favorite-wall-street-earnings-plays-0bb61e81?mod=mw_rss_topstories"
+      "title": "Fake shopping sprees and 'happiness insurance': The latest fintech apps reveal our financial anxieties",
+      "url": "https://www.marketwatch.com/story/fake-shopping-sprees-and-happiness-insurance-the-latest-fintech-apps-reveal-our-financial-anxieties-77770a46?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_4",
-      "title": "I'm 64 with two sons, but only one works in the family firm. Should I leave him 70% of the business?",
-      "url": "https://www.marketwatch.com/story/im-64-years-old-with-two-sons-but-only-one-works-in-the-family-firm-should-i-leave-him-70-of-the-business-2fe6c382?mod=mw_rss_topstories"
+      "title": "Investing, not homeownership, is the No. 1 milestone that makes Gen Z renters feel successful",
+      "url": "https://www.marketwatch.com/story/gen-z-renters-are-the-only-group-more-likely-to-feel-successful-by-investing-than-buying-a-house-30ac5344?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_5",
-      "title": "It was another great week for the average stock as market leadership shifts away from tech",
-      "url": "https://www.marketwatch.com/story/it-was-another-great-week-for-the-average-stock-as-market-leadership-shifts-away-from-tech-8e8516da?mod=mw_rss_topstories"
+      "title": "Is Apple's foldable iPhone Duo worth $2,000? See how it stacks up against other foldable phones.",
+      "url": "https://www.marketwatch.com/story/is-apples-foldable-iphone-duo-worth-2-000-see-how-it-stacks-up-against-other-foldable-phones-c9066b13?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_6",
-      "title": "I'm 63 and diagnosed with lymphoma. Should I take my Social Security next year?",
-      "url": "https://www.marketwatch.com/story/its-a-wait-and-see-situation-im-63-and-diagnosed-with-lymphoma-should-i-take-my-social-security-next-year-ea88b419?mod=mw_rss_topstories"
+      "title": "'Some people did everything right': I lost my home in the Great Recession. I rent in my 50s. Why is that judged as failure?",
+      "url": "https://www.marketwatch.com/story/i-earn-110-000-a-year-i-lost-my-home-in-the-great-recession-im-renting-in-my-50s-why-is-that-judged-as-failure-d1371d67?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_7",
-      "title": "Fed interest-rate decision this month is a closer call than markets think",
-      "url": "https://www.marketwatch.com/story/fed-interest-rate-decision-this-month-is-a-closer-call-than-markets-think-f96ccf95?mod=mw_rss_topstories"
+      "title": "Meet the home buyers totally unfazed by 7% mortgage rates",
+      "url": "https://www.marketwatch.com/story/meet-the-home-buyers-totally-unfazed-by-7-mortgage-rates-7a9b1cc7?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_8",
-      "title": "Nowhere to hide: Tech selloff hits software and chip stocks alike",
-      "url": "https://www.marketwatch.com/story/nowhere-to-hide-tech-selloff-hits-software-and-chip-stocks-alike-6d96773c?mod=mw_rss_topstories"
+      "title": "Influencers and biohackers swear by fasting. Here's what the science says.",
+      "url": "https://www.marketwatch.com/story/influencers-and-biohackers-swear-by-fasting-heres-what-the-science-says-3318191f?mod=mw_rss_topstories"
     }
   ],
   "sources": [
