@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-15T23:48:35Z",
+  "generatedAt": "2026-10-19T07:55:16Z",
   "note": "Rebuilt by scripts/build-calendar.mjs from the official calendars listed under sources: FRED’s release dates for the BLS and BEA releases, the NBS press release calendar, and the Federal Reserve’s FOMC dates. date and time are the publisher’s local wall clock; utc is derived. A source that could not be read keeps its earlier entries. Nothing here predicts a figure.",
   "sources": {
     "fed-fomc": {
@@ -11,12 +11,12 @@
     "nbs-calendar": {
       "name": "NBS China, 2026 press release calendar",
       "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html",
-      "retrievedAt": "2026-10-15"
+      "retrievedAt": "2026-10-19"
     },
     "fred-releases": {
       "name": "FRED release calendar (St. Louis Fed), from the BLS and BEA schedules",
       "url": "https://fred.stlouisfed.org/releases/calendar",
-      "retrievedAt": "2026-10-15"
+      "retrievedAt": "2026-10-19"
     }
   },
   "events": [
@@ -278,6 +278,17 @@
       "name": "FOMC meeting",
       "date": "2027-01-26",
       "endDate": "2027-01-27",
+      "allDay": true,
+      "zone": "America/New_York",
+      "source": "fed-fomc"
+    },
+    {
+      "id": "us-fomc-2027-03",
+      "region": "US",
+      "kind": "meeting",
+      "name": "FOMC meeting, with economic projections",
+      "date": "2027-03-16",
+      "endDate": "2027-03-17",
       "allDay": true,
       "zone": "America/New_York",
       "source": "fed-fomc"
