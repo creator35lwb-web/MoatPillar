@@ -3,12 +3,18 @@
   "verification": {
     "version": 1,
     "status": "approved",
-    "checkedClaims": 3,
+    "checkedClaims": 4,
     "reasonCodes": []
   },
   "edition": "CN",
-  "generatedAt": "2026-10-16T08:30:48.728Z",
-  "dateLabel": "Friday, October 16, 2026",
+  "generatedAt": "2026-10-19T08:30:29.850Z",
+  "dateLabel": "Monday, October 19, 2026",
+  "asOf": {
+    "label": "Prices as of the Mon, Oct 19 close",
+    "session": "2026-10-19",
+    "closed": false,
+    "intraday": false
+  },
   "health": {
     "status": "OK",
     "missing": [],
@@ -16,24 +22,24 @@
   },
   "dashboard": {},
   "facts": {
-    "csi300": "4,170.61",
-    "csi300Change": "+0.11%",
-    "sseComposite": "3,716.28",
-    "sseCompositeChange": "-1.35%",
-    "szseComponent": "11,802.46",
-    "szseComponentChange": "-2.54%",
+    "csi300": "4,174.53",
+    "csi300Change": "+0.09%",
+    "sseComposite": "3,730.92",
+    "sseCompositeChange": "+0.39%",
+    "szseComponent": "11,817.42",
+    "szseComponentChange": "+0.13%",
     "hangSeng": "24,186.83",
-    "hangSengChange": "-0.52%",
-    "gold": "$4,200.60",
-    "goldChange": "+0.73%",
-    "usdCny": "6.6861",
-    "usdCnyChange": "-0.06%",
+    "hangSengChange": "+0.52%",
+    "gold": "$4,197.60",
+    "goldChange": "+0.39%",
+    "usdCny": "6.6809",
+    "usdCnyChange": "+0.06%",
     "gdpValue": "+4.96%",
     "cpiValue": "0.06%",
     "unemploymentValue": "4.62%",
-    "moutaiChange": "+1.22%",
-    "catlChange": "-0.54%",
-    "bydChange": "+0.58%",
+    "moutaiChange": "-0.30%",
+    "catlChange": "-3.60%",
+    "bydChange": "+0.94%",
     "alibabaChange": "+2.26%",
     "tencentChange": "+0.00%"
   },
@@ -42,38 +48,38 @@
     {
       "label": "CSI 300",
       "factKey": "csi300Change",
-      "value": "4,170.61",
-      "change": "+0.11%"
+      "value": "4,174.53",
+      "change": "+0.09%"
     },
     {
       "label": "SSE Composite",
       "factKey": "sseCompositeChange",
-      "value": "3,716.28",
-      "change": "-1.35%"
+      "value": "3,730.92",
+      "change": "+0.39%"
     },
     {
       "label": "SZSE Component",
       "factKey": "szseComponentChange",
-      "value": "11,802.46",
-      "change": "-2.54%"
+      "value": "11,817.42",
+      "change": "+0.13%"
     },
     {
       "label": "Hang Seng",
       "factKey": "hangSengChange",
       "value": "24,186.83",
-      "change": "-0.52%"
+      "change": "+0.52%"
     },
     {
       "label": "Gold",
       "factKey": "goldChange",
-      "value": "$4,200.60",
-      "change": "+0.73%"
+      "value": "$4,197.60",
+      "change": "+0.39%"
     },
     {
       "label": "USD/CNY",
       "factKey": "usdCnyChange",
-      "value": "6.6861",
-      "change": "-0.06%"
+      "value": "6.6809",
+      "change": "+0.06%"
     }
   ],
   "economic": [
@@ -96,306 +102,116 @@
       "value": "4.62%"
     }
   ],
-  "watchlist": "▲ Moutai (600519.SS): ¥1,329.00 (+1.22%)\n▼ CATL (300750.SZ): ¥277.00 (-0.54%)\n▲ BYD (002594.SZ): ¥82.72 (+0.58%)\n▲ Alibaba (9988.HK): HK$108.80 (+2.26%)\n▲ Tencent (0700.HK): HK$417.80 (+0.00%)",
+  "watchlist": "▼ Moutai (600519.SS): ¥1,324.97 (-0.30%)\n▼ CATL (300750.SZ): ¥267.02 (-3.60%)\n▲ BYD (002594.SZ): ¥83.50 (+0.94%)\n▲ Alibaba (9988.HK): HK$108.80 (+2.26%)\n▲ Tencent (0700.HK): HK$417.80 (+0.00%)",
   "trackRecord": {
-    "accuracy": "6/19 (32%) · 3 too flat to judge",
-    "last": "Cautiously Bearish (2026-10-15) → market moved +0.11% → Too flat to judge"
+    "accuracy": "Building history",
+    "last": "",
+    "baseline": "",
+    "phase": "beta",
+    "since": ""
   },
   "history": [
     {
-      "date": "2026-07-15",
-      "sentiment": "n/a",
-      "verdict": "PASS",
-      "result": null,
-      "actualChange": null
-    },
-    {
-      "date": "2026-07-16",
-      "sentiment": "Neutral",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "-3.60%"
-    },
-    {
-      "date": "2026-07-17",
-      "sentiment": "Bearish",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "+1.53%"
-    },
-    {
-      "date": "2026-07-20",
+      "date": "2026-10-19",
       "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": "hit",
-      "actualChange": "+3.06%"
-    },
-    {
-      "date": "2026-07-21",
-      "sentiment": "Bullish",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "-0.46%"
-    },
-    {
-      "date": "2026-07-22",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "FAIL",
-      "result": "hit",
-      "actualChange": "+0.23%"
-    },
-    {
-      "date": "2026-07-23",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": null,
-      "actualChange": null
-    },
-    {
-      "date": "2026-07-24",
-      "sentiment": "n/a",
-      "verdict": "PASS",
-      "result": null,
-      "actualChange": null
-    },
-    {
-      "date": "2026-07-27",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "-2.83%"
-    },
-    {
-      "date": "2026-07-28",
-      "sentiment": "Neutral",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "+0.67%"
-    },
-    {
-      "date": "2026-07-29",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "-1.10%"
-    },
-    {
-      "date": "2026-07-30",
-      "sentiment": "Neutral",
-      "verdict": "PASS",
-      "result": null,
-      "actualChange": null
-    },
-    {
-      "date": "2026-08-05",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": null,
-      "actualChange": null
-    },
-    {
-      "date": "2026-08-10",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "-0.81%"
-    },
-    {
-      "date": "2026-08-11",
-      "sentiment": "Cautiously Bearish",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "+0.58%"
-    },
-    {
-      "date": "2026-08-12",
-      "sentiment": "Neutral",
-      "verdict": "PASS",
-      "result": null,
-      "actualChange": null
-    },
-    {
-      "date": "2026-08-24",
-      "sentiment": "Cautiously Bearish",
-      "verdict": "PASS",
-      "result": null,
-      "actualChange": null
-    },
-    {
-      "date": "2026-08-31",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": "flat",
-      "actualChange": "-0.10%"
-    },
-    {
-      "date": "2026-09-04",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": "hit",
-      "actualChange": "+0.59%"
-    },
-    {
-      "date": "2026-09-07",
-      "sentiment": "Neutral",
-      "verdict": "PASS",
-      "result": "hit",
-      "actualChange": "-0.36%"
-    },
-    {
-      "date": "2026-09-08",
-      "sentiment": "Neutral",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "-0.84%"
-    },
-    {
-      "date": "2026-09-17",
-      "sentiment": "Neutral",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "+0.71%"
-    },
-    {
-      "date": "2026-09-28",
-      "sentiment": "Cautiously Bearish",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "+0.29%"
-    },
-    {
-      "date": "2026-09-30",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": null,
-      "actualChange": null
-    },
-    {
-      "date": "2026-10-08",
-      "sentiment": "Cautiously Bearish",
-      "verdict": "PASS",
-      "result": "flat",
-      "actualChange": "+0.16%"
-    },
-    {
-      "date": "2026-10-09",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "-0.29%"
-    },
-    {
-      "date": "2026-10-13",
-      "sentiment": "Cautiously Bearish",
-      "verdict": "PASS",
-      "result": "hit",
-      "actualChange": "-1.36%"
-    },
-    {
-      "date": "2026-10-14",
-      "sentiment": "Cautiously Bearish",
-      "verdict": "PASS",
-      "result": "hit",
-      "actualChange": "-1.23%"
-    },
-    {
-      "date": "2026-10-15",
-      "sentiment": "Cautiously Bearish",
-      "verdict": "PASS",
-      "result": "flat",
-      "actualChange": "+0.11%"
-    },
-    {
-      "date": "2026-10-16",
-      "sentiment": "Cautiously Bearish",
       "verdict": "PASS",
       "result": null,
       "actualChange": null
     }
   ],
-  "analysisModel": "openai/gpt-oss-120b",
-  "analysisProvider": "Groq",
+  "analysisModel": "gemini-3.6-flash",
+  "analysisProvider": "Google",
   "analysis": {
-    "sentiment": "Cautiously Bearish",
+    "sentiment": "Cautiously Bullish",
     "confidence": "Medium",
     "claims": [
       {
-        "text": "Mainland equity gauges are split with the flagship index edging higher while the broader composite fell, signalling limited upward momentum.",
+        "text": "Mainland and Hong Kong equity benchmarks closed higher across the board.",
         "basedOn": [
-          "csi300",
           "csi300Change",
-          "sseComposite",
-          "sseCompositeChange"
+          "sseCompositeChange",
+          "szseComponentChange",
+          "hangSengChange"
         ],
-        "direction": "supports_bearish"
+        "direction": "supports_bullish"
       },
       {
-        "text": "Today's headlines combine market‑support measures with warnings about technology sell‑offs and export constraints, highlighting prevailing uncertainty.",
+        "text": "Macroeconomic output expanded while consumer inflation remained near flat.",
         "basedOn": [
-          "headline_1",
-          "headline_5",
-          "headline_7"
+          "gdpValue",
+          "cpiValue"
         ],
-        "direction": "supports_bearish"
+        "direction": "supports_bullish"
       },
       {
-        "text": "Consumer and automotive names posted modest advances while a leading battery supplier slipped, reflecting sector divergence rather than a broad rally.",
+        "text": "Key battery and liquor constituents experienced declines, offsetting gains in technology and automotive shares.",
         "basedOn": [
+          "catlChange",
           "moutaiChange",
           "alibabaChange",
-          "catlChange",
           "bydChange"
+        ],
+        "direction": "supports_bearish"
+      },
+      {
+        "text": "Headlines indicate economic momentum driven by foreign trade despite persistent internal weakness.",
+        "basedOn": [
+          "headline_1"
         ],
         "direction": "neutral"
       }
     ],
-    "interpretation": "The market remains under pressure despite isolated policy support and selective sector gains. Investors should weigh the mixed signals from indices, headlines and stock performance, recognizing that uncertainty still dominates the outlook.",
-    "wisdom": "Focus on companies with durable competitive advantages and strong cash generation, as they are better positioned to weather short‑term market turbulence."
+    "interpretation": "With no prior analysis baseline, the short-term perspective adopts a cautiously optimistic stance as broad domestic and offshore equity benchmarks posted gains. National output expanded at a steady pace, supporting sentiment even as major EV component manufacturers faced downward pressure. Strong trade metrics and advancing technology stocks provide modest upside support while domestic sector performance remains selective.",
+    "wisdom": "Disciplined investors focus on long-term fundamental earnings and business durability rather than short-term price fluctuations across market cycles."
   },
   "news": [
     {
       "factKey": "headline_1",
-      "title": "China Moves to Prop Up Stock Market With Selling Curbs, Buybacks",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPLXFjTzZJR2E1cXptcmdTVkNvblRnZ0U1Q1pHdUpSMzBVWGtIbGszeHVjMGJBYWZ1MldIM0RHY3g4VUVRREIwV01qR0lvWER4bVh0OTR1QlRrb09aUjhEcF9xRllwal8zcWtjWkFIbVJMXzNSTkZjam13ZVNBeGZDOENLdWgwREhjTlRVVUQ1YzBURThCeXJzLWVIZHJEb0NydktJcldJRlZvN2xCSmRPMlF2YUE?oc=5"
+      "title": "China’s economy accelerates on robust exports as domestic weakness persists",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNbVBsY3hlZmFmTngyTjFiU2lySUQ4LUZSOUplRGI4R0M4ald4eWE4WGFZdUg4Um1pV1Ezbmw3THJBSDUtVEt6aklpNW83MnowbTdjRFNkZXctTE05ZVk3UE5Yc25TOTBVS1lZSFJUUV9pd3VqV1N1YmU4Yy1qYndVVUhxZnhGYzQ1cVk1NVdEVjJpclV4UjdfUE5ESDZhOEg5Z2dNX0pjOVR5ZWJP0gGyAUFVX3lxTFB6QUFfVG5sRklHTFFMUmxjdTZEYWdYV2pwNzd0YzJsWkRRNUFQRUxNT1lYUmdkRlJHbmQ4ZnpwT19SdURCWVNYN0pEMTdUZ2dKT2Nqekk1dC1WUng2Ri1nZ0JlTkJISmVYT08zNkdOaXVPQjJ6RzV4OGQwb3UxY2pzTlR1eTZ4R1NUYVVESlVvNklvcmZlYUhyaHpfQ2loc19RTldYdUdLa19JcUJTYmY4LWc?oc=5"
     },
     {
       "factKey": "headline_2",
-      "title": "Taiwan to curb AI chip sales to China for more U.S. alignment- Bloomberg",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQdkJjR09kRGlET1Y0bkhrQldOYlIxYUpJQnhpeEwwbm1zWGNCa1lrdURzc3MyNlFmVXdmUmtILWVnNks4RHpBQnFjME9XMmQ1VWtMQVlyZkY5aFB3TnFTN2lXUGxVUmUzUy1sTFNhUEdWWkRpZFcyYmsxaV9lbDRtZkFDbzZOY1V3Qk0yRlRPdHB3Rzg?oc=5"
+      "title": "China State Funds Active as Stocks Post Record Weekly Losing Run",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUUVFaHpHbXN4VkJJaHlWT09DcFFsbEhuSkd1SGlWWVYxQU1jTjlKcjFmSHdDSUFKcnEwbDZZWjl2RjBUVVJHaWhXRm52T1ZpUlBQZFlTcjBIcjZVZlFBU1BGNW84RVQ3UVlXUTcxRHFwV09BSlY2NUlYNTliS0VxTm5BOUtxTVY4ZFF5dERPQUN2Z2hKRUtHVUFDUWMyNmdvaXUtWVdiVVBydGxKeTh6T19JNEpEZw?oc=5"
     },
     {
       "factKey": "headline_3",
-      "title": "China Stocks Rebound, Still Set for Weekly Decline",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPT2pwZWs2ZUVhUVlmd2tiX0xkcGdBUU11d1N1X1NnZlJKRW9UaVhWbGpsSHpuUU9RRXhqZXpMd0ZlbWRtTk82c1ZVZEF1RWw3alZkbFM0S0xOaDczYzV3UGJiYmg3QklWYWVVQmFxeUxNNzJtcGFIR1UzOF96R21zWHRYeXBvWklQQ1gtQWpwV2EzTVVOSm9jOGdyamFiVHNwclE?oc=5"
+      "title": "China's CXMT shares fall nearly 8% as investors look past chipmaker's profit turnaround",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9uR3FsNEdkbjdTcHliWmtPemNZZWMxcTJZSGh5ZGJ3dzlkNl9LbkNBVW8wUHljZjJUbHJMQk5YYVprbVhkOUhDU0haek1KcC1WQ0tjXzFITzdpVmwtVnQ0bEw4OVJZSi0zMVF6M1VjUFFta2NVa1BwUtIBfkFVX3lxTE43bzJBQjFsYXdCMExobU55eWw4WTNtQnFpOWhJdXd4R21mZkVjRktWckxqbkF3ajYxV1NXNUJSTmVMS3VJVXd2QnZYSnBWS0I4Sno5dUZWRzRRc3BqQ0p2ZER2N3p3Qk9uMXduVV8zOTJQUllzMlotNlJTN0E5dw?oc=5"
     },
     {
       "factKey": "headline_4",
-      "title": "NKE Stock Faces Second Weekly Loss: Nike Takes Greater Control Of China Sales, Resets Digital Strategy",
-      "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNTHhZd3BTZmdCRXRMTVJsTkJtLWFxZlNmSHoxa05USV9xYzNpSGdfakFDWjNhYWV1enRWXzRXRTl5ejdzQVpoTXZjZzRuNk9JQWxkekdrdlV1NmpiNU1sRVdJamlyNmo3TDFJd3F0VUYwamZhLWpZc2NSaVN6eFlHaWtlaG9HbHFmNjZFUmIydTlVQ25iWVlrWTdDMHhqd3l0b1l3ZlNRUEtjUmd3QjU3VTJwUFFUM2NGMjBGNjdBSEtUNE92b19OZVYwTElMc1ZuWXFWVTVacVBEeDVQT3pVS2hOVlFIZVg3MFk2UXMxaXRORHFKZExj?oc=5"
+      "title": "Asia stocks edge lower despite stronger China growth as AI jitters persist",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPbnZqR3dJTndiZjNURmRycFB3eWJ2S2F3TXpjck9FQUQ0WUFZeGFwQmlvM2FLb08wVU1aRlY3d3J3YmhFYm5Cc0ZYNThIV0YxT3l6bWxSNjZaemx2cVJvNTVMM3BFUFhQY2xiRjMyQzFkSjJYaTR0azMzWkM2WkxGUVR5RnViUQ?oc=5"
     },
     {
       "factKey": "headline_5",
-      "title": "China Stocks Split As Loan Growth Beats Forecasts",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNRGVvaDQ2R0tYUl83UzdDel92X09DYVhoTDdXRXBUcG9LTHUxdS1ldnF3RzFZRzdEUnBOX2tJV012NHh6RjFmUmNiUzlsTm1GQlRobDVYdTlteHlSY2NsS2p0T2EtQjhoOTZ1anBvRU4xNHRzNkNTeUxIdms2WUgxeWxfcnQ?oc=5"
+      "title": "China’s investors flock to dividend stocks as returns double 10-year bond yields",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQd0tjX1RpcWZPUkpLNWRSRU4taTk2Vy1laGJRMnd3SUY1R1hwNWt6eEF5aXl1ZTlOSkR3N1FOUFZTd1cxekFuTVUteEFOS19hMkx6S1ExWTdRZlBoLXZ0WGhnaDdjWFB3cERxWWhtQmhXLW0xa2RQRVFJOHdDVkVTdE5LYzJzUkl5UDBoQnJKXzUxcU1ySEtZNDZoY2FnVjJHVUhpRjAxdHlkcDVsLVlLT0JmcS1JNlBhQTdsMXY1VDJSMlIxRnVwT3RobG3SAcwBQVVfeXFMT29zWmVMWW9Uc1VKUzZ3NFd2QUVTLW02bUQ2UzBONHNLT21yRzlyeGxYc01pY2xELVotMTdvaTI5NVJIcE9UZ2U5T1NnLTUtM0tBdENHRnhkRFduOUlLM1ctM1FCbDE4cDV2TlZCWi1CVGNHZU1taU1hZEFidE5iaWNQalQxOW1zdlBfdlhseG5LSlUzVXlWbk5pZnpxd0pYaVFRU1Z5UUpFMFhjbC1VdF9IbFFfT3F2Rl9DX2RtWUFMT00tV285YWhNUC12?oc=5"
     },
     {
       "factKey": "headline_6",
-      "title": "Memory stocks are getting hammered. China and a 2029 oversupply are the big worries",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOUkVqRjgwNHV5dlVabXVfMTAxS3dWaTNvY2VteVo0MnlENXFheFZQY3BUWGllajdxcC1oZGxqblVvQkVoXzg3VW8zZnlWZTRTRkRNRVl4Z1RWcEd5ejcxNUNGOUJtRHVkZ3NURmJJRDRCMHdPY3BtY3FMMmd2ckVJdWQ2X3Z0LUXSAYwBQVVfeXFMTjB4SDdXN2pCUWk4YkN5cm96TFdmdDJNekg2eXhUWHlSb3lUMGYyT0p6ZWxwc2VmNldCV2VuOFBnWGpOWklyendVSTJMZm14RVRuVlZFX3JIMVFNa2prWmZ1dDloOU1DMUpLQ2ZCaE04aGxtcG9pVlJuWnBQRkpMNWZKSU1Ibm9QcE4xT1Y?oc=5"
+      "title": "China's economy accelerates on robust exports as domestic weakness persists",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNTi1EcGd0aHF2cFFJRE9VR2RydDRCY0JhQmFjb3hxUlRjbU5jQXNkUlFjN2JNbXRkR3k5aHpkZy1VVXJZcVl1ZV9ZWW83ZEdVMHlKbUZqMEdvMmlNYWtZSmFtcVo4OUFaT0d1SWFjQjA4dldXbGFuWF9oVnBBVm0xS3Q1MzYxY2ZtWmxrdGRoWnFqZ3N3aHdvMWU3eTVCZWfSAZ8BQVVfeXFMTU4tRHBndGhxdnBRSURPVUdkcnQ0QmNCYUJhY294cVJUY21OY0FzZFJRYzdiTW10ZEd5OWh6ZGctVVVyWXFZdWVfWVlvN2RHVTB5Sm1GajBHbzJpTWFrWUphbXFaODlBWk9HdUlhY0IwOHZXV2xhblhfaFZwQVZtMUt0NTM2MWNmbVpsa3RkaFpxamdzd2h3bzFlN3k1QmVn?oc=5"
     },
     {
       "factKey": "headline_7",
-      "title": "China Stocks Slide as Technology Selloff Deepens",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNS0p3THlvOEdnRWNSRUdrSG5KOGtRNm1Zc2IwcHBYOHhmYldHbWg5MFlTTm4xMUJxelRXTG1veUMxVUtzYnFPa01qa1NLNFBDbE95ZS1EVjdsR2tqR2p0RS1iblRja0dsY0J0UEVqWUtMSnVCV1Zza3pZU1Q1LUVfcjdySjdsR1laZVJzRExLTUctWmY1WDNQOXJkeXphR1VINkNQbWdB?oc=5"
+      "title": "China Stocks Fall Despite Strong Data",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQczJEWHJxMUNGYkJaeDY4Njg5eEg4NXQ1UVh3RDh4eXhOdXlBWXNxY25yb2R4ajBpbXVXTC1TeVBPbmxZbjFEMTAxN1hra05PYS1Ncm9uMlZWMDFrc2hWekRDUFlJcDROVzRLNmNuNDBaMU1MVndzNHFCVW1wQVBtTnF3WHQ0b0lHVXpuYi1sWGR5QQ?oc=5"
     },
     {
       "factKey": "headline_8",
-      "title": "IPO fraud, China exports, US inflation: 5 figures investors are watching",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNbEtKUDM0TE1Odkw0aTNtRHhianVWZVdkNlpncVBPSV9TbGpNRXRLaG1pd25kZ1JkVXM3VEcwN1BZdmthbmowVW5qWmVrQzdmamRISDlyQTdadHJZamJHd09hT21aM3dvdUlzXzVBdlFkNnVybjVWdXNjdUJCTHdvdEx5U0xvMkMtemYzaWtMQ1ptUWJsal91eUJlZnhuV0pOanVqY04wVE5PYWRHZktnRUJ0a3g3QkpZTmpsZG5lVWdWMnNobmJ30gHHAUFVX3lxTE81cUh4R3N6OTNNN2JKMG1tb2IzZF9xdWQ4Ui1oQmFSUndqS0xmVEFITWowaER3NEZrVHBIUF9nNEl3RlZZNFJuWXhuWUhsZHowZ3NQcm13dWdMMlNSa2pfOTVlbGs3VlJaNW5mc1J5YWJ2a1VUeXZHdC1BUjhQbF9UUTJERFpSYUt0S3hBdGNJbXd2RHNaOV91LWwwa0xycXgxRmxvV1p1M1E0MjFadWo3eW4tTGdsZ1pRYXlYaWpXbkI4MDFLYTQ?oc=5"
+      "title": "China stocks end higher as strong GDP outweighs AI jitters",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPZkd5V19yV0RmdG94bDIxZDVJcEhkTThiaW9SX0s5OXRrZEk4VkNSUTRYUUdRYS1NLXFvQ1dia3pMWE9xSExVekxTV1E1OXNUZ0RDYlI0MG5uNTcxN1d5VWkyRnhxWVRhRFVwLUxORm9MODFXVWtxMy1yVURIVmdrNmVyaUxKNzJsZDItRUE0Ty1LRHFlV2RnQ3ZSbkMwT3NJbXdzeERZTUdWNlFKVjBGMmNiY3lPR19wclVkTXltandQUm5ER18xZW1wb2dNRnhwNkxJdmsyc0jSAd4BQVVfeXFMUHNqVWN2anVaa05XbFZfZlAxdzYzUDRKSUhLd193QUxIZ2lOZjRLLVU0WjFoVUR0NkxuUk54eEh3VmJmVkFVcWNQa1g1MWpkWlJ6NXJsSmZCU21nbnphVFZ6ODFCN2k5UDFWNFBlMEloN1VOZ3NCcFUxX01FQzZSTmFaa0ZiVmJQMnoxM0toMjFiUWUxTDRuc3BzdU9ieWY4NUQzUlY3SGpaZzQ5dUcwcXAwSVZ6ZnZTNkR0dy1LSnNlSm8tYS1ZS3N2U1ZxcTVkY25PaEhoRU1aeE8zbUJ3?oc=5"
     }
   ],
   "sources": [
     "Yahoo Finance",
+    "China Securities Index Co.",
+    "ChinaBond",
+    "NIFC",
+    "NBS",
     "World Bank",
     "Google News"
   ]
