@@ -7,8 +7,8 @@
     "reasonCodes": []
   },
   "edition": "US",
-  "generatedAt": "2026-10-18T13:01:08.213Z",
-  "dateLabel": "Sunday, October 18, 2026",
+  "generatedAt": "2026-10-19T13:01:53.577Z",
+  "dateLabel": "Monday, October 19, 2026",
   "asOf": {
     "label": "Prices as of the Fri, Oct 16 close",
     "session": "2026-10-16",
@@ -49,10 +49,10 @@
       "label": "Thin"
     },
     "mood": {
-      "score": 18,
-      "label": "Extreme fear",
-      "change1d": "-14",
-      "change1w": "-29"
+      "score": 27,
+      "label": "Fear",
+      "change1d": "+9",
+      "change1w": "-19"
     },
     "trend": {
       "value": "+5.3%",
@@ -148,20 +148,20 @@
     "yieldCurve": "+0.33%",
     "sp500VsMa200": "+5.3%",
     "maSignal": "Golden Cross",
-    "fearGreedValue": 18,
+    "fearGreedValue": 27,
     "sp500": "7659.44",
     "sp500Change": "-1.09%",
     "dowJones": "52002.41",
     "dowJonesChange": "-0.34%",
-    "vix": "19.99",
-    "vixChange": "+21.45%",
-    "gold": "$4181.10",
-    "goldChange": "+0.26%",
-    "oil": "$99.02",
-    "oilChange": "+2.61%",
-    "dxy": "101.78",
-    "dxyChange": "-0.06%",
-    "btc": "$81,873",
+    "vix": "18.61",
+    "vixChange": "-6.90%",
+    "gold": "$4183.80",
+    "goldChange": "+0.06%",
+    "oil": "$98.03",
+    "oilChange": "-1.00%",
+    "dxy": "101.87",
+    "dxyChange": "+0.03%",
+    "btc": "$82,506",
     "btcChange": "+0.60%",
     "gdpValue": "+2.2% (QoQ annualized)",
     "cpiValue": "3.72%",
@@ -176,10 +176,10 @@
     "asmlChange": "-0.96%"
   },
   "fearGreed": {
-    "score": 18,
-    "classification": "Extreme fear",
-    "change1d": "-14",
-    "change1w": "-29"
+    "score": 27,
+    "classification": "Fear",
+    "change1d": "+9",
+    "change1w": "-19"
   },
   "screener": [
     {
@@ -197,31 +197,31 @@
     {
       "label": "VIX",
       "factKey": "vixChange",
-      "value": "19.99",
-      "change": "+21.45%"
+      "value": "18.61",
+      "change": "-6.90%"
     },
     {
       "label": "Gold",
       "factKey": "goldChange",
-      "value": "$4181.10",
-      "change": "+0.26%"
+      "value": "$4183.80",
+      "change": "+0.06%"
     },
     {
       "label": "Oil (WTI)",
       "factKey": "oilChange",
-      "value": "$99.02",
-      "change": "+2.61%"
+      "value": "$98.03",
+      "change": "-1.00%"
     },
     {
       "label": "US Dollar",
       "factKey": "dxyChange",
-      "value": "101.78",
-      "change": "-0.06%"
+      "value": "101.87",
+      "change": "+0.03%"
     },
     {
       "label": "Bitcoin",
       "factKey": "btcChange",
-      "value": "$81,873",
+      "value": "$82,506",
       "change": "+0.60%"
     }
   ],
@@ -284,82 +284,84 @@
     "confidence": "Medium",
     "claims": [
       {
-        "text": "Market volatility experienced a sharp surge while sentiment metrics indicate extreme fear.",
+        "text": "Broad equity indices posted losses during the session alongside persistent fear among market participants.",
         "basedOn": [
-          "vixChange",
+          "sp500Change",
+          "dowJonesChange",
           "fearGreedValue"
         ],
         "direction": "supports_bearish"
       },
       {
-        "text": "Broad equity indices and key tech watchlist holdings experienced broad declines today.",
+        "text": "Key watchlist technology and enterprise equities experienced declines across the board.",
         "basedOn": [
-          "sp500Change",
-          "dowJonesChange",
           "googlChange",
-          "adbeChange"
+          "adbeChange",
+          "sofiChange",
+          "asmlChange"
         ],
         "direction": "supports_bearish"
       },
       {
-        "text": "Market news reports silent internal rotation inside major index constituents warning of weakness.",
-        "basedOn": [
-          "headline_1"
-        ],
-        "direction": "supports_bearish"
-      },
-      {
-        "text": "Long term structural valuation indicators remain elevated relative to broad economic output and earnings.",
+        "text": "Long term market valuation indicators reflect elevated equity prices compared to economic foundation and historic earnings.",
         "basedOn": [
           "buffettIndicator",
           "shillerPE"
         ],
         "direction": "neutral"
+      },
+      {
+        "text": "Major media reports highlight ongoing wobbles and pressure across technology sector shares.",
+        "basedOn": [
+          "headline_4",
+          "headline_8"
+        ],
+        "direction": "supports_bearish"
       }
     ],
-    "interpretation": "While long term valuations remain historically stretched, short term price declines and surging volatility maintain pressure on equity markets. Compared to the prior analysis, short term bearish sentiment held firm as major equity indices and individual tech stocks experienced further selloffs alongside elevated fear. Value investors observe that despite temporary market anxiety, overall asset prices have not yet adjusted enough to provide significant margins of safety.",
-    "wisdom": "Price is what you pay, value is what you get, and waiting patiently for an adequate margin of safety remains essential when market fear rises without delivering true bargains."
+    "interpretation": "While long term market backdrop valuations remain demanding, short term sentiment continues to be dampened by broad market pullbacks and fear. Compared to the previous assessment, short term sentiment held steady as major indices and technology watchlist stocks expanded their modest retreat. A disciplined investor observes growing short term pessimism while patiently waiting for durable margins of safety to emerge.",
+    "wisdom": "Price is what you pay, value is what you get, and paying high prices during market volatility leaves little cushion for unexpected adversity."
   },
   "news": [
     {
       "factKey": "headline_1",
-      "title": "There is a silent market rotation inside the S&P 500 that's warning of more weakness ahead",
-      "url": "https://www.marketwatch.com/story/there-is-a-silent-market-rotation-inside-the-s-p-500-thats-warning-of-more-weakness-ahead-549e7650?mod=mw_rss_topstories"
+      "title": "Colleges raced to build massive computer-science departments. Now the boom is turning to bust.",
+      "url": "https://www.marketwatch.com/story/colleges-raced-to-build-massive-computer-science-departments-now-the-boom-is-turning-to-bust-692cfe37?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_2",
-      "title": "Can a $55,000 robot load the dishwasher? Inside my afternoon with two humanoid housekeepers.",
-      "url": "https://www.marketwatch.com/story/can-a-55-000-plus-robot-load-the-dishwasher-inside-my-afternoon-with-two-humanoid-housekeepers-0a9569ab?mod=mw_rss_topstories"
+      "title": "'I'm naturally skeptical': I receive 10 calls a day offering me $15,000 loans at 8% interest. Is this a scam?",
+      "url": "https://www.marketwatch.com/story/im-naturally-skeptical-i-receive-10-calls-a-day-offering-me-15-000-loans-at-8-interest-is-this-a-scam-825c3431?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_3",
-      "title": "Fake shopping sprees and 'happiness insurance': The latest fintech apps reveal our financial anxieties",
-      "url": "https://www.marketwatch.com/story/fake-shopping-sprees-and-happiness-insurance-the-latest-fintech-apps-reveal-our-financial-anxieties-77770a46?mod=mw_rss_topstories"
+      "title": "Stocks are heading for a high-stakes showdown, as strong earnings collide with rising borrowing costs",
+      "url": "https://www.marketwatch.com/story/stocks-are-heading-for-a-high-stakes-showdown-as-strong-earnings-collide-with-rising-borrowing-costs-6f8ea5b8?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_4",
-      "title": "Investing, not homeownership, is the No. 1 milestone that makes Gen Z renters feel successful",
-      "url": "https://www.marketwatch.com/story/gen-z-renters-are-the-only-group-more-likely-to-feel-successful-by-investing-than-buying-a-house-30ac5344?mod=mw_rss_topstories"
+      "title": "Tech stocks stumbled. Now comes a crucial week for Wall Street.",
+      "url": "https://www.marketwatch.com/story/tech-stocks-stumbled-now-comes-a-crucial-week-for-wall-street-2a093abe?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_5",
-      "title": "Is Apple's foldable iPhone Duo worth $2,000? See how it stacks up against other foldable phones.",
-      "url": "https://www.marketwatch.com/story/is-apples-foldable-iphone-duo-worth-2-000-see-how-it-stacks-up-against-other-foldable-phones-c9066b13?mod=mw_rss_topstories"
+      "title": "'My husband suffered a massive stroke at 53': I'm 64 and will rent for the rest of my life  -  but I'm still hopeful",
+      "url": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_6",
-      "title": "'Some people did everything right': I lost my home in the Great Recession. I rent in my 50s. Why is that judged as failure?",
-      "url": "https://www.marketwatch.com/story/i-earn-110-000-a-year-i-lost-my-home-in-the-great-recession-im-renting-in-my-50s-why-is-that-judged-as-failure-d1371d67?mod=mw_rss_topstories"
+      "title": "I'm 63 and diagnosed with lymphoma. Should I take my Social Security next year?",
+      "url": "https://www.marketwatch.com/story/its-a-wait-and-see-situation-im-63-and-diagnosed-with-lymphoma-should-i-take-my-social-security-next-year-ea88b419?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_7",
-      "title": "Meet the home buyers totally unfazed by 7% mortgage rates",
-      "url": "https://www.marketwatch.com/story/meet-the-home-buyers-totally-unfazed-by-7-mortgage-rates-7a9b1cc7?mod=mw_rss_topstories"
+      "title": "The S&P 500 is masking a hidden market pullback. Why Morgan Stanley says an index retreat would signal a buying opportunity.",
+      "url": "https://www.marketwatch.com/story/the-s-p-500-is-masking-a-hidden-market-pullback-why-morgan-stanley-says-an-index-retreat-would-signal-a-buying-opportunity-08d079c0?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_8",
-      "title": "Influencers and biohackers swear by fasting. Here's what the science says.",
-      "url": "https://www.marketwatch.com/story/influencers-and-biohackers-swear-by-fasting-heres-what-the-science-says-3318191f?mod=mw_rss_topstories"
+      "title": "Tech is wobbling. Goldman Sachs says it's time to buy these 23 unloved stocks instead.",
+      "url": "https://www.marketwatch.com/story/big-tech-is-wobbling-goldman-sachs-says-its-time-to-buy-these-23-unloved-stocks-instead-cff7a9e0?mod=mw_rss_topstories"
     }
   ],
   "sources": [
