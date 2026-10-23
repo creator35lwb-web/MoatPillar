@@ -3,15 +3,15 @@
   "verification": {
     "version": 1,
     "status": "approved",
-    "checkedClaims": 3,
+    "checkedClaims": 4,
     "reasonCodes": []
   },
   "edition": "US",
-  "generatedAt": "2026-10-22T13:01:05.796Z",
-  "dateLabel": "Thursday, October 22, 2026",
+  "generatedAt": "2026-10-23T13:01:29.103Z",
+  "dateLabel": "Friday, October 23, 2026",
   "asOf": {
-    "label": "Prices as of the Wed, Oct 21 close",
-    "session": "2026-10-21",
+    "label": "Prices as of the Thu, Oct 22 close",
+    "session": "2026-10-22",
     "closed": false,
     "intraday": false
   },
@@ -31,7 +31,7 @@
     "measures": {
       "shillerPE": {
         "label": "Shiller CAPE",
-        "value": "41.1",
+        "value": "40.6",
         "level": 5,
         "levelLabel": "Very expensive"
       },
@@ -43,23 +43,23 @@
       }
     },
     "stocksVsBonds": {
-      "earningsYield": 2.4,
+      "earningsYield": 2.5,
       "realYield10Y": 1.4,
-      "gap": 1,
+      "gap": 1.1,
       "label": "Thin"
     },
     "mood": {
-      "score": 29,
-      "label": "Fear",
-      "change1d": "-2",
-      "change1w": "-1"
+      "score": 23,
+      "label": "Extreme fear",
+      "change1d": "+4",
+      "change1w": "+1"
     },
     "trend": {
-      "value": "+6.6%",
+      "value": "+5.2%",
       "above": true
     },
     "rates": {
-      "curve": "+0.33%",
+      "curve": "+0.32%",
       "label": "Flat"
     },
     "changes": [
@@ -73,9 +73,9 @@
             "label": "Shiller CAPE",
             "threshold": 35,
             "unit": "",
-            "value": 41.1,
+            "value": 40.6,
             "direction": "down",
-            "movePct": 15,
+            "movePct": 14,
             "met": false
           },
           {
@@ -125,104 +125,104 @@
     },
     "shillerPE": {
       "title": "Shiller P/E (CAPE)",
-      "value": "41.1",
+      "value": "40.6",
       "status": "Strongly Overvalued",
       "emoji": "🔴"
     },
     "yieldCurve": {
       "title": "Yield Curve (10Y-2Y)",
-      "value": "+0.33%",
+      "value": "+0.32%",
       "status": "Flat (Caution)",
       "emoji": "🟡"
     },
     "sp500VsMa200": {
       "title": "S&P 500 vs 200D-MA",
-      "value": "+6.6%",
+      "value": "+5.2%",
       "status": "Strong Bullish (Golden Cross)",
       "emoji": "🟢🟢"
     }
   },
   "facts": {
     "buffettIndicator": "249%",
-    "shillerPE": "41.1",
-    "yieldCurve": "+0.33%",
-    "sp500VsMa200": "+6.6%",
+    "shillerPE": "40.6",
+    "yieldCurve": "+0.32%",
+    "sp500VsMa200": "+5.2%",
     "maSignal": "Golden Cross",
-    "fearGreedValue": 29,
-    "sp500": "7757.17",
-    "sp500Change": "+0.86%",
-    "dowJones": "52856.09",
-    "dowJonesChange": "+0.69%",
-    "vix": "18.01",
-    "vixChange": "+7.97%",
-    "gold": "$4101.70",
-    "goldChange": "-1.16%",
-    "oil": "$99.39",
-    "oilChange": "+2.31%",
-    "dxy": "101.78",
-    "dxyChange": "+0.00%",
-    "btc": "$81,591",
-    "btcChange": "-2.90%",
+    "fearGreedValue": 23,
+    "sp500": "7663.43",
+    "sp500Change": "-1.21%",
+    "dowJones": "52867.98",
+    "dowJonesChange": "+0.02%",
+    "vix": "20.05",
+    "vixChange": "+5.36%",
+    "gold": "$4043.80",
+    "goldChange": "-0.41%",
+    "oil": "$101.22",
+    "oilChange": "+1.76%",
+    "dxy": "101.69",
+    "dxyChange": "+0.08%",
+    "btc": "$81,639",
+    "btcChange": "+0.40%",
     "gdpValue": "+2.2% (QoQ annualized)",
     "cpiValue": "3.72%",
     "unemploymentValue": "4.2%",
     "fedRateValue": "4.00%",
-    "treasury10Y": "5.12%",
-    "treasury2Y": "4.79%",
-    "googlChange": "-1.62%",
-    "babaChange": "-3.87%",
-    "adbeChange": "-0.65%",
-    "sofiChange": "+1.50%",
-    "asmlChange": "+2.81%"
+    "treasury10Y": "5.13%",
+    "treasury2Y": "4.81%",
+    "googlChange": "-3.15%",
+    "babaChange": "-2.48%",
+    "adbeChange": "+6.07%",
+    "sofiChange": "-0.87%",
+    "asmlChange": "-6.93%"
   },
   "fearGreed": {
-    "score": 29,
-    "classification": "Fear",
-    "change1d": "-2",
-    "change1w": "-1"
+    "score": 23,
+    "classification": "Extreme fear",
+    "change1d": "+4",
+    "change1w": "+1"
   },
   "screener": [
     {
       "label": "S&P 500",
       "factKey": "sp500Change",
-      "value": "7757.17",
-      "change": "+0.86%"
+      "value": "7663.43",
+      "change": "-1.21%"
     },
     {
       "label": "Dow Jones",
       "factKey": "dowJonesChange",
-      "value": "52856.09",
-      "change": "+0.69%"
+      "value": "52867.98",
+      "change": "+0.02%"
     },
     {
       "label": "VIX",
       "factKey": "vixChange",
-      "value": "18.01",
-      "change": "+7.97%"
+      "value": "20.05",
+      "change": "+5.36%"
     },
     {
       "label": "Gold",
       "factKey": "goldChange",
-      "value": "$4101.70",
-      "change": "-1.16%"
+      "value": "$4043.80",
+      "change": "-0.41%"
     },
     {
       "label": "Oil (WTI)",
       "factKey": "oilChange",
-      "value": "$99.39",
-      "change": "+2.31%"
+      "value": "$101.22",
+      "change": "+1.76%"
     },
     {
       "label": "US Dollar",
       "factKey": "dxyChange",
-      "value": "101.78",
-      "change": "+0.00%"
+      "value": "101.69",
+      "change": "+0.08%"
     },
     {
       "label": "Bitcoin",
       "factKey": "btcChange",
-      "value": "$81,591",
-      "change": "-2.90%"
+      "value": "$81,639",
+      "change": "+0.40%"
     }
   ],
   "economic": [
@@ -252,19 +252,19 @@
     {
       "label": "10Y Treasury",
       "factKey": "treasury10Y",
-      "value": "5.12%"
+      "value": "5.13%"
     },
     {
       "label": "2Y Treasury",
       "factKey": "treasury2Y",
-      "value": "4.79%"
+      "value": "4.81%"
     }
   ],
-  "watchlist": "  GOOGL: $334.76 (-1.62%)\n  BABA: $104.41 (-3.87%)\n  ADBE: $255.06 (-0.65%)\n  SOFI: $14.90 (+1.50%)\n  ASML: $1676.69 (+2.81%)",
+  "watchlist": "  GOOGL: $324.22 (-3.15%)\n  BABA: $101.82 (-2.48%)\n  ADBE: $270.55 (+6.07%)\n  SOFI: $14.77 (-0.87%)\n  ASML: $1560.54 (-6.93%)",
   "trackRecord": {
-    "accuracy": "1/3 (33%)",
-    "last": "Cautiously Bullish (2026-10-21) → market moved +0.86% → Correct",
-    "baseline": "the market fell on 0 of those 3 days",
+    "accuracy": "1/4 (25%)",
+    "last": "Cautiously Bullish (2026-10-22) → market moved -1.21% → Miss",
+    "baseline": "the market fell on 1 of those 4 days",
     "phase": "beta",
     "since": "2026-10-17"
   },
@@ -294,6 +294,13 @@
       "date": "2026-10-22",
       "sentiment": "Cautiously Bullish",
       "verdict": "PASS",
+      "result": "miss",
+      "actualChange": "-1.21%"
+    },
+    {
+      "date": "2026-10-23",
+      "sentiment": "Cautiously Bearish",
+      "verdict": "PASS",
       "result": null,
       "actualChange": null
     }
@@ -301,77 +308,85 @@
   "analysisModel": "gemini-3.6-flash",
   "analysisProvider": "Google",
   "analysis": {
-    "sentiment": "Cautiously Bullish",
+    "sentiment": "Cautiously Bearish",
     "confidence": "Medium",
     "claims": [
       {
-        "text": "Broad equity indices advanced today despite rising market volatility.",
+        "text": "Broad stock indices pulled back as market volatility experienced a moderate increase",
         "basedOn": [
           "sp500Change",
-          "dowJonesChange",
           "vixChange"
         ],
-        "direction": "supports_bullish"
+        "direction": "supports_bearish"
       },
       {
-        "text": "Market sentiment remains hesitant in fear territory while broad index prices trade above long-term moving averages.",
+        "text": "Investor sentiment remains depressed in extreme fear territory despite broad market prices holding above long term moving averages",
         "basedOn": [
           "fearGreedValue",
           "sp500VsMa200"
         ],
-        "direction": "supports_bullish"
+        "direction": "neutral"
       },
       {
-        "text": "Strategists issue warnings regarding individual investors chasing artificial intelligence momentum.",
+        "text": "Financial headlines indicate hedge funds are shorting equities while broad equity markets show internal division",
         "basedOn": [
+          "headline_2",
           "headline_8"
         ],
         "direction": "supports_bearish"
+      },
+      {
+        "text": "Long term valuation measures signal elevated pricing relative to economic output and cyclical earnings",
+        "basedOn": [
+          "buffettIndicator",
+          "shillerPE"
+        ],
+        "direction": "neutral"
       }
     ],
-    "interpretation": "While elevated macro valuations point to a slim safety margin, near-term equity action shows continued firmness. Relative to yesterday, our short-term stance held firm as major stock indices posted gains even as option volatility rose. Sentiment indicators reflect widespread caution, providing a subdued backdrop despite general index resilience.",
-    "wisdom": "Ben Graham emphasized that price fluctuations should be viewed as a tool for acquiring intrinsic value rather than an accurate gauge of enterprise worth."
+    "interpretation": "While elevated valuations create a demanding environment, short term market pullbacks reflect growing institutional caution across broad equities. Major indices moved downward as volatility climbed and investor sentiment deteriorated. Split performance among individual equities highlights contrasting performance across distinct market sectors.",
+    "wisdom": "As Benjamin Graham observed, Mr Market is a servant rather than a guide, offering prices born of emotion rather than underlying business worth."
   },
   "news": [
     {
       "factKey": "headline_1",
-      "title": "Markets are pricing in long-term AI winners. This veteran investor says history proves customers win more than innovators.",
-      "url": "https://www.marketwatch.com/story/markets-are-pricing-in-long-term-ai-winners-this-veteran-investor-says-history-proves-customers-win-more-than-innovators-f7043439?mod=mw_rss_topstories"
+      "title": "Smart financial advisers are dropping ROI, NAV and QCD for plain English when talking to clients",
+      "url": "https://www.marketwatch.com/story/smart-financial-advisers-are-dropping-roi-nav-and-qcd-for-plain-english-when-talking-to-clients-2a16fc6f?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_2",
-      "title": "Oil is now flowing out of the Persian Gulf like before the Iran war. Why prices may still not come down anytime soon.",
-      "url": "https://www.marketwatch.com/story/oil-is-now-flowing-out-of-the-persian-gulf-like-before-the-iran-war-why-prices-may-still-not-come-down-anytime-soon-56df2f48?mod=mw_rss_topstories"
+      "title": "It's been a painful month for hedge funds. To turn it around, they are shorting U.S. stocks.",
+      "url": "https://www.marketwatch.com/story/its-been-a-painful-month-for-hedge-funds-to-turn-it-around-they-are-shorting-u-s-stocks-d36ee922?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_3",
-      "title": "Moderna is about to release the trial results for its cancer vaccine. A lot is riding on this data.",
-      "url": "https://www.marketwatch.com/story/moderna-is-about-to-release-the-trial-results-for-its-cancer-vaccine-a-lot-is-riding-on-this-data-ccbf8c9c?mod=mw_rss_topstories"
+      "title": "My spouse was awarded $90,000 from my 401(k) in our divorce. How is that fair?",
+      "url": "https://www.marketwatch.com/story/my-spouse-was-awarded-90-000-from-my-401-k-in-our-divorce-how-is-that-fair-dc839aa3?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_4",
-      "title": "IBM's stock falls as investors struggle to shake off July earnings miss",
-      "url": "https://www.marketwatch.com/story/ibms-stock-falls-as-investors-struggle-to-shake-off-july-earnings-miss-0969b9e3?mod=mw_rss_topstories"
+      "title": "The mobile ambitions of SpaceX are hitting telecom stocks again. Here's what the latest developments mean.",
+      "url": "https://www.marketwatch.com/story/the-mobile-ambitions-of-spacex-see-telecom-stocks-get-hit-again-what-the-latest-developments-mean-9a4159b5?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_5",
-      "title": "Why this JPMorgan strategist thinks the stock market's tailspin might have run its course",
-      "url": "https://www.marketwatch.com/story/why-a-jpmorgan-strategist-says-the-stock-markets-tailspin-might-have-run-its-course-71571335?mod=mw_rss_topstories"
+      "title": "The stock market is splitting in two. Is that signaling trouble ahead, or just a new set of winners?",
+      "url": "https://www.marketwatch.com/story/the-stock-market-is-splitting-in-two-is-that-signaling-trouble-ahead-or-just-a-new-set-of-winners-f51aaeab?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_6",
-      "title": "Mideast oil exports are recovering. Fresh attacks in Saudi Arabia show risks remain.",
-      "url": "https://www.marketwatch.com/story/mideast-oil-exports-are-recovering-fresh-attacks-in-saudi-arabia-show-risks-remain-1473391a?mod=mw_rss_topstories"
+      "title": "Treasury yields log biggest drop since the 2023 banking crisis. Here's what's going on.",
+      "url": "https://www.marketwatch.com/story/treasury-yields-see-extreme-plunge-why-investors-are-ducking-for-cover-60044c66?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_7",
-      "title": "Meta teases an opportunity even bigger than advertising  -  but its stock is falling",
-      "url": "https://www.marketwatch.com/story/metas-stock-rises-as-investors-glimpse-an-opportunity-that-could-dwarf-the-ad-business-89369c6c?mod=mw_rss_topstories"
+      "title": "France is getting its credit rating reviewed. The French debt turmoil has helped turn U.S. Treasury yields around. What comes next?",
+      "url": "https://www.marketwatch.com/story/france-is-getting-its-credit-rating-reviewed-by-moodys-what-to-expect-as-french-debt-turmoil-spills-overseas-e39de111?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_8",
-      "title": "This top strategist has a warning for retail investors chasing the AI rally",
-      "url": "https://www.marketwatch.com/story/top-hsbc-strategist-has-a-warning-for-retail-investors-chasing-the-ai-rally-e0318ada?mod=mw_rss_topstories"
+      "title": "The U.S. stock market is fracturing into two camps, and it's leaving investors with a brutal case of whiplash",
+      "url": "https://www.marketwatch.com/story/the-u-s-stock-market-is-fracturing-into-two-camps-and-its-leaving-investors-with-a-brutal-case-of-whiplash-e8580a99?mod=mw_rss_topstories"
     }
   ],
   "sources": [
