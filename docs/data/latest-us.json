@@ -3,12 +3,12 @@
   "verification": {
     "version": 1,
     "status": "approved",
-    "checkedClaims": 3,
+    "checkedClaims": 4,
     "reasonCodes": []
   },
   "edition": "US",
-  "generatedAt": "2026-10-24T13:01:02.583Z",
-  "dateLabel": "Saturday, October 24, 2026",
+  "generatedAt": "2026-10-25T13:01:06.736Z",
+  "dateLabel": "Sunday, October 25, 2026",
   "asOf": {
     "label": "Prices as of the Fri, Oct 23 close",
     "session": "2026-10-23",
@@ -58,10 +58,7 @@
       "value": "+4.6%",
       "above": true
     },
-    "rates": {
-      "curve": "+0.31%",
-      "label": "Flat"
-    },
+    "rates": null,
     "changes": [
       {
         "kind": "valuation",
@@ -91,29 +88,15 @@
         ]
       },
       {
-        "kind": "rates",
-        "current": "Flat",
-        "boundaries": [
-          {
-            "label": "Normal",
-            "at": 0.5,
-            "direction": "up"
-          },
-          {
-            "label": "Inverted",
-            "at": 0,
-            "direction": "down"
-          }
-        ]
-      },
-      {
         "kind": "mood"
       }
     ]
   },
   "health": {
-    "status": "OK",
-    "missing": [],
+    "status": "DEGRADED",
+    "missing": [
+      "2Y Treasury"
+    ],
     "suspect": []
   },
   "dashboard": {
@@ -129,12 +112,6 @@
       "status": "Strongly Overvalued",
       "emoji": "🔴"
     },
-    "yieldCurve": {
-      "title": "Yield Curve (10Y-2Y)",
-      "value": "+0.31%",
-      "status": "Flat (Caution)",
-      "emoji": "🟡"
-    },
     "sp500VsMa200": {
       "title": "S&P 500 vs 200D-MA",
       "value": "+4.6%",
@@ -145,7 +122,6 @@
   "facts": {
     "buffettIndicator": "245%",
     "shillerPE": "40.4",
-    "yieldCurve": "+0.31%",
     "sp500VsMa200": "+4.6%",
     "maSignal": "Golden Cross",
     "fearGreedValue": 21,
@@ -161,14 +137,13 @@
     "oilChange": "+3.82%",
     "dxy": "101.75",
     "dxyChange": "-0.06%",
-    "btc": "$80,668",
-    "btcChange": "-0.51%",
+    "btc": "$80,348",
+    "btcChange": "-0.52%",
     "gdpValue": "+2.2% (QoQ annualized)",
     "cpiValue": "3.72%",
     "unemploymentValue": "4.2%",
     "fedRateValue": "4.00%",
     "treasury10Y": "4.96%",
-    "treasury2Y": "4.65%",
     "googlChange": "-1.24%",
     "babaChange": "-2.14%",
     "adbeChange": "-2.49%",
@@ -221,8 +196,8 @@
     {
       "label": "Bitcoin",
       "factKey": "btcChange",
-      "value": "$80,668",
-      "change": "-0.51%"
+      "value": "$80,348",
+      "change": "-0.52%"
     }
   ],
   "economic": [
@@ -253,11 +228,6 @@
       "label": "10Y Treasury",
       "factKey": "treasury10Y",
       "value": "4.96%"
-    },
-    {
-      "label": "2Y Treasury",
-      "factKey": "treasury2Y",
-      "value": "4.65%"
     }
   ],
   "watchlist": "  GOOGL: $320.21 (-1.24%)\n  BABA: $99.64 (-2.14%)\n  ADBE: $263.82 (-2.49%)\n  SOFI: $14.62 (-1.05%)\n  ASML: $1571.80 (+0.72%)",
@@ -319,74 +289,83 @@
     "confidence": "Medium",
     "claims": [
       {
-        "text": "Major market indices moved downward while volatility crept higher.",
+        "text": "Major stock indices declined alongside lower prices for most technology and consumer equities on the watchlist.",
         "basedOn": [
           "sp500Change",
           "dowJonesChange",
-          "vixChange"
+          "googlChange",
+          "adbeChange"
         ],
         "direction": "supports_bearish"
       },
       {
-        "text": "Investor sentiment remains gripped by severe fear even as broad market prices stay above their long term moving average.",
+        "text": "Equity market volatility pushed higher while sentiment indicators reflect widespread fear among participants.",
         "basedOn": [
-          "fearGreedValue",
-          "sp500VsMa200"
+          "vixChange",
+          "fearGreedValue"
         ],
-        "direction": "neutral"
+        "direction": "supports_bearish"
       },
       {
-        "text": "Long term valuation indicators reflect elevated asset prices relative to economic activity and historical earnings.",
+        "text": "Long term valuation measures indicate rich asset pricing relative to overall economic output and historic earnings trends.",
         "basedOn": [
           "buffettIndicator",
           "shillerPE"
         ],
         "direction": "neutral"
+      },
+      {
+        "text": "Broad stock averages remain positioned above their long term moving average trendline.",
+        "basedOn": [
+          "sp500VsMa200",
+          "maSignal"
+        ],
+        "direction": "supports_bullish"
       }
     ],
-    "interpretation": "While long term valuations signal caution, short term market sentiment remains defensive as broad equity averages soften and volatility ticks upward. Headline uncertainty and broader economic concerns keep market participants cautious. Disciplined value investors focus on durable competitive advantages and underlying business fundamentals regardless of prevailing market pessimism.",
-    "wisdom": "Market sentiment alternates between unwarranted optimism and excessive fear, but true margin of safety is found in purchasing resilient businesses below intrinsic value."
+    "interpretation": "While long term valuations remain historically stretched, short term market sentiment is weighed down by persistent fear and dropping stock prices. Compared to the previous analysis, major market benchmarks slid further downward while market volatility advanced, causing our cautiously bearish stance to hold firm. Value investors observe widespread pessimism taking hold even as overall stock price indexes remain elevated above their long term technical trend lines.",
+    "wisdom": "Value investors recognize that price fluctuations do not define underlying business worth, and periods of extreme market fear often help build a potential margin of safety."
   },
   "news": [
     {
       "factKey": "headline_1",
+      "title": "'Nonanswers' aren't working. This is what investors really need from the Fed.",
+      "url": "https://www.marketwatch.com/story/non-answers-arent-working-this-is-what-investors-really-need-from-the-fed-673a9dce?mod=mw_rss_topstories"
+    },
+    {
+      "factKey": "headline_2",
+      "title": "Why economic health no longer dictates stock-market returns",
+      "url": "https://www.marketwatch.com/story/why-economic-health-no-longer-dictates-stock-market-returns-c44b88f2?mod=mw_rss_topstories"
+    },
+    {
+      "factKey": "headline_3",
+      "title": "Here's the real signal to watch for the Fed's next move",
+      "url": "https://www.marketwatch.com/story/heres-the-real-signal-to-watch-for-the-feds-next-move-9189cb51?mod=mw_rss_topstories"
+    },
+    {
+      "factKey": "headline_4",
+      "title": "My father-in-law, 81, sold his $75,000 home to pay his daughter's $50,000 debt. How can I keep him from becoming destitute?",
+      "url": "https://www.marketwatch.com/story/my-father-in-law-81-sold-his-75-000-home-and-paid-off-his-daughters-50-000-debt-what-happens-to-him-now-60e8fc72?mod=mw_rss_topstories"
+    },
+    {
+      "factKey": "headline_5",
       "title": "'She's living the dream': My stepmother said I can buy my childhood home for $850,000. Is she taking advantage of me?",
       "url": "https://www.marketwatch.com/story/shes-living-the-dream-my-stepmother-said-i-can-buy-my-childhood-home-for-850-000-is-she-taking-advantage-of-me-1fdda7b5?mod=mw_rss_topstories"
     },
     {
-      "factKey": "headline_2",
-      "title": "Moderna's cancer vaccine is 'likely' to get approved. Skeptics question if it will be the best option.",
-      "url": "https://www.marketwatch.com/story/the-real-test-for-modernas-cancer-vaccine-isnt-about-beating-keytruda-its-keeping-cancer-from-coming-back-in-the-long-term-da9af99f?mod=mw_rss_topstories"
-    },
-    {
-      "factKey": "headline_3",
-      "title": "AI fever ignites a boom in thematic ETFs as fund managers hunt for their next big hit",
-      "url": "https://www.marketwatch.com/story/ai-fever-ignites-a-boom-in-thematic-etfs-as-fund-managers-hunt-for-their-next-big-hit-82d1566c?mod=mw_rss_topstories"
-    },
-    {
-      "factKey": "headline_4",
+      "factKey": "headline_6",
       "title": "My husband wants to sell our $1.5 million home and invest the proceeds. But this is where we raised our kids  -  and I can't bear to leave.",
       "url": "https://www.marketwatch.com/story/my-husband-wants-to-sell-our-1-5-million-home-and-invest-the-proceeds-but-this-is-where-we-raised-our-kids-and-i-cant-bear-to-leave-4feb46ed?mod=mw_rss_topstories"
     },
     {
-      "factKey": "headline_5",
-      "title": "'Non-answers' aren't working. This is what investors really need from the Fed.",
-      "url": "https://www.marketwatch.com/story/non-answers-arent-working-this-is-what-investors-really-need-from-the-fed-673a9dce?mod=mw_rss_topstories"
-    },
-    {
-      "factKey": "headline_6",
-      "title": "Do machines have feelings? AI has philosophers and tech leaders rethinking consciousness.",
-      "url": "https://www.marketwatch.com/story/do-machines-have-feelings-ai-has-philosophers-and-tech-leaders-rethinking-consciousness-00e5ad78?mod=mw_rss_topstories"
-    },
-    {
       "factKey": "headline_7",
-      "title": "My spouse was awarded $90,000 from my 401(k) in our divorce. How is that fair?",
-      "url": "https://www.marketwatch.com/story/my-spouse-was-awarded-90-000-from-my-401-k-in-our-divorce-how-is-that-fair-dc839aa3?mod=mw_rss_topstories"
+      "title": "Young Americans are giving up on car ownership. It's a path to financial freedom for some.",
+      "url": "https://www.marketwatch.com/story/young-americans-are-giving-up-their-cars-its-a-path-to-financial-freedom-for-some-3cce491c?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_8",
-      "title": "'I don't feel sorry for myself': I'm 64 and will be renting for the rest of my life. Is that so bad?",
-      "url": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories"
+      "title": "I'm 58 and hate annuities. How can I get dependable income in retirement?",
+      "url": "https://www.marketwatch.com/story/im-58-and-hate-annuities-how-can-i-get-dependable-income-in-retirement-cd6040f4?mod=mw_rss_topstories"
     }
   ],
   "sources": [
