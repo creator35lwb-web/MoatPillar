@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T07:55:16Z",
+  "generatedAt": "2026-10-26T07:54:55Z",
   "note": "Rebuilt by scripts/build-calendar.mjs from the official calendars listed under sources: FRED’s release dates for the BLS and BEA releases, the NBS press release calendar, and the Federal Reserve’s FOMC dates. date and time are the publisher’s local wall clock; utc is derived. A source that could not be read keeps its earlier entries. Nothing here predicts a figure.",
   "sources": {
     "fed-fomc": {
@@ -11,49 +11,15 @@
     "nbs-calendar": {
       "name": "NBS China, 2026 press release calendar",
       "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html",
-      "retrievedAt": "2026-10-19"
+      "retrievedAt": "2026-10-26"
     },
     "fred-releases": {
       "name": "FRED release calendar (St. Louis Fed), from the BLS and BEA schedules",
       "url": "https://fred.stlouisfed.org/releases/calendar",
-      "retrievedAt": "2026-10-19"
+      "retrievedAt": "2026-10-26"
     }
   },
   "events": [
-    {
-      "id": "cn-cpi-ppi-2026-09",
-      "region": "CN",
-      "kind": "release",
-      "name": "CPI and PPI, September",
-      "date": "2026-10-14",
-      "weekday": "Wed",
-      "time": "09:30",
-      "zone": "Asia/Shanghai",
-      "utc": "2026-10-14T01:30:00Z",
-      "source": "nbs-calendar"
-    },
-    {
-      "id": "us-cpi-2026-09",
-      "region": "US",
-      "kind": "release",
-      "name": "Consumer Price Index, September",
-      "date": "2026-10-14",
-      "time": "08:30",
-      "zone": "America/New_York",
-      "utc": "2026-10-14T12:30:00Z",
-      "source": "fred-releases"
-    },
-    {
-      "id": "us-ppi-2026-09",
-      "region": "US",
-      "kind": "release",
-      "name": "Producer Price Index, September",
-      "date": "2026-10-15",
-      "time": "08:30",
-      "zone": "America/New_York",
-      "utc": "2026-10-15T12:30:00Z",
-      "source": "fred-releases"
-    },
     {
       "id": "cn-gdp-2026-q3",
       "region": "CN",
