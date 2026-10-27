@@ -7,11 +7,11 @@
     "reasonCodes": []
   },
   "edition": "US",
-  "generatedAt": "2026-10-26T13:01:37.143Z",
-  "dateLabel": "Monday, October 26, 2026",
+  "generatedAt": "2026-10-27T13:01:01.990Z",
+  "dateLabel": "Tuesday, October 27, 2026",
   "asOf": {
-    "label": "Prices as of the Fri, Oct 23 close",
-    "session": "2026-10-23",
+    "label": "Prices as of the Mon, Oct 26 close",
+    "session": "2026-10-26",
     "closed": false,
     "intraday": false
   },
@@ -31,31 +31,31 @@
     "measures": {
       "shillerPE": {
         "label": "Shiller CAPE",
-        "value": "40.4",
+        "value": "40.7",
         "level": 5,
         "levelLabel": "Very expensive"
       },
       "buffettIndicator": {
         "label": "Buffett Indicator",
-        "value": "245%",
+        "value": "246%",
         "level": 5,
         "levelLabel": "Very expensive"
       }
     },
     "stocksVsBonds": {
       "earningsYield": 2.5,
-      "realYield10Y": 1.2,
+      "realYield10Y": 1.3,
       "gap": 1.2,
       "label": "Thin"
     },
     "mood": {
-      "score": 22,
-      "label": "Extreme fear",
-      "change1d": "+1",
-      "change1w": "+1"
+      "score": 30,
+      "label": "Fear",
+      "change1d": "+3",
+      "change1w": "+0"
     },
     "trend": {
-      "value": "+4.6%",
+      "value": "+5.2%",
       "above": true
     },
     "rates": {
@@ -73,9 +73,9 @@
             "label": "Shiller CAPE",
             "threshold": 35,
             "unit": "",
-            "value": 40.4,
+            "value": 40.7,
             "direction": "down",
-            "movePct": 13,
+            "movePct": 14,
             "met": false
           },
           {
@@ -83,9 +83,9 @@
             "label": "Buffett Indicator",
             "threshold": 200,
             "unit": "%",
-            "value": 245,
+            "value": 246,
             "direction": "down",
-            "movePct": 18,
+            "movePct": 19,
             "met": false
           }
         ]
@@ -119,13 +119,13 @@
   "dashboard": {
     "buffettIndicator": {
       "title": "Buffett Indicator",
-      "value": "245%",
+      "value": "246%",
       "status": "Strongly Overvalued",
       "emoji": "🔴"
     },
     "shillerPE": {
       "title": "Shiller P/E (CAPE)",
-      "value": "40.4",
+      "value": "40.7",
       "status": "Strongly Overvalued",
       "emoji": "🔴"
     },
@@ -137,92 +137,92 @@
     },
     "sp500VsMa200": {
       "title": "S&P 500 vs 200D-MA",
-      "value": "+4.6%",
-      "status": "Bullish (Golden Cross)",
-      "emoji": "🟢"
+      "value": "+5.2%",
+      "status": "Strong Bullish (Golden Cross)",
+      "emoji": "🟢🟢"
     }
   },
   "facts": {
-    "buffettIndicator": "245%",
-    "shillerPE": "40.4",
+    "buffettIndicator": "246%",
+    "shillerPE": "40.7",
     "yieldCurve": "+0.31%",
-    "sp500VsMa200": "+4.6%",
+    "sp500VsMa200": "+5.2%",
     "maSignal": "Golden Cross",
-    "fearGreedValue": 22,
-    "sp500": "7623.68",
-    "sp500Change": "-0.52%",
-    "dowJones": "52215.16",
-    "dowJonesChange": "-1.23%",
-    "vix": "19.22",
-    "vixChange": "-1.18%",
-    "gold": "$4034.70",
-    "goldChange": "+0.67%",
-    "oil": "$101.15",
-    "oilChange": "-2.05%",
-    "dxy": "101.89",
-    "dxyChange": "+0.08%",
-    "btc": "$80,203",
-    "btcChange": "+0.20%",
+    "fearGreedValue": 30,
+    "sp500": "7676.77",
+    "sp500Change": "+0.70%",
+    "dowJones": "52361.58",
+    "dowJonesChange": "+0.28%",
+    "vix": "17.77",
+    "vixChange": "-3.37%",
+    "gold": "$4037.90",
+    "goldChange": "-0.01%",
+    "oil": "$101.01",
+    "oilChange": "-0.74%",
+    "dxy": "102.16",
+    "dxyChange": "+0.20%",
+    "btc": "$80,236",
+    "btcChange": "+0.28%",
     "gdpValue": "+2.2% (QoQ annualized)",
     "cpiValue": "3.72%",
     "unemploymentValue": "4.2%",
     "fedRateValue": "4.00%",
-    "treasury10Y": "4.96%",
-    "treasury2Y": "4.65%",
-    "googlChange": "-1.24%",
-    "babaChange": "-2.14%",
-    "adbeChange": "-2.49%",
-    "sofiChange": "-1.05%",
-    "asmlChange": "+0.72%"
+    "treasury10Y": "5.00%",
+    "treasury2Y": "4.69%",
+    "googlChange": "-1.06%",
+    "babaChange": "+0.61%",
+    "adbeChange": "-1.97%",
+    "sofiChange": "-1.06%",
+    "asmlChange": "+1.22%"
   },
   "fearGreed": {
-    "score": 22,
-    "classification": "Extreme fear",
-    "change1d": "+1",
-    "change1w": "+1"
+    "score": 30,
+    "classification": "Fear",
+    "change1d": "+3",
+    "change1w": "+0"
   },
   "screener": [
     {
       "label": "S&P 500",
       "factKey": "sp500Change",
-      "value": "7623.68",
-      "change": "-0.52%"
+      "value": "7676.77",
+      "change": "+0.70%"
     },
     {
       "label": "Dow Jones",
       "factKey": "dowJonesChange",
-      "value": "52215.16",
-      "change": "-1.23%"
+      "value": "52361.58",
+      "change": "+0.28%"
     },
     {
       "label": "VIX",
       "factKey": "vixChange",
-      "value": "19.22",
-      "change": "-1.18%"
+      "value": "17.77",
+      "change": "-3.37%"
     },
     {
       "label": "Gold",
       "factKey": "goldChange",
-      "value": "$4034.70",
-      "change": "+0.67%"
+      "value": "$4037.90",
+      "change": "-0.01%"
     },
     {
       "label": "Oil (WTI)",
       "factKey": "oilChange",
-      "value": "$101.15",
-      "change": "-2.05%"
+      "value": "$101.01",
+      "change": "-0.74%"
     },
     {
       "label": "US Dollar",
       "factKey": "dxyChange",
-      "value": "101.89",
-      "change": "+0.08%"
+      "value": "102.16",
+      "change": "+0.20%"
     },
     {
       "label": "Bitcoin",
       "factKey": "btcChange",
-      "value": "$80,203",
-      "change": "+0.20%"
+      "value": "$80,236",
+      "change": "+0.28%"
     }
   ],
   "economic": [
@@ -252,19 +252,19 @@
     {
       "label": "10Y Treasury",
       "factKey": "treasury10Y",
-      "value": "4.96%"
+      "value": "5.00%"
     },
     {
       "label": "2Y Treasury",
       "factKey": "treasury2Y",
-      "value": "4.65%"
+      "value": "4.69%"
     }
   ],
-  "watchlist": "  GOOGL: $320.21 (-1.24%)\n  BABA: $99.64 (-2.14%)\n  ADBE: $263.82 (-2.49%)\n  SOFI: $14.62 (-1.05%)\n  ASML: $1571.80 (+0.72%)",
+  "watchlist": "  GOOGL: $316.80 (-1.06%)\n  BABA: $100.25 (+0.61%)\n  ADBE: $258.62 (-1.97%)\n  SOFI: $14.46 (-1.06%)\n  ASML: $1590.90 (+1.22%)",
   "trackRecord": {
-    "accuracy": "2/5 (40%)",
-    "last": "Cautiously Bearish (2026-10-23) → market moved -0.52% → Correct",
-    "baseline": "the market fell on 2 of those 5 days",
+    "accuracy": "2/6 (33%)",
+    "last": "Cautiously Bearish (2026-10-24) → market moved +0.70% → Miss",
+    "baseline": "the market fell on 2 of those 6 days",
     "phase": "beta",
     "since": "2026-10-17"
   },
@@ -308,6 +308,13 @@
       "date": "2026-10-24",
       "sentiment": "Cautiously Bearish",
       "verdict": "PASS",
+      "result": "miss",
+      "actualChange": "+0.70%"
+    },
+    {
+      "date": "2026-10-27",
+      "sentiment": "Cautiously Bullish",
+      "verdict": "PASS",
       "result": null,
       "actualChange": null
     }
@@ -315,86 +322,86 @@
   "analysisModel": "gemini-3.6-flash",
   "analysisProvider": "Google",
   "analysis": {
-    "sentiment": "Cautiously Bearish",
+    "sentiment": "Cautiously Bullish",
     "confidence": "Medium",
     "claims": [
       {
-        "text": "Major market indices declined alongside lower prices across most watchlist technology stocks.",
+        "text": "Broad equity benchmark indices posted positive daily gains while market volatility pulled back.",
         "basedOn": [
           "sp500Change",
           "dowJonesChange",
-          "googlChange",
-          "adbeChange"
+          "vixChange"
         ],
-        "direction": "supports_bearish"
+        "direction": "supports_bullish"
       },
       {
-        "text": "Market sentiment remains constrained by extreme anxiety even as broad equity prices stay above their long term trendline.",
+        "text": "Market sentiment reflects fear among participants even as price trends remain comfortably above the long term moving average.",
         "basedOn": [
           "fearGreedValue",
           "sp500VsMa200"
         ],
+        "direction": "supports_bullish"
+      },
+      {
+        "text": "Media headlines highlighted concerns regarding valuation risks in artificial intelligence sector debt and spending.",
+        "basedOn": [
+          "headline_6",
+          "headline_8"
+        ],
         "direction": "supports_bearish"
       },
       {
-        "text": "Long term valuation measures show elevated asset prices relative to broad economic output and historical business profits.",
+        "text": "Long term market valuation indicators show elevated equity pricing relative to economic output and historical earnings.",
         "basedOn": [
           "buffettIndicator",
           "shillerPE"
         ],
         "direction": "neutral"
-      },
-      {
-        "text": "Prominent market commentary cautions individual investors against purchasing technology equities during price pullbacks.",
-        "basedOn": [
-          "headline_2"
-        ],
-        "direction": "supports_bearish"
       }
     ],
-    "interpretation": "While underlying valuation conditions remain demanding over extended horizons, short-term equities continue to experience moderate downward pressure. Our short-term posture held steady as broad equities pulled back further and most monitored technology companies lost ground. Pervasive market anxiety reflects investor caution despite equity price levels holding above key long term averages.",
-    "wisdom": "Value investors focus on buying sturdy businesses with durable competitive advantages when market panic creates genuine margins of safety."
+    "interpretation": "While long term valuation measures indicate a tight margin of safety, short term price trends showed mild strength as broad market indices advanced alongside lower volatility. This price gain and reduced volatility shifted the short term outlook from cautiously bearish to cautiously bullish, even as market sentiment remains cautious. Corporate earnings news and technology sector debt concerns continue to create divergent movements across individual equities.",
+    "wisdom": "Mr. Market frequently offers emotional prices that fluctuate far more rapidly than the underlying economic value of sound businesses."
   },
   "news": [
     {
       "factKey": "headline_1",
-      "title": "Musk says SpaceX's AI rivals are in trouble, sending their stocks lower",
-      "url": "https://www.marketwatch.com/story/musk-says-spacex-landed-a-40-billion-debt-deal-and-forecasts-doom-for-some-ai-rivals-a0a4991e?mod=mw_rss_topstories"
+      "title": "My wife cried when I found out she had only $80,000 in her 401(k). I have $2.2 million. Am I wrong to be shocked?",
+      "url": "https://www.marketwatch.com/story/my-wife-has-only-80-000-saved-for-retirement-i-have-2-2-million-am-i-wrong-to-be-shocked-3e27b490?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_2",
-      "title": "A dot-com survivor warns retail investors against buying the tech dip: 'You're taking a knife to a gunfight.'",
-      "url": "https://www.marketwatch.com/story/a-dot-com-survivor-warns-retail-investors-against-buying-the-tech-dip-youre-taking-a-knife-to-a-gunfight-6c940361?mod=mw_rss_topstories"
+      "title": "Why SoFi's stock is soaring after earnings",
+      "url": "https://www.marketwatch.com/story/sofis-stock-climbs-as-lending-surge-drives-an-earnings-beat-and-rosy-outlook-0c978535?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_3",
-      "title": "Nvidia, AMD and Broadcom could buy Meta shares as part of $35 billion stock offering",
-      "url": "https://www.marketwatch.com/story/nvidia-amd-and-broadcom-could-buy-meta-shares-as-part-of-35-billion-stock-offering-d816fec2?mod=mw_rss_topstories"
+      "title": "Here's the question three tech-sector earnings reports raise about the future of AI",
+      "url": "https://www.marketwatch.com/story/heres-the-question-three-tech-sector-earnings-reports-raise-about-the-future-of-ai-5676248b?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_4",
-      "title": "My husband wants to sell our $1.5 million home and invest the proceeds. But this is where we raised our kids  -  and I can't bear to leave.",
-      "url": "https://www.marketwatch.com/story/my-husband-wants-to-sell-our-1-5-million-home-and-invest-the-proceeds-but-this-is-where-we-raised-our-kids-and-i-cant-bear-to-leave-4feb46ed?mod=mw_rss_topstories"
+      "title": "'Just watch Judge Judy': I'm in my 70s. Why do people keep making the same avoidable financial mistakes?",
+      "url": "https://www.marketwatch.com/story/you-need-only-watch-episodes-of-judge-judy-im-in-my-70s-why-do-people-keep-making-the-same-avoidable-financial-mistakes-bbf60fe4?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_5",
-      "title": "The stock market's biggest test in weeks is here",
-      "url": "https://www.marketwatch.com/story/the-stock-markets-biggest-test-in-weeks-is-here-256f5a37?mod=mw_rss_topstories"
+      "title": "Why reported Khamenei call for end to 'neither war nor peace' moved markets  -  a bit",
+      "url": "https://www.marketwatch.com/story/why-reported-khamenei-call-for-end-to-neither-war-nor-peace-moved-markets-a-bit-dd94b602?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_6",
-      "title": "Verizon's stock rises as subscriber surge impresses Wall Street",
-      "url": "https://www.marketwatch.com/story/verizons-stock-rises-as-subscriber-surge-impresses-wall-street-2be3ef2c?mod=mw_rss_topstories"
+      "title": "AI debt trouble could help Fed's Warsh get his way with fewer rate hikes",
+      "url": "https://www.marketwatch.com/story/ai-debt-trouble-could-help-feds-warsh-get-his-way-with-fewer-rate-hikes-b3dc4525?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_7",
-      "title": "We stopped helping our neighbors with free home repairs and our friendship cooled. Who's to blame?",
-      "url": "https://www.marketwatch.com/story/we-stopped-helping-our-neighbors-with-free-home-repairs-and-our-friendship-cooled-whos-to-blame-d20b0720?mod=mw_rss_topstories"
+      "title": "Big Tech's earnings are on deck. There's more for investors to watch than AI spending.",
+      "url": "https://www.marketwatch.com/story/big-techs-earnings-are-on-deck-theres-more-for-investors-to-watch-than-ai-spending-bb566c90?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_8",
-      "title": "These four shocks could hand investors an unexpected buying window, strategists say",
-      "url": "https://www.marketwatch.com/story/these-four-shocks-could-hand-investors-an-unexpected-buying-window-strategists-say-5ae7c4db?mod=mw_rss_topstories"
+      "title": "A leading Silicon Valley cheerleader just showed all the reasons to be worried about the AI bubble",
+      "url": "https://www.marketwatch.com/story/a-leading-silicon-valley-cheerleader-just-showed-all-the-reasons-to-be-worried-about-the-ai-bubble-e3b32fe1?mod=mw_rss_topstories"
     }
   ],
   "sources": [
