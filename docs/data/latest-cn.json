@@ -7,11 +7,11 @@
     "reasonCodes": []
   },
   "edition": "CN",
-  "generatedAt": "2026-10-27T08:30:25.342Z",
-  "dateLabel": "Tuesday, October 27, 2026",
+  "generatedAt": "2026-10-28T08:30:43.976Z",
+  "dateLabel": "Wednesday, October 28, 2026",
   "asOf": {
-    "label": "Prices as of the Tue, Oct 27 close",
-    "session": "2026-10-27",
+    "label": "Prices as of the Wed, Oct 28 close",
+    "session": "2026-10-28",
     "closed": false,
     "intraday": false
   },
@@ -22,64 +22,64 @@
   },
   "dashboard": {},
   "facts": {
-    "csi300": "4,049.55",
-    "csi300Change": "-1.32%",
-    "sseComposite": "3,648.30",
-    "sseCompositeChange": "-1.14%",
-    "szseComponent": "11,245.73",
-    "szseComponentChange": "-3.67%",
-    "hangSeng": "23,041.32",
-    "hangSengChange": "-0.23%",
-    "gold": "$4,011.40",
-    "goldChange": "-0.67%",
-    "usdCny": "6.6671",
-    "usdCnyChange": "+0.12%",
+    "csi300": "4,083.87",
+    "csi300Change": "+0.85%",
+    "sseComposite": "3,681.47",
+    "sseCompositeChange": "-0.43%",
+    "szseComponent": "11,473.18",
+    "szseComponentChange": "-0.53%",
+    "hangSeng": "23,094.83",
+    "hangSengChange": "-0.50%",
+    "gold": "$4,064.20",
+    "goldChange": "-0.26%",
+    "usdCny": "6.6660",
+    "usdCnyChange": "+0.01%",
     "gdpValue": "+4.96%",
     "cpiValue": "0.06%",
     "unemploymentValue": "4.62%",
-    "moutaiChange": "+0.44%",
-    "catlChange": "-2.10%",
-    "bydChange": "-0.47%",
-    "alibabaChange": "-0.97%",
-    "tencentChange": "-0.31%"
+    "moutaiChange": "-1.85%",
+    "catlChange": "-1.66%",
+    "bydChange": "+0.89%",
+    "alibabaChange": "+1.96%",
+    "tencentChange": "+0.62%"
   },
   "fearGreed": null,
   "screener": [
     {
       "label": "CSI 300",
       "factKey": "csi300Change",
-      "value": "4,049.55",
-      "change": "-1.32%"
+      "value": "4,083.87",
+      "change": "+0.85%"
     },
     {
       "label": "SSE Composite",
       "factKey": "sseCompositeChange",
-      "value": "3,648.30",
-      "change": "-1.14%"
+      "value": "3,681.47",
+      "change": "-0.43%"
     },
     {
       "label": "SZSE Component",
       "factKey": "szseComponentChange",
-      "value": "11,245.73",
-      "change": "-3.67%"
+      "value": "11,473.18",
+      "change": "-0.53%"
     },
     {
       "label": "Hang Seng",
       "factKey": "hangSengChange",
-      "value": "23,041.32",
-      "change": "-0.23%"
+      "value": "23,094.83",
+      "change": "-0.50%"
     },
     {
       "label": "Gold",
       "factKey": "goldChange",
-      "value": "$4,011.40",
-      "change": "-0.67%"
+      "value": "$4,064.20",
+      "change": "-0.26%"
     },
     {
       "label": "USD/CNY",
       "factKey": "usdCnyChange",
-      "value": "6.6671",
-      "change": "+0.12%"
+      "value": "6.6660",
+      "change": "+0.01%"
     }
   ],
   "economic": [
@@ -102,11 +102,11 @@
       "value": "4.62%"
     }
   ],
-  "watchlist": "▲ Moutai (600519.SS): ¥1,355.90 (+0.44%)\n▼ CATL (300750.SZ): ¥233.00 (-2.10%)\n▼ BYD (002594.SZ): ¥82.01 (-0.47%)\n▼ Alibaba (9988.HK): HK$97.00 (-0.97%)\n▼ Tencent (0700.HK): HK$385.20 (-0.31%)",
+  "watchlist": "▼ Moutai (600519.SS): ¥1,330.75 (-1.85%)\n▼ CATL (300750.SZ): ¥229.14 (-1.66%)\n▲ BYD (002594.SZ): ¥82.74 (+0.89%)\n▲ Alibaba (9988.HK): HK$98.90 (+1.96%)\n▲ Tencent (0700.HK): HK$387.60 (+0.62%)",
   "trackRecord": {
-    "accuracy": "2/5 (40%) · 1 too flat to judge",
-    "last": "Neutral (2026-10-26) → market moved -1.32% → Miss",
-    "baseline": "the market fell on 4 of those 5 days",
+    "accuracy": "2/6 (33%) · 1 too flat to judge",
+    "last": "Cautiously Bearish (2026-10-27) → market moved +0.85% → Miss",
+    "baseline": "the market fell on 4 of those 6 days",
     "phase": "beta",
     "since": "2026-10-19"
   },
@@ -157,6 +157,13 @@
       "date": "2026-10-27",
       "sentiment": "Cautiously Bearish",
       "verdict": "PASS",
+      "result": "miss",
+      "actualChange": "+0.85%"
+    },
+    {
+      "date": "2026-10-28",
+      "sentiment": "Cautiously Bearish",
+      "verdict": "PASS",
       "result": null,
       "actualChange": null
     }
@@ -168,7 +175,7 @@
     "confidence": "Medium",
     "claims": [
       {
-        "text": "Domestic equity benchmarks and offshore shares declined across the board.",
+        "text": "Mainland benchmark equity indices experienced mixed results, with blue chips managing small gains while broader benchmark indices and offshore equities declined.",
         "basedOn": [
           "csi300Change",
           "sseCompositeChange",
@@ -178,7 +185,7 @@
         "direction": "supports_bearish"
       },
       {
-        "text": "Most tracked watchlist equities across technology, battery, and automotive sectors lost value while consumer staples gained slightly.",
+        "text": "Technology and automotive equities in watchlist tracking advanced, whereas consumer staples and battery manufacturing shares lost value.",
         "basedOn": [
           "moutaiChange",
           "catlChange",
@@ -186,70 +193,70 @@
           "alibabaChange",
           "tencentChange"
         ],
+        "direction": "supports_bullish"
+      },
+      {
+        "text": "Media headlines reported widespread concern over artificial intelligence sector declines and questioned whether state support measures could stabilize equity markets.",
+        "basedOn": [
+          "headline_1",
+          "headline_3",
+          "headline_7",
+          "headline_8"
+        ],
         "direction": "supports_bearish"
       },
       {
-        "text": "Commodities slid while the domestic currency weakened slightly against the dollar.",
+        "text": "Gold prices dipped while the domestic currency held steady against the dollar.",
         "basedOn": [
           "goldChange",
           "usdCnyChange"
         ],
         "direction": "supports_bearish"
-      },
-      {
-        "text": "Media reports highlighted deep selloffs in artificial intelligence shares, rising downside risks, and demand for fixed income assets.",
-        "basedOn": [
-          "headline_1",
-          "headline_4",
-          "headline_5",
-          "headline_6"
-        ],
-        "direction": "supports_bearish"
       }
     ],
-    "interpretation": "China equity markets turned lower as major onshore indices and Hong Kong equities faced broad selling pressure. Compared to the previous neutral assessment, market sentiment shifted downward following sharp drops in growth and technology sectors alongside weak commodity performance. The overall short-term perspective moved to a more cautious footing as risk appetite diminished.",
-    "wisdom": "Focusing on durable business franchises with stable cash flows helps preserve capital during sharp thematic downturns."
+    "interpretation": "Mainland Chinese markets showed divergence as blue-chip equities gained while major broader benchmarks and offshore shares retreated. State intervention efforts faced headwinds from sharp downturns across technology and artificial intelligence valuations. Compared to prior assessments, market sentiment held cautious as investor hesitancy persists despite selective strength in major Internet and automotive firms.",
+    "wisdom": "True value investors focus on fundamental operational quality rather than temporary market volatility driven by rapid sector rotations and state support actions."
   },
   "news": [
     {
       "factKey": "headline_1",
-      "title": "China stocks could slide 15% before bottom, Morgan Stanley says",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNRDZTdjhVTDhkOEJ3c0RJdkVNYWprVmFqcG9FSkIzUDJNUlNjdXRZYzBzMlF0Y0lJb283VjNRNk9QcUtKX0tHQnRnODhBMnlIMWpGdlBCcnFlYlpSZ0VUZ0hPT1ZfSGVrRFVpYURxX2F3MzdDejlYbmdFTElvM1A5QkJWZFM4UnRNeE52VFVlUkNJcWpRS2dzcFRzVE9RRFV1enZVWUtVdTIwc21sTVJYMjRhMGgtY0xEa2JKclYydDZiVEt30gHEAUFVX3lxTFBoU2QyOHN0TFRMS2RsSy1OUVpqbm5qa3NCNUVUNmJ5MHl1OGhCdTdONWVjQWZsdFdvZ1hRLTBSZ3BQZkhpandOOU9wN1lEV2xhdUJmMTluRmg2by1MMk1WenI4UTVhd1hxTTRLMHpSbEVpbFF3bm1COFV2cTJZZG1lbzhhLTcxQU16WE13OE9xa0lBRFhnbTZhNkFJUXNFaU9ialpBUUhXWEwyUWFQWDkyVWpQbUVjMm05WVZaQVB6UGFtVko?oc=5"
+      "title": "China rushes to shore up struggling markets",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNSnVPSDFLZ1NVWE1fVVJTTkxTTXJOWTFYd2RjQTlnTUFMbTFSODdBX3Z2V2RQWkNGeDNobEVadzhRejdYcWNXcjNWOXdPTVU0SHhyaGdFSnhFcTdkT0hiTW1Lejg2ZHkzdG1FSDdEMldNRXFrdzhEVXpCdmJSajBPNkJ2Q1A?oc=5"
     },
     {
       "factKey": "headline_2",
+      "title": "China Steps In to Rescue Stocks, But the Market Continues to Fall",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNbUVXYUQxZUhYNnBqZ2lQbjlZLVRyTkphZVhyRDlLWHI3RGk3U3NJTWNOMXEyVG8xVkQtU2wtNGRDUDVrcEc4ZlJVem5heHlWUVExYmtOOVE2MFBNX1kyYm90RHp4OTNaWEJVanhlTm1rVC1zUEFQYVBKSHpPS2M0QzZxM2g2d1RRNDNSV3NxNlh5amZZZ2tv?oc=5"
+    },
+    {
+      "factKey": "headline_3",
+      "title": "Massive state buying can’t reverse China’s stock slide, analysts warn",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPdVBFVXJrWFBKYXF4S3YtNFgzeWRESzFYSjF1SndnaHRPbm5HVUtJd1FZSl9ST0huVW1leGtRbDJ1TlBKYVM5UEJnOW51RHN5OVRSQmkxazgxTWV2V2ZRcGkzaVdFRFlhZGJ6d3UwX1pFNGFaWk1rbWhETkZXX3RxczkxQ3A4LURCUmVzSUxhU2M3VG1OUFhXWGo1cFlMbTRTeHhCQWdqMzRaaEdwemJoMWdoNkhTWEM5WGdRWExOZFJ1RE5zUnM4TFlFb9IBywFBVV95cUxPdVBFVXJrWFBKYXF4S3YtNFgzeWRESzFYSjF1SndnaHRPbm5HVUtJd1FZSl9ST0huVW1leGtRbDJ1TlBKYVM5UEJnOW51RHN5OVRSQmkxazgxTWV2V2ZRcGkzaVdFRFlhZGJ6d3UwX1pFNGFaWk1rbWhETkZXX3RxczkxQ3A4LURCUmVzSUxhU2M3VG1OUFhXWGo1cFlMbTRTeHhCQWdqMzRaaEdwemJoMWdoNkhTWEM5WGdRWExOZFJ1RE5zUnM4TFlFbw?oc=5"
+    },
+    {
+      "factKey": "headline_4",
+      "title": "China Stock Premium Over Hong Kong Widens on State Intervention",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPQWVHTHAtQTIzZXp2ZWV6UjZmb0VMQi00NnpZRWRPWXpsTkhkc1A1blVpM2NaM1F3c1NFQUZzemtHbXM0NHR2dU1ocUNWZmFiRHNNNnBvTTEtUnFJOXFlX3dXUFVacDBjTXNtd0g3eTZFazVDczdpQk9Bd1dTR1NfSWhTaDF6VndBTFZqZ0txUEUyUEd3UDZhMnkwM3RyZk9saFQ3QUxveTFTUm0ybDlKQ3pZMi0?oc=5"
+    },
+    {
+      "factKey": "headline_5",
       "title": "Chinese markets lose trillions as race for AI supremacy with US takes its toll",
       "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPbzM2ekpCRDItOWdneU1qVVdIMlpNeVJLLWpUZDYtc2FPclJCM0JLTEVGc2JGS0NDbFpldXlaZlBFclJwTnFfSmFQUU0tLWRXaFI1NlFXRW1Bd1ZkbkwxdHQzcDJQOTIzOVFOZzFXLTNXVWI1T1pRd0hrQVRFdVplV3ZGb2xrYW84SXN2cUM1eWVXZEdPQVZN?oc=5"
     },
     {
-      "factKey": "headline_3",
-      "title": "Bonds and Chinese stocks could offer value as scrutiny of U.S. AI monetization grows: Strategist",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQMnRUbTJYTWVxaG01OG15SjMzVXNQNmN6bGdLczJnR3FNbmdwR2FuZzFtc08ybW41dDZDbGdkR1MyUFhHMEJ1TG9NUFBpUGJ3V1lpSHo2ekIyNVB0TDAzaHFwdXJpRVlxdUlJMnN0NVdXMUNuQnFYS21iMHNiRWJBaF9HeFpiQVplalU5ZEtseXZUTERnaHhTNE9hYzk1cmJuUVdTTVhrVlFHNXFUWGlR?oc=5"
-    },
-    {
-      "factKey": "headline_4",
-      "title": "In China, the AI bubble has already burst",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPTnhLb1ZGYUdnbENkWmMyZDZqTHlsckJwbEsxWVZGTnI5U2lPcFNXLXFoYmRRZm1rU2NWREZrWGVRblRES2FmdkwtUVIzMDlTS2N4ZW5vNno1Y2JCR1FzclhmdUVBOU5jMElCd2FwTlN1VzdfOU94YXlFc2VSWmRObXZyMVhyNnlf?oc=5"
-    },
-    {
-      "factKey": "headline_5",
-      "title": "Watch China Bonds Rally As Gloom Deepens Over Stocks",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQd0lEUmh3YkM1UWZtWkI0ZW1Pal9HSU5HTnFsTDZSc01xZVlqYlBqTWJlWVZjbHZNaHZuRGxaUC1PNzdhS3BPV3NadEE0Qi1SMHpSWGxxV0U3T3lHLUFuVVJQTHlyQmJyVmFwdUxkalBUbjZqaFNQSWQ0aHhBMTNJNTN6WmI?oc=5"
-    },
-    {
       "factKey": "headline_6",
-      "title": "China’s A.I. Stocks Have Lost 40 Percent in Four Months",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9RWUw4V2Z1SkhZZlZDZTZpUHMzQVVieC1aWGQzNjBvOC11T24zOE1PcE1Od0NpQS1rMlNna3ZMX2xHdkFDRGN6WkxjMnpoaGVLdzZIdS00RWxpTE9nRFVxLVNWek1QY2JzbjhB?oc=5"
+      "title": "China's Stock Market Has Lost $2.4 Trillion as Investors Doubt Its AI Boom Will Ever Pay Off",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNWlNKQlBCMEd4d3JmeFduMDBVdkZ3MkZRNDVGZVJuMlY3R3RKOUtfS3hGRnYxbDNMejM1cUVZV01lNUwzak5lak4talRJRHh0cUpBUnduQlp3bXJ4WG1SOGNPVkpzUkEzQ0ZvNHVTRHFKUkE5U3lIbXJ3Q1FyRWR1ZkxhVFBqVTRKRHdGa2FFTQ?oc=5"
     },
     {
       "factKey": "headline_7",
-      "title": "China Stocks Struggle for Direction",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcnZYOU95V3FkdlpCZHA5X0k3T21CMEx4a2xRVWhNTjhxS0JXdlltTXFtRS16bzV0NXN6MDBHMFVuaXFyUTdmcTNCLVgtbnFuZUxVcE9vdTFsS2RkbGpvMDcyVG03dVcxU0pvemJHQXVWUFhISVFTQzZqa1FPQlQ4dHdVR2gwb2dOQjlGMHcxcw?oc=5"
+      "title": "China’s STAR 50 Index Falls 40%, Erasing $480 Billion as AI Stocks Crash",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOTzhPQmNVbURlLXVQRkpYYUJQbUhlT1pWdzM5cFEtWmN0Yll4a1VwbHlBdGNNMEFzdE1BdlZPR2ZTbXV2cDZtVUVwbjYzV2FkcHVJM29Tb0hQTXBuc01BQ0daTDdnZlE3NWFBb0Nic2pYZmZBa2VkZjNBQW9vNXBQVTdwSUpOS1RSR09sSTAtT2dPNWFFamQ5TkVQQndLUQ?oc=5"
     },
     {
       "factKey": "headline_8",
-      "title": "TSLA, CSIQ Stocks In Focus As China Tightens Solar Manufacturing Technology Exports",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNbjdLNnltZ3BEaGlNRXd0a3RtaEtmRkZDODZZUnRLQkNNalgySnpUUC1OWlZqc3cxMjVqeDN6ZUNRMEw4R3ZvSmtPYkdGLXg4SzlxVGR4eXI1cGNkZ0ZOSGdSQVp6MnBoUDBPZ2FUN3lsVC16VlktZFNwbmVtY2Y2M3Y3MHp3RFNsbXlaRTh1TlE3YTdZUEtKaEY3amtVZC1penRwXzFZZ01ySEh6dlhMaDJQSVpTdHhlSy1UUVJyUGNZbEN4?oc=5"
+      "title": "China’s AI stock bubble bursts: $480 billion wiped out | What went wrong, and is the selloff over?",
+      "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQdDdDVWpOZUkzRlFEOFRCVjRTX0FkcHVCVHpLNVdoTEk1MTZpYm9SY0dpMFpENXRaRmRwdlB3XzJtSFNHdG1DelhSY0kwSWZKZWg1Tl9wbDlnMm5GX3hwV3VxZFFBcmhyMDU3T0lWdUlsMVY0c2x0ZC0tdjJHNmFTQzNIMGoycnROZE4tVUU2OEZ3bFhnd09UallJb0QtaWZZcEJIcVJvRVUzek9iUHA0LXhBWnBJbm9ESGJXS252WUl6UWl2MzJpR2dXTEJsb1RXT3pjSVk3WFZlRzZiWGxkdU1mM1BKRWlzMVZDdHFFc2F5em5kSnc?oc=5"
     }
   ],
   "sources": [
