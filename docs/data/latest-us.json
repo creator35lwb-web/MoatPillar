@@ -7,18 +7,18 @@
     "reasonCodes": []
   },
   "edition": "US",
-  "generatedAt": "2026-10-27T13:01:01.990Z",
-  "dateLabel": "Tuesday, October 27, 2026",
+  "generatedAt": "2026-10-28T13:01:00.812Z",
+  "dateLabel": "Wednesday, October 28, 2026",
   "asOf": {
-    "label": "Prices as of the Mon, Oct 26 close",
-    "session": "2026-10-26",
+    "label": "Prices as of the Tue, Oct 27 close",
+    "session": "2026-10-27",
     "closed": false,
     "intraday": false
   },
   "longTermReading": {
     "version": "ltr.v1",
-    "status": "steady",
-    "today": "ok",
+    "status": "held",
+    "today": "unavailable",
     "valuation": {
       "lo": 5,
       "hi": 5,
@@ -31,198 +31,141 @@
     "measures": {
       "shillerPE": {
         "label": "Shiller CAPE",
-        "value": "40.7",
+        "value": "40.9",
         "level": 5,
         "levelLabel": "Very expensive"
       },
-      "buffettIndicator": {
-        "label": "Buffett Indicator",
-        "value": "246%",
-        "level": 5,
-        "levelLabel": "Very expensive"
-      }
+      "buffettIndicator": null
     },
     "stocksVsBonds": {
-      "earningsYield": 2.5,
+      "earningsYield": 2.4,
       "realYield10Y": 1.3,
       "gap": 1.2,
       "label": "Thin"
     },
     "mood": {
-      "score": 30,
+      "score": 33,
       "label": "Fear",
-      "change1d": "+3",
-      "change1w": "+0"
+      "change1d": "+0",
+      "change1w": "+3"
     },
     "trend": {
-      "value": "+5.2%",
+      "value": "+5.8%",
       "above": true
     },
     "rates": {
-      "curve": "+0.31%",
+      "curve": "+0.32%",
       "label": "Flat"
     },
-    "changes": [
-      {
-        "kind": "valuation",
-        "direction": "down",
-        "target": "Expensive",
-        "conditions": [
-          {
-            "key": "shillerPE",
-            "label": "Shiller CAPE",
-            "threshold": 35,
-            "unit": "",
-            "value": 40.7,
-            "direction": "down",
-            "movePct": 14,
-            "met": false
-          },
-          {
-            "key": "buffettIndicator",
-            "label": "Buffett Indicator",
-            "threshold": 200,
-            "unit": "%",
-            "value": 246,
-            "direction": "down",
-            "movePct": 19,
-            "met": false
-          }
-        ]
-      },
-      {
-        "kind": "rates",
-        "current": "Flat",
-        "boundaries": [
-          {
-            "label": "Normal",
-            "at": 0.5,
-            "direction": "up"
-          },
-          {
-            "label": "Inverted",
-            "at": 0,
-            "direction": "down"
-          }
-        ]
-      },
-      {
-        "kind": "mood"
-      }
-    ]
+    "changes": []
   },
   "health": {
-    "status": "OK",
-    "missing": [],
+    "status": "DEGRADED",
+    "missing": [
+      "Buffett"
+    ],
     "suspect": []
   },
   "dashboard": {
-    "buffettIndicator": {
-      "title": "Buffett Indicator",
-      "value": "246%",
-      "status": "Strongly Overvalued",
-      "emoji": "🔴"
-    },
     "shillerPE": {
       "title": "Shiller P/E (CAPE)",
-      "value": "40.7",
+      "value": "40.9",
       "status": "Strongly Overvalued",
       "emoji": "🔴"
     },
     "yieldCurve": {
       "title": "Yield Curve (10Y-2Y)",
-      "value": "+0.31%",
+      "value": "+0.32%",
       "status": "Flat (Caution)",
       "emoji": "🟡"
     },
     "sp500VsMa200": {
       "title": "S&P 500 vs 200D-MA",
-      "value": "+5.2%",
+      "value": "+5.8%",
       "status": "Strong Bullish (Golden Cross)",
       "emoji": "🟢🟢"
     }
   },
   "facts": {
-    "buffettIndicator": "246%",
-    "shillerPE": "40.7",
-    "yieldCurve": "+0.31%",
-    "sp500VsMa200": "+5.2%",
+    "shillerPE": "40.9",
+    "yieldCurve": "+0.32%",
+    "sp500VsMa200": "+5.8%",
     "maSignal": "Golden Cross",
-    "fearGreedValue": 30,
-    "sp500": "7676.77",
-    "sp500Change": "+0.70%",
-    "dowJones": "52361.58",
-    "dowJonesChange": "+0.28%",
-    "vix": "17.77",
-    "vixChange": "-3.37%",
-    "gold": "$4037.90",
-    "goldChange": "-0.01%",
-    "oil": "$101.01",
-    "oilChange": "-0.74%",
-    "dxy": "102.16",
-    "dxyChange": "+0.20%",
-    "btc": "$80,236",
-    "btcChange": "+0.28%",
+    "fearGreedValue": 33,
+    "sp500": "7722.60",
+    "sp500Change": "+0.60%",
+    "dowJones": "52377.57",
+    "dowJonesChange": "+0.03%",
+    "vix": "17.39",
+    "vixChange": "-0.74%",
+    "gold": "$4065.80",
+    "goldChange": "-0.22%",
+    "oil": "$102.08",
+    "oilChange": "+2.18%",
+    "dxy": "102.34",
+    "dxyChange": "+0.03%",
+    "btc": "$80,619",
+    "btcChange": "-0.22%",
     "gdpValue": "+2.2% (QoQ annualized)",
     "cpiValue": "3.72%",
     "unemploymentValue": "4.2%",
     "fedRateValue": "4.00%",
     "treasury10Y": "5.00%",
-    "treasury2Y": "4.69%",
-    "googlChange": "-1.06%",
-    "babaChange": "+0.61%",
-    "adbeChange": "-1.97%",
-    "sofiChange": "-1.06%",
-    "asmlChange": "+1.22%"
+    "treasury2Y": "4.68%",
+    "googlChange": "+1.19%",
+    "babaChange": "-0.01%",
+    "adbeChange": "-3.97%",
+    "sofiChange": "+13.42%",
+    "asmlChange": "+2.94%"
   },
   "fearGreed": {
-    "score": 30,
+    "score": 33,
     "classification": "Fear",
-    "change1d": "+3",
-    "change1w": "+0"
+    "change1d": "+0",
+    "change1w": "+3"
   },
   "screener": [
     {
       "label": "S&P 500",
       "factKey": "sp500Change",
-      "value": "7676.77",
-      "change": "+0.70%"
+      "value": "7722.60",
+      "change": "+0.60%"
     },
     {
       "label": "Dow Jones",
       "factKey": "dowJonesChange",
-      "value": "52361.58",
-      "change": "+0.28%"
+      "value": "52377.57",
+      "change": "+0.03%"
     },
     {
       "label": "VIX",
       "factKey": "vixChange",
-      "value": "17.77",
-      "change": "-3.37%"
+      "value": "17.39",
+      "change": "-0.74%"
     },
     {
       "label": "Gold",
       "factKey": "goldChange",
-      "value": "$4037.90",
-      "change": "-0.01%"
+      "value": "$4065.80",
+      "change": "-0.22%"
     },
     {
       "label": "Oil (WTI)",
       "factKey": "oilChange",
-      "value": "$101.01",
-      "change": "-0.74%"
+      "value": "$102.08",
+      "change": "+2.18%"
     },
     {
       "label": "US Dollar",
       "factKey": "dxyChange",
-      "value": "102.16",
-      "change": "+0.20%"
+      "value": "102.34",
+      "change": "+0.03%"
     },
     {
       "label": "Bitcoin",
       "factKey": "btcChange",
-      "value": "$80,236",
-      "change": "+0.28%"
+      "value": "$80,619",
+      "change": "-0.22%"
     }
   ],
   "economic": [
@@ -257,14 +200,14 @@
     {
       "label": "2Y Treasury",
       "factKey": "treasury2Y",
-      "value": "4.69%"
+      "value": "4.68%"
     }
   ],
-  "watchlist": "  GOOGL: $316.80 (-1.06%)\n  BABA: $100.25 (+0.61%)\n  ADBE: $258.62 (-1.97%)\n  SOFI: $14.46 (-1.06%)\n  ASML: $1590.90 (+1.22%)",
+  "watchlist": "  GOOGL: $320.58 (+1.19%)\n  BABA: $100.24 (-0.01%)\n  ADBE: $248.36 (-3.97%)\n  SOFI: $16.40 (+13.42%)\n  ASML: $1635.57 (+2.94%)",
   "trackRecord": {
-    "accuracy": "2/6 (33%)",
-    "last": "Cautiously Bearish (2026-10-24) → market moved +0.70% → Miss",
-    "baseline": "the market fell on 2 of those 6 days",
+    "accuracy": "3/7 (43%)",
+    "last": "Cautiously Bullish (2026-10-27) → market moved +0.60% → Correct",
+    "baseline": "the market fell on 2 of those 7 days",
     "phase": "beta",
     "since": "2026-10-17"
   },
@@ -315,6 +258,13 @@
       "date": "2026-10-27",
       "sentiment": "Cautiously Bullish",
       "verdict": "PASS",
+      "result": "hit",
+      "actualChange": "+0.60%"
+    },
+    {
+      "date": "2026-10-28",
+      "sentiment": "Cautiously Bullish",
+      "verdict": "PASS",
       "result": null,
       "actualChange": null
     }
@@ -326,7 +276,7 @@
     "confidence": "Medium",
     "claims": [
       {
-        "text": "Broad equity benchmark indices posted positive daily gains while market volatility pulled back.",
+        "text": "Broad equity indices advanced modestly while volatility edged lower.",
         "basedOn": [
           "sp500Change",
           "dowJonesChange",
@@ -335,7 +285,7 @@
         "direction": "supports_bullish"
       },
       {
-        "text": "Market sentiment reflects fear among participants even as price trends remain comfortably above the long term moving average.",
+        "text": "Market sentiment reflects ongoing caution even as equity benchmark prices trade above their long-term moving average.",
         "basedOn": [
           "fearGreedValue",
           "sp500VsMa200"
@@ -343,65 +293,65 @@
         "direction": "supports_bullish"
       },
       {
-        "text": "Media headlines highlighted concerns regarding valuation risks in artificial intelligence sector debt and spending.",
+        "text": "Media coverage highlighted artificial intelligence business results and potential shifts in market signals.",
         "basedOn": [
-          "headline_6",
+          "headline_2",
+          "headline_7",
           "headline_8"
         ],
-        "direction": "supports_bearish"
+        "direction": "neutral"
       },
       {
-        "text": "Long term market valuation indicators show elevated equity pricing relative to economic output and historical earnings.",
+        "text": "Long-term earnings multiple metrics indicate expensive structural valuation levels across broader equities.",
         "basedOn": [
-          "buffettIndicator",
           "shillerPE"
         ],
         "direction": "neutral"
       }
     ],
-    "interpretation": "While long term valuation measures indicate a tight margin of safety, short term price trends showed mild strength as broad market indices advanced alongside lower volatility. This price gain and reduced volatility shifted the short term outlook from cautiously bearish to cautiously bullish, even as market sentiment remains cautious. Corporate earnings news and technology sector debt concerns continue to create divergent movements across individual equities.",
-    "wisdom": "Mr. Market frequently offers emotional prices that fluctuate far more rapidly than the underlying economic value of sound businesses."
+    "interpretation": "While elevated long-term structural valuations urge patience, technical momentum and resilient benchmark trends maintain our short-term view without revision from the previous session. Broad equity indices logged subtle gains while volatility receded, even as sentiment readings remain cautious. The persistent contrast between firm technical trends and anxious sentiment highlights an uncertain backdrop.",
+    "wisdom": "Mr Market frequently offers volatile short-term quotes, but disciplined valuation requires focusing on cash generation rather than broad market momentum."
   },
   "news": [
     {
       "factKey": "headline_1",
+      "title": "11 bargain-priced stocks of companies that have huge growth potential over the next two years",
+      "url": "https://www.marketwatch.com/story/11-bargain-priced-stocks-of-companies-that-have-huge-growth-potential-over-the-next-two-years-d62618e6?mod=mw_rss_topstories"
+    },
+    {
+      "factKey": "headline_2",
+      "title": "Vertiv earnings just sent an upbeat signal about AI ahead of Big Tech results",
+      "url": "https://www.marketwatch.com/story/vertiv-earnings-just-sent-an-upbeat-signal-about-ai-ahead-of-big-tech-results-5714a105?mod=mw_rss_topstories"
+    },
+    {
+      "factKey": "headline_3",
+      "title": "We are in our 70s. Should we pay off our 2.5% mortgage early or build up our savings?",
+      "url": "https://www.marketwatch.com/story/we-are-in-our-70s-should-we-pay-off-our-2-5-mortgage-or-build-up-our-savings-5a35e9c1?mod=mw_rss_topstories"
+    },
+    {
+      "factKey": "headline_4",
+      "title": "SK Hynix delivered on third-quarter results  -  but the outlook is what really mattered to Wall Street and the AI trade",
+      "url": "https://www.marketwatch.com/story/sk-hynix-delivered-on-third-quarter-results-but-the-outlook-is-what-really-mattered-to-wall-street-and-the-ai-trade-2fde9a57?mod=mw_rss_topstories"
+    },
+    {
+      "factKey": "headline_5",
       "title": "My wife cried when I found out she had only $80,000 in her 401(k). I have $2.2 million. Am I wrong to be shocked?",
       "url": "https://www.marketwatch.com/story/my-wife-has-only-80-000-saved-for-retirement-i-have-2-2-million-am-i-wrong-to-be-shocked-3e27b490?mod=mw_rss_topstories"
     },
     {
-      "factKey": "headline_2",
-      "title": "Why SoFi's stock is soaring after earnings",
-      "url": "https://www.marketwatch.com/story/sofis-stock-climbs-as-lending-surge-drives-an-earnings-beat-and-rosy-outlook-0c978535?mod=mw_rss_topstories"
-    },
-    {
-      "factKey": "headline_3",
-      "title": "Here's the question three tech-sector earnings reports raise about the future of AI",
-      "url": "https://www.marketwatch.com/story/heres-the-question-three-tech-sector-earnings-reports-raise-about-the-future-of-ai-5676248b?mod=mw_rss_topstories"
-    },
-    {
-      "factKey": "headline_4",
-      "title": "'Just watch Judge Judy': I'm in my 70s. Why do people keep making the same avoidable financial mistakes?",
-      "url": "https://www.marketwatch.com/story/you-need-only-watch-episodes-of-judge-judy-im-in-my-70s-why-do-people-keep-making-the-same-avoidable-financial-mistakes-bbf60fe4?mod=mw_rss_topstories"
-    },
-    {
-      "factKey": "headline_5",
-      "title": "Why reported Khamenei call for end to 'neither war nor peace' moved markets  -  a bit",
-      "url": "https://www.marketwatch.com/story/why-reported-khamenei-call-for-end-to-neither-war-nor-peace-moved-markets-a-bit-dd94b602?mod=mw_rss_topstories"
-    },
-    {
       "factKey": "headline_6",
-      "title": "AI debt trouble could help Fed's Warsh get his way with fewer rate hikes",
-      "url": "https://www.marketwatch.com/story/ai-debt-trouble-could-help-feds-warsh-get-his-way-with-fewer-rate-hikes-b3dc4525?mod=mw_rss_topstories"
+      "title": "My abusive ex-husband promised $20,000 for our kids' education. Now he refuses to pay. Is he legally obligated?",
+      "url": "https://www.marketwatch.com/story/my-abusive-ex-husband-promised-20-000-for-our-kids-education-now-he-refuses-to-pay-is-he-legally-obligated-325ef50f?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_7",
-      "title": "Big Tech's earnings are on deck. There's more for investors to watch than AI spending.",
-      "url": "https://www.marketwatch.com/story/big-techs-earnings-are-on-deck-theres-more-for-investors-to-watch-than-ai-spending-bb566c90?mod=mw_rss_topstories"
+      "title": "The AI boom is starting to break time-tested stock-market signals",
+      "url": "https://www.marketwatch.com/story/the-ai-boom-is-starting-to-break-time-tested-stock-market-signals-b172d67e?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_8",
-      "title": "A leading Silicon Valley cheerleader just showed all the reasons to be worried about the AI bubble",
-      "url": "https://www.marketwatch.com/story/a-leading-silicon-valley-cheerleader-just-showed-all-the-reasons-to-be-worried-about-the-ai-bubble-e3b32fe1?mod=mw_rss_topstories"
+      "title": "The real way to tell if Amazon's AI spending is paying off",
+      "url": "https://www.marketwatch.com/story/the-real-way-to-tell-if-amazons-ai-spending-is-paying-off-42a8a637?mod=mw_rss_topstories"
     }
   ],
   "sources": [
