@@ -7,8 +7,8 @@
     "reasonCodes": []
   },
   "edition": "US",
-  "generatedAt": "2026-10-31T13:01:03.969Z",
-  "dateLabel": "Saturday, October 31, 2026",
+  "generatedAt": "2026-11-01T13:00:47.717Z",
+  "dateLabel": "Sunday, November 1, 2026",
   "asOf": {
     "label": "Prices as of the Fri, Oct 30 close",
     "session": "2026-10-30",
@@ -161,8 +161,8 @@
     "oilChange": "+2.08%",
     "dxy": "101.96",
     "dxyChange": "+0.08%",
-    "btc": "$77,396",
-    "btcChange": "+0.25%",
+    "btc": "$77,748",
+    "btcChange": "+0.40%",
     "gdpValue": "+3.4% (QoQ annualized)",
     "cpiValue": "3.72%",
     "unemploymentValue": "4.2%",
@@ -221,8 +221,8 @@
     {
       "label": "Bitcoin",
       "factKey": "btcChange",
-      "value": "$77,396",
-      "change": "+0.25%"
+      "value": "$77,748",
+      "change": "+0.40%"
     }
   ],
   "economic": [
@@ -354,7 +354,7 @@
     "confidence": "Medium",
     "claims": [
       {
-        "text": "Broad equity market indexes declined alongside a sharp increase in expected volatility.",
+        "text": "Broad equity market indexes declined alongside a notable surge in market volatility.",
         "basedOn": [
           "sp500Change",
           "dowJonesChange",
@@ -363,7 +363,7 @@
         "direction": "supports_bearish"
       },
       {
-        "text": "Key technology and semiconductor holdings experienced noticeable downward price pressure.",
+        "text": "Major semiconductor and growth equity holdings experienced significant downward selling pressure.",
         "basedOn": [
           "asmlChange",
           "sofiChange",
@@ -372,15 +372,16 @@
         "direction": "supports_bearish"
       },
       {
-        "text": "Headline news highlighted potential technology bubble concerns and price declines in commodities.",
+        "text": "Market sentiment reflects heightened fear as economic headlines emphasize growing household expenses and potential adjustments to social benefits.",
         "basedOn": [
-          "headline_5",
+          "fearGreedValue",
+          "headline_6",
           "headline_7"
         ],
         "direction": "supports_bearish"
       },
       {
-        "text": "Long-term structural valuation gauges continue to reflect historically elevated overall market capitalization levels.",
+        "text": "Long-term structural valuation metrics indicate elevated broad market capitalization relative to economic output.",
         "basedOn": [
           "buffettIndicator",
           "shillerPE"
@@ -388,49 +389,49 @@
         "direction": "neutral"
       }
     ],
-    "interpretation": "While structural valuation metrics remain demanding, short-term market momentum has turned increasingly fragile as downside volatility rises. Compared to the prior assessment, market sentiment shifted from neutral to cautiously bearish due to broader selling across major equity benchmarks and elevated market anxiety. Underlying price volatility expanded significantly as large technology and semiconductor shares faced severe downward pressure.",
-    "wisdom": "Value investors welcome market pullbacks because lower prices create opportunities to purchase high-quality businesses with adequate margins of safety."
+    "interpretation": "While extended valuation baselines remain demanding over full economic cycles, short-term equities faced renewed selling pressure amidst rising volatility. Our short-term sentiment held steady in cautiously bearish territory as broad market indexes retreated further and volatility surged. A widening disconnect between elevated market prices and rising macroeconomic uncertainty underscores the necessity of seeking robust margins of safety before deploying capital.",
+    "wisdom": "Price is what you pay, value is what you get, and market fluctuations serve as a reminder to focus on business fundamentals rather than emotional market reactions."
   },
   "news": [
     {
       "factKey": "headline_1",
-      "title": "This Halloween, are full-size candy bars a better deal than fun-sized ones?",
-      "url": "https://www.marketwatch.com/story/this-halloween-are-king-sized-candy-bars-a-better-deal-than-fun-sized-ones-992da0d9?mod=mw_rss_topstories"
+      "title": "My abusive ex-husband promised $20,000 for our kids' education. Now he refuses to pay. Is he legally obligated?",
+      "url": "https://www.marketwatch.com/story/my-abusive-ex-husband-promised-20-000-for-our-kids-education-now-he-refuses-to-pay-is-he-legally-obligated-325ef50f?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_2",
-      "title": "Nvidia's Megaspeed ties show potential blind spots in the U.S. effort to block China from accessing advanced chips",
-      "url": "https://www.marketwatch.com/story/nvidias-megaspeed-ties-show-potential-blind-spots-in-the-u-s-effort-to-block-china-from-accessing-advanced-chips-e75d541a?mod=mw_rss_topstories"
+      "title": "'Showy jewelry and fancy cars hold no appeal': We have a 99% chance of outliving our life savings. Why not spend it all?",
+      "url": "https://www.marketwatch.com/story/fancy-cars-hold-no-appeal-my-wife-and-i-have-a-99-chance-of-outliving-our-savings-why-dont-we-spend-it-all-932a2166?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_3",
-      "title": "These 10 megadonors have spent a total of $1 billion on the midterm elections",
-      "url": "https://www.marketwatch.com/story/these-10-megadonors-have-spent-a-total-of-1-billion-on-the-midterm-elections-0dc279cf?mod=mw_rss_topstories"
+      "title": "This is where most people go wrong in their 30s and 40s",
+      "url": "https://www.marketwatch.com/story/the-house-the-kids-college-and-the-raise-where-people-in-their-30s-and-40s-go-wrong-69ec6c90?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_4",
-      "title": "Grand Theft Callout: 'GTA 6' fans are missing work on the game's release day because they 'don't want to wait' anymore",
-      "url": "https://www.marketwatch.com/story/grand-theft-callout-gta-6-fans-are-missing-work-on-the-games-release-day-because-they-dont-want-to-wait-anymore-5f2fa2e3?mod=mw_rss_topstories"
+      "title": "We're in our 70s. Should we pay off our 2.5% mortgage  -  or put the money in a high-yield savings account?",
+      "url": "https://www.marketwatch.com/story/we-are-in-our-70s-should-we-pay-off-our-2-5-mortgage-or-build-up-our-savings-5a35e9c1?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_5",
-      "title": "Has the tech bubble burst? Why the Nasdaq's rough ride looks eerily like 2000.",
-      "url": "https://www.marketwatch.com/story/has-the-tech-bubble-burst-why-the-nasdaqs-rough-ride-looks-eerily-like-2000-5bcefcb2?mod=mw_rss_topstories"
+      "title": "'He was heartbroken': My husband's kids abandoned him when he was dying. Was he right to leave everything to me?",
+      "url": "https://www.marketwatch.com/story/he-was-heartbroken-my-husbands-kids-never-helped-when-he-was-gravely-ill-was-he-right-to-leave-everything-to-me-1ad0616b?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_6",
-      "title": "This cybersecurity stock will be the next to join the S&P 500",
-      "url": "https://www.marketwatch.com/story/this-cybersecurity-stock-will-be-the-next-to-join-the-s-p-500-dc976803?mod=mw_rss_topstories"
+      "title": "Is it curtains for COLA? Saving Social Security could mean changing the cost-of-living adjustment.",
+      "url": "https://www.marketwatch.com/story/is-it-curtains-for-cola-saving-social-security-could-mean-changing-the-cost-of-living-adjustment-867c6bd8?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_7",
-      "title": "Why gold plunged to its lowest price in a year despite renewed Iran jitters",
-      "url": "https://www.marketwatch.com/story/why-gold-plunged-to-its-lowest-price-in-a-year-despite-renewed-iran-jitters-365be0e2?mod=mw_rss_topstories"
+      "title": "Caregivers are now spending more than $11,000 a year out of pocket - up 60% in five years",
+      "url": "https://www.marketwatch.com/story/were-spending-more-than-11-000-a-year-of-our-own-money-caring-for-our-aging-parents-and-loved-ones-8fc5b2dc?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_8",
-      "title": "Warsh wants the Fed to say less. Two officials are pushing for more transparency.",
-      "url": "https://www.marketwatch.com/story/the-fed-held-interest-rates-steady-but-these-officials-see-more-hikes-coming-soon-2098bbd8?mod=mw_rss_topstories"
+      "title": "Medicare used AI to pre-approve patient care, and it immediately led to a large drop in medical services",
+      "url": "https://www.marketwatch.com/story/medicare-used-ai-to-pre-approve-patient-care-and-it-immediately-led-to-a-large-drop-in-medical-services-dc38a210?mod=mw_rss_topstories"
     }
   ],
   "sources": [
