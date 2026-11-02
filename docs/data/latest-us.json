@@ -7,8 +7,8 @@
     "reasonCodes": []
   },
   "edition": "US",
-  "generatedAt": "2026-11-01T13:00:47.717Z",
-  "dateLabel": "Sunday, November 1, 2026",
+  "generatedAt": "2026-11-02T13:01:02.916Z",
+  "dateLabel": "Monday, November 2, 2026",
   "asOf": {
     "label": "Prices as of the Fri, Oct 30 close",
     "session": "2026-10-30",
@@ -49,10 +49,10 @@
       "label": "Thin"
     },
     "mood": {
-      "score": 26,
+      "score": 25,
       "label": "Fear",
-      "change1d": "-8",
-      "change1w": "+10"
+      "change1d": "-1",
+      "change1w": "-4"
     },
     "trend": {
       "value": "+3.7%",
@@ -148,21 +148,21 @@
     "yieldCurve": "+0.37%",
     "sp500VsMa200": "+3.7%",
     "maSignal": "Golden Cross",
-    "fearGreedValue": 26,
+    "fearGreedValue": 25,
     "sp500": "7580.07",
     "sp500Change": "-1.82%",
     "dowJones": "51770.31",
     "dowJonesChange": "-1.09%",
-    "vix": "19.42",
-    "vixChange": "+12.91%",
-    "gold": "$3898.90",
-    "goldChange": "-3.29%",
-    "oil": "$104.12",
-    "oilChange": "+2.08%",
-    "dxy": "101.96",
-    "dxyChange": "+0.08%",
-    "btc": "$77,748",
-    "btcChange": "+0.40%",
+    "vix": "19.34",
+    "vixChange": "-0.41%",
+    "gold": "$3910.30",
+    "goldChange": "+0.29%",
+    "oil": "$99.45",
+    "oilChange": "-4.49%",
+    "dxy": "101.59",
+    "dxyChange": "-0.28%",
+    "btc": "$77,683",
+    "btcChange": "-0.71%",
     "gdpValue": "+3.4% (QoQ annualized)",
     "cpiValue": "3.72%",
     "unemploymentValue": "4.2%",
@@ -176,10 +176,10 @@
     "asmlChange": "-6.55%"
   },
   "fearGreed": {
-    "score": 26,
+    "score": 25,
     "classification": "Fear",
-    "change1d": "-8",
-    "change1w": "+10"
+    "change1d": "-1",
+    "change1w": "-4"
   },
   "screener": [
     {
@@ -197,32 +197,32 @@
     {
       "label": "VIX",
       "factKey": "vixChange",
-      "value": "19.42",
-      "change": "+12.91%"
+      "value": "19.34",
+      "change": "-0.41%"
     },
     {
       "label": "Gold",
       "factKey": "goldChange",
-      "value": "$3898.90",
-      "change": "-3.29%"
+      "value": "$3910.30",
+      "change": "+0.29%"
     },
     {
       "label": "Oil (WTI)",
       "factKey": "oilChange",
-      "value": "$104.12",
-      "change": "+2.08%"
+      "value": "$99.45",
+      "change": "-4.49%"
     },
     {
       "label": "US Dollar",
       "factKey": "dxyChange",
-      "value": "101.96",
-      "change": "+0.08%"
+      "value": "101.59",
+      "change": "-0.28%"
     },
     {
       "label": "Bitcoin",
       "factKey": "btcChange",
-      "value": "$77,748",
-      "change": "+0.40%"
+      "value": "$77,683",
+      "change": "-0.71%"
     }
   ],
   "economic": [
@@ -354,16 +354,16 @@
     "confidence": "Medium",
     "claims": [
       {
-        "text": "Broad equity market indexes declined alongside a notable surge in market volatility.",
+        "text": "Broad equity indexes moved downward while market sentiment reflects widespread fear.",
         "basedOn": [
           "sp500Change",
           "dowJonesChange",
-          "vixChange"
+          "fearGreedValue"
         ],
         "direction": "supports_bearish"
       },
       {
-        "text": "Major semiconductor and growth equity holdings experienced significant downward selling pressure.",
+        "text": "Key semiconductor and technology holdings experienced sharp price declines.",
         "basedOn": [
           "asmlChange",
           "sofiChange",
@@ -372,46 +372,46 @@
         "direction": "supports_bearish"
       },
       {
-        "text": "Market sentiment reflects heightened fear as economic headlines emphasize growing household expenses and potential adjustments to social benefits.",
-        "basedOn": [
-          "fearGreedValue",
-          "headline_6",
-          "headline_7"
-        ],
-        "direction": "supports_bearish"
-      },
-      {
-        "text": "Long-term structural valuation metrics indicate elevated broad market capitalization relative to economic output.",
+        "text": "Long term structural valuation indicators remain elevated relative to historical standards.",
         "basedOn": [
           "buffettIndicator",
           "shillerPE"
         ],
         "direction": "neutral"
+      },
+      {
+        "text": "Headlines point to risks surrounding technology market momentum and potential enterprise combinations.",
+        "basedOn": [
+          "headline_1",
+          "headline_2",
+          "headline_6"
+        ],
+        "direction": "supports_bearish"
       }
     ],
-    "interpretation": "While extended valuation baselines remain demanding over full economic cycles, short-term equities faced renewed selling pressure amidst rising volatility. Our short-term sentiment held steady in cautiously bearish territory as broad market indexes retreated further and volatility surged. A widening disconnect between elevated market prices and rising macroeconomic uncertainty underscores the necessity of seeking robust margins of safety before deploying capital.",
-    "wisdom": "Price is what you pay, value is what you get, and market fluctuations serve as a reminder to focus on business fundamentals rather than emotional market reactions."
+    "interpretation": "While long term structural measures indicate expensive baseline conditions, short term trading continues to exhibit downside momentum and cautious sentiment. The short term stance holds steady as broad equity declines and technology sector pullbacks reinforce earlier weakness. Discounted entry opportunities remain rare across high quality enterprises despite elevated broader market fear.",
+    "wisdom": "Price reflects current market payment while intrinsic value reflects long term business worth, meaning market anxiety alone does not guarantee a margin of safety."
   },
   "news": [
     {
       "factKey": "headline_1",
-      "title": "My abusive ex-husband promised $20,000 for our kids' education. Now he refuses to pay. Is he legally obligated?",
-      "url": "https://www.marketwatch.com/story/my-abusive-ex-husband-promised-20-000-for-our-kids-education-now-he-refuses-to-pay-is-he-legally-obligated-325ef50f?mod=mw_rss_topstories"
+      "title": "Marvell and Lumentum officially plan to combine. Here's what to know.",
+      "url": "https://www.marketwatch.com/story/marvell-and-lumentum-officially-plan-to-combine-heres-what-to-know-5599b98a?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_2",
-      "title": "'Showy jewelry and fancy cars hold no appeal': We have a 99% chance of outliving our life savings. Why not spend it all?",
-      "url": "https://www.marketwatch.com/story/fancy-cars-hold-no-appeal-my-wife-and-i-have-a-99-chance-of-outliving-our-savings-why-dont-we-spend-it-all-932a2166?mod=mw_rss_topstories"
+      "title": "This is the biggest threat to the AI-powered bull market",
+      "url": "https://www.marketwatch.com/story/this-is-the-biggest-threat-to-the-ai-powered-bull-market-e757ca37?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_3",
-      "title": "This is where most people go wrong in their 30s and 40s",
-      "url": "https://www.marketwatch.com/story/the-house-the-kids-college-and-the-raise-where-people-in-their-30s-and-40s-go-wrong-69ec6c90?mod=mw_rss_topstories"
+      "title": "America is doing better than you think  -  just ask those in the bottom half of household wealth",
+      "url": "https://www.marketwatch.com/story/america-is-doing-better-than-you-think-your-algorithm-is-just-hiding-it-7dbdecff?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_4",
-      "title": "We're in our 70s. Should we pay off our 2.5% mortgage  -  or put the money in a high-yield savings account?",
-      "url": "https://www.marketwatch.com/story/we-are-in-our-70s-should-we-pay-off-our-2-5-mortgage-or-build-up-our-savings-5a35e9c1?mod=mw_rss_topstories"
+      "title": "In the hunt for $1 trillion of revenue, SpaceX reportedly targets Boost Mobile for a deal",
+      "url": "https://www.marketwatch.com/story/in-the-hunt-for-1-trillion-of-revenue-spacex-reportedly-targets-boost-mobile-for-a-deal-7eb4ea49?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_5",
@@ -420,18 +420,18 @@
     },
     {
       "factKey": "headline_6",
-      "title": "Is it curtains for COLA? Saving Social Security could mean changing the cost-of-living adjustment.",
-      "url": "https://www.marketwatch.com/story/is-it-curtains-for-cola-saving-social-security-could-mean-changing-the-cost-of-living-adjustment-867c6bd8?mod=mw_rss_topstories"
+      "title": "Tech stocks enter November after a brutal October: Is it time to buy the dip?",
+      "url": "https://www.marketwatch.com/story/tech-stocks-enter-november-after-a-brutal-october-is-it-time-to-buy-the-dip-09d8aff8?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_7",
-      "title": "Caregivers are now spending more than $11,000 a year out of pocket - up 60% in five years",
-      "url": "https://www.marketwatch.com/story/were-spending-more-than-11-000-a-year-of-our-own-money-caring-for-our-aging-parents-and-loved-ones-8fc5b2dc?mod=mw_rss_topstories"
+      "title": "How oil prices could average $130 per barrel next year, according to Goldman Sachs",
+      "url": "https://www.marketwatch.com/story/how-oil-prices-could-average-130-per-barrel-next-year-according-to-goldman-sachs-235ce32b?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_8",
-      "title": "Medicare used AI to pre-approve patient care, and it immediately led to a large drop in medical services",
-      "url": "https://www.marketwatch.com/story/medicare-used-ai-to-pre-approve-patient-care-and-it-immediately-led-to-a-large-drop-in-medical-services-dc38a210?mod=mw_rss_topstories"
+      "title": "Citi throws in the towel on hyperscalers after a key stock-market bet misfires",
+      "url": "https://www.marketwatch.com/story/the-latest-market-wobble-sees-citi-giving-up-on-this-big-tech-trade-181b0dea?mod=mw_rss_topstories"
     }
   ],
   "sources": [
