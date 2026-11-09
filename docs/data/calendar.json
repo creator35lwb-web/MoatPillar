@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-02T09:39:17Z",
+  "generatedAt": "2026-11-09T09:56:39Z",
   "note": "Rebuilt by scripts/build-calendar.mjs from the official calendars listed under sources: FRED’s release dates for the BLS and BEA releases, the NBS press release calendar, and the Federal Reserve’s FOMC dates. date and time are the publisher’s local wall clock; utc is derived. A source that could not be read keeps its earlier entries. Nothing here predicts a figure.",
   "sources": {
     "fed-fomc": {
@@ -11,49 +11,15 @@
     "nbs-calendar": {
       "name": "NBS China, 2026 press release calendar",
       "url": "https://www.stats.gov.cn/english/PressRelease/ReleaseCalendar/202512/t20251226_1962154.html",
-      "retrievedAt": "2026-11-02"
+      "retrievedAt": "2026-11-09"
     },
     "fred-releases": {
       "name": "FRED release calendar (St. Louis Fed), from the BLS and BEA schedules",
       "url": "https://fred.stlouisfed.org/releases/calendar",
-      "retrievedAt": "2026-11-02"
+      "retrievedAt": "2026-11-09"
     }
   },
   "events": [
-    {
-      "id": "us-fomc-2026-10",
-      "region": "US",
-      "kind": "meeting",
-      "name": "FOMC meeting",
-      "date": "2026-10-27",
-      "endDate": "2026-10-28",
-      "allDay": true,
-      "zone": "America/New_York",
-      "source": "fed-fomc"
-    },
-    {
-      "id": "us-gdp-2026-q3-advance",
-      "region": "US",
-      "kind": "release",
-      "name": "GDP, third quarter, advance estimate",
-      "date": "2026-10-29",
-      "time": "08:30",
-      "zone": "America/New_York",
-      "utc": "2026-10-29T12:30:00Z",
-      "source": "fred-releases"
-    },
-    {
-      "id": "cn-pmi-2026-10",
-      "region": "CN",
-      "kind": "release",
-      "name": "Purchasing Managers’ Index, October",
-      "date": "2026-10-31",
-      "weekday": "Sat",
-      "time": "09:30",
-      "zone": "Asia/Shanghai",
-      "utc": "2026-10-31T01:30:00Z",
-      "source": "nbs-calendar"
-    },
     {
       "id": "us-empsit-2026-10",
       "region": "US",
