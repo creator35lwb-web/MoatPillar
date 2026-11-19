@@ -30,6 +30,7 @@ import {additionalEvidence, calendarPresentation, citationEvidence, headlineKey,
   };
   // The record published before the beta (W25), archived unchanged by scripts/archive-pre-beta.mjs.
   var ARCHIVE_URL = 'archive/pre-beta.html';
+  var BETA_RUN_1_URL = 'archive/beta-run-1.html';
   var current = 'US';
   var dialog = document.querySelector('.share-dialog');
   // The release calendar (W31) is fetched once; a missing or malformed file hides the card and nothing else.
@@ -455,6 +456,11 @@ import {additionalEvidence, calendarPresentation, citationEvidence, headlineKey,
         phaseNote.textContent = data.trackRecord.since
           ? 'Beta record since ' + fmtLongDay(data.trackRecord.since) + '. '
           : 'The beta record starts once its first call is graded. ';
+        // Beta run 1 (Oct 17 - Nov 3, 2026), archived after the host was lost, then the pre-beta record.
+        var run1 = el('a', null, 'Beta run 1 (Oct 17 – Nov 3)');
+        run1.href = BETA_RUN_1_URL;
+        phaseNote.appendChild(run1);
+        phaseNote.appendChild(document.createTextNode(' · '));
         var archive = el('a', null, 'See the record from before the beta');
         archive.href = ARCHIVE_URL;
         phaseNote.appendChild(archive);

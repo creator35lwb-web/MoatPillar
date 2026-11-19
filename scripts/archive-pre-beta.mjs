@@ -42,7 +42,21 @@ function mytStamp(iso) {
   return MONTHS[d.getUTCMonth()] + ' ' + d.getUTCDate() + ', ' + d.getUTCFullYear() + ', ' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) + ' MYT';
 }
 
-function editionSection({key, title, commit, data}) {
+// What differs between archive pages (W25's pre-beta record; beta run 1, archived after the host loss).
+export const PRE_BETA_PAGE = {
+  copyName: key => 'pre-beta-' + key + '.json',
+  title: 'MoatPillar · Record before the beta',
+  description: 'The track record MoatPillar, then called MarketPulse, published before its beta, archived unchanged.',
+  h1: 'The record before the beta',
+  lead: 'MoatPillar, called MarketPulse until its beta, restarts its public track record with the beta. This page keeps the record published before the beta, unchanged.',
+  noteTitle: 'Why the record restarts',
+  notes: [
+    'The beta brings a corrected scorer. Before it, when no new AI call was published for several days, later runs graded the last call again, and a run that started late could grade a call against a session that was still trading. The beta grades each call once, against closed sessions only, and shows beside the hit rate how often the market fell on the same days.',
+    'The figures below are exactly as published, including any extra grades.',
+  ],
+};
+
+function editionSection({key, title, commit, data}, spec = PRE_BETA_PAGE) {
   const tr = data.trackRecord || {};
   const history = Array.isArray(data.history) ? data.history.slice().reverse() : [];
   const rows = history.map(h => '        <tr><td>' + esc(h.date) + '</td><td>' + esc(h.sentiment || 'n/a') + '</td><td>' +
@@ -64,20 +78,24 @@ ${rows}
       </table>
     </div>
     <p class="fine">One row per call. Where a call was graded more than once, its row shows the last grade, while the figure above counts every grade, as published.</p>
-    <p class="fine">The figure and the calls are copied exactly from <code>${sourcePath(key)}</code> at commit <a href="${REPOSITORY}/blob/${commit}/${sourcePath(key)}">${commit.slice(0, 7)}</a>, which keeps the full publication. Archived copy of the record: <a href="pre-beta-${key}.json">pre-beta-${key}.json</a>.</p>
+    <p class="fine">The figure and the calls are copied exactly from <code>${sourcePath(key)}</code> at commit <a href="${REPOSITORY}/blob/${commit}/${sourcePath(key)}">${commit.slice(0, 7)}</a>, which keeps the full publication. Archived copy of the record: <a href="${spec.copyName(key)}">${spec.copyName(key)}</a>.</p>
   </section>`;
 }
 
 // The page is a pure function of the archived copies and their source commits, so --check can rebuild it.
 export function renderPage(archives) {
+  return renderArchivePage(archives, PRE_BETA_PAGE);
+}
+
+export function renderArchivePage(archives, spec) {
   const sources = archives.map(a => a.key + ':' + a.commit).join(' ');
   return `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MoatPillar · Record before the beta</title>
-<meta name="description" content="The track record MoatPillar, then called MarketPulse, published before its beta, archived unchanged.">
+<title>${esc(spec.title)}</title>
+<meta name="description" content="${esc(spec.description)}">
 <meta name="archive-sources" content="${esc(sources)}">
 <link rel="icon" type="image/svg+xml" href="../assets/brand/mark-small.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32.png">
@@ -147,14 +165,13 @@ footer { margin-top: 28px; color: var(--muted); font-size: 13px; }
   </header>
   <main>
   <p class="kicker">Archive</p>
-  <h1>The record before the beta</h1>
-  <p class="lead">MoatPillar, called MarketPulse until its beta, restarts its public track record with the beta. This page keeps the record published before the beta, unchanged.</p>
+  <h1>${esc(spec.h1)}</h1>
+  <p class="lead">${esc(spec.lead)}</p>
   <section class="note" aria-labelledby="why-title">
-    <h2 id="why-title">Why the record restarts</h2>
-    <p>The beta brings a corrected scorer. Before it, when no new AI call was published for several days, later runs graded the last call again, and a run that started late could grade a call against a session that was still trading. The beta grades each call once, against closed sessions only, and shows beside the hit rate how often the market fell on the same days.</p>
-    <p>The figures below are exactly as published, including any extra grades.</p>
+    <h2 id="why-title">${esc(spec.noteTitle)}</h2>
+${spec.notes.map(n => '    <p>' + esc(n) + '</p>').join('\n')}
   </section>
-${archives.map(editionSection).join('\n')}
+${archives.map(a => editionSection(a, spec)).join('\n')}
   <p class="fine">Every earlier publication is in the repository's history: <a href="${REPOSITORY}/commits/main/${sourcePath('us')}">US</a> · <a href="${REPOSITORY}/commits/main/${sourcePath('cn')}">China</a>.</p>
   </main>
   <footer>Information only, not financial advice.</footer>

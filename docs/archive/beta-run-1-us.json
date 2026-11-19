@@ -1,0 +1,90 @@
+{
+  "edition": "US",
+  "generatedAt": "2026-11-02T13:01:02.916Z",
+  "trackRecord": {
+    "accuracy": "4/10 (40%)",
+    "last": "Neutral (2026-10-30) → market moved -1.82% → Miss",
+    "baseline": "the market fell on 4 of those 10 days",
+    "phase": "beta",
+    "since": "2026-10-17"
+  },
+  "history": [
+    {
+      "date": "2026-10-17",
+      "sentiment": "Cautiously Bearish",
+      "verdict": "PASS",
+      "result": "miss",
+      "actualChange": "+0.41%"
+    },
+    {
+      "date": "2026-10-20",
+      "sentiment": "Cautiously Bearish",
+      "verdict": "PASS",
+      "result": "miss",
+      "actualChange": "+0.28%"
+    },
+    {
+      "date": "2026-10-21",
+      "sentiment": "Cautiously Bullish",
+      "verdict": "PASS",
+      "result": "hit",
+      "actualChange": "+0.86%"
+    },
+    {
+      "date": "2026-10-22",
+      "sentiment": "Cautiously Bullish",
+      "verdict": "PASS",
+      "result": "miss",
+      "actualChange": "-1.21%"
+    },
+    {
+      "date": "2026-10-23",
+      "sentiment": "Cautiously Bearish",
+      "verdict": "PASS",
+      "result": "hit",
+      "actualChange": "-0.52%"
+    },
+    {
+      "date": "2026-10-24",
+      "sentiment": "Cautiously Bearish",
+      "verdict": "PASS",
+      "result": "miss",
+      "actualChange": "+0.70%"
+    },
+    {
+      "date": "2026-10-27",
+      "sentiment": "Cautiously Bullish",
+      "verdict": "PASS",
+      "result": "hit",
+      "actualChange": "+0.60%"
+    },
+    {
+      "date": "2026-10-28",
+      "sentiment": "Cautiously Bullish",
+      "verdict": "PASS",
+      "result": "hit",
+      "actualChange": "+0.28%"
+    },
+    {
+      "date": "2026-10-29",
+      "sentiment": "Cautiously Bullish",
+      "verdict": "PASS",
+      "result": "miss",
+      "actualChange": "-0.30%"
+    },
+    {
+      "date": "2026-10-30",
+      "sentiment": "Neutral",
+      "verdict": "PASS",
+      "result": "miss",
+      "actualChange": "-1.82%"
+    },
+    {
+      "date": "2026-10-31",
+      "sentiment": "Cautiously Bearish",
+      "verdict": "PASS",
+      "result": null,
+      "actualChange": null
+    }
+  ]
+}
