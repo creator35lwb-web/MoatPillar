@@ -41,6 +41,26 @@ function publishMarketHealth(results, health, critical) {
   }
 }
 
+// Year-over-year change of a monthly FRED series, from the newest month whose same month a year
+// earlier has a value. FRED marks a month that was never published with "." (CPIAUCSL has no
+// October 2025: the BLS published no index for it during the 2025 shutdown), and the old fixed
+// pair (newest against the 13th) then printed "NaN%". The month shown is the month computed.
+// Returns null when no pair exists, so the field stays 'N/A' and the health audit reports it.
+function fredYearOverYear(observations) {
+  const byDate = new Map();
+  for (const o of observations || []) {
+    const value = parseFloat(o && o.value);
+    if (Number.isFinite(value) && /^\d{4}-\d{2}-\d{2}$/.test(String(o.date))) byDate.set(o.date, value);
+  }
+  for (const date of [...byDate.keys()].sort().reverse()) {
+    const prior = (Number(date.slice(0, 4)) - 1) + date.slice(4);
+    if (byDate.has(prior) && byDate.get(prior) !== 0) {
+      return { value: ((byDate.get(date) - byDate.get(prior)) / byDate.get(prior) * 100).toFixed(2) + '%', date };
+    }
+  }
+  return null;
+}
+
 function populateMarketHeadlines(results, rssResponse, stripAttribution = false) {
   if (!rssResponse || typeof rssResponse !== 'string') return;
   const cleanTitle = title => {
