@@ -49,10 +49,11 @@ function publishMarketHealth(results, health, critical) {
 function fredYearOverYear(observations) {
   const byDate = new Map();
   for (const o of observations || []) {
-    const value = parseFloat(o && o.value);
+    const value = Number.parseFloat(o?.value);
     if (Number.isFinite(value) && /^\d{4}-\d{2}-\d{2}$/.test(String(o.date))) byDate.set(o.date, value);
   }
-  for (const date of [...byDate.keys()].sort().reverse()) {
+  // ISO dates order as text; newest first.
+  for (const date of [...byDate.keys()].sort((a, b) => b.localeCompare(a))) {
     const prior = (Number(date.slice(0, 4)) - 1) + date.slice(4);
     if (byDate.has(prior) && byDate.get(prior) !== 0) {
       return { value: ((byDate.get(date) - byDate.get(prior)) / byDate.get(prior) * 100).toFixed(2) + '%', date };
