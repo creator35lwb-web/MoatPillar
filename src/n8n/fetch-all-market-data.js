@@ -198,8 +198,9 @@ try {
 } catch (e) { fail('FRED Unemployment', e); }
 
 try {
-  const cpiData = await safeFetch({ method: 'GET', url: 'https://api.stlouisfed.org/fred/series/observations?series_id=CPIAUCSL&api_key=' + FRED_API_KEY + '&file_type=json&limit=13&sort_order=desc', timeout: 30000 });
-  if (cpiData && cpiData.observations && cpiData.observations.length >= 13) { const latest = parseFloat(cpiData.observations[0].value); const yearAgo = parseFloat(cpiData.observations[12].value); results.cpiValue = (((latest - yearAgo) / yearAgo) * 100).toFixed(2) + '%'; results.cpiYear = formatDate(cpiData.observations[0].date); }
+  const cpiData = await safeFetch({ method: 'GET', url: 'https://api.stlouisfed.org/fred/series/observations?series_id=CPIAUCSL&api_key=' + FRED_API_KEY + '&file_type=json&limit=25&sort_order=desc', timeout: 30000 });
+  const cpiYoY = fredYearOverYear(cpiData && cpiData.observations);
+  if (cpiYoY) { results.cpiValue = cpiYoY.value; results.cpiYear = formatDate(cpiYoY.date); }
 } catch (e) { fail('FRED CPI', e); }
 
 try {

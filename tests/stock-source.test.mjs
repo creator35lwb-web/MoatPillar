@@ -69,7 +69,7 @@ function marketResponse({ url }, rss = sourceRss) {
   }] } };
   if (url.includes('cnn.io')) return { fear_and_greed: { score: 64, rating: 'greed', previous_close: 60, previous_1_week: 55 } };
   if (url.includes('multpl.com')) return 'Current Shiller PE Ratio 25.5';
-  if (url.includes('stlouisfed.org')) return { observations: Array.from({ length: 13 }, (_, index) => ({ value: String(index === 0 ? 110 : 100), date: '2026-07-01' })) };
+  if (url.includes('stlouisfed.org')) return { observations: Array.from({ length: 13 }, (_, index) => ({ value: String(index === 0 ? 110 : 100), date: new Date(Date.UTC(2026, 6 - index, 1)).toISOString().slice(0, 10) })) };
   if (url.includes('worldbank.org')) return [{}, [{ value: 4.5, date: '2025' }]];
   return rss;
 }
@@ -92,6 +92,7 @@ for (const [edition, name, expectedRequests] of [['US', 'Fetch All Market Data',
       assert.equal(data.sp500MarketTime, 1789066800);
       assert.ok(requested.some(request => request.url.includes('%5EGSPC?interval=1d&range=1y')));
       assert.match(data.gdpValue, /QoQ annualized/);
+      assert.deepEqual([data.cpiValue, data.cpiYear], ['10.00%', 'Jul 2026']);
     } else {
       assert.equal(data.csi300, '105.00');
       assert.equal(data.gold, '$105.00');
