@@ -7,18 +7,18 @@
     "reasonCodes": []
   },
   "edition": "US",
-  "generatedAt": "2026-11-02T13:01:02.916Z",
-  "dateLabel": "Monday, November 2, 2026",
+  "generatedAt": "2026-11-21T13:01:51.484Z",
+  "dateLabel": "Saturday, November 21, 2026",
   "asOf": {
-    "label": "Prices as of the Fri, Oct 30 close",
-    "session": "2026-10-30",
+    "label": "Prices as of the Fri, Nov 20 close",
+    "session": "2026-11-20",
     "closed": false,
     "intraday": false
   },
   "longTermReading": {
     "version": "ltr.v1",
-    "status": "steady",
-    "today": "ok",
+    "status": "held",
+    "today": "unavailable",
     "valuation": {
       "lo": 5,
       "hi": 5,
@@ -29,200 +29,151 @@
     "pending": null,
     "marginOfSafety": "Thin",
     "measures": {
-      "shillerPE": {
-        "label": "Shiller CAPE",
-        "value": "40.1",
-        "level": 5,
-        "levelLabel": "Very expensive"
-      },
-      "buffettIndicator": {
-        "label": "Buffett Indicator",
-        "value": "240%",
-        "level": 5,
-        "levelLabel": "Very expensive"
-      }
+      "shillerPE": null,
+      "buffettIndicator": null
     },
-    "stocksVsBonds": {
-      "earningsYield": 2.5,
-      "realYield10Y": 1.3,
-      "gap": 1.2,
-      "label": "Thin"
-    },
+    "stocksVsBonds": null,
     "mood": {
-      "score": 25,
-      "label": "Fear",
-      "change1d": "-1",
-      "change1w": "-4"
+      "score": 10,
+      "label": "Extreme fear",
+      "change1d": "-9",
+      "change1w": "-28"
     },
     "trend": {
-      "value": "+3.7%",
-      "above": true
+      "value": "-6.0%",
+      "above": false
     },
     "rates": {
-      "curve": "+0.37%",
+      "curve": "+0.28%",
       "label": "Flat"
     },
-    "changes": [
-      {
-        "kind": "valuation",
-        "direction": "down",
-        "target": "Expensive",
-        "conditions": [
-          {
-            "key": "shillerPE",
-            "label": "Shiller CAPE",
-            "threshold": 35,
-            "unit": "",
-            "value": 40.1,
-            "direction": "down",
-            "movePct": 13,
-            "met": false
-          },
-          {
-            "key": "buffettIndicator",
-            "label": "Buffett Indicator",
-            "threshold": 200,
-            "unit": "%",
-            "value": 240,
-            "direction": "down",
-            "movePct": 17,
-            "met": false
-          }
-        ]
-      },
-      {
-        "kind": "rates",
-        "current": "Flat",
-        "boundaries": [
-          {
-            "label": "Normal",
-            "at": 0.5,
-            "direction": "up"
-          },
-          {
-            "label": "Inverted",
-            "at": 0,
-            "direction": "down"
-          }
-        ]
-      },
-      {
-        "kind": "mood"
-      }
-    ]
+    "changes": []
   },
   "health": {
     "status": "OK",
     "missing": [],
-    "suspect": []
+    "suspect": [
+      {
+        "field": "shillerPE",
+        "value": "36.4",
+        "bound": 10,
+        "check": "jump"
+      },
+      {
+        "field": "buffettIndicator",
+        "value": "219%",
+        "bound": 10,
+        "check": "jump"
+      }
+    ]
   },
   "dashboard": {
     "buffettIndicator": {
       "title": "Buffett Indicator",
-      "value": "240%",
+      "value": "219%",
       "status": "Strongly Overvalued",
       "emoji": "🔴"
     },
     "shillerPE": {
       "title": "Shiller P/E (CAPE)",
-      "value": "40.1",
+      "value": "36.4",
       "status": "Strongly Overvalued",
       "emoji": "🔴"
     },
     "yieldCurve": {
       "title": "Yield Curve (10Y-2Y)",
-      "value": "+0.37%",
+      "value": "+0.28%",
       "status": "Flat (Caution)",
       "emoji": "🟡"
     },
     "sp500VsMa200": {
       "title": "S&P 500 vs 200D-MA",
-      "value": "+3.7%",
-      "status": "Bullish (Golden Cross)",
-      "emoji": "🟢"
+      "value": "-6.0%",
+      "status": "Bearish Signal (Golden Cross)",
+      "emoji": "🔴"
     }
   },
   "facts": {
-    "buffettIndicator": "240%",
-    "shillerPE": "40.1",
-    "yieldCurve": "+0.37%",
-    "sp500VsMa200": "+3.7%",
+    "buffettIndicator": "219%",
+    "shillerPE": "36.4",
+    "yieldCurve": "+0.28%",
+    "sp500VsMa200": "-6.0%",
     "maSignal": "Golden Cross",
-    "fearGreedValue": 25,
-    "sp500": "7580.07",
-    "sp500Change": "-1.82%",
-    "dowJones": "51770.31",
-    "dowJonesChange": "-1.09%",
-    "vix": "19.34",
-    "vixChange": "-0.41%",
-    "gold": "$3910.30",
-    "goldChange": "+0.29%",
-    "oil": "$99.45",
-    "oilChange": "-4.49%",
-    "dxy": "101.59",
-    "dxyChange": "-0.28%",
-    "btc": "$77,683",
-    "btcChange": "-0.71%",
+    "fearGreedValue": 10,
+    "sp500": "6910.39",
+    "sp500Change": "-3.70%",
+    "dowJones": "48147.33",
+    "dowJonesChange": "-1.93%",
+    "vix": "35.89",
+    "vixChange": "+26.20%",
+    "gold": "$3515.40",
+    "goldChange": "-4.62%",
+    "oil": "$83.41",
+    "oilChange": "+1.18%",
+    "dxy": "103.84",
+    "dxyChange": "+0.03%",
+    "btc": "$58,759",
+    "btcChange": "-0.07%",
     "gdpValue": "+3.4% (QoQ annualized)",
     "cpiValue": "3.72%",
-    "unemploymentValue": "4.2%",
+    "unemploymentValue": "4.1%",
     "fedRateValue": "4.00%",
-    "treasury10Y": "4.98%",
-    "treasury2Y": "4.61%",
-    "googlChange": "-1.40%",
-    "babaChange": "-1.51%",
-    "adbeChange": "+0.85%",
-    "sofiChange": "-4.83%",
-    "asmlChange": "-6.55%"
+    "treasury10Y": "5.04%",
+    "treasury2Y": "4.76%",
+    "googlChange": "-2.70%",
+    "babaChange": "-2.68%",
+    "adbeChange": "-1.79%",
+    "sofiChange": "-7.76%",
+    "asmlChange": "-6.63%"
   },
   "fearGreed": {
-    "score": 25,
-    "classification": "Fear",
-    "change1d": "-1",
-    "change1w": "-4"
+    "score": 10,
+    "classification": "Extreme fear",
+    "change1d": "-9",
+    "change1w": "-28"
   },
   "screener": [
     {
       "label": "S&P 500",
       "factKey": "sp500Change",
-      "value": "7580.07",
-      "change": "-1.82%"
+      "value": "6910.39",
+      "change": "-3.70%"
     },
     {
       "label": "Dow Jones",
       "factKey": "dowJonesChange",
-      "value": "51770.31",
-      "change": "-1.09%"
+      "value": "48147.33",
+      "change": "-1.93%"
     },
     {
       "label": "VIX",
       "factKey": "vixChange",
-      "value": "19.34",
-      "change": "-0.41%"
+      "value": "35.89",
+      "change": "+26.20%"
     },
     {
       "label": "Gold",
       "factKey": "goldChange",
-      "value": "$3910.30",
-      "change": "+0.29%"
+      "value": "$3515.40",
+      "change": "-4.62%"
     },
     {
       "label": "Oil (WTI)",
       "factKey": "oilChange",
-      "value": "$99.45",
-      "change": "-4.49%"
+      "value": "$83.41",
+      "change": "+1.18%"
     },
     {
       "label": "US Dollar",
       "factKey": "dxyChange",
-      "value": "101.59",
-      "change": "-0.28%"
+      "value": "103.84",
+      "change": "+0.03%"
     },
     {
       "label": "Bitcoin",
       "factKey": "btcChange",
-      "value": "$77,683",
-      "change": "-0.71%"
+      "value": "$58,759",
+      "change": "-0.07%"
     }
   ],
   "economic": [
@@ -240,9 +191,9 @@
     },
     {
       "label": "Unemployment",
-      "period": "Sep 2026",
+      "period": "Oct 2026",
       "factKey": "unemploymentValue",
-      "value": "4.2%"
+      "value": "4.1%"
     },
     {
       "label": "Fed Funds Rate",
@@ -252,96 +203,33 @@
     {
       "label": "10Y Treasury",
       "factKey": "treasury10Y",
-      "value": "4.98%"
+      "value": "5.04%"
     },
     {
       "label": "2Y Treasury",
       "factKey": "treasury2Y",
-      "value": "4.61%"
+      "value": "4.76%"
     }
   ],
-  "watchlist": "  GOOGL: $279.84 (-1.40%)\n  BABA: $98.04 (-1.51%)\n  ADBE: $250.23 (+0.85%)\n  SOFI: $16.76 (-4.83%)\n  ASML: $1565.90 (-6.55%)",
+  "watchlist": "  GOOGL: $265.29 (-2.70%)\n  BABA: $81.08 (-2.68%)\n  ADBE: $217.71 (-1.79%)\n  SOFI: $12.48 (-7.76%)\n  ASML: $1266.22 (-6.63%)",
   "trackRecord": {
-    "accuracy": "4/10 (40%)",
-    "last": "Neutral (2026-10-30) → market moved -1.82% → Miss",
-    "baseline": "the market fell on 4 of those 10 days",
+    "accuracy": "Building history",
+    "last": "",
+    "baseline": "",
     "phase": "beta",
-    "since": "2026-10-17"
+    "since": ""
   },
   "history": [
     {
       "date": "2026-10-17",
       "sentiment": "Cautiously Bearish",
       "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "+0.41%"
+      "result": null,
+      "actualChange": null
     },
     {
-      "date": "2026-10-20",
-      "sentiment": "Cautiously Bearish",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "+0.28%"
-    },
-    {
-      "date": "2026-10-21",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": "hit",
-      "actualChange": "+0.86%"
-    },
-    {
-      "date": "2026-10-22",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "-1.21%"
-    },
-    {
-      "date": "2026-10-23",
-      "sentiment": "Cautiously Bearish",
-      "verdict": "PASS",
-      "result": "hit",
-      "actualChange": "-0.52%"
-    },
-    {
-      "date": "2026-10-24",
-      "sentiment": "Cautiously Bearish",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "+0.70%"
-    },
-    {
-      "date": "2026-10-27",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": "hit",
-      "actualChange": "+0.60%"
-    },
-    {
-      "date": "2026-10-28",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": "hit",
-      "actualChange": "+0.28%"
-    },
-    {
-      "date": "2026-10-29",
-      "sentiment": "Cautiously Bullish",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "-0.30%"
-    },
-    {
-      "date": "2026-10-30",
-      "sentiment": "Neutral",
-      "verdict": "PASS",
-      "result": "miss",
-      "actualChange": "-1.82%"
-    },
-    {
-      "date": "2026-10-31",
-      "sentiment": "Cautiously Bearish",
+      "date": "2026-11-21",
+      "sentiment": "Bearish",
       "verdict": "PASS",
       "result": null,
       "actualChange": null
@@ -350,88 +238,87 @@
   "analysisModel": "gemini-3.6-flash",
   "analysisProvider": "Google",
   "analysis": {
-    "sentiment": "Cautiously Bearish",
-    "confidence": "Medium",
+    "sentiment": "Bearish",
+    "confidence": "High",
     "claims": [
       {
-        "text": "Broad equity indexes moved downward while market sentiment reflects widespread fear.",
+        "text": "Broad market benchmarks fell sharply as volatility surged across trading venues.",
         "basedOn": [
           "sp500Change",
           "dowJonesChange",
-          "fearGreedValue"
+          "vixChange"
         ],
         "direction": "supports_bearish"
       },
       {
-        "text": "Key semiconductor and technology holdings experienced sharp price declines.",
+        "text": "Investor sentiment registered extreme anxiety while stock prices drifted further below long term moving averages.",
         "basedOn": [
+          "fearGreedValue",
+          "sp500VsMa200"
+        ],
+        "direction": "supports_bearish"
+      },
+      {
+        "text": "Major technology enterprise stocks and chip equipment makers posted broad declines.",
+        "basedOn": [
+          "headline_5",
           "asmlChange",
-          "sofiChange",
           "googlChange"
         ],
         "direction": "supports_bearish"
       },
       {
-        "text": "Long term structural valuation indicators remain elevated relative to historical standards.",
+        "text": "Structural evaluation metrics reflect high equity market capitalization relative to underlying output and earnings.",
         "basedOn": [
           "buffettIndicator",
           "shillerPE"
         ],
         "direction": "neutral"
-      },
-      {
-        "text": "Headlines point to risks surrounding technology market momentum and potential enterprise combinations.",
-        "basedOn": [
-          "headline_1",
-          "headline_2",
-          "headline_6"
-        ],
-        "direction": "supports_bearish"
       }
     ],
-    "interpretation": "While long term structural measures indicate expensive baseline conditions, short term trading continues to exhibit downside momentum and cautious sentiment. The short term stance holds steady as broad equity declines and technology sector pullbacks reinforce earlier weakness. Discounted entry opportunities remain rare across high quality enterprises despite elevated broader market fear.",
-    "wisdom": "Price reflects current market payment while intrinsic value reflects long term business worth, meaning market anxiety alone does not guarantee a margin of safety."
+    "interpretation": "While structural valuations suggest elevated long term equity prices, short term conditions show accelerating downside momentum and heightened market stress. Compared to the previous assessment, market panic deepened as volatility jumped sharply and technology stocks suffered expanded selling pressure. The short term read moved from cautiously bearish to fully bearish as broad equity benchmark declines extended further below technical trendlines.",
+    "wisdom": "Mr Market is an emotional business partner who offers wild price swings, presenting disciplined value investors with opportunities when fear drives equity prices below intrinsic business worth."
   },
   "news": [
     {
       "factKey": "headline_1",
-      "title": "Marvell and Lumentum officially plan to combine. Here's what to know.",
-      "url": "https://www.marketwatch.com/story/marvell-and-lumentum-officially-plan-to-combine-heres-what-to-know-5599b98a?mod=mw_rss_topstories"
+      "title": "Larry McDonald survived Lehman's collapse. Now he warns the credit market is signaling a growth shock for stocks.",
+      "url": "https://www.marketwatch.com/story/larry-mcdonald-survived-lehmans-collapse-now-he-warns-the-credit-market-is-signaling-a-growth-shock-for-stocks-5c3a62ef?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_2",
-      "title": "This is the biggest threat to the AI-powered bull market",
-      "url": "https://www.marketwatch.com/story/this-is-the-biggest-threat-to-the-ai-powered-bull-market-e757ca37?mod=mw_rss_topstories"
+      "title": "How a brutal week for stocks almost wiped out their gains for the entire year",
+      "url": "https://www.marketwatch.com/story/how-a-brutal-week-for-stocks-almost-wiped-out-their-gains-for-the-entire-year-ae6773c3?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_3",
-      "title": "America is doing better than you think  -  just ask those in the bottom half of household wealth",
-      "url": "https://www.marketwatch.com/story/america-is-doing-better-than-you-think-your-algorithm-is-just-hiding-it-7dbdecff?mod=mw_rss_topstories"
+      "title": "Tech outages are rattling Americans so much that they're stockpiling cash and supplies",
+      "url": "https://www.marketwatch.com/story/why-are-these-tech-outages-rattling-americans-so-much-that-theyre-stockpiling-cash-and-supplies-07516bdd?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_4",
-      "title": "In the hunt for $1 trillion of revenue, SpaceX reportedly targets Boost Mobile for a deal",
-      "url": "https://www.marketwatch.com/story/in-the-hunt-for-1-trillion-of-revenue-spacex-reportedly-targets-boost-mobile-for-a-deal-7eb4ea49?mod=mw_rss_topstories"
+      "title": "Dow, S&P 500 enter correction as Nasdaq suffers worst week since 2020",
+      "url": "https://www.marketwatch.com/story/dow-s-p-500-enter-correction-as-nasdaq-suffers-worst-week-since-2020-bd74dadf?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_5",
-      "title": "'He was heartbroken': My husband's kids abandoned him when he was dying. Was he right to leave everything to me?",
-      "url": "https://www.marketwatch.com/story/he-was-heartbroken-my-husbands-kids-never-helped-when-he-was-gravely-ill-was-he-right-to-leave-everything-to-me-1ad0616b?mod=mw_rss_topstories"
+      "title": "Chip stocks see $2.3 trillion weekly wipeout as panic grips the AI trade",
+      "url": "https://www.marketwatch.com/story/chip-stocks-see-2-3-trillion-weekly-wipeout-as-panic-grips-the-ai-trade-371f2f03?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_6",
-      "title": "Tech stocks enter November after a brutal October: Is it time to buy the dip?",
-      "url": "https://www.marketwatch.com/story/tech-stocks-enter-november-after-a-brutal-october-is-it-time-to-buy-the-dip-09d8aff8?mod=mw_rss_topstories"
+      "title": "These stocks were crushed the most this week as the tech wreck accelerated",
+      "url": "https://www.marketwatch.com/story/these-stocks-were-crushed-the-most-this-week-as-the-tech-wreck-accelerated-8d6f7323?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_7",
-      "title": "How oil prices could average $130 per barrel next year, according to Goldman Sachs",
-      "url": "https://www.marketwatch.com/story/how-oil-prices-could-average-130-per-barrel-next-year-according-to-goldman-sachs-235ce32b?mod=mw_rss_topstories"
+      "title": "Nvidia's stock clinches a stretch of weekly losses not seen since 2008",
+      "url": "https://www.marketwatch.com/story/nvidias-stock-heads-for-a-stretch-of-weekly-losses-unseen-since-2008-91aba9a6?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_8",
-      "title": "Citi throws in the towel on hyperscalers after a key stock-market bet misfires",
-      "url": "https://www.marketwatch.com/story/the-latest-market-wobble-sees-citi-giving-up-on-this-big-tech-trade-181b0dea?mod=mw_rss_topstories"
+      "title": "Everyone's making money off 'GTA 6' this week  -  except investors in Take-Two's stock",
+      "url": "https://www.marketwatch.com/story/everyones-making-money-off-gta-6-this-week-except-investors-in-take-twos-stock-489ee01b?mod=mw_rss_topstories"
     }
   ],
   "sources": [
