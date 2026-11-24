@@ -7,11 +7,11 @@
     "reasonCodes": []
   },
   "edition": "US",
-  "generatedAt": "2026-11-22T13:01:38.251Z",
-  "dateLabel": "Sunday, November 22, 2026",
+  "generatedAt": "2026-11-24T13:01:19.656Z",
+  "dateLabel": "Tuesday, November 24, 2026",
   "asOf": {
-    "label": "Prices as of the Fri, Nov 20 close",
-    "session": "2026-11-20",
+    "label": "Prices as of the Mon, Nov 23 close",
+    "session": "2026-11-23",
     "closed": false,
     "intraday": false
   },
@@ -30,150 +30,137 @@
     "marginOfSafety": "Thin",
     "measures": {
       "shillerPE": null,
-      "buffettIndicator": null
+      "buffettIndicator": {
+        "label": "Buffett Indicator",
+        "value": "229%",
+        "level": 5,
+        "levelLabel": "Very expensive"
+      }
     },
     "stocksVsBonds": null,
     "mood": {
-      "score": 10,
+      "score": 15,
       "label": "Extreme fear",
-      "change1d": "-9",
-      "change1w": "-28"
+      "change1d": "-1",
+      "change1w": "-10"
     },
     "trend": {
-      "value": "-6.0%",
+      "value": "-1.5%",
       "above": false
     },
     "rates": {
-      "curve": "+0.28%",
+      "curve": "+0.29%",
       "label": "Flat"
     },
     "changes": []
   },
   "health": {
-    "status": "OK",
-    "missing": [],
-    "suspect": [
-      {
-        "field": "shillerPE",
-        "value": "36.4",
-        "bound": 10,
-        "check": "jump"
-      },
-      {
-        "field": "buffettIndicator",
-        "value": "219%",
-        "bound": 10,
-        "check": "jump"
-      }
-    ]
+    "status": "DEGRADED",
+    "missing": [
+      "CAPE/Shiller"
+    ],
+    "suspect": []
   },
   "dashboard": {
     "buffettIndicator": {
       "title": "Buffett Indicator",
-      "value": "219%",
-      "status": "Strongly Overvalued",
-      "emoji": "🔴"
-    },
-    "shillerPE": {
-      "title": "Shiller P/E (CAPE)",
-      "value": "36.4",
+      "value": "229%",
       "status": "Strongly Overvalued",
       "emoji": "🔴"
     },
     "yieldCurve": {
       "title": "Yield Curve (10Y-2Y)",
-      "value": "+0.28%",
+      "value": "+0.29%",
       "status": "Flat (Caution)",
       "emoji": "🟡"
     },
     "sp500VsMa200": {
       "title": "S&P 500 vs 200D-MA",
-      "value": "-6.0%",
-      "status": "Bearish Signal (Golden Cross)",
-      "emoji": "🔴"
+      "value": "-1.5%",
+      "status": "Caution (Golden Cross)",
+      "emoji": "🟡"
     }
   },
   "facts": {
-    "buffettIndicator": "219%",
-    "shillerPE": "36.4",
-    "yieldCurve": "+0.28%",
-    "sp500VsMa200": "-6.0%",
+    "buffettIndicator": "229%",
+    "yieldCurve": "+0.29%",
+    "sp500VsMa200": "-1.5%",
     "maSignal": "Golden Cross",
-    "fearGreedValue": 10,
-    "sp500": "6910.39",
-    "sp500Change": "-3.70%",
-    "dowJones": "48147.33",
-    "dowJonesChange": "-1.93%",
-    "vix": "35.89",
-    "vixChange": "+26.20%",
-    "gold": "$3515.40",
-    "goldChange": "-4.62%",
-    "oil": "$83.41",
-    "oilChange": "+1.18%",
-    "dxy": "103.84",
-    "dxyChange": "+0.03%",
-    "btc": "$60,747",
-    "btcChange": "+1.09%",
+    "fearGreedValue": 15,
+    "sp500": "7237.17",
+    "sp500Change": "+4.73%",
+    "dowJones": "49595.31",
+    "dowJonesChange": "+3.01%",
+    "vix": "28.83",
+    "vixChange": "+8.30%",
+    "gold": "$3642.50",
+    "goldChange": "-0.24%",
+    "oil": "$80.44",
+    "oilChange": "+0.34%",
+    "dxy": "103.90",
+    "dxyChange": "-0.40%",
+    "btc": "$60,374",
+    "btcChange": "-1.37%",
     "gdpValue": "+3.4% (QoQ annualized)",
     "cpiValue": "3.72%",
     "unemploymentValue": "4.1%",
     "fedRateValue": "4.00%",
-    "treasury10Y": "5.04%",
-    "treasury2Y": "4.76%",
-    "googlChange": "-2.70%",
-    "babaChange": "-2.68%",
-    "adbeChange": "-1.79%",
-    "sofiChange": "-7.76%",
-    "asmlChange": "-6.63%"
+    "treasury10Y": "4.92%",
+    "treasury2Y": "4.63%",
+    "googlChange": "+6.34%",
+    "babaChange": "+6.12%",
+    "adbeChange": "+2.88%",
+    "sofiChange": "+4.89%",
+    "asmlChange": "+9.28%"
   },
   "fearGreed": {
-    "score": 10,
+    "score": 15,
     "classification": "Extreme fear",
-    "change1d": "-9",
-    "change1w": "-28"
+    "change1d": "-1",
+    "change1w": "-10"
   },
   "screener": [
     {
       "label": "S&P 500",
       "factKey": "sp500Change",
-      "value": "6910.39",
-      "change": "-3.70%"
+      "value": "7237.17",
+      "change": "+4.73%"
     },
     {
       "label": "Dow Jones",
       "factKey": "dowJonesChange",
-      "value": "48147.33",
-      "change": "-1.93%"
+      "value": "49595.31",
+      "change": "+3.01%"
     },
     {
       "label": "VIX",
       "factKey": "vixChange",
-      "value": "35.89",
-      "change": "+26.20%"
+      "value": "28.83",
+      "change": "+8.30%"
     },
     {
       "label": "Gold",
       "factKey": "goldChange",
-      "value": "$3515.40",
-      "change": "-4.62%"
+      "value": "$3642.50",
+      "change": "-0.24%"
     },
     {
       "label": "Oil (WTI)",
       "factKey": "oilChange",
-      "value": "$83.41",
-      "change": "+1.18%"
+      "value": "$80.44",
+      "change": "+0.34%"
     },
     {
       "label": "US Dollar",
       "factKey": "dxyChange",
-      "value": "103.84",
-      "change": "+0.03%"
+      "value": "103.90",
+      "change": "-0.40%"
     },
     {
       "label": "Bitcoin",
       "factKey": "btcChange",
-      "value": "$60,747",
-      "change": "+1.09%"
+      "value": "$60,374",
+      "change": "-1.37%"
     }
   ],
   "economic": [
@@ -203,21 +190,21 @@
     {
       "label": "10Y Treasury",
       "factKey": "treasury10Y",
-      "value": "5.04%"
+      "value": "4.92%"
     },
     {
       "label": "2Y Treasury",
       "factKey": "treasury2Y",
-      "value": "4.76%"
+      "value": "4.63%"
     }
   ],
-  "watchlist": "  GOOGL: $265.29 (-2.70%)\n  BABA: $81.08 (-2.68%)\n  ADBE: $217.71 (-1.79%)\n  SOFI: $12.48 (-7.76%)\n  ASML: $1266.22 (-6.63%)",
+  "watchlist": "  GOOGL: $282.10 (+6.34%)\n  BABA: $86.04 (+6.12%)\n  ADBE: $223.98 (+2.88%)\n  SOFI: $13.09 (+4.89%)\n  ASML: $1383.78 (+9.28%)",
   "trackRecord": {
-    "accuracy": "Building history",
-    "last": "",
-    "baseline": "",
+    "accuracy": "0/1 (0%)",
+    "last": "Bearish (2026-11-21) → market moved +4.73% → Miss",
+    "baseline": "the market did not fall on that day",
     "phase": "beta",
-    "since": ""
+    "since": "2026-11-21"
   },
   "history": [
     {
@@ -231,94 +218,98 @@
       "date": "2026-11-21",
       "sentiment": "Bearish",
       "verdict": "PASS",
+      "result": "miss",
+      "actualChange": "+4.73%"
+    },
+    {
+      "date": "2026-11-24",
+      "sentiment": "Cautiously Bullish",
+      "verdict": "PASS",
       "result": null,
       "actualChange": null
     }
   ],
-  "analysisModel": "gemini-3.6-flash",
-  "analysisProvider": "Google",
+  "analysisModel": "openai/gpt-oss-120b",
+  "analysisProvider": "Groq",
   "analysis": {
-    "sentiment": "Bearish",
-    "confidence": "High",
+    "sentiment": "Cautiously Bullish",
+    "confidence": "Medium",
     "claims": [
       {
-        "text": "Broad equity benchmarks declined sharply while market volatility experienced a significant upward surge.",
+        "text": "Equity benchmarks posted strong gains today.",
         "basedOn": [
           "sp500Change",
-          "dowJonesChange",
+          "dowJonesChange"
+        ],
+        "direction": "supports_bullish"
+      },
+      {
+        "text": "Market volatility rose as indicated by a higher VIX.",
+        "basedOn": [
           "vixChange"
         ],
         "direction": "supports_bearish"
       },
       {
-        "text": "Investor sentiment reflects severe anxiety as stock prices remain below key long-term moving trends.",
+        "text": "Investor sentiment is at extreme fear.",
         "basedOn": [
-          "fearGreedValue",
-          "sp500VsMa200"
+          "fearGreedValue"
         ],
         "direction": "supports_bearish"
       },
       {
-        "text": "Key technology companies and financial service holdings across the watchlist suffered significant losses.",
+        "text": "Leading technology and semiconductor names on the watchlist advanced noticeably.",
         "basedOn": [
           "googlChange",
           "asmlChange",
-          "sofiChange"
+          "adbeChange"
         ],
-        "direction": "supports_bearish"
-      },
-      {
-        "text": "Long term structural valuation indicators continue to reflect elevated market capitalization relative to underlying output.",
-        "basedOn": [
-          "buffettIndicator",
-          "shillerPE"
-        ],
-        "direction": "neutral"
+        "direction": "supports_bullish"
       }
     ],
-    "interpretation": "While long term valuation metrics indicate elevated prices overall, short term market action continues to demonstrate severe downward pressure and heightened volatility. Our short term bearish sentiment holds firm as major equity indices and key watchlist equities recorded further steep declines. Widespread market panic and dropping equity valuations create an environment where disciplined investors watch patiently for intrinsic value opportunities to emerge.",
-    "wisdom": "Warren Buffett teaches that market turmoil and extreme widespread fear often begin to create the margin of safety that value investors seek in wonderful businesses."
+    "interpretation": "Today's short‑term outlook appears more upbeat than the long‑term valuation backdrop. Broad market indices surged while the fear gauge stayed at deep pessimism and volatility climbed, suggesting a mix of optimism and nervousness. The rally is supported by gains in major tech and chip makers, yet the main index still lingers below its long‑term moving average, urging caution for value seekers.",
+    "wisdom": ""
   },
   "news": [
     {
       "factKey": "headline_1",
-      "title": "Can stocks bounce back after a brutal week? This timing model says history is on the market's side.",
-      "url": "https://www.marketwatch.com/story/can-stocks-bounce-back-after-a-brutal-week-this-timing-model-says-history-is-on-the-markets-side-beff1753?mod=mw_rss_topstories"
+      "title": "Sunday's pot roast now costs more than a Thanksgiving feast. Why beef won't get cheaper for years.",
+      "url": "https://www.marketwatch.com/story/sundays-pot-roast-now-costs-more-than-a-thanksgiving-feast-why-beef-wont-get-cheaper-for-years-7daa1b3f?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_2",
-      "title": "My husband is happily retired at 64 and thinks I should keep working. Is he being fair?",
-      "url": "https://www.marketwatch.com/story/my-husband-is-happily-retired-at-64-and-thinks-i-should-keep-working-is-he-being-fair-325c5f38?mod=mw_rss_topstories"
+      "title": "HPE just posted its strongest growth ever  -  but its stock is sinking",
+      "url": "https://www.marketwatch.com/story/hpe-just-posted-its-strongest-growth-ever-and-its-stock-is-tacking-on-more-big-gains-4421cebb?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_3",
-      "title": "My wife is bankrolling her family's trips to New York and it's draining our savings. Should I ask her to stop?",
-      "url": "https://www.marketwatch.com/story/my-wife-pays-thousands-of-dollars-for-her-family-to-visit-from-argentina-how-can-i-convince-her-to-stop-9381351c?mod=mw_rss_topstories"
+      "title": "The biggest biotech deal in nearly three years carries a hefty $41 billion price tag",
+      "url": "https://www.marketwatch.com/story/the-biggest-biotech-deal-in-nearly-three-years-carries-a-hefty-41-billion-price-tag-dd7fa228?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_4",
-      "title": "I'm in my 40s. Should I accept a lower pension in exchange for naming my husband or child as a beneficiary?",
-      "url": "https://www.marketwatch.com/story/im-in-my-40s-should-i-accept-a-lower-pension-in-exchange-for-naming-my-husband-or-child-as-a-beneficiary-b2352059?mod=mw_rss_topstories"
+      "title": "Jensen Huang's return was worth nearly $950 billion to Nvidia. How much of the stock market should ride on one man?",
+      "url": "https://www.marketwatch.com/story/jensen-huangs-return-was-worth-nearly-950-billion-to-nvidia-how-much-of-the-stock-market-should-ride-on-one-man-c7129e95?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_5",
-      "title": "'It's downright dirty': My brother moved in with our ailing mother and closed her bank account. What can I do?",
-      "url": "https://www.marketwatch.com/story/it-is-heartbreaking-exhausting-and-downright-dirty-my-brother-took-over-our-ailing-mothers-life-and-finances-what-can-i-do-b4d48817?mod=mw_rss_topstories"
+      "title": "I've been married for 58 years. It's 'our' money, not 'his' and 'hers.' Why do so many couples keep their finances separate?",
+      "url": "https://www.marketwatch.com/story/ive-been-married-for-58-years-its-our-money-not-his-and-hers-why-dont-others-feel-the-same-c5745889?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_6",
-      "title": "'I've been a stay-at-home mom': I'm 50 and have a chronic illness. My husband lost his job. Should he raid his 401(k)?",
-      "url": "https://www.marketwatch.com/story/ive-been-a-stay-at-home-mom-im-50-and-have-a-chronic-illness-my-husband-lost-his-job-should-he-raid-his-401-k-63e59123?mod=mw_rss_topstories"
+      "title": "Roth IRA conversions aren't free money. Watch out for these 5 costly mistakes.",
+      "url": "https://www.marketwatch.com/story/roth-ira-conversions-arent-free-money-watch-out-for-these-5-costly-mistakes-39b182d3?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_7",
-      "title": "'Buyers are out for blood': With home sales at a record low, buyers are calling the shots",
-      "url": "https://www.marketwatch.com/story/buyers-are-out-for-blood-as-housing-market-finally-hits-rock-bottom-fa5093a6?mod=mw_rss_topstories"
+      "title": "This billionaire bought Nvidia in anticipation of Jensen Huang's return  -  and warns the S&P 500 could fall by a third",
+      "url": "https://www.marketwatch.com/story/this-billionaire-bought-nvidia-in-anticipation-of-jensen-huangs-return-and-warns-the-s-p-500-could-fall-by-a-third-dcff9489?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_8",
-      "title": "America is definitely rich enough to fix Social Security and Medicare. Here's how.",
-      "url": "https://www.marketwatch.com/story/america-is-definitely-rich-enough-to-fix-social-security-and-medicare-heres-how-30678aa5?mod=mw_rss_topstories"
+      "title": "The 'epic' buying of retail investors paid off after Nvidia's 31% stock surge, says strategist",
+      "url": "https://www.marketwatch.com/story/the-epic-buying-of-retail-investors-paid-off-after-nvidias-31-stock-surge-says-strategist-c8f9a502?mod=mw_rss_topstories"
     }
   ],
   "sources": [
