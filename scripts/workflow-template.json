@@ -1494,7 +1494,7 @@
   "settings": {
     "executionOrder": "v1",
     "timezone": "Asia/Kuala_Lumpur",
-    "executionTimeout": 600
+    "executionTimeout": 1800
   },
   "active": false
 }
