@@ -7,11 +7,11 @@
     "reasonCodes": []
   },
   "edition": "US",
-  "generatedAt": "2026-11-25T13:01:21.482Z",
-  "dateLabel": "Wednesday, November 25, 2026",
+  "generatedAt": "2026-11-26T13:01:39.697Z",
+  "dateLabel": "Thursday, November 26, 2026",
   "asOf": {
-    "label": "Prices as of the Tue, Nov 24 close",
-    "session": "2026-11-24",
+    "label": "Prices as of the Wed, Nov 25 close",
+    "session": "2026-11-25",
     "closed": false,
     "intraday": false
   },
@@ -39,17 +39,17 @@
     },
     "stocksVsBonds": null,
     "mood": {
-      "score": 12,
+      "score": 15,
       "label": "Extreme fear",
-      "change1d": "-6",
-      "change1w": "-18"
+      "change1d": "+0",
+      "change1w": "-1"
     },
     "trend": {
-      "value": "-2.0%",
+      "value": "-2.3%",
       "above": false
     },
     "rates": {
-      "curve": "+0.29%",
+      "curve": "+0.28%",
       "label": "Flat"
     },
     "changes": []
@@ -70,97 +70,97 @@
     },
     "yieldCurve": {
       "title": "Yield Curve (10Y-2Y)",
-      "value": "+0.29%",
+      "value": "+0.28%",
       "status": "Flat (Caution)",
       "emoji": "🟡"
     },
     "sp500VsMa200": {
       "title": "S&P 500 vs 200D-MA",
-      "value": "-2.0%",
+      "value": "-2.3%",
       "status": "Caution (Golden Cross)",
       "emoji": "🟡"
     }
   },
   "facts": {
     "buffettIndicator": "228%",
-    "yieldCurve": "+0.29%",
-    "sp500VsMa200": "-2.0%",
+    "yieldCurve": "+0.28%",
+    "sp500VsMa200": "-2.3%",
     "maSignal": "Golden Cross",
-    "fearGreedValue": 12,
-    "sp500": "7201.09",
-    "sp500Change": "-0.50%",
-    "dowJones": "50018.70",
-    "dowJonesChange": "+0.85%",
-    "vix": "30.73",
-    "vixChange": "+16.58%",
-    "gold": "$3545.80",
-    "goldChange": "-1.26%",
-    "oil": "$82.26",
-    "oilChange": "+0.26%",
-    "dxy": "103.93",
-    "dxyChange": "+0.12%",
-    "btc": "$58,674",
-    "btcChange": "-1.79%",
-    "gdpValue": "+3.4% (QoQ annualized)",
+    "fearGreedValue": 15,
+    "sp500": "7182.78",
+    "sp500Change": "-0.25%",
+    "dowJones": "50182.95",
+    "dowJonesChange": "+0.33%",
+    "vix": "26.82",
+    "vixChange": "-5.20%",
+    "gold": "$3593.80",
+    "goldChange": "+1.64%",
+    "oil": "$84.61",
+    "oilChange": "+1.11%",
+    "dxy": "103.74",
+    "dxyChange": "+0.06%",
+    "btc": "$60,735",
+    "btcChange": "+0.59%",
+    "gdpValue": "+4.3% (QoQ annualized)",
     "cpiValue": "3.72%",
     "unemploymentValue": "4.1%",
     "fedRateValue": "4.00%",
-    "treasury10Y": "4.92%",
+    "treasury10Y": "4.91%",
     "treasury2Y": "4.63%",
-    "googlChange": "-1.08%",
-    "babaChange": "-1.37%",
-    "adbeChange": "+3.62%",
-    "sofiChange": "-1.76%",
-    "asmlChange": "-3.45%"
+    "googlChange": "-2.13%",
+    "babaChange": "+1.65%",
+    "adbeChange": "+0.32%",
+    "sofiChange": "+1.63%",
+    "asmlChange": "-2.47%"
   },
   "fearGreed": {
-    "score": 12,
+    "score": 15,
     "classification": "Extreme fear",
-    "change1d": "-6",
-    "change1w": "-18"
+    "change1d": "+0",
+    "change1w": "-1"
   },
   "screener": [
     {
       "label": "S&P 500",
       "factKey": "sp500Change",
-      "value": "7201.09",
-      "change": "-0.50%"
+      "value": "7182.78",
+      "change": "-0.25%"
     },
     {
       "label": "Dow Jones",
       "factKey": "dowJonesChange",
-      "value": "50018.70",
-      "change": "+0.85%"
+      "value": "50182.95",
+      "change": "+0.33%"
     },
     {
       "label": "VIX",
       "factKey": "vixChange",
-      "value": "30.73",
-      "change": "+16.58%"
+      "value": "26.82",
+      "change": "-5.20%"
     },
     {
       "label": "Gold",
       "factKey": "goldChange",
-      "value": "$3545.80",
-      "change": "-1.26%"
+      "value": "$3593.80",
+      "change": "+1.64%"
     },
     {
       "label": "Oil (WTI)",
       "factKey": "oilChange",
-      "value": "$82.26",
-      "change": "+0.26%"
+      "value": "$84.61",
+      "change": "+1.11%"
     },
     {
       "label": "US Dollar",
       "factKey": "dxyChange",
-      "value": "103.93",
-      "change": "+0.12%"
+      "value": "103.74",
+      "change": "+0.06%"
     },
     {
       "label": "Bitcoin",
       "factKey": "btcChange",
-      "value": "$58,674",
-      "change": "-1.79%"
+      "value": "$60,735",
+      "change": "+0.59%"
     }
   ],
   "economic": [
@@ -168,7 +168,7 @@
       "label": "GDP Growth",
       "period": "Jul 2026",
       "factKey": "gdpValue",
-      "value": "+3.4% (QoQ annualized)"
+      "value": "+4.3% (QoQ annualized)"
     },
     {
       "label": "Inflation/CPI",
@@ -190,7 +190,7 @@
     {
       "label": "10Y Treasury",
       "factKey": "treasury10Y",
-      "value": "4.92%"
+      "value": "4.91%"
     },
     {
       "label": "2Y Treasury",
@@ -198,11 +198,11 @@
       "value": "4.63%"
     }
   ],
-  "watchlist": "  GOOGL: $279.05 (-1.08%)\n  BABA: $84.86 (-1.37%)\n  ADBE: $232.08 (+3.62%)\n  SOFI: $12.86 (-1.76%)\n  ASML: $1336.06 (-3.45%)",
+  "watchlist": "  GOOGL: $273.10 (-2.13%)\n  BABA: $86.26 (+1.65%)\n  ADBE: $232.83 (+0.32%)\n  SOFI: $13.07 (+1.63%)\n  ASML: $1303.08 (-2.47%)",
   "trackRecord": {
-    "accuracy": "0/2 (0%)",
-    "last": "Cautiously Bullish (2026-11-24) → market moved -0.50% → Miss",
-    "baseline": "the market fell on 1 of those 2 days",
+    "accuracy": "1/3 (33%)",
+    "last": "Cautiously Bearish (2026-11-25) → market moved -0.25% → Correct",
+    "baseline": "the market fell on 2 of those 3 days",
     "phase": "beta",
     "since": "2026-11-21"
   },
@@ -232,6 +232,13 @@
       "date": "2026-11-25",
       "sentiment": "Cautiously Bearish",
       "verdict": "PASS",
+      "result": "hit",
+      "actualChange": "-0.25%"
+    },
+    {
+      "date": "2026-11-26",
+      "sentiment": "Cautiously Bearish",
+      "verdict": "PASS",
       "result": null,
       "actualChange": null
     }
@@ -243,74 +250,76 @@
     "confidence": "Medium",
     "claims": [
       {
-        "text": "The broad equity benchmark slipped while the industrial benchmark rose, showing mixed direction.",
+        "text": "Broad equity benchmark sits below its long‑term moving average.",
         "basedOn": [
-          "sp500Change",
-          "dowJonesChange"
+          "sp500VsMa200",
+          "sp500Change"
         ],
-        "direction": "neutral"
+        "direction": "supports_bearish"
       },
       {
-        "text": "Market volatility surged, pushing the fear gauge toward an extreme level.",
+        "text": "Volatility index has moved lower, indicating easing panic.",
         "basedOn": [
-          "vixChange",
+          "vix",
+          "vixChange"
+        ],
+        "direction": "supports_bullish"
+      },
+      {
+        "text": "Investor sentiment gauge reads extreme fear, reflecting pessimism.",
+        "basedOn": [
           "fearGreedValue"
         ],
         "direction": "supports_bearish"
       },
       {
-        "text": "Equities remain below their long‑term moving average, suggesting continued weakness.",
+        "text": "Today's headlines focus on capital preservation and tech weakness, reinforcing caution.",
         "basedOn": [
-          "sp500VsMa200"
-        ],
-        "direction": "supports_bearish"
-      },
-      {
-        "text": "A headline noted a deepening slump in technology, reinforcing concerns about sector momentum.",
-        "basedOn": [
-          "headline_3"
+          "headline_1",
+          "headline_3",
+          "headline_5"
         ],
         "direction": "supports_bearish"
       }
     ],
-    "interpretation": "Today's trading shows a market under pressure, with equity prices slipping and volatility climbing. Investor sentiment sits at a fearful extreme and the equity curve stays under its long‑term trend, which aligns with a defensive stance for value seekers.",
-    "wisdom": "Buy when others are fearful, as heightened fear can create a margin of safety."
+    "interpretation": "Equities are trading modestly beneath their long‑term trend while volatility has eased, yet the fear gauge remains at an anxious level. Mixed moves in the major indices and headlines that stress caution suggest the market is still wrestling with uncertainty. Value investors may find the atmosphere uneasy but not yet decisive.",
+    "wisdom": "Buffett’s rule to be greedy only when others are fearful applies when the market shows extreme fear."
   },
   "news": [
     {
       "factKey": "headline_1",
-      "title": "Here's how to find value in cybersecurity stocks after a strong year",
-      "url": "https://www.marketwatch.com/story/heres-how-to-find-value-in-cybersecurity-stocks-after-a-strong-year-7fbe1f80?mod=mw_rss_topstories"
+      "title": "Capital preservation rather than chasing the market higher is how hedge funds are negotiating market volatility",
+      "url": "https://www.marketwatch.com/story/capital-preservation-rather-than-chasing-the-market-higher-is-how-hedge-funds-are-negotiating-market-volatility-f4288b71?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_2",
-      "title": "This strategist's bond-trading model is outperforming by a wide margin. A Fed that's slowing the economy is a good thing, he says.",
-      "url": "https://www.marketwatch.com/story/this-strategists-bond-trading-model-is-outperforming-by-a-wide-margin-the-fed-slowing-the-economy-is-a-good-thing-he-argues-f39dfc5f?mod=mw_rss_topstories"
+      "title": "Futures point to Black Friday gains for Wall Street as global markets welcome U.S. resilience.",
+      "url": "https://www.marketwatch.com/story/futures-point-to-black-friday-gains-for-wall-street-as-global-markets-welcome-u-s-resilience-ad6bcef2?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_3",
-      "title": "Tech's slump is deepening. Are Americans heading into Black Friday with less buying power?",
-      "url": "https://www.marketwatch.com/story/techs-slump-is-deepening-are-americans-heading-into-black-friday-with-less-buying-power-7f9da81c?mod=mw_rss_topstories"
+      "title": "The tech rout should bottom soon, with a 25% rally for the S&P 500 to follow, says Deutsche Bank",
+      "url": "https://www.marketwatch.com/story/the-tech-rout-should-bottom-soon-with-a-25-rally-for-the-s-p-500-to-follow-says-deutsche-bank-c9070bf6?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_4",
-      "title": "The S&P 500 is headed to 8,200  -  and downturns like this one are actually part of the reason, says JPMorgan",
-      "url": "https://www.marketwatch.com/story/the-s-p-500-is-headed-to-8-200-and-downturns-like-this-one-are-actually-part-of-the-reason-why-says-jpmorgan-b6acae4b?mod=mw_rss_topstories"
+      "title": "Is the stock market open for Thanksgiving? The answer might surprise you.",
+      "url": "https://www.marketwatch.com/story/is-the-stock-market-open-for-thanksgiving-the-answer-might-surprise-you-e68114d4?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_5",
-      "title": "Kylie Jenner again relists concrete mansion in L.A. for $38 million",
-      "url": "https://www.marketwatch.com/story/kylie-jenner-again-relists-concrete-mansion-in-l-a-for-38-million-2e5143e5?mod=mw_rss_topstories"
+      "title": "We are living in perilous times if Nvidia's Jensen Huang dictates your 401(k) balance",
+      "url": "https://www.marketwatch.com/story/we-are-living-in-perilous-times-if-nvidias-jensen-huang-dictates-your-401-k-balance-e0942d1e?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_6",
-      "title": "I hate that Jensen Huang is back at Nvidia, but I love what it's done for my 401(k). Am I a hypocrite?",
-      "url": "https://www.marketwatch.com/story/i-hate-that-jensen-huang-is-back-at-nvidia-but-i-love-what-its-done-for-my-401-k-am-i-a-hypocrite-f63c0303?mod=mw_rss_topstories"
+      "title": "Why this stock-market selloff is probably going to get worse before it gets better",
+      "url": "https://www.marketwatch.com/story/why-this-stock-market-selloff-is-probably-going-to-get-worse-before-it-gets-better-fce63a89?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_7",
-      "title": "NBA star Kevin Durant lists Arizona mansion for $13.9 million, a year after trade to Houston",
-      "url": "https://www.marketwatch.com/story/nba-star-kevin-durant-lists-arizona-mansion-for-13-9-million-a-year-after-trade-to-houston-1b0ae57e?mod=mw_rss_topstories"
+      "title": "A 66-year-old nurse is facing down retirement with just $500 saved. Who's to blame?",
+      "url": "https://www.marketwatch.com/story/a-66-year-old-nurse-faces-retirement-with-just-500-saved-whos-to-blame-4249a0fd?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_8",
