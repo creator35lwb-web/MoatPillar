@@ -3,15 +3,15 @@
   "verification": {
     "version": 1,
     "status": "approved",
-    "checkedClaims": 4,
+    "checkedClaims": 3,
     "reasonCodes": []
   },
   "edition": "CN",
-  "generatedAt": "2026-11-26T08:30:48.757Z",
-  "dateLabel": "Thursday, November 26, 2026",
+  "generatedAt": "2026-11-27T08:32:10.336Z",
+  "dateLabel": "Friday, November 27, 2026",
   "asOf": {
-    "label": "Prices as of the Thu, Nov 26 close",
-    "session": "2026-11-26",
+    "label": "Prices as of the Fri, Nov 27 close",
+    "session": "2026-11-27",
     "closed": false,
     "intraday": false
   },
@@ -31,22 +31,22 @@
     "measures": {
       "csi300PE": {
         "label": "CSI 300 P/E",
-        "value": "12.90",
+        "value": "12.94",
         "level": 2,
         "levelLabel": "Fair",
-        "asOf": "2026-11-25"
+        "asOf": "2026-11-26"
       }
     },
     "stocksVsBonds": {
       "basis": "nominal",
-      "earningsYield": 7.8,
+      "earningsYield": 7.7,
       "bondYield10Y": 1.59,
-      "gap": 6.2,
+      "gap": 6.1,
       "label": "Wide"
     },
     "mood": null,
     "trend": {
-      "value": "-15.1%",
+      "value": "-14.9%",
       "above": false
     },
     "rates": {
@@ -104,88 +104,83 @@
     ]
   },
   "health": {
-    "status": "OK",
-    "missing": [],
+    "status": "DEGRADED",
+    "missing": [
+      "GDP"
+    ],
     "suspect": []
   },
   "dashboard": {},
   "facts": {
-    "csi300": "3,900.55",
-    "csi300Change": "+0.06%",
-    "sseComposite": "3,476.88",
-    "sseCompositeChange": "-2.01%",
-    "szseComponent": "10,084.04",
-    "szseComponentChange": "-3.26%",
-    "hangSeng": "22,226.88",
-    "hangSengChange": "+0.03%",
-    "gold": "$3,593.70",
-    "goldChange": "+0.82%",
-    "usdCny": "6.6595",
-    "usdCnyChange": "+0.00%",
-    "gdpValue": "+4.96%",
+    "csi300": "4,063.06",
+    "csi300Change": "+4.17%",
+    "sseComposite": "3,606.49",
+    "sseCompositeChange": "+3.74%",
+    "szseComponent": "10,814.02",
+    "szseComponentChange": "+7.21%",
+    "hangSeng": "22,694.77",
+    "hangSengChange": "+3.32%",
+    "gold": "$3,704.80",
+    "goldChange": "+3.93%",
+    "usdCny": "6.6533",
+    "usdCnyChange": "-0.09%",
     "cpiValue": "+0.7%",
     "unemploymentValue": "4.62%",
-    "csi300PE": "12.90",
-    "csi300VsMa200": "-15.1%",
+    "csi300PE": "12.94",
+    "csi300VsMa200": "-14.9%",
     "maSignal": "Death Cross",
-    "csi300Turnover": "411",
+    "csi300Turnover": "371",
     "cgb10Y": "1.59%",
     "lpr1Y": "3.00%",
     "lpr5Y": "3.50%",
     "ppiValue": "+5.7%",
     "pmiValue": "49.3",
-    "moutaiChange": "-0.40%",
-    "catlChange": "-2.02%",
-    "bydChange": "-1.11%",
-    "alibabaChange": "+1.60%",
-    "tencentChange": "+1.07%"
+    "moutaiChange": "+0.23%",
+    "catlChange": "+5.71%",
+    "bydChange": "+3.41%",
+    "alibabaChange": "+7.03%",
+    "tencentChange": "+3.23%"
   },
   "fearGreed": null,
   "screener": [
     {
       "label": "CSI 300",
       "factKey": "csi300Change",
-      "value": "3,900.55",
-      "change": "+0.06%"
+      "value": "4,063.06",
+      "change": "+4.17%"
     },
     {
       "label": "SSE Composite",
       "factKey": "sseCompositeChange",
-      "value": "3,476.88",
-      "change": "-2.01%"
+      "value": "3,606.49",
+      "change": "+3.74%"
     },
     {
       "label": "SZSE Component",
       "factKey": "szseComponentChange",
-      "value": "10,084.04",
-      "change": "-3.26%"
+      "value": "10,814.02",
+      "change": "+7.21%"
     },
     {
       "label": "Hang Seng",
       "factKey": "hangSengChange",
-      "value": "22,226.88",
-      "change": "+0.03%"
+      "value": "22,694.77",
+      "change": "+3.32%"
     },
     {
       "label": "Gold",
       "factKey": "goldChange",
-      "value": "$3,593.70",
-      "change": "+0.82%"
+      "value": "$3,704.80",
+      "change": "+3.93%"
     },
     {
       "label": "USD/CNY",
       "factKey": "usdCnyChange",
-      "value": "6.6595",
-      "change": "+0.00%"
+      "value": "6.6533",
+      "change": "-0.09%"
     }
   ],
   "economic": [
-    {
-      "label": "GDP Growth",
-      "period": "2025",
-      "factKey": "gdpValue",
-      "value": "+4.96%"
-    },
     {
       "label": "Inflation/CPI",
       "period": "Oct 2026",
@@ -224,27 +219,27 @@
     },
     {
       "label": "10Y government bond",
-      "period": "2026-11-25",
+      "period": "2026-11-26",
       "factKey": "cgb10Y",
       "value": "1.59%"
     },
     {
       "label": "CSI 300 P/E (trailing)",
-      "period": "2026-11-25",
+      "period": "2026-11-26",
       "factKey": "csi300PE",
-      "value": "12.90"
+      "value": "12.94"
     },
     {
       "label": "CSI 300 turnover, ¥bn",
       "factKey": "csi300Turnover",
-      "value": "411"
+      "value": "371"
     }
   ],
-  "watchlist": "▼ Moutai (600519.SS): ¥1,469.00 (-0.40%)\n▼ CATL (300750.SZ): ¥204.22 (-2.02%)\n▼ BYD (002594.SZ): ¥73.62 (-1.11%)\n▲ Alibaba (9988.HK): HK$82.50 (+1.60%)\n▲ Tencent (0700.HK): HK$341.00 (+1.07%)",
+  "watchlist": "▲ Moutai (600519.SS): ¥1,472.36 (+0.23%)\n▲ CATL (300750.SZ): ¥215.89 (+5.71%)\n▲ BYD (002594.SZ): ¥76.13 (+3.41%)\n▲ Alibaba (9988.HK): HK$88.30 (+7.03%)\n▲ Tencent (0700.HK): HK$352.00 (+3.23%)",
   "trackRecord": {
-    "accuracy": "1/1 (100%) · 2 too flat to judge",
-    "last": "Bearish (2026-11-25) → market moved +0.06% → Too flat to judge",
-    "baseline": "the market fell on that day",
+    "accuracy": "1/2 (50%) · 2 too flat to judge",
+    "last": "Bearish (2026-11-26) → market moved +4.17% → Miss",
+    "baseline": "the market fell on 1 of those 2 days",
     "phase": "beta",
     "since": "2026-11-23"
   },
@@ -274,6 +269,13 @@
       "date": "2026-11-26",
       "sentiment": "Bearish",
       "verdict": "PASS",
+      "result": "miss",
+      "actualChange": "+4.17%"
+    },
+    {
+      "date": "2026-11-27",
+      "sentiment": "Cautiously Bullish",
+      "verdict": "PASS",
       "result": null,
       "actualChange": null
     }
@@ -281,49 +283,82 @@
   "analysisModel": "gemini-3.6-flash",
   "analysisProvider": "Google",
   "analysis": {
-    "sentiment": "Bearish",
+    "sentiment": "Cautiously Bullish",
     "confidence": "High",
     "claims": [
       {
-        "text": "Mainland equity indices experienced pronounced selling pressure, led by steep declines in broad domestic composite and component benchmarks.",
+        "text": "Mainland and Hong Kong equity benchmarks surged following rare official pledges of market support.",
         "basedOn": [
+          "csi300Change",
           "sseCompositeChange",
-          "szseComponentChange"
+          "hangSengChange",
+          "headline_1",
+          "headline_2"
         ],
-        "direction": "supports_bearish"
+        "direction": "supports_bullish"
       },
       {
-        "text": "Major electric vehicle manufacturing and battery sector equities posted noticeable losses, weighing on growth sentiment.",
+        "text": "Major green energy and technology equities advanced sharply, driving broad component benchmark gains.",
         "basedOn": [
           "catlChange",
-          "bydChange"
+          "bydChange",
+          "alibabaChange",
+          "szseComponentChange"
         ],
-        "direction": "supports_bearish"
+        "direction": "supports_bullish"
       },
       {
-        "text": "Broad equities remain below key long term moving averages while manufacturing survey data points to economic contraction.",
+        "text": "Equity valuations remain near historical norms while broad price action stays below long term moving averages.",
         "basedOn": [
-          "csi300VsMa200",
-          "pmiValue"
-        ],
-        "direction": "supports_bearish"
-      },
-      {
-        "text": "Trailing valuation metrics for mainland benchmarks reflect moderate levels relative to historical market cycles.",
-        "basedOn": [
-          "csi300PE"
+          "csi300PE",
+          "csi300VsMa200"
         ],
         "direction": "neutral"
       }
     ],
-    "interpretation": "Mainland equity markets extended weak momentum as broad mainland benchmarks suffered sharp declines, while domestic manufacturing surveys continue to signal contraction. Offshore tech equities showed modest gains, but overall domestic market trend indicators remain firmly below long term moving averages. Sentiment held firmly bearish given sustained pressure across growth constituents and domestic industrial leaders.",
-    "wisdom": "Value investors focus on intrinsic business fundamentals and margin of safety rather than attempting to time technical weakness across domestic market cycles."
+    "interpretation": "Mainland and offshore equities experienced strong upward momentum following explicit commitments of government market support. Market sentiment shifted from bearish to cautiously bullish as technology and industrial component heavyweights logged substantial gains, despite long term technical indicators remaining suppressed. Sustained upward progress depends on whether macroeconomic conditions improve alongside policy interventions.",
+    "wisdom": "Policy interventions can create sharp short term rallies, but long term value depends on underlying corporate earnings and disciplined valuation analysis."
   },
   "news": [
     {
       "factKey": "headline_1",
-      "title": "Google News",
-      "url": null
+      "title": "China’s Cabinet Stresses Market Support in Rare Midday Statement",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQak5CQ2hzYk9WT0pEN2JpTjdqdU81V2pWSkxEVmdVcy11NDhqX0RfRngwU3ZXczl6dXFkZXg3aEpPakM2ZTY4QXNJVlpiVEJ2MUs0bUF0MzVJUXd3dWtvWFJna2U2aVhYbTNmM3o1UmZBaGxZRzVCS0JwS1FMYVlUSmltWE1GTkkwdmhxMG5xYi1sNDBDLURIVExoODFYVVhHZkdaa1VyUnFTLTNw?oc=5"
+    },
+    {
+      "factKey": "headline_2",
+      "title": "China stocks surge most in two years as Beijing vows stronger market support",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxONGNXdUhLb3NNTUhsbjNxMjUxeno3cGNlVU5LbThqU09QLTJxQ2lRemYxREtuMFlhVnlRMXVDOHZKdkZWRDVUc053Mng0VFFrRjREdnBEOUZlWTd6cGZLQmJZeHNqRVRIMXpqbTlPRGFTclFIWUNxcV9EVGNJeEU1UGNWc1RkZEhfV3VPOWp4WG5MNWswNTRJ?oc=5"
+    },
+    {
+      "factKey": "headline_3",
+      "title": "China stocks, yuan rally after Beijing vows stronger market support",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPLWxqTUV2X2RZam8zVGVSY2ZFTzRLQkxKYjdBUVJvR1dIOVlaczllTWRmay1FM3pMOHk5SlBjYkhxaDZ4YmJXbWM3NFpSRDBuWWs3T05QS2hZU2FoVzluTzJTMVFjQmhVS3B3a3ZQSXlOc0JKLV92RHZiNFZoNUlXUW5MMk1ncnpDXzVsMnhpTGx4OWpOVnpCNjlWRlJCa1Bp?oc=5"
+    },
+    {
+      "factKey": "headline_4",
+      "title": "China’s State Council considering more measures to bolster flagging stocks",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQa2JvNExkZlZNQVJPMldGVkF6ZE9yV29rQXdHMElmRTNRZVR0Y3RxM2ZKYVJ4T2gzWjFjRWVvRWNvX0V3aHlEQkRHVmNkM1NDODZ0b3FkTk83SjUydjlJaXZXY0JnWGtXeUVXRVZDblBvMVpHcF9yallHVjk5a0VycWV2R3JHNFZQd3VzLWlfdFNZY1djTi00MXZNOEJ3LVFwcnprdFdvUXp1d2xXWEV3amVXZ2NHVVpqT2piWXdoSDFiOEl4WXYyeGQtaXBqSnBxMmUtUW9n?oc=5"
+    },
+    {
+      "factKey": "headline_5",
+      "title": "China’s Plunge-Protection Team Gets a Midday Wake-Up Call as Beijing Throws Stocks a Lifeline",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQVjhBOF9IcElHWjVlcWdJSTA0dVl5am5aZjJUemVHZHo0MUxEc0ZYcTFpUXh3WnRRajl4cGdlcFMwaU9pVUN1cFdjM0Z3eF9kLUlqaE1EWnRKYVJhOUU0WUJ5NENfT1kzdTBqUVF2UldKLXd4VXpNMDJETllZOWhrSE4zN3M?oc=5"
+    },
+    {
+      "factKey": "headline_6",
+      "title": "Asian stocks rally as China shares surge on fresh market-support pledges",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQSWJGczA3SXRIVUpJMHhFR3FCRXN2NE9qX3luZ2tCUi12MWFTNGNEay13SGlFUFhvbDNqTVJXT0k5YURCZ2RqZE1UYjZtU2psdDljaEpRSHFlcFAtekVLLTBUeXlJY1ROVEZaYWIwYXctOVpNenBHTDktSFhxUC1MMk1WcW9yM2k1Y2Q0Y21xdnRXeWZSM2ZUQWdwd3BBT09GWHNqMl80eUU4ZkFVZnpINTR2VVV5MnNFVW5iXzBUbFBnMXB2dGtwMUZ3?oc=5"
+    },
+    {
+      "factKey": "headline_7",
+      "title": "US Proposes New Tariff Caps on China, Vietnam, India",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNZEFQdE0tU0FEZUtqemJFV1UzenlqZl9hcFRoUUZlUVlybzVaOVBwMW5JOEY5VnhNbDNHYkNxVlNVMVVUZGQta1hyZkQwX2pCQTdsWkprdkd1bVdVYlg3TjFMcENBazcwckFkM0ZkY2UyOUJ4V0pvVXdSclNKeUhuT2g0SFFzNDVsc2Z0UE9jaXI?oc=5"
+    },
+    {
+      "factKey": "headline_8",
+      "title": "Banks see upside for Chinese stocks in 2027",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5JTERVSThCVndmaUdGZm5JWk9zbG1QY0Y1cUVyaGo4akhWV2hhQXAyUE9saU04dU0xbU1QOUtTNnFqSlBtbFgwdzhIdUNYa0pHU1Y2UzFXb0g?oc=5"
     }
   ],
   "sources": [
