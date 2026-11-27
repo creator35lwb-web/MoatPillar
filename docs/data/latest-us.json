@@ -7,12 +7,12 @@
     "reasonCodes": []
   },
   "edition": "US",
-  "generatedAt": "2026-11-26T13:01:39.697Z",
-  "dateLabel": "Thursday, November 26, 2026",
+  "generatedAt": "2026-11-27T13:01:12.805Z",
+  "dateLabel": "Friday, November 27, 2026",
   "asOf": {
-    "label": "Prices as of the Wed, Nov 25 close",
+    "label": "Prices as of the Wed, Nov 25 close · no trading session since",
     "session": "2026-11-25",
-    "closed": false,
+    "closed": true,
     "intraday": false
   },
   "longTermReading": {
@@ -39,10 +39,10 @@
     },
     "stocksVsBonds": null,
     "mood": {
-      "score": 15,
+      "score": 20,
       "label": "Extreme fear",
-      "change1d": "+0",
-      "change1w": "-1"
+      "change1d": "+5",
+      "change1w": "+2"
     },
     "trend": {
       "value": "-2.3%",
@@ -86,21 +86,21 @@
     "yieldCurve": "+0.28%",
     "sp500VsMa200": "-2.3%",
     "maSignal": "Golden Cross",
-    "fearGreedValue": 15,
+    "fearGreedValue": 20,
     "sp500": "7182.78",
     "sp500Change": "-0.25%",
     "dowJones": "50182.95",
     "dowJonesChange": "+0.33%",
-    "vix": "26.82",
-    "vixChange": "-5.20%",
-    "gold": "$3593.80",
-    "goldChange": "+1.64%",
-    "oil": "$84.61",
-    "oilChange": "+1.11%",
-    "dxy": "103.74",
-    "dxyChange": "+0.06%",
-    "btc": "$60,735",
-    "btcChange": "+0.59%",
+    "vix": "25.40",
+    "vixChange": "-5.22%",
+    "gold": "$3694.60",
+    "goldChange": "+4.49%",
+    "oil": "$84.93",
+    "oilChange": "+1.49%",
+    "dxy": "103.78",
+    "dxyChange": "+0.11%",
+    "btc": "$61,547",
+    "btcChange": "+1.74%",
     "gdpValue": "+4.3% (QoQ annualized)",
     "cpiValue": "3.72%",
     "unemploymentValue": "4.1%",
@@ -114,10 +114,10 @@
     "asmlChange": "-2.47%"
   },
   "fearGreed": {
-    "score": 15,
+    "score": 20,
     "classification": "Extreme fear",
-    "change1d": "+0",
-    "change1w": "-1"
+    "change1d": "+5",
+    "change1w": "+2"
   },
   "screener": [
     {
@@ -135,32 +135,32 @@
     {
       "label": "VIX",
       "factKey": "vixChange",
-      "value": "26.82",
-      "change": "-5.20%"
+      "value": "25.40",
+      "change": "-5.22%"
     },
     {
       "label": "Gold",
       "factKey": "goldChange",
-      "value": "$3593.80",
-      "change": "+1.64%"
+      "value": "$3694.60",
+      "change": "+4.49%"
     },
     {
       "label": "Oil (WTI)",
       "factKey": "oilChange",
-      "value": "$84.61",
-      "change": "+1.11%"
+      "value": "$84.93",
+      "change": "+1.49%"
     },
     {
       "label": "US Dollar",
       "factKey": "dxyChange",
-      "value": "103.74",
-      "change": "+0.06%"
+      "value": "103.78",
+      "change": "+0.11%"
     },
     {
       "label": "Bitcoin",
       "factKey": "btcChange",
-      "value": "$60,735",
-      "change": "+0.59%"
+      "value": "$61,547",
+      "change": "+1.74%"
     }
   ],
   "economic": [
@@ -243,88 +243,87 @@
       "actualChange": null
     }
   ],
-  "analysisModel": "openai/gpt-oss-120b",
-  "analysisProvider": "Groq",
+  "analysisModel": "gemini-3.6-flash",
+  "analysisProvider": "Google",
   "analysis": {
     "sentiment": "Cautiously Bearish",
     "confidence": "Medium",
     "claims": [
       {
-        "text": "Broad equity benchmark sits below its long‑term moving average.",
+        "text": "Broad equity benchmark sits below its long term moving average while market sentiment reflects widespread fear.",
         "basedOn": [
           "sp500VsMa200",
-          "sp500Change"
-        ],
-        "direction": "supports_bearish"
-      },
-      {
-        "text": "Volatility index has moved lower, indicating easing panic.",
-        "basedOn": [
-          "vix",
-          "vixChange"
-        ],
-        "direction": "supports_bullish"
-      },
-      {
-        "text": "Investor sentiment gauge reads extreme fear, reflecting pessimism.",
-        "basedOn": [
           "fearGreedValue"
         ],
         "direction": "supports_bearish"
       },
       {
-        "text": "Today's headlines focus on capital preservation and tech weakness, reinforcing caution.",
+        "text": "Volatility measures eased slightly while precious metals prices gained strength.",
         "basedOn": [
-          "headline_1",
+          "vixChange",
+          "goldChange"
+        ],
+        "direction": "neutral"
+      },
+      {
+        "text": "Headlines highlight ongoing technology stock declines and automated selling risks.",
+        "basedOn": [
           "headline_3",
-          "headline_5"
+          "headline_8"
         ],
         "direction": "supports_bearish"
+      },
+      {
+        "text": "Market capitalization relative to total national economic output reflects elevated overall valuations.",
+        "basedOn": [
+          "buffettIndicator"
+        ],
+        "direction": "neutral"
       }
     ],
-    "interpretation": "Equities are trading modestly beneath their long‑term trend while volatility has eased, yet the fear gauge remains at an anxious level. Mixed moves in the major indices and headlines that stress caution suggest the market is still wrestling with uncertainty. Value investors may find the atmosphere uneasy but not yet decisive.",
-    "wisdom": "Buffett’s rule to be greedy only when others are fearful applies when the market shows extreme fear."
+    "interpretation": "Short term market distress continues against a background of historically elevated overall equity valuations. The cautiously bearish outlook holds steady from the previous assessment as broad equity indices remain under technical moving averages. Extreme fear among market participants and headlines regarding potential selling waves reflect ongoing broader market turbulence.",
+    "wisdom": "Price is what you pay and value is what you get, so patience during periods of pervasive market fear allows value investors to wait for clear margins of safety."
   },
   "news": [
     {
       "factKey": "headline_1",
-      "title": "Capital preservation rather than chasing the market higher is how hedge funds are negotiating market volatility",
-      "url": "https://www.marketwatch.com/story/capital-preservation-rather-than-chasing-the-market-higher-is-how-hedge-funds-are-negotiating-market-volatility-f4288b71?mod=mw_rss_topstories"
+      "title": "How to spot Black Friday shopping scams like 'bogus boutiques' and AI-generated product images",
+      "url": "https://www.marketwatch.com/story/how-to-spot-bogus-boutiques-and-other-black-friday-shopping-scams-86cc182d?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_2",
-      "title": "Futures point to Black Friday gains for Wall Street as global markets welcome U.S. resilience.",
-      "url": "https://www.marketwatch.com/story/futures-point-to-black-friday-gains-for-wall-street-as-global-markets-welcome-u-s-resilience-ad6bcef2?mod=mw_rss_topstories"
+      "title": "A 10% cap on credit-card interest rates? Holiday shoppers shouldn't bank on it.",
+      "url": "https://www.marketwatch.com/story/trump-is-open-to-capping-credit-card-interest-rates-but-holiday-shoppers-shouldnt-bank-on-it-yet-34260705?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_3",
-      "title": "The tech rout should bottom soon, with a 25% rally for the S&P 500 to follow, says Deutsche Bank",
-      "url": "https://www.marketwatch.com/story/the-tech-rout-should-bottom-soon-with-a-25-rally-for-the-s-p-500-to-follow-says-deutsche-bank-c9070bf6?mod=mw_rss_topstories"
+      "title": "Nvidia's stock has tumbled 27% over one chaotic month. The next big test lies in the week ahead",
+      "url": "https://www.marketwatch.com/story/nvidias-stock-has-tumbled-27-over-one-chaotic-month-the-next-big-test-lies-in-the-week-ahead-06449777?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_4",
-      "title": "Is the stock market open for Thanksgiving? The answer might surprise you.",
-      "url": "https://www.marketwatch.com/story/is-the-stock-market-open-for-thanksgiving-the-answer-might-surprise-you-e68114d4?mod=mw_rss_topstories"
+      "title": "'My life is in the stock market': Recent volatility is shaking up holiday spending plans for these shoppers",
+      "url": "https://www.marketwatch.com/story/my-life-is-in-the-stock-market-recent-volatility-is-shaking-up-holiday-spending-plans-for-these-shoppers-bd9485b3?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_5",
-      "title": "We are living in perilous times if Nvidia's Jensen Huang dictates your 401(k) balance",
-      "url": "https://www.marketwatch.com/story/we-are-living-in-perilous-times-if-nvidias-jensen-huang-dictates-your-401-k-balance-e0942d1e?mod=mw_rss_topstories"
+      "title": "My husband secretly sends his ex-wife $1,500 a month after she lost her job. We have $2.4 million saved. Has he lied by omission?",
+      "url": "https://www.marketwatch.com/story/my-husband-secretly-sends-his-ex-wife-1-500-a-month-after-she-lost-her-job-we-have-2-4-million-saved-has-he-lied-by-omission-ede1972a?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_6",
-      "title": "Why this stock-market selloff is probably going to get worse before it gets better",
-      "url": "https://www.marketwatch.com/story/why-this-stock-market-selloff-is-probably-going-to-get-worse-before-it-gets-better-fce63a89?mod=mw_rss_topstories"
+      "title": "Stocks look like a Black Friday bargain. Read the fine print.",
+      "url": "https://www.marketwatch.com/story/stocks-look-like-a-black-friday-bargain-read-the-fine-print-b6546539?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_7",
-      "title": "A 66-year-old nurse is facing down retirement with just $500 saved. Who's to blame?",
-      "url": "https://www.marketwatch.com/story/a-66-year-old-nurse-faces-retirement-with-just-500-saved-whos-to-blame-4249a0fd?mod=mw_rss_topstories"
+      "title": "I hate that Jensen Huang is back at Nvidia, but I love what it's done for my 401(k). Am I a hypocrite?",
+      "url": "https://www.marketwatch.com/story/i-hate-that-jensen-huang-is-back-at-nvidia-but-i-love-what-its-done-for-my-401-k-am-i-a-hypocrite-f63c0303?mod=mw_rss_topstories"
     },
     {
       "factKey": "headline_8",
-      "title": "I'm in my 70s and buying a new BMW X1. Should I put my only son on the title?",
-      "url": "https://www.marketwatch.com/story/im-in-my-70s-and-buying-a-new-bmw-x1-should-i-put-my-only-son-on-the-title-25731040?mod=mw_rss_topstories"
+      "title": "Stocks are poised for a Friday jump  -  right into a $100 billion wave of automated selling, Goldman Sachs warns",
+      "url": "https://www.marketwatch.com/story/stocks-are-poised-for-a-friday-jump-right-into-a-100-billion-wave-of-automated-selling-goldman-sachs-warns-aba6440f?mod=mw_rss_topstories"
     }
   ],
   "sources": [
